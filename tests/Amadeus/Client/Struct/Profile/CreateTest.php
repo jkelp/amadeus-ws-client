@@ -25,8 +25,11 @@ namespace Test\Amadeus\Client\Struct\Profile;
 use Amadeus\Client;
 
 use Amadeus\Client\RequestOptions\Profile\Customer;
+use Amadeus\Client\RequestOptions\Profile\UniqueID;
+use Amadeus\Client\RequestOptions\Profile\UniqueIDType;
 use Amadeus\Client\RequestOptions\Profile\CompanyInfo;
 use Amadeus\Client\RequestOptions\Profile\ProfileType;
+use Amadeus\Client\RequestOptions\Profile\RelatedCompany;
 
 use Amadeus\Client\RequestOptions\ProfileReadOptions;
 use Amadeus\Client\RequestOptions\ProfileCreateProfileOptions;
@@ -73,7 +76,14 @@ class CreateTest extends BaseTestCase
             'PersonName' => new PersonName([
               'GivenName' => 'Mae',
               'Surname' => 'Tester'
-            ])
+            ]),
+            'RelatedCompany' => new RelatedCompany([
+              'UniqueID' => new UniqueID([
+                'ID' => 'TLQREA',
+                'ID_Context' => 'CSX',
+                'Type' => UniqueIDType::UNIQUE_ID_PROFILE_ID
+              ])
+            ]),
           ])
         ]);
 
@@ -81,9 +91,10 @@ class CreateTest extends BaseTestCase
         //exit;
 
         $message = new CreateProfile($opt);
-        //print_r($message);
+        // print_r($message);
 
         $this->assertEquals('Mae', $message->Profile->Customer->PersonName->GivenName);
         $this->assertEquals(ProfileType::PROFILE_TYPE_TRAVELER, $message->Profile->ProfileType);
+        $this->assertEquals('TLQREA', $message->Profile->Customer->RelatedCompany->UniqueID->ID);
     }
 }

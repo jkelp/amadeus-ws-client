@@ -34,10 +34,23 @@ class Customer extends LoadParamsFromArray
   public $PersonName;
 
   // public $telephone = [];
-  //
+
+  public $RelatedCompany;
+
+
   public function __construct($params)
   {
     $this->PersonName = new PersonName($params->PersonName);
+
+    $this->loadRelatedCompany($params);
+  }
+
+
+  public function loadRelatedCompany($params)
+  {
+    if ($params->RelatedCompany) {
+      $this->RelatedCompany = $params->RelatedCompany;
+    }
   }
 
 }

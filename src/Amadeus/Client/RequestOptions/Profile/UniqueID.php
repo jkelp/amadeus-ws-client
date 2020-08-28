@@ -30,11 +30,11 @@ use Amadeus\Client\LoadParamsFromArray;
  * @package Amadeus\Client\RequestOptions\Pnr
  * @author Dieter Devlieghere <dermikagh@gmail.com>
  */
-class Customer extends LoadParamsFromArray
+class UniqueID extends LoadParamsFromArray
 {
-    public $PersonName;
+    public $ID;
 
-    public $Telephone = [];
+    public $ID_Context;
 
-    public $RelatedCompany;
+    public $Type;
 }
