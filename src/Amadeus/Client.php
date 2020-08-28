@@ -1735,6 +1735,31 @@ class Client extends Base
         return $this->callMessage($msgName, $options, $messageOptions);
     }
 
+
+    public function profileCreate(RequestOptions\ProfileCreateOptions $options, $messageOptions = [])
+    {
+        $msgName = 'Profile_CreateProfile';
+
+        return $this->callMessage($msgName, $options, $messageOptions);
+    }
+
+
+    public function profileRead(RequestOptions\ProfileReadOptions $options, $messageOptions = [])
+    {
+        $msgName = 'Profile_ReadProfile';
+
+        return $this->callMessage($msgName, $options, $messageOptions);
+    }
+
+
+    public function profileRetrieve(RequestOptions\ProfileRetrieveOptions $options, $messageOptions = [])
+    {
+        $msgName = 'Profile_RetrieveProfile';
+
+        return $this->callMessage($msgName, $options, $messageOptions);
+    }
+
+
     /**
      * Call a message with the given parameters
      *
