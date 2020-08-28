@@ -24,7 +24,7 @@ namespace Test\Amadeus\Client\Struct\Profile;
 
 use Amadeus\Client\RequestOptions\Profile\ProfileType;
 
-use Amadeus\Client\RequestOptions\ProfileReadOptions;
+use Amadeus\Client\RequestOptions\ProfileReadProfileOptions;
 
 use Amadeus\Client\Struct\Profile\ReadProfile;
 
@@ -38,20 +38,41 @@ use Test\Amadeus\BaseTestCase;
  */
 class ReadTest extends BaseTestCase
 {
-    public function testCanReadProfile()
+    public function testCanReadTravelerProfile()
     {
-        $opt = new ProfileReadOptions([
+        $opt = new ProfileReadProfileOptions([
           'profileType' => ProfileType::PROFILE_TYPE_TRAVELER,
           'recordLocator' => 'AAA111'
         ]);
 
+        print_r($opt);
+
         $message = new ReadProfile($opt);
 
-        //print_r($message);
+        print_r($message);
 
         $this->assertEquals('AAA111', $message->UniqueID->ID);
         $this->assertEquals('CSX', $message->UniqueID->ID_Context);
         $this->assertEquals(ProfileType::PROFILE_TYPE_TRAVELER, $message->ReadRequests->ProfileReadRequest->ProfileType);
+    }
+
+
+    public function testCanReadCompanyProfile()
+    {
+        $opt = new ProfileReadProfileOptions([
+          'profileType' => ProfileType::PROFILE_TYPE_COMPANY,
+          'recordLocator' => 'TLQREA'
+        ]);
+
+        // print_r($opt);
+
+        $message = new ReadProfile($opt);
+
+        // print_r($message);
+
+        $this->assertEquals('TLQREA', $message->UniqueID->ID);
+        $this->assertEquals('CSX', $message->UniqueID->ID_Context);
+        $this->assertEquals(ProfileType::PROFILE_TYPE_COMPANY, $message->ReadRequests->ProfileReadRequest->ProfileType);
     }
 
 }

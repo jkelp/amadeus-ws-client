@@ -22,8 +22,8 @@ class ReadProfile extends BaseWsMessage
 {
     public $Version = '12.2';
     public $UniqueID;
-    public $messageActionDetails;
-    public $profileIdentificationSection;
+    // public $messageActionDetails;
+    // public $profileIdentificationSection;
 
     public function __construct(ProfileReadProfileOptions $options)
     {

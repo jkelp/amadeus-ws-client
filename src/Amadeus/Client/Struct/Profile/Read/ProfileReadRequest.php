@@ -29,6 +29,7 @@ class ProfileReadRequest
 {
   public $ProfileType;
   public $Customer;
+  public $CompanyInfo;
 
   public function __construct($profileType)
   {
