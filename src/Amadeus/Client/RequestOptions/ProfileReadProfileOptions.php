@@ -20,22 +20,16 @@
  * @license https://opensource.org/licenses/Apache-2.0 Apache 2.0
  */
 
-namespace Amadeus\Client\Struct\Profile\Create;
+namespace Amadeus\Client\RequestOptions;
 
-use Amadeus\Client\LoadParamsFromArray;
-
-
-class PersonName extends LoadParamsFromArray
+/**
+ * Pnr_Cancel Request Options
+ *
+ * @package Amadeus\Client\RequestOptions
+ * @author Dieter Devlieghere <dermikagh@gmail.com>
+ */
+class ProfileReadProfileOptions extends Base
 {
-
-  /**
-  * @var GivenName
-  */
-  public $GivenName;
-
-  /**
-  * @var Surname
-  */
-  public $Surname;
-
+    public $ProfileType;
+    public $RecordLocator;
 }

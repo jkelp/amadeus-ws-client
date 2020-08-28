@@ -22,18 +22,55 @@
 
 namespace Amadeus\Client\Struct\Profile\Create;
 
+use Amadeus\Client\RequestOptions\ProfileCreateProfileOptions;
+
 
 class Profile
 {
 
-  public $ProfileType = 1;
+  /**
+   * @var ProfileType
+   */
+  public $ProfileType;
 
+  /**
+  * @var Status
+  */
   public $Status = 'A';
 
+  /**
+  * @var Customer
+  */
   public $Customer;
 
-  public function __construct()
+  /**
+  * @var CompanyInfo
+  */
+  public $CompanyInfo;
+
+  public function __construct(ProfileCreateProfileOptions $options)
   {
-    $this->Customer = new Customer(['PersonName' => new PersonName(['GivenName' => 'Jonathan', 'Surname' => 'Test'])]);
+    $this->loadCustomer($options);
+    $this->loadCompanyInfo($options);
+  }
+
+
+  public function loadCustomer($options)
+  {
+    if ($options->Customer) {
+      $this->Customer = new Customer($options->Customer);
+      $this->ProfileType = 1;
+    }
+
+  }
+
+
+  public function loadCompanyInfo($options)
+  {
+    if ($options->CompanyInfo) {
+      $this->CompanyInfo = new CompanyInfo($options->CompanyInfo->CompanyName);
+      $this->ProfileType = 3;
+    }
+
   }
 }

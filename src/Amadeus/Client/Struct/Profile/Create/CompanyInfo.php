@@ -20,16 +20,23 @@
  * @license https://opensource.org/licenses/Apache-2.0 Apache 2.0
  */
 
-namespace Amadeus\Client\RequestOptions;
+namespace Amadeus\Client\Struct\Profile\Create;
 
-/**
- * Pnr_Cancel Request Options
- *
- * @package Amadeus\Client\RequestOptions
- * @author Dieter Devlieghere <dermikagh@gmail.com>
- */
-class ProfileRetrieveOptions extends Base
+use Amadeus\Client\LoadParamsFromArray;
+
+
+class CompanyInfo extends LoadParamsFromArray
 {
-    public $profileType;
-    public $recordLocator;
+
+  public $CompanyName;
+
+  //public $OtherCompanyName;
+
+  // public $telephone = [];
+
+  public function __construct($companyName)
+  {
+    $this->CompanyName = $companyName;
+  }
+
 }

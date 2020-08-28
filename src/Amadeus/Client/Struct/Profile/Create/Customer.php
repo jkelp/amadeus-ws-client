@@ -28,8 +28,16 @@ use Amadeus\Client\LoadParamsFromArray;
 class Customer extends LoadParamsFromArray
 {
 
+  /**
+  * @var PersonName
+  */
   public $PersonName;
 
   // public $telephone = [];
+  //
+  public function __construct($params)
+  {
+    $this->PersonName = new PersonName($params->PersonName);
+  }
 
 }

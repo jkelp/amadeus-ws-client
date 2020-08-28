@@ -32,7 +32,7 @@ use Amadeus\Client\LoadParamsFromArray;
  */
 class Customer extends LoadParamsFromArray
 {
-    public $personName;
+    public $PersonName;
 
-    public $telephone = [];
+    public $Telephone = [];
 }

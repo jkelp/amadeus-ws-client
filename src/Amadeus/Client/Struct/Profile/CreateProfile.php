@@ -31,7 +31,7 @@ use Amadeus\Client\RequestOptions\Offer\AirRecommendation;
 use Amadeus\Client\RequestOptions\OfferCreateOptions;
 use Amadeus\Client\RequestOptions\Offer\ProductReference as ProdRefOpt;
 
-use Amadeus\Client\RequestOptions\ProfileCreateOptions;
+use Amadeus\Client\RequestOptions\ProfileCreateProfileOptions;
 
 use Amadeus\Client\Struct\BaseWsMessage;
 use Amadeus\Client\Struct\Profile\Create\Profile;
@@ -43,30 +43,22 @@ use Amadeus\Client\Struct\Profile\Create\UniqueID;
  * @package Amadeus\Client\Struct\Offer
  * @author Dieter Devlieghere <dermikagh@gmail.com>
  */
-class Create extends BaseWsMessage
+class CreateProfile extends BaseWsMessage
 {
     public $Version = '12.2';
     public $UniqueID;
     public $Profile;
 
-    public function __construct(ProfileCreateOptions $options)
+    public function __construct(ProfileCreateProfileOptions $options)
     {
-        //$this->UniqueID = new UniqueID(['id' => '123', 'id_context' => 'CSX', 'type' => 9]);
         $this->UniqueID = new UniqueID();
 
-        /*$this->Profile = [
-          'ProfileType' => 1,
-          'Status' => 'A',
-          'Customer' => [
-            'PersonName' => [
-              'GivenName' => 'JK',
-              'Surname' => 'Test'
-            ]
-          ]
-        ];*/
+        $this->loadProfile($options);
+    }
 
-        $this->Profile = new Profile();
 
-        // dd($this->Profile);
+    public function loadProfile(ProfileCreateProfileOptions $options)
+    {
+      $this->Profile = new Profile($options);
     }
 }

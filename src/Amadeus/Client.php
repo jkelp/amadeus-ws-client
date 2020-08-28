@@ -1736,7 +1736,7 @@ class Client extends Base
     }
 
 	// JK
-    public function profileCreate(RequestOptions\ProfileCreateOptions $options, $messageOptions = [])
+    public function profileCreateProfile(RequestOptions\ProfileCreateProfileOptions $options, $messageOptions = [])
     {
         $msgName = 'Profile_CreateProfile';
 
@@ -1744,7 +1744,7 @@ class Client extends Base
     }
 
 	// JK
-    public function profileRead(RequestOptions\ProfileReadOptions $options, $messageOptions = [])
+    public function profileReadProfile(RequestOptions\ProfileReadProfileOptions $options, $messageOptions = [])
     {
         $msgName = 'Profile_ReadProfile';
 
@@ -1752,7 +1752,7 @@ class Client extends Base
     }
 
 	// JK
-    public function profileRetrieve(RequestOptions\ProfileRetrieveOptions $options, $messageOptions = [])
+    public function profileRetrieveProfile(RequestOptions\ProfileRetrieveProfileOptions $options, $messageOptions = [])
     {
         $msgName = 'Profile_RetrieveProfile';
 

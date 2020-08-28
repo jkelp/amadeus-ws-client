@@ -56,6 +56,9 @@ class CreateTest extends BaseTestCase
 
         $message = new Create($opt);
 
+        print_r($message);
+        exit;
+
         $this->assertCount(1, $message->airPricingRecommendation);
         $this->assertEquals(
             Create\FareRecommendationReference::TYPE_FARE_RECOMMENDATION_NR,

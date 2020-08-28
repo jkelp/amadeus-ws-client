@@ -28,10 +28,8 @@ namespace Amadeus\Client\RequestOptions;
  * @package Amadeus\Client\RequestOptions
  * @author Dieter Devlieghere <dermikagh@gmail.com>
  */
-class ProfileCreateOptions extends Base
+class ProfileRetrieveProfileOptions extends Base
 {
-    public $profileType = 1;
-    public $status = 'A';
-
-    public $customer = false;
+    public $ProfileType;
+    public $RecordLocator;
 }

@@ -41,6 +41,6 @@ class CreateProfileConv extends BaseConverter
      */
     public function convert($requestOptions, $version)
     {
-        return new Struct\Profile\Create($requestOptions);
+        return new Struct\Profile\CreateProfile($requestOptions);
     }
 }

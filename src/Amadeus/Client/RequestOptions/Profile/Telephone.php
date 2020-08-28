@@ -32,9 +32,9 @@ use Amadeus\Client\LoadParamsFromArray;
  */
 class Telephone extends LoadParamsFromArray
 {
-    public $phoneLocationType;
+    public $PhoneLocationType;
 
-    public $phoneNumber;
+    public $PhoneNumber;
 
-    public $phoneTechType;
+    public $PhoneTechType;
 }
