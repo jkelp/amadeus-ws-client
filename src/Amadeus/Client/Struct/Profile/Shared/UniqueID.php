@@ -20,19 +20,25 @@
  * @license https://opensource.org/licenses/Apache-2.0 Apache 2.0
  */
 
-namespace Amadeus\Client\RequestOptions;
+namespace Amadeus\Client\Struct\Profile\Shared;
 
-/**
- * Pnr_Cancel Request Options
- *
- * @package Amadeus\Client\RequestOptions
- * @author Dieter Devlieghere <dermikagh@gmail.com>
- */
-class ProfileCreateProfileOptions extends Base
+use Amadeus\Client\LoadParamsFromArray;
+
+
+class UniqueID extends LoadParamsFromArray
 {
-    public $ProfileType;
-    public $OfficeId;
-    public $Status;
-    public $Customer;
-    public $CompanyInfo;
+
+  public $ID;
+
+  public $ID_Context;
+
+  public $Type;
+
+  public $Instance;
+
+  /*public function __construct()
+  {
+
+  }*/
+
 }

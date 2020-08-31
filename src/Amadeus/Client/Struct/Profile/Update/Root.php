@@ -20,19 +20,23 @@
  * @license https://opensource.org/licenses/Apache-2.0 Apache 2.0
  */
 
-namespace Amadeus\Client\RequestOptions;
+namespace Amadeus\Client\Struct\Profile\Update;
 
-/**
- * Pnr_Cancel Request Options
- *
- * @package Amadeus\Client\RequestOptions
- * @author Dieter Devlieghere <dermikagh@gmail.com>
- */
-class ProfileCreateProfileOptions extends Base
+use Amadeus\Client\LoadParamsFromArray;
+
+use Amadeus\Client\Struct\Profile\Create\Profile;
+
+
+class Root extends LoadParamsFromArray
 {
-    public $ProfileType;
-    public $OfficeId;
-    public $Status;
-    public $Customer;
-    public $CompanyInfo;
+
+  public $Operation = 'replace';
+
+  public $Profile;
+
+  public function __construct($options)
+  {
+    $this->Profile = new Profile($options);
+  }
+
 }

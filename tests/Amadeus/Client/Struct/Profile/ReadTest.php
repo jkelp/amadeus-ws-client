@@ -45,11 +45,11 @@ class ReadTest extends BaseTestCase
           'recordLocator' => 'AAA111'
         ]);
 
-        print_r($opt);
+        //print_r($opt);
 
         $message = new ReadProfile($opt);
 
-        print_r($message);
+        //print_r($message);
 
         $this->assertEquals('AAA111', $message->UniqueID->ID);
         $this->assertEquals('CSX', $message->UniqueID->ID_Context);

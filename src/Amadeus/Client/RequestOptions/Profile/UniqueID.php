@@ -37,4 +37,6 @@ class UniqueID extends LoadParamsFromArray
     public $ID_Context;
 
     public $Type;
+
+    public $Instance;
 }

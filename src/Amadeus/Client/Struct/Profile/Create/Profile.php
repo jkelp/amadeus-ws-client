@@ -48,7 +48,7 @@ class Profile
   */
   public $CompanyInfo;
 
-  public function __construct(ProfileCreateProfileOptions $options)
+  public function __construct($options)
   {
     $this->loadCustomer($options);
     $this->loadCompanyInfo($options);

@@ -1752,10 +1752,19 @@ class Client extends Base
     }
 
 
-    // JK
+   // JK
    public function profileDeleteProfile(RequestOptions\ProfileDeleteProfileOptions $options, $messageOptions = [])
    {
        $msgName = 'Profile_DeleteProfile';
+
+       return $this->callMessage($msgName, $options, $messageOptions);
+   }
+
+
+   // JK
+   public function profileUpdateProfile(RequestOptions\ProfileUpdateProfileOptions $options, $messageOptions = [])
+   {
+       $msgName = 'Profile_UpdateProfile';
 
        return $this->callMessage($msgName, $options, $messageOptions);
    }

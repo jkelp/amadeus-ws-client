@@ -35,7 +35,7 @@ use Amadeus\Client\RequestOptions\ProfileCreateProfileOptions;
 
 use Amadeus\Client\Struct\BaseWsMessage;
 use Amadeus\Client\Struct\Profile\Create\Profile;
-use Amadeus\Client\Struct\Profile\Create\UniqueID;
+use Amadeus\Client\Struct\Profile\Shared\UniqueID;
 
 /**
  * Offer_CreateOffer request structure
@@ -51,7 +51,11 @@ class CreateProfile extends BaseWsMessage
 
     public function __construct(ProfileCreateProfileOptions $options)
     {
-        $this->UniqueID = new UniqueID();
+        $this->UniqueID = new UniqueID([
+          'ID_Context' => 'CSX',
+          'Type' => 9,
+          'ID' => $options->OfficeId
+        ]);
 
         $this->loadProfile($options);
     }

@@ -11,7 +11,7 @@ use Amadeus\Client\RequestOptions\ProfileDeleteProfileOptions;
 use Amadeus\Client\Struct\BaseWsMessage;
 use Amadeus\Client\Struct\Profile\Delete\DeleteRequests;
 
-use Amadeus\Client\Struct\Profile\Read\UniqueID;
+use Amadeus\Client\Struct\Profile\Shared\UniqueID;
 
 use Amadeus\Client\Struct\Profile\Read\ReadRequests;
 

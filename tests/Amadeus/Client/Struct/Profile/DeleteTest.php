@@ -38,7 +38,7 @@ use Test\Amadeus\BaseTestCase;
  * @package Test\Amadeus\Client\Struct\Offer
  * @author Dieter Devlieghere <dermikagh@gmail.com>
  */
-class ReadTest extends BaseTestCase
+class DeleteTest extends BaseTestCase
 {
     public function testCanDeleteTravelerProfile()
     {
@@ -47,11 +47,11 @@ class ReadTest extends BaseTestCase
           'recordLocator' => 'AAA111'
         ]);
 
-        print_r($opt);
+        //print_r($opt);
 
         $message = new DeleteProfile($opt);
 
-        print_r($message);
+        //print_r($message);
 
         $this->assertEquals('AAA111', $message->UniqueID->ID);
         $this->assertEquals('CSX', $message->UniqueID->ID_Context);
@@ -66,11 +66,11 @@ class ReadTest extends BaseTestCase
           'recordLocator' => 'TLQREA'
         ]);
 
-        print_r($opt);
+        //print_r($opt);
 
         $message = new DeleteProfile($opt);
 
-        print_r($message);
+        //print_r($message);
 
         $this->assertEquals('TLQREA', $message->UniqueID->ID);
         $this->assertEquals('CSX', $message->UniqueID->ID_Context);

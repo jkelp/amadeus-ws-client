@@ -50,6 +50,7 @@ class CreateTest extends BaseTestCase
     {
         $opt = new ProfileCreateProfileOptions([
           'ProfileType' => ProfileType::PROFILE_TYPE_COMPANY,
+          'OfficeId' => 'OIDG12345',
           'Status' => 'A',
           'CompanyInfo' => new CompanyInfo([
             'CompanyName' => 'NewCo',
@@ -62,7 +63,9 @@ class CreateTest extends BaseTestCase
 
         $message = new CreateProfile($opt);
         //print_r($message);
+        //exit;
 
+        $this->assertEquals('OIDG12345', $message->UniqueID->ID);
         $this->assertEquals('NewCo', $message->Profile->CompanyInfo->CompanyName);
         $this->assertEquals(ProfileType::PROFILE_TYPE_COMPANY, $message->Profile->ProfileType);
     }
@@ -71,6 +74,7 @@ class CreateTest extends BaseTestCase
     {
         $opt = new ProfileCreateProfileOptions([
           'ProfileType' => ProfileType::PROFILE_TYPE_TRAVELER,
+          'OfficeId' => 'OIDG12345',
           'Status' => 'A',
           'Customer' => new Customer([
             'PersonName' => new PersonName([
@@ -91,8 +95,9 @@ class CreateTest extends BaseTestCase
         //exit;
 
         $message = new CreateProfile($opt);
-        // print_r($message);
+        //print_r($message);
 
+        $this->assertEquals('OIDG12345', $message->UniqueID->ID);
         $this->assertEquals('Mae', $message->Profile->Customer->PersonName->GivenName);
         $this->assertEquals(ProfileType::PROFILE_TYPE_TRAVELER, $message->Profile->ProfileType);
         $this->assertEquals('TLQREA', $message->Profile->Customer->RelatedCompany->UniqueID->ID);

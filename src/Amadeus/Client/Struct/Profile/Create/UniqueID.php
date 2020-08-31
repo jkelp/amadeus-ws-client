@@ -34,6 +34,8 @@ class UniqueID extends LoadParamsFromArray
 
   public $Type = '9';
 
+  public $Instance;
+
   public function __construct()
   {
 

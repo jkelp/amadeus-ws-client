@@ -20,19 +20,27 @@
  * @license https://opensource.org/licenses/Apache-2.0 Apache 2.0
  */
 
-namespace Amadeus\Client\Struct\Profile\Read;
+namespace Amadeus\Client\RequestCreator\Converter\Profile;
 
-use Amadeus\Client\LoadParamsFromArray;
+use Amadeus\Client\RequestCreator\Converter\BaseConverter;
+use Amadeus\Client\RequestOptions\ProfileReadOptions;
+use Amadeus\Client\Struct;
 
-
-class UniqueID extends LoadParamsFromArray
+/**
+ * Offer_CreateOffer Request converter
+ *
+ * @package Amadeus\Client\RequestCreator\Converter\Offer
+ * @author Dieter Devlieghere <dermikagh@gmail.com>
+ */
+class UpdateProfileConv extends BaseConverter
 {
-
-  public $ID;
-
-  public $ID_Context;
-
-  public $Type;
-
-
+    /**
+     * @param OfferCreateOptions $requestOptions
+     * @param int|string $version
+     * @return Struct\Offer\Create
+     */
+    public function convert($requestOptions, $version)
+    {
+        return new Struct\Profile\UpdateProfile($requestOptions);
+    }
 }
