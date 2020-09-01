@@ -30,6 +30,7 @@ use Amadeus\Client\RequestOptions\Profile\UniqueIDType;
 use Amadeus\Client\RequestOptions\Profile\CompanyInfo;
 use Amadeus\Client\RequestOptions\Profile\ProfileType;
 use Amadeus\Client\RequestOptions\Profile\RelatedCompany;
+use Amadeus\Client\RequestOptions\Profile\Telephone;
 
 use Amadeus\Client\RequestOptions\ProfileReadOptions;
 use Amadeus\Client\RequestOptions\ProfileCreateProfileOptions;
@@ -79,8 +80,23 @@ class CreateTest extends BaseTestCase
           'Customer' => new Customer([
             'PersonName' => new PersonName([
               'GivenName' => 'Mae',
-              'Surname' => 'Tester'
+              'Surname' => 'Tester',
             ]),
+            'Gender' => Customer::TYPE_GENDER_FEMALE,
+            'Telephone' => [
+              new Telephone([
+                'PhoneLocationType' => Telephone::LOCATION_TYPE_HOME,
+                'PhoneTechType' => Telephone::TECH_TYPE_MOBILE,
+                'PhoneNumber' => '812 123 4567',
+                'DefaultInd' => true
+              ]),
+              new Telephone([
+                'PhoneLocationType' => Telephone::LOCATION_TYPE_BUSINESS,
+                'PhoneTechType' => Telephone::TECH_TYPE_VOICE,
+                'PhoneNumber' => '123 333 4444',
+                'DefaultInd' => false
+              ])
+            ],
             'RelatedCompany' => new RelatedCompany([
               'UniqueID' => new UniqueID([
                 'ID' => 'TLQREA',
@@ -91,7 +107,7 @@ class CreateTest extends BaseTestCase
           ])
         ]);
 
-        //print_r($opt);
+        print_r($opt);
         //exit;
 
         $message = new CreateProfile($opt);
@@ -99,7 +115,9 @@ class CreateTest extends BaseTestCase
 
         $this->assertEquals('OIDG12345', $message->UniqueID->ID);
         $this->assertEquals('Mae', $message->Profile->Customer->PersonName->GivenName);
+        $this->assertEquals('Female', $message->Profile->Customer->Gender);
         $this->assertEquals(ProfileType::PROFILE_TYPE_TRAVELER, $message->Profile->ProfileType);
         $this->assertEquals('TLQREA', $message->Profile->Customer->RelatedCompany->UniqueID->ID);
+        $this->assertEquals('812 123 4567', $message->Profile->Customer->Telephone[0]->PhoneNumber);
     }
 }

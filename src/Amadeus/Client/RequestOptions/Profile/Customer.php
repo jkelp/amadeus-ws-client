@@ -32,9 +32,17 @@ use Amadeus\Client\LoadParamsFromArray;
  */
 class Customer extends LoadParamsFromArray
 {
+    const TYPE_GENDER_MALE = 'Male';
+
+    const TYPE_GENDER_FEMALE = 'Female';
+
+    const TYPE_GENDER_UNKNOWN = 'Unknown';
+
     public $PersonName;
 
     public $Telephone = [];
 
     public $RelatedCompany;
+
+    public $Gender;
 }

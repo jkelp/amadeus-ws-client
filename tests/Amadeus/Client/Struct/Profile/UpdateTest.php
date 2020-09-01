@@ -23,6 +23,7 @@
 namespace Test\Amadeus\Client\Struct\Profile;
 
 use Amadeus\Client\RequestOptions\Profile\Customer;
+use Amadeus\Client\RequestOptions\Profile\Telephone;
 use Amadeus\Client\RequestOptions\Profile\PersonName;
 use Amadeus\Client\RequestOptions\Profile\ProfileType;
 
@@ -54,7 +55,22 @@ class UpdateTest extends BaseTestCase
             'PersonName' => new PersonName([
               'GivenName' => 'Mae',
               'Surname' => 'Tester-Updated'
-            ])
+            ]),
+            'Gender' => Customer::TYPE_GENDER_MALE,
+            'Telephone' => [
+              new Telephone([
+                'PhoneLocationType' => Telephone::LOCATION_TYPE_HOME,
+                'PhoneTechType' => Telephone::TECH_TYPE_MOBILE,
+                'PhoneNumber' => '999 888 7777',
+                'DefaultInd' => true
+              ]),
+              new Telephone([
+                'PhoneLocationType' => Telephone::LOCATION_TYPE_BUSINESS,
+                'PhoneTechType' => Telephone::TECH_TYPE_VOICE,
+                'PhoneNumber' => '999 111 2222',
+                'DefaultInd' => false
+              ])
+            ]
           ]),
         ]);
 
@@ -68,6 +84,8 @@ class UpdateTest extends BaseTestCase
         $this->assertEquals('CSX', $message->UniqueID->ID_Context);
         $this->assertEquals(2, $message->UniqueID->Instance);
         $this->assertEquals('Tester-Updated', $message->Position->Root->Profile->Customer->PersonName->Surname);
+        $this->assertEquals('Male', $message->Position->Root->Profile->Customer->Gender);
+        $this->assertEquals('999 888 7777', $message->Position->Root->Profile->Customer->Telephone[0]->PhoneNumber);
     }
 
 

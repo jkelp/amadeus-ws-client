@@ -25,50 +25,21 @@ namespace Amadeus\Client\Struct\Profile\Create;
 use Amadeus\Client\LoadParamsFromArray;
 
 
-class Customer extends LoadParamsFromArray
+class Telephone extends LoadParamsFromArray
 {
 
-  /**
-  * @var PersonName
-  */
-  public $PersonName;
+  public $PhoneLocationType;
 
-  public $Telephone = [];
+  public $PhoneNumber;
 
-  public $RelatedCompany;
+  public $PhoneTechType;
 
+  public $Extension;
 
-  public $Gender;
+  public $CountryAccessCode;
 
+  public $AreaCityCode;
 
-  public function __construct($params)
-  {
-    $this->PersonName = new PersonName($params->PersonName);
-
-    $this->Gender = $params->Gender;
-
-    $this->loadRelatedCompany($params);
-
-    $this->loadTelephones($params);
-  }
-
-
-  public function loadRelatedCompany($params)
-  {
-    if ($params->RelatedCompany) {
-      $this->RelatedCompany = $params->RelatedCompany;
-    }
-  }
-
-
-  public function loadTelephones($params)
-  {
-    if ($params->Telephone) {
-      foreach ($params->Telephone as $telephone) {
-        $this->Telephone[] = new Telephone($telephone);
-      }
-
-    }
-  }
+  public $DefaultInd;
 
 }

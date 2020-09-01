@@ -30,36 +30,27 @@ use Amadeus\Client\LoadParamsFromArray;
  * @package Amadeus\Client\RequestOptions\Pnr
  * @author Dieter Devlieghere <dermikagh@gmail.com>
  */
-class Telephone extends LoadParamsFromArray
+class Email extends LoadParamsFromArray
 {
 
-    const LOCATION_TYPE_AGENCY = 5;
+    const TYPE_HOME = 1;
 
-    const LOCATION_TYPE_HOME = 6;
+    const TYPE_BUSINESS = 2;
 
-    const LOCATION_TYPE_BUSINESS = 7;
+    const TYPE_AGENCY = 6;
 
-    const LOCATION_TYPE_OTHER = 8;
+    const TYPE_DEFAULT = 10;
 
-    const TECH_TYPE_VOICE = 1;
+    const TYPE_TRANSFER_INDICATOR_AUTOMATIC = 'A';
 
-    const TECH_TYPE_FAX = 3;
+    const TYPE_TRANSFER_INDICATOR_MANDATORY = 'M';
 
-    const TECH_TYPE_PAGER = 4;
-
-    const TECH_TYPE_MOBILE = 5;
-
-    public $PhoneLocationType;
-
-    public $PhoneNumber;
-
-    public $PhoneTechType;
-
-    public $Extension;
-
-    public $CountryAccessCode;
-
-    public $AreaCityCode;
+    const TYPE_TRANSFER_INDICATOR_SELECTABLE = 'S';
 
     public $DefaultInd;
+
+    public $EmailType;
+
+    public $TransferIndicator;
+
 }
