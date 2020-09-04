@@ -39,7 +39,9 @@ class AirlinePref extends LoadParamsFromArray
 
   public function __construct($options)
   {
-    $this->AirportOriginPref = $options->HomeAirport;
+    $this->AirportOriginPref = new AirportOriginPref([
+      'LocationCode' => $options->HomeAirport
+    ]);
 
     $this->MealPref = $options->MealPref;
   }
