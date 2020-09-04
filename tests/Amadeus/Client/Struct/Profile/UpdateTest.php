@@ -22,14 +22,21 @@
 
 namespace Test\Amadeus\Client\Struct\Profile;
 
+use Amadeus\Client\RequestOptions\Profile\Email;
+use Amadeus\Client\RequestOptions\Profile\Address;
 use Amadeus\Client\RequestOptions\Profile\Customer;
 use Amadeus\Client\RequestOptions\Profile\Telephone;
 use Amadeus\Client\RequestOptions\Profile\PersonName;
 use Amadeus\Client\RequestOptions\Profile\ProfileType;
+use Amadeus\Client\RequestOptions\Profile\EmployeeInfo;
+use Amadeus\Client\RequestOptions\Profile\Preferences;
+use Amadeus\Client\RequestOptions\Profile\AirPreferences;
+use Amadeus\Client\RequestOptions\Profile\TransferIndicator;
 
 use Amadeus\Client\RequestOptions\ProfileReadProfileOptions;
 use Amadeus\Client\RequestOptions\ProfileUpdateProfileOptions;
 
+//use Amadeus\Client\Struct\Profile\Create\Address;
 use Amadeus\Client\Struct\Profile\Create\CompanyInfo;
 
 use Amadeus\Client\Struct\Profile\ReadProfile;
@@ -58,6 +65,13 @@ class UpdateTest extends BaseTestCase
               'Surname' => 'Tester-Updated'
             ]),
             'Gender' => Customer::TYPE_GENDER_MALE,
+            'EmployeeInfo' => new EmployeeInfo([
+              'EmployeeID' => 'TESTER',
+              'EmployeeTitle' => 'Dir of Development',
+              'Department' => 'IT',
+              'Division' => 'BMG',
+              'Project' => 'Amadeus Dev'
+            ]),
             'Telephone' => [
               new Telephone([
                 'PhoneLocationType' => Telephone::LOCATION_TYPE_HOME,
@@ -71,15 +85,47 @@ class UpdateTest extends BaseTestCase
                 'PhoneNumber' => '999 111 2222',
                 'DefaultInd' => false
               ])
+            ],
+            'Email' => [
+              new Email([
+                'EmailType' => Email::TYPE_BUSINESS,
+                'TransferIndicator' => Email::TYPE_TRANSFER_INDICATOR_SELECTABLE,
+                'DefaultInd' => true,
+                '_' => 'account@domain.com'
+              ]),
+              new Email([
+                'EmailType' => Email::TYPE_HOME,
+                'TransferIndicator' => Email::TYPE_TRANSFER_INDICATOR_SELECTABLE,
+                'DefaultInd' => false,
+                '_' => 'personal@domain.com'
+              ]),
+            ],
+            'Address' => [
+              new Address([
+                'TransferIndicator' => TransferIndicator::TYPE_SELECTABLE,
+                'DefaultInd' => false,
+                'UseType' => Address::TYPE_USE_TYPE_WORK,
+                'AddressLine' => '400 W 7th Street, Ste 100',
+                'CityName' => 'Bloomington',
+                'StateProv' => 'IN',
+                'CountryName' => 'US',
+                'PostalCode' => '44444'
+              ])
             ]
           ]),
+          'Preferences' => new Preferences([
+            'AirPreferences' => new AirPreferences([
+              'HomeAirport' => 'IND'
+            ])
+          ])
         ]);
 
-        //print_r($opt);
+        print_r($opt);
+        //exit;
 
         $message = new UpdateProfile($opt);
 
-        //print_r($message);
+        print_r($message);
 
         $this->assertEquals('AAA111', $message->UniqueID->ID);
         $this->assertEquals('CSX', $message->UniqueID->ID_Context);
@@ -89,6 +135,8 @@ class UpdateTest extends BaseTestCase
         $this->assertEquals('Tester-Updated', $message->Position->Root->Profile->Customer->PersonName->Surname);
         $this->assertEquals('Male', $message->Position->Root->Profile->Customer->Gender);
         $this->assertEquals('999 888 7777', $message->Position->Root->Profile->Customer->Telephone[0]->PhoneNumber);
+
+        $this->assertEquals('IND', $message->Position->Root->Profile->PrefCollections->PrefCollection[0]->AirlinePref->AirportOriginPref);
     }
 
 

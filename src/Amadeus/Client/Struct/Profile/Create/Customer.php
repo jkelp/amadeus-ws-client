@@ -24,6 +24,8 @@ namespace Amadeus\Client\Struct\Profile\Create;
 
 use Amadeus\Client\LoadParamsFromArray;
 
+use Amadeus\Client\RequestOptions\Profile\EmployeeInfo;
+
 
 class Customer extends LoadParamsFromArray
 {
@@ -35,8 +37,13 @@ class Customer extends LoadParamsFromArray
 
   public $Telephone = [];
 
+  public $Email = [];
+
+  public $Address = [];
+
   public $RelatedCompany;
 
+  public $EmployeeInfo;
 
   public $Gender;
 
@@ -50,6 +57,12 @@ class Customer extends LoadParamsFromArray
     $this->loadRelatedCompany($params);
 
     $this->loadTelephones($params);
+
+    $this->loadEmails($params);
+
+    $this->loadAddresses($params);
+
+    $this->loadEmployeeInfo($params);
   }
 
 
@@ -68,6 +81,35 @@ class Customer extends LoadParamsFromArray
         $this->Telephone[] = new Telephone($telephone);
       }
 
+    }
+  }
+
+
+  public function loadEmails($params)
+  {
+    if ($params->Email) {
+      foreach ($params->Email as $email) {
+        $this->Email[] = new Email($email);
+      }
+    }
+  }
+
+
+  public function loadAddresses($params)
+  {
+    if ($params->Address) {
+      foreach ($params->Address as $address) {
+        $this->Address[] = new Address($address);
+      }
+
+    }
+  }
+
+
+  public function loadEmployeeInfo($params)
+  {
+    if ($params->EmployeeInfo) {
+      $this->EmployeeInfo = new EmployeeInfo($params->EmployeeInfo);
     }
   }
 

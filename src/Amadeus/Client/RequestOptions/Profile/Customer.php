@@ -42,7 +42,13 @@ class Customer extends LoadParamsFromArray
 
     public $Telephone = [];
 
+    public $Email = [];
+
+    public $Address = [];
+
     public $RelatedCompany;
 
     public $Gender;
+
+    public $EmployeeInfo;
 }

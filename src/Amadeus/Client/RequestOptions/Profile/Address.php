@@ -30,29 +30,44 @@ use Amadeus\Client\LoadParamsFromArray;
  * @package Amadeus\Client\RequestOptions\Pnr
  * @author Dieter Devlieghere <dermikagh@gmail.com>
  */
-class Email extends LoadParamsFromArray
+class Address extends LoadParamsFromArray
 {
+  const TYPE_USE_TYPE_DELIVERY = 1;
 
-    const TYPE_HOME = 1;
+  const TYPE_USE_TYPE_MAILING = 2;
 
-    const TYPE_BUSINESS = 2;
+  const TYPE_USE_TYPE_BILLING = 3;
 
-    const TYPE_AGENCY = 6;
+  const TYPE_USE_TYPE_CREDIT_CARD = 4;
 
-    const TYPE_DEFAULT = 10;
+  const TYPE_USE_TYPE_OTHER = 5;
 
-    const TYPE_TRANSFER_INDICATOR_AUTOMATIC = 'A';
+  const TYPE_USE_TYPE_HOME = 13;
 
-    const TYPE_TRANSFER_INDICATOR_MANDATORY = 'M';
+  const TYPE_USE_TYPE_WORK = 14;
 
-    const TYPE_TRANSFER_INDICATOR_SELECTABLE = 'S';
+  const TYPE_USE_TYPE_PROFILE_COUNTRY_CODE = 15;
 
-    public $DefaultInd;
+  const TYPE_USE_TYPE_CREDIT_CARD_VERIFICATION = 16;
 
-    public $EmailType;
+  const TYPE_USE_TYPE_INVOICE = 17;
 
-    public $TransferIndicator;
+  public $DefaultInd = false;
 
-    public $_;
+  public $FormattedInd = false;
+
+  public $TransferIndicator;
+
+  public $UseType;
+
+  public $AddressLine;
+
+  public $CityName;
+
+  public $StateProv;
+
+  public $PostalCode;
+
+  public $CountryName;
 
 }

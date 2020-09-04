@@ -30,29 +30,12 @@ use Amadeus\Client\LoadParamsFromArray;
  * @package Amadeus\Client\RequestOptions\Pnr
  * @author Dieter Devlieghere <dermikagh@gmail.com>
  */
-class Email extends LoadParamsFromArray
+class TransferIndicator
 {
+    const TYPE_AUTOMATIC = 'A';
 
-    const TYPE_HOME = 1;
+    const TYPE_MANDATORY = 'M';
 
-    const TYPE_BUSINESS = 2;
-
-    const TYPE_AGENCY = 6;
-
-    const TYPE_DEFAULT = 10;
-
-    const TYPE_TRANSFER_INDICATOR_AUTOMATIC = 'A';
-
-    const TYPE_TRANSFER_INDICATOR_MANDATORY = 'M';
-
-    const TYPE_TRANSFER_INDICATOR_SELECTABLE = 'S';
-
-    public $DefaultInd;
-
-    public $EmailType;
-
-    public $TransferIndicator;
-
-    public $_;
+    const TYPE_SELECTABLE = 'S';
 
 }

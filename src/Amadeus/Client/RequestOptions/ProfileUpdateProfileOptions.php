@@ -31,10 +31,18 @@ namespace Amadeus\Client\RequestOptions;
 class ProfileUpdateProfileOptions extends Base
 {
     public $ProfileType;
+
     public $RecordLocator;
+
     public $Instance;
+
     public $Status;
+
     public $Customer;
+
     public $CompanyInfo;
+
     public $Index;
+    
+    public $Preferences;
 }

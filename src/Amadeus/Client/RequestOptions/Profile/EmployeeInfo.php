@@ -30,29 +30,17 @@ use Amadeus\Client\LoadParamsFromArray;
  * @package Amadeus\Client\RequestOptions\Pnr
  * @author Dieter Devlieghere <dermikagh@gmail.com>
  */
-class Email extends LoadParamsFromArray
+class EmployeeInfo extends LoadParamsFromArray
 {
 
-    const TYPE_HOME = 1;
+  public $EmployeeID;
 
-    const TYPE_BUSINESS = 2;
+  public $EmployeeTitle;
 
-    const TYPE_AGENCY = 6;
+  public $Department;
 
-    const TYPE_DEFAULT = 10;
+  public $Division;
 
-    const TYPE_TRANSFER_INDICATOR_AUTOMATIC = 'A';
-
-    const TYPE_TRANSFER_INDICATOR_MANDATORY = 'M';
-
-    const TYPE_TRANSFER_INDICATOR_SELECTABLE = 'S';
-
-    public $DefaultInd;
-
-    public $EmailType;
-
-    public $TransferIndicator;
-
-    public $_;
+  public $Project;
 
 }

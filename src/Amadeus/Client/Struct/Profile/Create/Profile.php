@@ -48,10 +48,16 @@ class Profile
   */
   public $CompanyInfo;
 
+
+  public $PrefCollections;
+
   public function __construct($options)
   {
     $this->loadCustomer($options);
+
     $this->loadCompanyInfo($options);
+
+    $this->loadPrefCollections($options);
   }
 
 
@@ -73,4 +79,13 @@ class Profile
     }
 
   }
+
+
+  public function loadPrefCollections($options)
+  {
+      if ($options->Preferences) {
+        $this->PrefCollections = new PrefCollections($options->Preferences);
+      }
+  }
+
 }
