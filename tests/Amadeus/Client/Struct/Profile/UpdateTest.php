@@ -120,12 +120,12 @@ class UpdateTest extends BaseTestCase
           ])
         ]);
 
-        print_r($opt);
+        //print_r($opt);
         //exit;
 
         $message = new UpdateProfile($opt);
 
-        print_r($message);
+        //print_r($message);
 
         $this->assertEquals('AAA111', $message->UniqueID->ID);
         $this->assertEquals('CSX', $message->UniqueID->ID_Context);
