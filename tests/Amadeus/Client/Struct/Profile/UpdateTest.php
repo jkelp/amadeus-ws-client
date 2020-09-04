@@ -51,6 +51,7 @@ class UpdateTest extends BaseTestCase
           'ProfileType' => ProfileType::PROFILE_TYPE_TRAVELER,
           'RecordLocator' => 'AAA111',
           'Instance' => 2,
+          'Index' => 'INDEX001',
           'Customer' => new Customer([
             'PersonName' => new PersonName([
               'GivenName' => 'Mae',
@@ -83,6 +84,8 @@ class UpdateTest extends BaseTestCase
         $this->assertEquals('AAA111', $message->UniqueID->ID);
         $this->assertEquals('CSX', $message->UniqueID->ID_Context);
         $this->assertEquals(2, $message->UniqueID->Instance);
+        $this->assertEquals('INDEX001', $message->Position->Root->UniqueID->ID);
+        $this->assertEquals('PIN', $message->Position->Root->UniqueID->ID_Context);
         $this->assertEquals('Tester-Updated', $message->Position->Root->Profile->Customer->PersonName->Surname);
         $this->assertEquals('Male', $message->Position->Root->Profile->Customer->Gender);
         $this->assertEquals('999 888 7777', $message->Position->Root->Profile->Customer->Telephone[0]->PhoneNumber);
@@ -95,6 +98,7 @@ class UpdateTest extends BaseTestCase
           'ProfileType' => ProfileType::PROFILE_TYPE_TRAVELER,
           'RecordLocator' => 'AAA111',
           'Instance' => 2,
+          'Index' => 'INDEX001',
           'CompanyInfo' => new CompanyInfo('NewCo-Changed')
         ]);
 
@@ -108,6 +112,8 @@ class UpdateTest extends BaseTestCase
         $this->assertEquals('CSX', $message->UniqueID->ID_Context);
         $this->assertEquals(2, $message->UniqueID->Instance);
         $this->assertEquals('NewCo-Changed', $message->Position->Root->Profile->CompanyInfo->CompanyName);
+        $this->assertEquals('INDEX001', $message->Position->Root->UniqueID->ID);
+        $this->assertEquals('PIN', $message->Position->Root->UniqueID->ID_Context);
     }
 
 

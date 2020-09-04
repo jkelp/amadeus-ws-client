@@ -23,8 +23,9 @@
 namespace Amadeus\Client\Struct\Profile\Update;
 
 use Amadeus\Client\LoadParamsFromArray;
-
 use Amadeus\Client\Struct\Profile\Create\Profile;
+use Amadeus\Client\Struct\Profile\Shared\UniqueID;
+use Amadeus\Client\RequestOptions\Profile\UniqueIDType;
 
 
 class Root extends LoadParamsFromArray
@@ -34,9 +35,20 @@ class Root extends LoadParamsFromArray
 
   public $Profile;
 
+  public $UniqueID;
+
   public function __construct($options)
   {
     $this->Profile = new Profile($options);
+
+    if ($options->Index) {
+      $this->UniqueID = new UniqueID([
+        'Type' => UniqueIDType::UNIQUE_ID_PROFILE_ID,
+        'ID' => $options->Index,
+        'ID_Context' => 'PIN',
+      ]);
+    }
+
   }
 
 }

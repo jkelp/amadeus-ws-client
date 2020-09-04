@@ -36,4 +36,5 @@ class ProfileUpdateProfileOptions extends Base
     public $Status;
     public $Customer;
     public $CompanyInfo;
+    public $Index;
 }
