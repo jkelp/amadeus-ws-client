@@ -49,6 +49,12 @@ class Telephone extends LoadParamsFromArray
 
     const TECH_TYPE_MOBILE = 5;
 
+    const  TRANSFER_INDICATOR_AUTOMATIC = 'A';
+
+    const  TRANSFER_INDICATOR_MANDATORY = 'M';
+
+    const  TRANSFER_INDICATOR_SELECTABLE = 'S';
+
     public $PhoneLocationType;
 
     public $PhoneNumber;
@@ -62,4 +68,6 @@ class Telephone extends LoadParamsFromArray
     public $AreaCityCode;
 
     public $DefaultInd;
+
+    public $TransferIndicator;
 }

@@ -32,4 +32,6 @@ class ProfileReadProfileOptions extends Base
 {
     public $profileType;
     public $recordLocator;
+    public $index;
+    public $officeId;
 }

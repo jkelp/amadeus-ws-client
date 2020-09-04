@@ -51,9 +51,9 @@ class ReadTest extends BaseTestCase
 
         //print_r($message);
 
-        $this->assertEquals('AAA111', $message->UniqueID->ID);
-        $this->assertEquals('CSX', $message->UniqueID->ID_Context);
-        $this->assertEquals(ProfileType::PROFILE_TYPE_TRAVELER, $message->ReadRequests->ProfileReadRequest->ProfileType);
+        $this->assertEquals('AAA111', $message->UniqueID[0]->ID);
+        $this->assertEquals('CSX', $message->UniqueID[0]->ID_Context);
+        $this->assertEquals(1, $message->ReadRequests->ProfileReadRequest->ProfileType);
     }
 
 
@@ -70,9 +70,53 @@ class ReadTest extends BaseTestCase
 
         // print_r($message);
 
-        $this->assertEquals('TLQREA', $message->UniqueID->ID);
-        $this->assertEquals('CSX', $message->UniqueID->ID_Context);
-        $this->assertEquals(ProfileType::PROFILE_TYPE_COMPANY, $message->ReadRequests->ProfileReadRequest->ProfileType);
+        $this->assertEquals('TLQREA', $message->UniqueID[0]->ID);
+        $this->assertEquals('CSX', $message->UniqueID[0]->ID_Context);
+        $this->assertEquals(3, $message->ReadRequests->ProfileReadRequest->ProfileType);
+    }
+
+
+    public function testCanReadTravelerProfileByIndex()
+    {
+        $opt = new ProfileReadProfileOptions([
+          'profileType' => ProfileType::PROFILE_TYPE_TRAVELER,
+          'index' => 'MAE001',
+          'officeId' => 'IND0001ABC',
+        ]);
+
+        // print_r($opt);
+
+        $message = new ReadProfile($opt);
+
+        // print_r($message);
+
+        $this->assertEquals('MAE001', $message->UniqueID[0]->ID);
+        $this->assertEquals('PIN', $message->UniqueID[0]->ID_Context);
+        $this->assertEquals('IND0001ABC', $message->UniqueID[1]->ID);
+        $this->assertEquals('CSX', $message->UniqueID[1]->ID_Context);
+        $this->assertEquals(1, $message->ReadRequests->ProfileReadRequest->ProfileType);
+    }
+
+
+    public function testCanReadCompanyProfileByIndex()
+    {
+        $opt = new ProfileReadProfileOptions([
+          'profileType' => ProfileType::PROFILE_TYPE_COMPANY,
+          'index' => 'GANT001',
+          'officeId' => 'IND0001ABC',
+        ]);
+
+        // print_r($opt);
+
+        $message = new ReadProfile($opt);
+
+        // print_r($message);
+
+        $this->assertEquals('GANT001', $message->UniqueID[0]->ID);
+        $this->assertEquals('PIN', $message->UniqueID[0]->ID_Context);
+        $this->assertEquals('IND0001ABC', $message->UniqueID[1]->ID);
+        $this->assertEquals('CSX', $message->UniqueID[1]->ID_Context);
+        $this->assertEquals(3, $message->ReadRequests->ProfileReadRequest->ProfileType);
     }
 
 }

@@ -88,13 +88,15 @@ class CreateTest extends BaseTestCase
                 'PhoneLocationType' => Telephone::LOCATION_TYPE_HOME,
                 'PhoneTechType' => Telephone::TECH_TYPE_MOBILE,
                 'PhoneNumber' => '812 123 4567',
-                'DefaultInd' => true
+                'DefaultInd' => true,
+                'TransferIndicator' => Telephone::TRANSFER_INDICATOR_SELECTABLE,
               ]),
               new Telephone([
                 'PhoneLocationType' => Telephone::LOCATION_TYPE_BUSINESS,
                 'PhoneTechType' => Telephone::TECH_TYPE_VOICE,
                 'PhoneNumber' => '123 333 4444',
-                'DefaultInd' => false
+                'DefaultInd' => false,
+                'TransferIndicator' => Telephone::TRANSFER_INDICATOR_AUTOMATIC,
               ])
             ],
             'RelatedCompany' => new RelatedCompany([
