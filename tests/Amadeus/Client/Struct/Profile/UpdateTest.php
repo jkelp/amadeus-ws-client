@@ -138,7 +138,6 @@ class UpdateTest extends BaseTestCase
         $this->assertEquals('Tester-Updated', $message->Position->Root->Profile->Customer->PersonName->Surname);
         $this->assertEquals('Male', $message->Position->Root->Profile->Customer->Gender);
         $this->assertEquals('999 888 7777', $message->Position->Root->Profile->Customer->Telephone[0]->PhoneNumber);
-
         $this->assertEquals('IND', $message->Position->Root->Profile->PrefCollections->PrefCollection[0]->AirlinePref->AirportOriginPref->LocationCode);
     }
 

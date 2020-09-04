@@ -31,8 +31,16 @@ namespace Amadeus\Client\RequestOptions;
 class ProfileCreateProfileOptions extends Base
 {
     public $ProfileType;
+
     public $OfficeId;
+
     public $Status;
+
     public $Customer;
+
     public $CompanyInfo;
+
+    public $Index;
+
+    public $Preferences;
 }
