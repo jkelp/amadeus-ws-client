@@ -105,7 +105,10 @@ class UpdateTest extends BaseTestCase
                 'TransferIndicator' => TransferIndicator::TYPE_SELECTABLE,
                 'DefaultInd' => false,
                 'UseType' => Address::TYPE_USE_TYPE_WORK,
-                'AddressLine' => '400 W 7th Street, Ste 100',
+                'AddressLine' => [
+                  '400 W 7th Street',
+                  'Ste 100'
+                ],
                 'CityName' => 'Bloomington',
                 'StateProv' => 'IN',
                 'CountryName' => 'US',
@@ -136,7 +139,7 @@ class UpdateTest extends BaseTestCase
         $this->assertEquals('Male', $message->Position->Root->Profile->Customer->Gender);
         $this->assertEquals('999 888 7777', $message->Position->Root->Profile->Customer->Telephone[0]->PhoneNumber);
 
-        $this->assertEquals('IND', $message->Position->Root->Profile->PrefCollections->PrefCollection[0]->AirlinePref->AirportOriginPref);
+        $this->assertEquals('IND', $message->Position->Root->Profile->PrefCollections->PrefCollection[0]->AirlinePref->AirportOriginPref->LocationCode);
     }
 
 
