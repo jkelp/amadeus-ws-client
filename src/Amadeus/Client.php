@@ -26,6 +26,8 @@ use Amadeus\Client\Base;
 use Amadeus\Client\Exception;
 use Amadeus\Client\Params;
 use Amadeus\Client\RequestOptions;
+use Amadeus\Client\RequestOptions\Car;
+
 use Amadeus\Client\Result;
 use Amadeus\Client\Session\Handler\UnsupportedOperationException;
 
@@ -1769,10 +1771,19 @@ class Client extends Base
        return $this->callMessage($msgName, $options, $messageOptions);
    }
 
-	   // JK
+	  // JK
     public function profileRetrieveProfile(RequestOptions\ProfileRetrieveProfileOptions $options, $messageOptions = [])
     {
         $msgName = 'Profile_RetrieveProfile';
+
+        return $this->callMessage($msgName, $options, $messageOptions);
+    }
+
+
+    // JK
+    public function carMultiAvailability(RequestOptions\CarMultiAvailabilityOptions $options, $messageOptions = [])
+    {
+        $msgName = 'Car_MultiAvailability';
 
         return $this->callMessage($msgName, $options, $messageOptions);
     }
