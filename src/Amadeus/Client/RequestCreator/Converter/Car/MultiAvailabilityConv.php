@@ -4,7 +4,6 @@
 namespace Amadeus\Client\RequestCreator\Converter\Car;
 
 use Amadeus\Client\RequestCreator\Converter\BaseConverter;
-use Amadeus\Client\RequestOptions\CarMultiAvailabilityOptions;
 use Amadeus\Client\Struct;
 
 use Amadeus\Client\Struct\Car\MultiAvailability;
@@ -18,7 +17,7 @@ use Amadeus\Client\Struct\Car\MultiAvailability;
 class MultiAvailabilityConv extends BaseConverter
 {
 
-    public function convert(CarMultiAvailabilityOptions $requestOptions, $version)
+    public function convert($requestOptions, $version)
     {
         return new MultiAvailability($requestOptions);
     }

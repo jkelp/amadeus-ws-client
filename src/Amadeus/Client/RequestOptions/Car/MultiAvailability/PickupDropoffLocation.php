@@ -28,7 +28,8 @@ class PickupDropoffLocation extends LoadParamsFromArray
     $this->locationType = $locationType;
 
     $this->locationDescription = new \StdClass;
-    $this->locationDescription->code = $locationDescriptionCode;
+    $this->locationDescription->code = '1A';
+    $this->locationDescription->name = $locationDescriptionCode;
   }
 
 }
