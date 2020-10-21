@@ -26,6 +26,8 @@ use Amadeus\Client\Base;
 use Amadeus\Client\Exception;
 use Amadeus\Client\Params;
 use Amadeus\Client\RequestOptions;
+use Amadeus\Client\RequestOptions\Car;
+
 use Amadeus\Client\Result;
 use Amadeus\Client\Session\Handler\UnsupportedOperationException;
 
@@ -1734,6 +1736,58 @@ class Client extends Base
 
         return $this->callMessage($msgName, $options, $messageOptions);
     }
+
+	   // JK
+    public function profileCreateProfile(RequestOptions\ProfileCreateProfileOptions $options, $messageOptions = [])
+    {
+        $msgName = 'Profile_CreateProfile';
+
+        return $this->callMessage($msgName, $options, $messageOptions);
+    }
+
+	   // JK
+    public function profileReadProfile(RequestOptions\ProfileReadProfileOptions $options, $messageOptions = [])
+    {
+        $msgName = 'Profile_ReadProfile';
+
+        return $this->callMessage($msgName, $options, $messageOptions);
+    }
+
+
+   // JK
+   public function profileDeleteProfile(RequestOptions\ProfileDeleteProfileOptions $options, $messageOptions = [])
+   {
+       $msgName = 'Profile_DeleteProfile';
+
+       return $this->callMessage($msgName, $options, $messageOptions);
+   }
+
+
+   // JK
+   public function profileUpdateProfile(RequestOptions\ProfileUpdateProfileOptions $options, $messageOptions = [])
+   {
+       $msgName = 'Profile_UpdateProfile';
+
+       return $this->callMessage($msgName, $options, $messageOptions);
+   }
+
+	  // JK
+    public function profileRetrieveProfile(RequestOptions\ProfileRetrieveProfileOptions $options, $messageOptions = [])
+    {
+        $msgName = 'Profile_RetrieveProfile';
+
+        return $this->callMessage($msgName, $options, $messageOptions);
+    }
+
+
+    // JK
+    public function carMultiAvailability(RequestOptions\CarMultiAvailabilityOptions $options, $messageOptions = [])
+    {
+        $msgName = 'Car_MultiAvailability';
+
+        return $this->callMessage($msgName, $options, $messageOptions);
+    }
+
 
     /**
      * Call a message with the given parameters
