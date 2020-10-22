@@ -25,52 +25,25 @@ namespace Amadeus\Client\RequestOptions\Hotel\MultiSingleAvail;
 use Amadeus\Client\LoadParamsFromArray;
 
 /**
- * Criteria
+ * Rates
  *
  * @package Amadeus\Client\RequestOptions\Hotel\MultiSingleAvail
  * @author Dieter Devlieghere <dieter.devlieghere@benelux.amadeus.com>
  */
-class Criteria extends LoadParamsFromArray
+class Radius extends LoadParamsFromArray
 {
-    const ALT_AVAIL_NEVER = "Never";
 
-    /**
-     * @var bool
-     */
-    public $exactMatch;
+    const UNIT_OF_MEASURE_CODE_MILES = 1;
 
-    /**
-     * @var HotelReference[]
-     */
-    public $hotelReferences = [];
+    const UNIT_OF_MEASURE_CODE_KILOMETERS = 2;
 
-    /**
-     * @var \DateTime
-     */
-    public $stayStart;
+    const DISTANCE_MEASURE_SORT_BY_DISTANCE = 'DIS';
 
-    /**
-     * @var \DateTime
-     */
-    public $stayEnd;
+    const DISTANCE_MEASURE_SORT_RANDOM = 'RND';
 
-    /**
-     * @var Rates[]
-     */
-    public $rates = [];
+    public $distance;
 
-    /**
-     * @var Room[]
-     */
-    public $rooms = [];
+    public $unitOfMeasureCode;
 
-    /**
-     * self::ALT_AVAIL_*
-     *
-     * @var string
-     */
-    public $alternateAvailability;
-
-
-    public $radius;
+    public $distanceMeasure;
 }

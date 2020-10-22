@@ -25,6 +25,7 @@ namespace Test\Amadeus\Client\Struct\Hotel;
 use Amadeus\Client\RequestOptions\Hotel\MultiSingleAvail\Criteria;
 use Amadeus\Client\RequestOptions\Hotel\MultiSingleAvail\Guest;
 use Amadeus\Client\RequestOptions\Hotel\MultiSingleAvail\HotelReference;
+use Amadeus\Client\RequestOptions\Hotel\MultiSingleAvail\Radius;
 use Amadeus\Client\RequestOptions\Hotel\MultiSingleAvail\Rates;
 use Amadeus\Client\RequestOptions\Hotel\MultiSingleAvail\Room;
 use Amadeus\Client\RequestOptions\Hotel\MultiSingleAvail\Segment;
@@ -51,6 +52,11 @@ class HotelMultiSingleAvailabilityTest extends BaseTestCase
                             'exactMatch' => true,
                             'stayStart' => \DateTime::createFromFormat('Y-m-d', '2017-12-28'),
                             'stayEnd' => \DateTime::createFromFormat('Y-m-d', '2017-12-29'),
+                            'radius' => new Radius([
+                                'distance' => 10,
+                                'unitOfMeasureCode' => Radius::UNIT_OF_MEASURE_CODE_MILES,
+                                'distanceMeasure' => Radius::DISTANCE_MEASURE_SORT_BY_DISTANCE,
+                            ]),
                             'hotelReferences' => [
                                 new HotelReference([
                                     'chainCode' => 'RT',
@@ -83,7 +89,13 @@ class HotelMultiSingleAvailabilityTest extends BaseTestCase
             ]
         ]);
 
+        //print_r($opt);
+        //exit;
+
         $msg = new MultiSingleAvailability($opt);
+
+        print_r($msg);
+        exit;
 
         $this->assertEquals('MultiSingle', $msg->EchoToken);
         $this->assertEquals('4.000', $msg->Version);

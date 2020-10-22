@@ -71,5 +71,7 @@ class Criterion extends HotelSearchCriterionType
         }
 
         $this->AlternateAvailability = $criterion->alternateAvailability;
+
+        $this->Radius = $criterion->radius;
     }
 }
