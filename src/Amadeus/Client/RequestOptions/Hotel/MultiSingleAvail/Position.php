@@ -30,7 +30,7 @@ use Amadeus\Client\LoadParamsFromArray;
  * @package Amadeus\Client\RequestOptions\Hotel\MultiSingleAvail
  * @author Dieter Devlieghere <dieter.devlieghere@benelux.amadeus.com>
  */
-class PointOfReference extends LoadParamsFromArray
+class Position extends LoadParamsFromArray
 {
 
     public $latitude;

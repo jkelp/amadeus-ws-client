@@ -26,7 +26,7 @@ use Amadeus\Client\RequestOptions\Hotel\MultiSingleAvail\Criteria;
 use Amadeus\Client\RequestOptions\Hotel\MultiSingleAvail\Guest;
 use Amadeus\Client\RequestOptions\Hotel\MultiSingleAvail\HotelReference;
 use Amadeus\Client\RequestOptions\Hotel\MultiSingleAvail\Radius;
-use Amadeus\Client\RequestOptions\Hotel\MultiSingleAvail\PointOfReference;
+use Amadeus\Client\RequestOptions\Hotel\MultiSingleAvail\Position;
 use Amadeus\Client\RequestOptions\Hotel\MultiSingleAvail\Rates;
 use Amadeus\Client\RequestOptions\Hotel\MultiSingleAvail\Room;
 use Amadeus\Client\RequestOptions\Hotel\MultiSingleAvail\Segment;
@@ -53,7 +53,7 @@ class HotelMultiSingleAvailabilityTest extends BaseTestCase
                             'exactMatch' => true,
                             'stayStart' => \DateTime::createFromFormat('Y-m-d', '2017-12-28'),
                             'stayEnd' => \DateTime::createFromFormat('Y-m-d', '2017-12-29'),
-                            'pointOfReference' => new PointOfReference([
+                            'pointOfReference' => new Position([
                                 'latitude' => 4246279,
                                 'longitude' => -244610
                             ])

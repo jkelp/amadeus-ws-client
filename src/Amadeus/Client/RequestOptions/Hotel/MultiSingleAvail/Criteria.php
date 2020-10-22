@@ -73,4 +73,6 @@ class Criteria extends LoadParamsFromArray
 
 
     public $radius;
+
+    public $position;
 }
