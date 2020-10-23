@@ -53,7 +53,7 @@ class HotelMultiSingleAvailabilityTest extends BaseTestCase
                             'exactMatch' => true,
                             'stayStart' => \DateTime::createFromFormat('Y-m-d', '2017-12-28'),
                             'stayEnd' => \DateTime::createFromFormat('Y-m-d', '2017-12-29'),
-                            'pointOfReference' => new Position([
+                            'position' => new Position([
                                 'latitude' => 4246279,
                                 'longitude' => -244610
                             ])
