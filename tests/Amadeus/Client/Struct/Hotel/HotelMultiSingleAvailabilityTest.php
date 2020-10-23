@@ -26,6 +26,7 @@ use Amadeus\Client\RequestOptions\Hotel\MultiSingleAvail\Criteria;
 use Amadeus\Client\RequestOptions\Hotel\MultiSingleAvail\Guest;
 use Amadeus\Client\RequestOptions\Hotel\MultiSingleAvail\HotelReference;
 use Amadeus\Client\RequestOptions\Hotel\MultiSingleAvail\Radius;
+use Amadeus\Client\RequestOptions\Hotel\MultiSingleAvail\Award;
 use Amadeus\Client\RequestOptions\Hotel\MultiSingleAvail\Rates;
 use Amadeus\Client\RequestOptions\Hotel\MultiSingleAvail\Room;
 use Amadeus\Client\RequestOptions\Hotel\MultiSingleAvail\Segment;
@@ -56,6 +57,10 @@ class HotelMultiSingleAvailabilityTest extends BaseTestCase
                                 'distance' => 10,
                                 'unitOfMeasureCode' => Radius::UNIT_OF_MEASURE_CODE_MILES,
                                 'distanceMeasure' => Radius::DISTANCE_MEASURE_SORT_BY_DISTANCE,
+                            ]),
+                            'award' => new Award([
+                                'provider' => 'LSR',
+                                'rating' => 5
                             ]),
                             'hotelReferences' => [
                                 new HotelReference([
