@@ -25,58 +25,16 @@ namespace Amadeus\Client\RequestOptions\Hotel\MultiSingleAvail;
 use Amadeus\Client\LoadParamsFromArray;
 
 /**
- * Criteria
+ * Rates
  *
  * @package Amadeus\Client\RequestOptions\Hotel\MultiSingleAvail
  * @author Dieter Devlieghere <dieter.devlieghere@benelux.amadeus.com>
  */
-class Criteria extends LoadParamsFromArray
+class RefPoint extends LoadParamsFromArray
 {
-    const ALT_AVAIL_NEVER = "Never";
 
-    /**
-     * @var bool
-     */
-    public $exactMatch;
+    public $countryCode;
 
-    /**
-     * @var HotelReference[]
-     */
-    public $hotelReferences = [];
+    public $name;
 
-    /**
-     * @var \DateTime
-     */
-    public $stayStart;
-
-    /**
-     * @var \DateTime
-     */
-    public $stayEnd;
-
-    /**
-     * @var Rates[]
-     */
-    public $rates = [];
-
-    /**
-     * @var Room[]
-     */
-    public $rooms = [];
-
-    /**
-     * self::ALT_AVAIL_*
-     *
-     * @var string
-     */
-    public $alternateAvailability;
-
-
-    public $radius;
-
-    public $award;
-
-    public $position;
-
-    public $refPoint;
 }
