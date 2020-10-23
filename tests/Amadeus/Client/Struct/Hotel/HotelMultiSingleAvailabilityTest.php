@@ -57,7 +57,7 @@ class HotelMultiSingleAvailabilityTest extends BaseTestCase
                             'position' => new Position([
                                 'latitude' => 4246279,
                                 'longitude' => -244610
-                            ])
+                            ]),
                             'radius' => new Radius([
                                 'distance' => 10,
                                 'unitOfMeasureCode' => Radius::UNIT_OF_MEASURE_CODE_MILES,
@@ -120,5 +120,11 @@ class HotelMultiSingleAvailabilityTest extends BaseTestCase
         $this->assertTrue($msg->AvailRequestSegments->AvailRequestSegment[0]->HotelSearchCriteria->Criterion[0]->ExactMatch);
         $this->assertCount(1, $msg->AvailRequestSegments->AvailRequestSegment[0]->HotelSearchCriteria->Criterion[0]->HotelRef);
         $this->assertEquals('RT', $msg->AvailRequestSegments->AvailRequestSegment[0]->HotelSearchCriteria->Criterion[0]->HotelRef[0]->ChainCode);
+
+        $this->assertEquals(4246279, $msg->AvailRequestSegments->AvailRequestSegment[0]->HotelSearchCriteria->Criterion[0]->Position->Latitude);
+        $this->assertEquals(-244610, $msg->AvailRequestSegments->AvailRequestSegment[0]->HotelSearchCriteria->Criterion[0]->Position->Longitude);
+
+        $this->assertEquals('LSR', $msg->AvailRequestSegments->AvailRequestSegment[0]->HotelSearchCriteria->Criterion[0]->Award[0]->Provider);
+        $this->assertEquals(5, $msg->AvailRequestSegments->AvailRequestSegment[0]->HotelSearchCriteria->Criterion[0]->Award[0]->Rating);
     }
 }
