@@ -75,5 +75,7 @@ class Criterion extends HotelSearchCriterionType
         $this->Radius = $criterion->radius;
 
         $this->Award = $criterion->award;
+
+        $this->Position = $criterion->position;
     }
 }
