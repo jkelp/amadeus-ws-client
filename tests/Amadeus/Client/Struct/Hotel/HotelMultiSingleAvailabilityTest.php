@@ -28,6 +28,7 @@ use Amadeus\Client\RequestOptions\Hotel\MultiSingleAvail\HotelReference;
 use Amadeus\Client\RequestOptions\Hotel\MultiSingleAvail\Radius;
 use Amadeus\Client\RequestOptions\Hotel\MultiSingleAvail\Award;
 use Amadeus\Client\RequestOptions\Hotel\MultiSingleAvail\Position;
+use Amadeus\Client\RequestOptions\Hotel\MultiSingleAvail\RefPoint;
 use Amadeus\Client\RequestOptions\Hotel\MultiSingleAvail\Rates;
 use Amadeus\Client\RequestOptions\Hotel\MultiSingleAvail\Room;
 use Amadeus\Client\RequestOptions\Hotel\MultiSingleAvail\Segment;
@@ -66,6 +67,10 @@ class HotelMultiSingleAvailabilityTest extends BaseTestCase
                             'award' => new Award([
                                 'provider' => 'LSR',
                                 'rating' => 5
+                            ]),
+                            'refPoint' => new refPoint([
+                                'countryCode' => 'ES',
+                                'name' => 'MUSEO DEL PRADO'
                             ]),
                             'hotelReferences' => [
                                 new HotelReference([
@@ -120,5 +125,9 @@ class HotelMultiSingleAvailabilityTest extends BaseTestCase
         $this->assertTrue($msg->AvailRequestSegments->AvailRequestSegment[0]->HotelSearchCriteria->Criterion[0]->ExactMatch);
         $this->assertCount(1, $msg->AvailRequestSegments->AvailRequestSegment[0]->HotelSearchCriteria->Criterion[0]->HotelRef);
         $this->assertEquals('RT', $msg->AvailRequestSegments->AvailRequestSegment[0]->HotelSearchCriteria->Criterion[0]->HotelRef[0]->ChainCode);
+        
+        $this->assertCount(1, $msg->AvailRequestSegments->AvailRequestSegment[0]->HotelSearchCriteria->Criterion[0]->RefPoint);
+        $this->assertEquals('ES', $msg->AvailRequestSegments->AvailRequestSegment[0]->HotelSearchCriteria->Criterion[0]->RefPoint[0]->CountryCode);
+        $this->assertEquals('MUSEO DEL PRADO', $msg->AvailRequestSegments->AvailRequestSegment[0]->HotelSearchCriteria->Criterion[0]->RefPoint[0]->Name);
     }
 }
