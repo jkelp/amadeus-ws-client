@@ -76,9 +76,7 @@ class Criterion extends HotelSearchCriterionType
 
         $this->Award = $criterion->award;
 
-        if (!empty($criterion->position)) {
-          $this->Position = new Position($criterion->position->$longitude*10000, $criterion->position->$latitude*10000);
-        }
+        $this->Position = $criterion->position;
 
         $this->refPoint = $criterion->refPoint;
     }

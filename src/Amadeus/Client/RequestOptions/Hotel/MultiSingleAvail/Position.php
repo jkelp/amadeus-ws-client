@@ -37,12 +37,12 @@ class Position extends LoadParamsFromArray
 
     public $longitude;
 
-    public function __construct($latitude, $longitude)
+    public function __construct($params)
     {
-      
-        $this->latitude = $latitude;
-        $this->longitude = $longitude;
 
+        parent::__construct($params);
+        $this->latitude *= 10000;
+        $this->longitude *= 10000;
     }
 
 }

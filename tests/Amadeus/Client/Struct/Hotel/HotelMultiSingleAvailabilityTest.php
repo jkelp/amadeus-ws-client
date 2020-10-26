@@ -55,14 +55,14 @@ class HotelMultiSingleAvailabilityTest extends BaseTestCase
                             'exactMatch' => true,
                             'stayStart' => \DateTime::createFromFormat('Y-m-d', '2017-12-28'),
                             'stayEnd' => \DateTime::createFromFormat('Y-m-d', '2017-12-29'),
-                            'position' => new Position([
-                                'latitude' => 4246279,
-                                'longitude' => -244610
-                            ]),
                             'radius' => new Radius([
                                 'distance' => 10,
                                 'unitOfMeasureCode' => Radius::UNIT_OF_MEASURE_CODE_MILES,
                                 'distanceMeasure' => Radius::DISTANCE_MEASURE_SORT_BY_DISTANCE,
+                            ]),
+                            'position' => new Position([
+                                'latitude' => 42.4627,
+                                'longitude' => -2.44610
                             ]),
                             'award' => new Award([
                                 'provider' => 'LSR',
@@ -109,7 +109,7 @@ class HotelMultiSingleAvailabilityTest extends BaseTestCase
 
         $msg = new MultiSingleAvailability($opt);
 
-        print_r($msg);
+        print_r($msg->AvailRequestSegments->AvailRequestSegment[0]->HotelSearchCriteria->Criterion[0]);
         exit;
 
         $this->assertEquals('MultiSingle', $msg->EchoToken);
@@ -126,15 +126,15 @@ class HotelMultiSingleAvailabilityTest extends BaseTestCase
         $this->assertCount(1, $msg->AvailRequestSegments->AvailRequestSegment[0]->HotelSearchCriteria->Criterion[0]->HotelRef);
         $this->assertEquals('RT', $msg->AvailRequestSegments->AvailRequestSegment[0]->HotelSearchCriteria->Criterion[0]->HotelRef[0]->ChainCode);
 
-        $this->assertCount(1, $msg->AvailRequestSegments->AvailRequestSegment[0]->HotelSearchCriteria->Criterion[0]->Radius);
-        $this->assertEquals(10, $msg->AvailRequestSegments->AvailRequestSegment[0]->HotelSearchCriteria->Criterion[0]->Radius[0]->Distance);
-        $this->assertEquals(1, $msg->AvailRequestSegments->AvailRequestSegment[0]->HotelSearchCriteria->Criterion[0]->Radius[0]->UnitOfMeasureCode);
-        $this->assertEquals('DIS', $msg->AvailRequestSegments->AvailRequestSegment[0]->HotelSearchCriteria->Criterion[0]->Radius[0]->DistanceMeasure);
+        // $this->assertCount(1, $msg->AvailRequestSegments->AvailRequestSegment[0]->HotelSearchCriteria->Criterion[0]->Radius);
+        $this->assertEquals(10, $msg->AvailRequestSegments->AvailRequestSegment[0]->HotelSearchCriteria->Criterion[0]->Radius->distance);
+        $this->assertEquals(1, $msg->AvailRequestSegments->AvailRequestSegment[0]->HotelSearchCriteria->Criterion[0]->Radius->unitOfMeasureCode);
+        $this->assertEquals('DIS', $msg->AvailRequestSegments->AvailRequestSegment[0]->HotelSearchCriteria->Criterion[0]->Radius->distanceMeasure);
 
 
-        $this->assertCount(1, $msg->AvailRequestSegments->AvailRequestSegment[0]->HotelSearchCriteria->Criterion[0]->Position);
-        $this->assertEquals(4246279, $msg->AvailRequestSegments->AvailRequestSegment[0]->HotelSearchCriteria->Criterion[0]->Position[0]->Latitude);
-        $this->assertEquals(-244610, $msg->AvailRequestSegments->AvailRequestSegment[0]->HotelSearchCriteria->Criterion[0]->Position[0]->Longitude);
+        $this->assertCount(1, $msg->AvailRequestSegments->AvailRequestSegment[0]->HotelSearchCriteria->Criterion->Position);
+        $this->assertEquals(4246279, $msg->AvailRequestSegments->AvailRequestSegment[0]->HotelSearchCriteria->Criterion[0]->Position->Latitude);
+        $this->assertEquals(-244610, $msg->AvailRequestSegments->AvailRequestSegment[0]->HotelSearchCriteria->Criterion[0]->Position->Longitude);
 
         $this->assertCount(1, $msg->AvailRequestSegments->AvailRequestSegment[0]->HotelSearchCriteria->Criterion[0]->Award);
         $this->assertEquals('LSR', $msg->AvailRequestSegments->AvailRequestSegment[0]->HotelSearchCriteria->Criterion[0]->Award[0]->Provider);
