@@ -58,8 +58,10 @@ class Criterion extends HotelSearchCriterionType
 
         $this->StayDateRange = new StayDateRange($criterion->stayStart, $criterion->stayEnd);
 
-        foreach ($criterion->rates as $rate) {
-            $this->RateRange[] = new RateRange($rate);
+        if (!empty($criterion->rooms)) {
+                foreach ($criterion->rates as $rate) {
+                    $this->RateRange[] = new RateRange($rate);
+                }
         }
 
         if (!empty($criterion->rooms)) {
