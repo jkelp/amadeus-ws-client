@@ -22,16 +22,41 @@
 
 namespace Amadeus\Client\Struct\Hotel\MultiSingleAvailability;
 
+use Amadeus\Client\RequestOptions\Hotel\MultiSingleAvail\Room;
+
 /**
- * RatePlanCandidates
+ * RoomStayCandidate
  *
  * @package Amadeus\Client\Struct\Hotel\MultiSingleAvailability
  * @author Dieter Devlieghere <dieter.devlieghere@benelux.amadeus.com>
  */
-class RatePlanCandidates
+class RoomStayCandidate
 {
-  /**
-   * @var RatePlanCandidate[]
-   */
-  public $RatePlanCandidate = [];
+    /**
+     * @var int
+     */
+    public $RoomID;
+
+    /**
+     * @var int
+     */
+    public $Quantity;
+
+    /**
+     * @var GuestCounts
+     */
+    public $GuestCounts;
+
+    /**
+     * RoomStayCandidate constructor.
+     *
+     * @param Room $room
+     */
+    public function __construct(Room $room)
+    {
+        $this->RoomID = $room->id;
+        $this->Quantity = $room->amount;
+
+        $this->GuestCounts = new GuestCounts($room->guestsIsPerRoom, $room->guests);
+    }
 }

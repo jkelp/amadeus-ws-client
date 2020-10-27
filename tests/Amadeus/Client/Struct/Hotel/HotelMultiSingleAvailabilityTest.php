@@ -109,7 +109,7 @@ class HotelMultiSingleAvailabilityTest extends BaseTestCase
 
         $msg = new MultiSingleAvailability($opt);
 
-        print_r($msg->AvailRequestSegments->AvailRequestSegment[0]->HotelSearchCriteria->Criterion[0]->RefPoint);
+        print_r($msg);
         exit;
 
         $this->assertEquals('MultiSingle', $msg->EchoToken);
@@ -141,7 +141,7 @@ class HotelMultiSingleAvailabilityTest extends BaseTestCase
         $this->assertEquals(5, $msg->AvailRequestSegments->AvailRequestSegment[0]->HotelSearchCriteria->Criterion[0]->Award->rating);
 
         // $this->assertCount(1, $msg->AvailRequestSegments->AvailRequestSegment[0]->HotelSearchCriteria->Criterion[0]->RefPoint);
-        $this->assertEquals('ES', $msg->AvailRequestSegments->AvailRequestSegment[0]->HotelSearchCriteria->Criterion[0]->RefPoint->countryCode);
-        $this->assertEquals('MUSEO DEL PRADO', $msg->AvailRequestSegments->AvailRequestSegment[0]->HotelSearchCriteria->Criterion[0]->RefPoint->name);
+        $this->assertEquals('ES', $msg->AvailRequestSegments->AvailRequestSegment[0]->HotelSearchCriteria->Criterion[0]->refPoint->countryCode);
+        $this->assertEquals('MUSEO DEL PRADO', $msg->AvailRequestSegments->AvailRequestSegment[0]->HotelSearchCriteria->Criterion[0]->refPoint->name);
     }
 }

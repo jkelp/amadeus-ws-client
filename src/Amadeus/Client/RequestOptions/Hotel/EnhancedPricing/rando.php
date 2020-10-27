@@ -20,7 +20,7 @@
  * @license https://opensource.org/licenses/Apache-2.0 Apache 2.0
  */
 
-namespace Amadeus\Client\RequestOptions\Hotel\MultiSingleAvail;
+namespace Amadeus\Client\RequestOptions\Hotel\EnhancedPricing;
 
 use Amadeus\Client\LoadParamsFromArray;
 

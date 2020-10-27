@@ -20,18 +20,21 @@
  * @license https://opensource.org/licenses/Apache-2.0 Apache 2.0
  */
 
-namespace Amadeus\Client\Struct\Hotel\MultiSingleAvailability;
+namespace Amadeus\Client\RequestOptions\Hotel\MultiSingleAvail;
+
+use Amadeus\Client\LoadParamsFromArray;
 
 /**
- * RatePlanCandidates
+ * Rates
  *
- * @package Amadeus\Client\Struct\Hotel\MultiSingleAvailability
+ * @package Amadeus\Client\RequestOptions\Hotel\MultiSingleAvail
  * @author Dieter Devlieghere <dieter.devlieghere@benelux.amadeus.com>
  */
-class RatePlanCandidates
+class Award extends LoadParamsFromArray
 {
-  /**
-   * @var RatePlanCandidate[]
-   */
-  public $RatePlanCandidate = [];
+
+    public $provider;
+
+    public $rating;
+
 }
