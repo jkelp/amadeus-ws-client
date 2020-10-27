@@ -70,6 +70,14 @@ class Criterion extends HotelSearchCriterionType
             }
         }
 
+        if (!empty($criterion->ratePlans)) {
+            $this->RatePlanCandidates = new RatePlanCandidates();
+
+            foreach ($criterion->ratePlans as $ratePlan) {
+                $this->RatePlanCandidates->RatePlanCandidate[] = new RoomStayCandidate()
+            }
+        }
+
         if (!empty($criterion->rooms)) {
             $this->RoomStayCandidates = new RoomStayCandidates();
 

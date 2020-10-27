@@ -22,36 +22,23 @@
 
 namespace Amadeus\Client\Struct\Hotel\MultiSingleAvailability;
 
-use Amadeus\Client\RequestOptions\Hotel\MultiSingleAvail\Room;
+use Amadeus\Client\RequestOptions\Hotel\MultiSingleAvail\Guest;
 
 /**
- * RoomStayCandidate
+ * MealsIncluded
  *
  * @package Amadeus\Client\Struct\Hotel\MultiSingleAvailability
  * @author Dieter Devlieghere <dieter.devlieghere@benelux.amadeus.com>
  */
-class RatePlanCandidate
+class MealsIncluded
 {
-    /**
-     * @var string
-     */
-    public $RatePlanCode;
+    public $MealPlanCodes
 
     /**
-     * @var MealsIncluded
+     * MealsIncluded constructor.
      */
-    public $MealsIncluded;
-
-
-    /**
-     * RatePlanCandidate constructor.
-     *
-     * @param Room $room
-     */
-    public function __construct(RatePlan $ratePlan)
+    public function __construct(string $mealPlanCodes)
     {
-        $this->RatePlanCode = $ratePlan->RatePlanCode;
-
-        $this->MealsIncluded = new MealsIncluded($ratePlan->MealPlanCode);
+        $this->MealPlanCodes = $mealPlanCodes;
     }
 }

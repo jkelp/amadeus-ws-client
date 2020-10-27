@@ -60,6 +60,11 @@ class Criteria extends LoadParamsFromArray
     public $rates = [];
 
     /**
+     * @var RatePlans[]
+     */
+    public $ratePlans = [];
+
+    /**
      * @var Room[]
      */
     public $rooms = [];
