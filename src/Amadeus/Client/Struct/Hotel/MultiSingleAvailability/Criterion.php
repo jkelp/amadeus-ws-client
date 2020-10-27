@@ -86,6 +86,24 @@ class Criterion extends HotelSearchCriterionType
             }
         }
 
+        if (!empty($criterion->rooms)) {
+            $this->RoomStayCandidates = new RoomStayCandidates();
+
+            foreach ($criterion->rooms as $room) {
+                $this->RoomStayCandidates->RoomStayCandidate[] = new RoomStayCandidate($room);
+            }
+        }
+
+        if (!empty($criterion->ratePlans)) {
+            $this->RatePlanCandidates = new RatePlanCandidates();
+
+            foreach ($criterion->ratePlans as $ratePlan) {
+                $this->RatePlanCandidates->RatePlanCandidate[] = new RatePlanCandidate($ratePlan);
+            }
+        }
+
+
+
         $this->AlternateAvailability = $criterion->alternateAvailability;
 
         $this->Radius = $criterion->radius;
