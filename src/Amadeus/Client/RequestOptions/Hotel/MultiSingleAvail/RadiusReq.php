@@ -25,16 +25,25 @@ namespace Amadeus\Client\RequestOptions\Hotel\MultiSingleAvail;
 use Amadeus\Client\LoadParamsFromArray;
 
 /**
- * RefPoint
+ * Rates
  *
  * @package Amadeus\Client\RequestOptions\Hotel\MultiSingleAvail
  * @author Dieter Devlieghere <dieter.devlieghere@benelux.amadeus.com>
  */
-class RefPoint extends LoadParamsFromArray
+class RadiusReq extends LoadParamsFromArray
 {
 
-    public $countryCode;
+    const UNIT_OF_MEASURE_CODE_MILES = 1;
 
-    public $name;
+    const UNIT_OF_MEASURE_CODE_KILOMETERS = 2;
 
+    const DISTANCE_MEASURE_SORT_BY_DISTANCE = 'DIS';
+
+    const DISTANCE_MEASURE_SORT_RANDOM = 'RND';
+
+    public $distance;
+
+    public $unitOfMeasureCode;
+
+    public $distanceMeasure;
 }

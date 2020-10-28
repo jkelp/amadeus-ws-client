@@ -84,19 +84,19 @@ class Criterion extends HotelSearchCriterionType
 // new tests
 
         if(!empty($criterion->radius)) {
-          $this->Radius = new Radius($criterion->radius)
+          $this->Radius = new Radius($criterion->radius);
         }
 
         if(!empty($criterion->award)) {
-          $this->Award = new Award($criterion->award)
+          $this->Award = new Award($criterion->award);
         }
 
         if(!empty($criterion->position)) {
-          $this->Positiion = new Position($criterion->position)
+          $this->Position = new Position($criterion->position);
         }
 
         if(!empty($criterion->refPoint)) {
-          $this->RefPoint = new RefPoint($criterion->refPoint)
+          $this->RefPoint = new RefPoint($criterion->refPoint);
         }
 
 

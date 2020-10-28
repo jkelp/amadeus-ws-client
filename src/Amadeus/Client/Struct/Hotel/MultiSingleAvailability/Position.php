@@ -22,7 +22,7 @@
 
 namespace Amadeus\Client\Struct\Hotel\MultiSingleAvailability;
 
-use Amadeus\Client\RequestOptions\Hotel\MultiSingleAvail\Radius;
+use Amadeus\Client\RequestOptions\Hotel\MultiSingleAvail\PositionReq;
 
 /**
  * Position
@@ -39,7 +39,7 @@ class Position
     /**
      * MealsIncluded constructor.
      */
-    public function __construct(Position $position)
+    public function __construct(PositionReq $position)
     {
         $this->Latitude = $position->latitude;
         $this->Longitude = $position->longitude;

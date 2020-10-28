@@ -22,6 +22,7 @@
 
 namespace Amadeus\Client\Struct\Hotel\MultiSingleAvailability;
 
+use Amadeus\Client\RequestOptions\Hotel\MultiSingleAvail\AwardReq;
 /**
  * Award
  *
@@ -34,7 +35,7 @@ class Award
 
   public $Rating;
 
-  public function __construct(Award $award)
+  public function __construct(AwardReq $award)
   {
       $this->Provider = $award->provider;
       $this->Rating = $award->rating;

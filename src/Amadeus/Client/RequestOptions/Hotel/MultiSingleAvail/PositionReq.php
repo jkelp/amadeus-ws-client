@@ -30,20 +30,19 @@ use Amadeus\Client\LoadParamsFromArray;
  * @package Amadeus\Client\RequestOptions\Hotel\MultiSingleAvail
  * @author Dieter Devlieghere <dieter.devlieghere@benelux.amadeus.com>
  */
-class Radius extends LoadParamsFromArray
+class PositionReq extends LoadParamsFromArray
 {
 
-    const UNIT_OF_MEASURE_CODE_MILES = 1;
+    public $latitude;
 
-    const UNIT_OF_MEASURE_CODE_KILOMETERS = 2;
+    public $longitude;
 
-    const DISTANCE_MEASURE_SORT_BY_DISTANCE = 'DIS';
+    public function __construct($params)
+    {
 
-    const DISTANCE_MEASURE_SORT_RANDOM = 'RND';
+        parent::__construct($params);
+        $this->latitude *= 10000;
+        $this->longitude *= 10000;
+    }
 
-    public $distance;
-
-    public $unitOfMeasureCode;
-
-    public $distanceMeasure;
 }

@@ -30,7 +30,7 @@ use Amadeus\Client\LoadParamsFromArray;
  * @package Amadeus\Client\RequestOptions\Hotel\MultiSingleAvail
  * @author Dieter Devlieghere <dieter.devlieghere@benelux.amadeus.com>
  */
-class Award extends LoadParamsFromArray
+class AwardReq extends LoadParamsFromArray
 {
 
     public $provider;

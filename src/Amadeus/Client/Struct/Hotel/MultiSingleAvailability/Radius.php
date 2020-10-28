@@ -22,7 +22,7 @@
 
 namespace Amadeus\Client\Struct\Hotel\MultiSingleAvailability;
 
-use Amadeus\Client\RequestOptions\Hotel\MultiSingleAvail\Radius;
+use Amadeus\Client\RequestOptions\Hotel\MultiSingleAvail\RadiusReq;
 
 /**
  * Radius
@@ -49,7 +49,7 @@ class Radius
     /**
      * MealsIncluded constructor.
      */
-    public function __construct(Radius $radius)
+    public function __construct(RadiusReq $radius)
     {
         $this->Distance = $radius->distance;
         $this->UnitOfMeasureCode = $radius->unitOfMeasureCode;

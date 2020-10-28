@@ -22,7 +22,7 @@
 
 namespace Amadeus\Client\Struct\Hotel\MultiSingleAvailability;
 
-use Amadeus\Client\RequestOptions\Hotel\MultiSingleAvail\Radius;
+use Amadeus\Client\RequestOptions\Hotel\MultiSingleAvail\RefPointReq;
 
 /**
  * RefPoint
@@ -39,7 +39,7 @@ class RefPoint
     /**
      * MealsIncluded constructor.
      */
-    public function __construct(RefPoint $refPoint)
+    public function __construct(RefPointReq $refPoint)
     {
         $this->CountryCode = $refPoint->countryCode;
         $this->Name = $refPoint->name;
