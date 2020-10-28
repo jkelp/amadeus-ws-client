@@ -22,21 +22,26 @@
 
 namespace Amadeus\Client\Struct\Hotel\MultiSingleAvailability;
 
+use Amadeus\Client\RequestOptions\Hotel\MultiSingleAvail\Radius;
+
 /**
- * Award
+ * RefPoint
  *
  * @package Amadeus\Client\Struct\Hotel\MultiSingleAvailability
  * @author Dieter Devlieghere <dieter.devlieghere@benelux.amadeus.com>
  */
-class Award
+class RefPoint
 {
-  public $Provider;
+  public $CountryCode;
 
-  public $Rating;
+  public $Name;
 
-  public function __construct(Award $award)
-  {
-      $this->Provider = $award->provider;
-      $this->Rating = $award->rating;
-  }
+    /**
+     * MealsIncluded constructor.
+     */
+    public function __construct(RefPoint $refPoint)
+    {
+        $this->CountryCode = $refPoint->countryCode;
+        $this->Name = $refPoint->name;
+    }
 }

@@ -22,21 +22,37 @@
 
 namespace Amadeus\Client\Struct\Hotel\MultiSingleAvailability;
 
+use Amadeus\Client\RequestOptions\Hotel\MultiSingleAvail\Radius;
+
 /**
- * Award
+ * Radius
  *
  * @package Amadeus\Client\Struct\Hotel\MultiSingleAvailability
  * @author Dieter Devlieghere <dieter.devlieghere@benelux.amadeus.com>
  */
-class Award
+class Radius
 {
-  public $Provider;
+  const UNIT_OF_MEASURE_CODE_MILES = 1;
 
-  public $Rating;
+  const UNIT_OF_MEASURE_CODE_KILOMETERS = 2;
 
-  public function __construct(Award $award)
-  {
-      $this->Provider = $award->provider;
-      $this->Rating = $award->rating;
-  }
+  const DISTANCE_MEASURE_SORT_BY_DISTANCE = 'DIS';
+
+  const DISTANCE_MEASURE_SORT_RANDOM = 'RND';
+
+  public $Distance;
+
+  public $UnitOfMeasureCode;
+
+  public $DistanceMeasure;
+
+    /**
+     * MealsIncluded constructor.
+     */
+    public function __construct(Radius $radius)
+    {
+        $this->Distance = $radius->distance;
+        $this->UnitOfMeasureCode = $radius->unitOfMeasureCode;
+        $this->DistanceMeasure = $radius->distanceMeasure;
+    }
 }
