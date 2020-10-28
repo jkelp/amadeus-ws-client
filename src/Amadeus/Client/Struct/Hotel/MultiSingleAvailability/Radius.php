@@ -20,30 +20,39 @@
  * @license https://opensource.org/licenses/Apache-2.0 Apache 2.0
  */
 
-namespace Amadeus\Client\RequestOptions\Hotel\MultiSingleAvail;
+namespace Amadeus\Client\Struct\Hotel\MultiSingleAvailability;
 
-use Amadeus\Client\LoadParamsFromArray;
+use Amadeus\Client\RequestOptions\Hotel\MultiSingleAvail\RadiusReq;
 
 /**
- * Rates
+ * Radius
  *
- * @package Amadeus\Client\RequestOptions\Hotel\MultiSingleAvail
+ * @package Amadeus\Client\Struct\Hotel\MultiSingleAvailability
  * @author Dieter Devlieghere <dieter.devlieghere@benelux.amadeus.com>
  */
-class Radius extends LoadParamsFromArray
+class Radius
 {
+  const UNIT_OF_MEASURE_CODE_MILES = 1;
 
-    const UNIT_OF_MEASURE_CODE_MILES = 1;
+  const UNIT_OF_MEASURE_CODE_KILOMETERS = 2;
 
-    const UNIT_OF_MEASURE_CODE_KILOMETERS = 2;
+  const DISTANCE_MEASURE_SORT_BY_DISTANCE = 'DIS';
 
-    const DISTANCE_MEASURE_SORT_BY_DISTANCE = 'DIS';
+  const DISTANCE_MEASURE_SORT_RANDOM = 'RND';
 
-    const DISTANCE_MEASURE_SORT_RANDOM = 'RND';
+  public $Distance;
 
-    public $distance;
+  public $UnitOfMeasureCode;
 
-    public $unitOfMeasureCode;
+  public $DistanceMeasure;
 
-    public $distanceMeasure;
+    /**
+     * MealsIncluded constructor.
+     */
+    public function __construct(RadiusReq $radius)
+    {
+        $this->Distance = $radius->distance;
+        $this->UnitOfMeasureCode = $radius->unitOfMeasureCode;
+        $this->DistanceMeasure = $radius->distanceMeasure;
+    }
 }

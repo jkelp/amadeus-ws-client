@@ -20,24 +20,30 @@
  * @license https://opensource.org/licenses/Apache-2.0 Apache 2.0
  */
 
-namespace Amadeus\Client\Struct\Hotel\MultiSingleAvailability;
+namespace Amadeus\Client\RequestOptions\Hotel\MultiSingleAvail;
 
-use Amadeus\Client\RequestOptions\Hotel\MultiSingleAvail\AwardReq;
+use Amadeus\Client\LoadParamsFromArray;
+
 /**
- * Award
+ * Rates
  *
- * @package Amadeus\Client\Struct\Hotel\MultiSingleAvailability
+ * @package Amadeus\Client\RequestOptions\Hotel\MultiSingleAvail
  * @author Dieter Devlieghere <dieter.devlieghere@benelux.amadeus.com>
  */
-class Award
+class RadiusReq extends LoadParamsFromArray
 {
-  public $Provider;
 
-  public $Rating;
+    const UNIT_OF_MEASURE_CODE_MILES = 1;
 
-  public function __construct(AwardReq $award)
-  {
-      $this->Provider = $award->provider;
-      $this->Rating = $award->rating;
-  }
+    const UNIT_OF_MEASURE_CODE_KILOMETERS = 2;
+
+    const DISTANCE_MEASURE_SORT_BY_DISTANCE = 'DIS';
+
+    const DISTANCE_MEASURE_SORT_RANDOM = 'RND';
+
+    public $distance;
+
+    public $unitOfMeasureCode;
+
+    public $distanceMeasure;
 }

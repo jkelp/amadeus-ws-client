@@ -25,10 +25,10 @@ namespace Test\Amadeus\Client\Struct\Hotel\MultiSingleAvailability;
 use Amadeus\Client\RequestOptions\Hotel\MultiSingleAvail\Criteria;
 use Amadeus\Client\RequestOptions\Hotel\MultiSingleAvail\Guest;
 use Amadeus\Client\RequestOptions\Hotel\MultiSingleAvail\HotelReference;
-use Amadeus\Client\RequestOptions\Hotel\MultiSingleAvail\Radius;
-use Amadeus\Client\RequestOptions\Hotel\MultiSingleAvail\Award;
-use Amadeus\Client\RequestOptions\Hotel\MultiSingleAvail\Position;
-use Amadeus\Client\RequestOptions\Hotel\MultiSingleAvail\RefPoint;
+use Amadeus\Client\RequestOptions\Hotel\MultiSingleAvail\RadiusReq;
+use Amadeus\Client\RequestOptions\Hotel\MultiSingleAvail\AwardReq;
+use Amadeus\Client\RequestOptions\Hotel\MultiSingleAvail\PositionReq;
+use Amadeus\Client\RequestOptions\Hotel\MultiSingleAvail\RefPointReq;
 use Amadeus\Client\RequestOptions\Hotel\MultiSingleAvail\Rates;
 use Amadeus\Client\RequestOptions\Hotel\MultiSingleAvail\Room;
 use Amadeus\Client\RequestOptions\Hotel\MultiSingleAvail\Segment;
@@ -55,20 +55,20 @@ class HotelMultiSingleAvailabilityTest extends BaseTestCase
                             'exactMatch' => true,
                             'stayStart' => \DateTime::createFromFormat('Y-m-d', '2017-12-28'),
                             'stayEnd' => \DateTime::createFromFormat('Y-m-d', '2017-12-29'),
-                            'radius' => new Radius([
+                            'radius' => new RadiusReq([
                                 'distance' => 10,
-                                'unitOfMeasureCode' => Radius::UNIT_OF_MEASURE_CODE_MILES,
-                                'distanceMeasure' => Radius::DISTANCE_MEASURE_SORT_BY_DISTANCE,
+                                'unitOfMeasureCode' => RadiusReq::UNIT_OF_MEASURE_CODE_MILES,
+                                'distanceMeasure' => RadiusReq::DISTANCE_MEASURE_SORT_BY_DISTANCE,
                             ]),
-                            'position' => new Position([
+                            'position' => new PositionReq([
                                 'latitude' => 42.4627,
                                 'longitude' => -24.4610
                             ]),
-                            'award' => new Award([
+                            'award' => new AwardReq([
                                 'provider' => 'LSR',
                                 'rating' => 5
                             ]),
-                            'refPoint' => new refPoint([
+                            'refPoint' => new refPointReq([
                                 'countryCode' => 'ES',
                                 'name' => 'MUSEO DEL PRADO'
                             ]),
@@ -127,21 +127,21 @@ class HotelMultiSingleAvailabilityTest extends BaseTestCase
         $this->assertEquals('RT', $msg->AvailRequestSegments->AvailRequestSegment[0]->HotelSearchCriteria->Criterion[0]->HotelRef[0]->ChainCode);
 
         // $this->assertCount(1, $msg->AvailRequestSegments->AvailRequestSegment[0]->HotelSearchCriteria->Criterion[0]->Radius);
-        $this->assertEquals(10, $msg->AvailRequestSegments->AvailRequestSegment[0]->HotelSearchCriteria->Criterion[0]->Radius->distance);
-        $this->assertEquals(1, $msg->AvailRequestSegments->AvailRequestSegment[0]->HotelSearchCriteria->Criterion[0]->Radius->unitOfMeasureCode);
-        $this->assertEquals('DIS', $msg->AvailRequestSegments->AvailRequestSegment[0]->HotelSearchCriteria->Criterion[0]->Radius->distanceMeasure);
+        $this->assertEquals(10, $msg->AvailRequestSegments->AvailRequestSegment[0]->HotelSearchCriteria->Criterion[0]->Radius->Distance);
+        $this->assertEquals(1, $msg->AvailRequestSegments->AvailRequestSegment[0]->HotelSearchCriteria->Criterion[0]->Radius->UnitOfMeasureCode);
+        $this->assertEquals('DIS', $msg->AvailRequestSegments->AvailRequestSegment[0]->HotelSearchCriteria->Criterion[0]->Radius->DistanceMeasure);
 
 
         // $this->assertCount(1, $msg->AvailRequestSegments->AvailRequestSegment[0]->HotelSearchCriteria->Criterion[0]->Position);
-        $this->assertEquals(424627, $msg->AvailRequestSegments->AvailRequestSegment[0]->HotelSearchCriteria->Criterion[0]->Position->latitude);
-        $this->assertEquals(-244610, $msg->AvailRequestSegments->AvailRequestSegment[0]->HotelSearchCriteria->Criterion[0]->Position->longitude);
+        $this->assertEquals(424627, $msg->AvailRequestSegments->AvailRequestSegment[0]->HotelSearchCriteria->Criterion[0]->Position->Latitude);
+        $this->assertEquals(-244610, $msg->AvailRequestSegments->AvailRequestSegment[0]->HotelSearchCriteria->Criterion[0]->Position->Longitude);
 
         // $this->assertCount(1, $msg->AvailRequestSegments->AvailRequestSegment[0]->HotelSearchCriteria->Criterion[0]->Award);
-        $this->assertEquals('LSR', $msg->AvailRequestSegments->AvailRequestSegment[0]->HotelSearchCriteria->Criterion[0]->Award->provider);
-        $this->assertEquals(5, $msg->AvailRequestSegments->AvailRequestSegment[0]->HotelSearchCriteria->Criterion[0]->Award->rating);
+        $this->assertEquals('LSR', $msg->AvailRequestSegments->AvailRequestSegment[0]->HotelSearchCriteria->Criterion[0]->Award->Provider);
+        $this->assertEquals(5, $msg->AvailRequestSegments->AvailRequestSegment[0]->HotelSearchCriteria->Criterion[0]->Award->Rating);
 
         // $this->assertCount(1, $msg->AvailRequestSegments->AvailRequestSegment[0]->HotelSearchCriteria->Criterion[0]->RefPoint);
-        $this->assertEquals('ES', $msg->AvailRequestSegments->AvailRequestSegment[0]->HotelSearchCriteria->Criterion[0]->refPoint->countryCode);
-        $this->assertEquals('MUSEO DEL PRADO', $msg->AvailRequestSegments->AvailRequestSegment[0]->HotelSearchCriteria->Criterion[0]->refPoint->name);
+        $this->assertEquals('ES', $msg->AvailRequestSegments->AvailRequestSegment[0]->HotelSearchCriteria->Criterion[0]->RefPoint->CountryCode);
+        $this->assertEquals('MUSEO DEL PRADO', $msg->AvailRequestSegments->AvailRequestSegment[0]->HotelSearchCriteria->Criterion[0]->RefPoint->Name);
     }
 }

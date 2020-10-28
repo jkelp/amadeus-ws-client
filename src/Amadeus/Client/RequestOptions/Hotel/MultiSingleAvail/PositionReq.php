@@ -20,24 +20,29 @@
  * @license https://opensource.org/licenses/Apache-2.0 Apache 2.0
  */
 
-namespace Amadeus\Client\Struct\Hotel\MultiSingleAvailability;
+namespace Amadeus\Client\RequestOptions\Hotel\MultiSingleAvail;
 
-use Amadeus\Client\RequestOptions\Hotel\MultiSingleAvail\AwardReq;
+use Amadeus\Client\LoadParamsFromArray;
+
 /**
- * Award
+ * Rates
  *
- * @package Amadeus\Client\Struct\Hotel\MultiSingleAvailability
+ * @package Amadeus\Client\RequestOptions\Hotel\MultiSingleAvail
  * @author Dieter Devlieghere <dieter.devlieghere@benelux.amadeus.com>
  */
-class Award
+class PositionReq extends LoadParamsFromArray
 {
-  public $Provider;
 
-  public $Rating;
+    public $latitude;
 
-  public function __construct(AwardReq $award)
-  {
-      $this->Provider = $award->provider;
-      $this->Rating = $award->rating;
-  }
+    public $longitude;
+
+    public function __construct($params)
+    {
+
+        parent::__construct($params);
+        $this->latitude *= 10000;
+        $this->longitude *= 10000;
+    }
+
 }

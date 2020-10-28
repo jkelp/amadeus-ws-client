@@ -25,24 +25,16 @@ namespace Amadeus\Client\RequestOptions\Hotel\MultiSingleAvail;
 use Amadeus\Client\LoadParamsFromArray;
 
 /**
- * Rates
+ * RefPoint
  *
  * @package Amadeus\Client\RequestOptions\Hotel\MultiSingleAvail
  * @author Dieter Devlieghere <dieter.devlieghere@benelux.amadeus.com>
  */
-class Position extends LoadParamsFromArray
+class RefPointReq extends LoadParamsFromArray
 {
 
-    public $latitude;
+    public $countryCode;
 
-    public $longitude;
-
-    public function __construct($params)
-    {
-
-        parent::__construct($params);
-        $this->latitude *= 10000;
-        $this->longitude *= 10000;
-    }
+    public $name;
 
 }

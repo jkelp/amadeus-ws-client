@@ -20,21 +20,28 @@
  * @license https://opensource.org/licenses/Apache-2.0 Apache 2.0
  */
 
-namespace Amadeus\Client\RequestOptions\Hotel\MultiSingleAvail;
+namespace Amadeus\Client\Struct\Hotel\MultiSingleAvailability;
 
-use Amadeus\Client\LoadParamsFromArray;
+use Amadeus\Client\RequestOptions\Hotel\MultiSingleAvail\RefPointReq;
 
 /**
- * Rates
+ * RefPoint
  *
- * @package Amadeus\Client\RequestOptions\Hotel\MultiSingleAvail
+ * @package Amadeus\Client\Struct\Hotel\MultiSingleAvailability
  * @author Dieter Devlieghere <dieter.devlieghere@benelux.amadeus.com>
  */
-class RefPoint extends LoadParamsFromArray
+class RefPoint
 {
+  public $CountryCode;
 
-    public $countryCode;
+  public $Name;
 
-    public $name;
-
+    /**
+     * MealsIncluded constructor.
+     */
+    public function __construct(RefPointReq $refPoint)
+    {
+        $this->CountryCode = $refPoint->countryCode;
+        $this->Name = $refPoint->name;
+    }
 }
