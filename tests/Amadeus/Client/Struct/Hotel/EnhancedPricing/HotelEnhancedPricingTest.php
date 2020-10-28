@@ -32,6 +32,7 @@ use Amadeus\Client\RequestOptions\Hotel\MultiSingleAvail\RefPoint;
 use Amadeus\Client\RequestOptions\Hotel\MultiSingleAvail\Rates;
 use Amadeus\Client\RequestOptions\Hotel\MultiSingleAvail\Room;
 use Amadeus\Client\RequestOptions\Hotel\MultiSingleAvail\Segment;
+use Amadeus\Client\RequestOptions\Hotel\MultiSingleAvail\RatePlan;
 use Amadeus\Client\RequestOptions\HotelEnhancedPricingOptions;
 use Amadeus\Client\Struct\Hotel\EnhancedPricing;
 use Test\Amadeus\BaseTestCase;
@@ -52,7 +53,6 @@ class HotelEnhancedPricingTest extends BaseTestCase
                     'infoSource' => Segment::SOURCE_DISTRIBUTION,
                     'criteria' => [
                         new Criteria([
-                            'exactMatch' => true,
                             'stayStart' => \DateTime::createFromFormat('Y-m-d', '2017-12-28'),
                             'stayEnd' => \DateTime::createFromFormat('Y-m-d', '2017-12-29'),
                             'hotelReferences' => [
@@ -60,13 +60,6 @@ class HotelEnhancedPricingTest extends BaseTestCase
                                     'chainCode' => 'RT',
                                     'cityCode' => 'VIE',
                                     'name' => 'SOFITEL VIENNA'
-                                ])
-                            ],
-                            'rates' => [
-                                new Rates([
-                                    'min' => 100.0,
-                                    'max' => 400.0,
-                                    'timeUnit' => Rates::TIMEUNIT_DAY
                                 ])
                             ],
                             'rooms' => [
@@ -80,6 +73,12 @@ class HotelEnhancedPricingTest extends BaseTestCase
                                         ])
                                     ]
                                 ])
+                            ],
+                            'ratePlans' => [
+                              new RatePlan([
+                                'RatePlanCode' => 'PM4',
+                                'MealPlanCode' => '3'
+                              ])
                             ]
                         ])
                     ]
@@ -90,41 +89,41 @@ class HotelEnhancedPricingTest extends BaseTestCase
         //print_r($opt);
         //exit;
 
-        $msg = new MultiSingleAvailability($opt);
+        $msg = new EnhancedPricing($opt);
 
         print_r($msg);
         exit;
 
-        $this->assertEquals('MultiSingle', $msg->EchoToken);
-        $this->assertEquals('4.000', $msg->Version);
-        $this->assertTrue($msg->SummaryOnly);
-        $this->assertTrue($msg->RateRangeOnly);
-        $this->assertTrue($msg->RateDetailsInd);
-
-        $this->assertCount(1, $msg->AvailRequestSegments->AvailRequestSegment);
-        $this->assertEquals('Distribution', $msg->AvailRequestSegments->AvailRequestSegment[0]->InfoSource);
-
-        $this->assertCount(1, $msg->AvailRequestSegments->AvailRequestSegment[0]->HotelSearchCriteria->Criterion);
-        $this->assertTrue($msg->AvailRequestSegments->AvailRequestSegment[0]->HotelSearchCriteria->Criterion[0]->ExactMatch);
-        $this->assertCount(1, $msg->AvailRequestSegments->AvailRequestSegment[0]->HotelSearchCriteria->Criterion[0]->HotelRef);
-        $this->assertEquals('RT', $msg->AvailRequestSegments->AvailRequestSegment[0]->HotelSearchCriteria->Criterion[0]->HotelRef[0]->ChainCode);
-
-        // $this->assertCount(1, $msg->AvailRequestSegments->AvailRequestSegment[0]->HotelSearchCriteria->Criterion[0]->Radius);
-        $this->assertEquals(10, $msg->AvailRequestSegments->AvailRequestSegment[0]->HotelSearchCriteria->Criterion[0]->Radius->distance);
-        $this->assertEquals(1, $msg->AvailRequestSegments->AvailRequestSegment[0]->HotelSearchCriteria->Criterion[0]->Radius->unitOfMeasureCode);
-        $this->assertEquals('DIS', $msg->AvailRequestSegments->AvailRequestSegment[0]->HotelSearchCriteria->Criterion[0]->Radius->distanceMeasure);
-
-
-        // $this->assertCount(1, $msg->AvailRequestSegments->AvailRequestSegment[0]->HotelSearchCriteria->Criterion[0]->Position);
-        $this->assertEquals(424627, $msg->AvailRequestSegments->AvailRequestSegment[0]->HotelSearchCriteria->Criterion[0]->Position->latitude);
-        $this->assertEquals(-244610, $msg->AvailRequestSegments->AvailRequestSegment[0]->HotelSearchCriteria->Criterion[0]->Position->longitude);
-
-        // $this->assertCount(1, $msg->AvailRequestSegments->AvailRequestSegment[0]->HotelSearchCriteria->Criterion[0]->Award);
-        $this->assertEquals('LSR', $msg->AvailRequestSegments->AvailRequestSegment[0]->HotelSearchCriteria->Criterion[0]->Award->provider);
-        $this->assertEquals(5, $msg->AvailRequestSegments->AvailRequestSegment[0]->HotelSearchCriteria->Criterion[0]->Award->rating);
-
-        // $this->assertCount(1, $msg->AvailRequestSegments->AvailRequestSegment[0]->HotelSearchCriteria->Criterion[0]->RefPoint);
-        $this->assertEquals('ES', $msg->AvailRequestSegments->AvailRequestSegment[0]->HotelSearchCriteria->Criterion[0]->refPoint->countryCode);
-        $this->assertEquals('MUSEO DEL PRADO', $msg->AvailRequestSegments->AvailRequestSegment[0]->HotelSearchCriteria->Criterion[0]->refPoint->name);
+        // $this->assertEquals('MultiSingle', $msg->EchoToken);
+        // $this->assertEquals('4.000', $msg->Version);
+        // $this->assertTrue($msg->SummaryOnly);
+        // $this->assertTrue($msg->RateRangeOnly);
+        // $this->assertTrue($msg->RateDetailsInd);
+        //
+        // $this->assertCount(1, $msg->AvailRequestSegments->AvailRequestSegment);
+        // $this->assertEquals('Distribution', $msg->AvailRequestSegments->AvailRequestSegment[0]->InfoSource);
+        //
+        // $this->assertCount(1, $msg->AvailRequestSegments->AvailRequestSegment[0]->HotelSearchCriteria->Criterion);
+        // $this->assertTrue($msg->AvailRequestSegments->AvailRequestSegment[0]->HotelSearchCriteria->Criterion[0]->ExactMatch);
+        // $this->assertCount(1, $msg->AvailRequestSegments->AvailRequestSegment[0]->HotelSearchCriteria->Criterion[0]->HotelRef);
+        // $this->assertEquals('RT', $msg->AvailRequestSegments->AvailRequestSegment[0]->HotelSearchCriteria->Criterion[0]->HotelRef[0]->ChainCode);
+        //
+        // // $this->assertCount(1, $msg->AvailRequestSegments->AvailRequestSegment[0]->HotelSearchCriteria->Criterion[0]->Radius);
+        // $this->assertEquals(10, $msg->AvailRequestSegments->AvailRequestSegment[0]->HotelSearchCriteria->Criterion[0]->Radius->distance);
+        // $this->assertEquals(1, $msg->AvailRequestSegments->AvailRequestSegment[0]->HotelSearchCriteria->Criterion[0]->Radius->unitOfMeasureCode);
+        // $this->assertEquals('DIS', $msg->AvailRequestSegments->AvailRequestSegment[0]->HotelSearchCriteria->Criterion[0]->Radius->distanceMeasure);
+        //
+        //
+        // // $this->assertCount(1, $msg->AvailRequestSegments->AvailRequestSegment[0]->HotelSearchCriteria->Criterion[0]->Position);
+        // $this->assertEquals(424627, $msg->AvailRequestSegments->AvailRequestSegment[0]->HotelSearchCriteria->Criterion[0]->Position->latitude);
+        // $this->assertEquals(-244610, $msg->AvailRequestSegments->AvailRequestSegment[0]->HotelSearchCriteria->Criterion[0]->Position->longitude);
+        //
+        // // $this->assertCount(1, $msg->AvailRequestSegments->AvailRequestSegment[0]->HotelSearchCriteria->Criterion[0]->Award);
+        // $this->assertEquals('LSR', $msg->AvailRequestSegments->AvailRequestSegment[0]->HotelSearchCriteria->Criterion[0]->Award->provider);
+        // $this->assertEquals(5, $msg->AvailRequestSegments->AvailRequestSegment[0]->HotelSearchCriteria->Criterion[0]->Award->rating);
+        //
+        // // $this->assertCount(1, $msg->AvailRequestSegments->AvailRequestSegment[0]->HotelSearchCriteria->Criterion[0]->RefPoint);
+        // $this->assertEquals('ES', $msg->AvailRequestSegments->AvailRequestSegment[0]->HotelSearchCriteria->Criterion[0]->refPoint->countryCode);
+        // $this->assertEquals('MUSEO DEL PRADO', $msg->AvailRequestSegments->AvailRequestSegment[0]->HotelSearchCriteria->Criterion[0]->refPoint->name);
     }
 }

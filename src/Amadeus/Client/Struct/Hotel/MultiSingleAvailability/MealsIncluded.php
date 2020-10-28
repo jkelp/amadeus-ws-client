@@ -22,8 +22,6 @@
 
 namespace Amadeus\Client\Struct\Hotel\MultiSingleAvailability;
 
-use Amadeus\Client\RequestOptions\Hotel\MultiSingleAvail\Guest;
-
 /**
  * MealsIncluded
  *
@@ -32,7 +30,7 @@ use Amadeus\Client\RequestOptions\Hotel\MultiSingleAvail\Guest;
  */
 class MealsIncluded
 {
-    public $MealPlanCodes
+    public $MealPlanCodes;
 
     /**
      * MealsIncluded constructor.

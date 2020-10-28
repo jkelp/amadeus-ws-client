@@ -38,7 +38,7 @@ class RatePlan extends LoadParamsFromArray
     public $RatePlanCode;
 
     /**
-     * @var object
+     * @var string
      */
     public $MealPlanCode;
 

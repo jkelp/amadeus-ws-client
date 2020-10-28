@@ -20,7 +20,7 @@
  * @license https://opensource.org/licenses/Apache-2.0 Apache 2.0
  */
 
-namespace Test\Amadeus\Client\Struct\Hotel;
+namespace Test\Amadeus\Client\Struct\Hotel\MultiSingleAvailability;
 
 use Amadeus\Client\RequestOptions\Hotel\MultiSingleAvail\Criteria;
 use Amadeus\Client\RequestOptions\Hotel\MultiSingleAvail\Guest;
@@ -109,8 +109,8 @@ class HotelMultiSingleAvailabilityTest extends BaseTestCase
 
         $msg = new MultiSingleAvailability($opt);
 
-        print_r($msg);
-        exit;
+        // print_r($msg);
+        // exit;
 
         $this->assertEquals('MultiSingle', $msg->EchoToken);
         $this->assertEquals('4.000', $msg->Version);

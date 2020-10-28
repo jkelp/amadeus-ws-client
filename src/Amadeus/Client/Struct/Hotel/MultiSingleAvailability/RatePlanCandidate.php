@@ -22,7 +22,7 @@
 
 namespace Amadeus\Client\Struct\Hotel\MultiSingleAvailability;
 
-use Amadeus\Client\RequestOptions\Hotel\MultiSingleAvail\Room;
+use Amadeus\Client\RequestOptions\Hotel\MultiSingleAvail\RatePlan;
 
 /**
  * RoomStayCandidate
@@ -46,7 +46,7 @@ class RatePlanCandidate
     /**
      * RatePlanCandidate constructor.
      *
-     * @param Room $room
+     * @param RatePlan $room
      */
     public function __construct(RatePlan $ratePlan)
     {

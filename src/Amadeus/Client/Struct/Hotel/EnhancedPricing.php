@@ -34,7 +34,7 @@ use Amadeus\Client\Struct\Hotel\MultiSingleAvailability\AvailRequestSegments;
  * @package Amadeus\Client\Struct\Hotel
  * @author Dieter Devlieghere <dieter.devlieghere@benelux.amadeus.com>
  */
-class MultiSingleAvailability extends BaseWsMessage
+class EnhancedPricing extends BaseWsMessage
 {
     /**
      * @var string
