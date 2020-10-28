@@ -54,14 +54,14 @@ class HotelEnhancedPricingOptions extends Base
      *
      * @var bool
      */
-    public $rateRangeOnly = false;
+    public $rateRangeOnly;
 
     /**
      * Summary information in the response?
      *
      * @var bool
      */
-    public $summaryOnly = false;
+    public $summaryOnly;
 
     /**
      * Should response contain room rate details?
@@ -82,7 +82,7 @@ class HotelEnhancedPricingOptions extends Base
      *
      * @var string
      */
-    public $languageCode = 'EN';
+    public $languageCode = 'en';
 
 
     /**
@@ -95,7 +95,7 @@ class HotelEnhancedPricingOptions extends Base
     /**
      * @var string
      */
-    public $version = "4.000";
+    public $version = "6.001";
 
     /**
      * Show only those rates that are an exact match to the requested criteria?

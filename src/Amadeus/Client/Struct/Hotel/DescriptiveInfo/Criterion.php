@@ -20,9 +20,9 @@
  * @license https://opensource.org/licenses/Apache-2.0 Apache 2.0
  */
 
-namespace Amadeus\Client\Struct\Hotel\MultiSingleAvailability;
+namespace Amadeus\Client\Struct\Hotel\EnhancedPricing;
 
-use Amadeus\Client\RequestOptions\Hotel\MultiSingleAvail\Criteria;
+use Amadeus\Client\RequestOptions\Hotel\EnhancedPricing\Criteria;
 
 /**
  * Criterion

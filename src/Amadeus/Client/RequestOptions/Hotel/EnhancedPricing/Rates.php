@@ -20,7 +20,7 @@
  * @license https://opensource.org/licenses/Apache-2.0 Apache 2.0
  */
 
-namespace Amadeus\Client\RequestOptions\Hotel\MultiSingleAvail;
+namespace Amadeus\Client\RequestOptions\Hotel\EnhancedPricing;
 
 use Amadeus\Client\LoadParamsFromArray;
 
@@ -30,11 +30,38 @@ use Amadeus\Client\LoadParamsFromArray;
  * @package Amadeus\Client\RequestOptions\Hotel\MultiSingleAvail
  * @author Dieter Devlieghere <dieter.devlieghere@benelux.amadeus.com>
  */
-class Award extends LoadParamsFromArray
+class Rates extends LoadParamsFromArray
 {
+    const TIMEUNIT_YEAR = "Year";
+    const TIMEUNIT_MONTH = "Month";
+    const TIMEUNIT_WEEK = "Week";
+    const TIMEUNIT_DAY = "Day";
+    const TIMEUNIT_HOUR = "Hour";
+    const TIMEUNIT_SECOND = "Second";
+    const TIMEUNIT_FULL_DURATION = "FullDuration";
+    const TIMEUNIT_MINUTE = "Minute";
 
-    public $provider;
+    /**
+     * @var double
+     */
+    public $min;
 
-    public $rating;
+    /**
+     * @var double
+     */
+    public $max;
 
+    /**
+     * self::TIMEUNIT_*
+     *
+     * @var string
+     */
+    public $timeUnit;
+
+    /**
+     * 3-character ISO currency code
+     *
+     * @var string
+     */
+    public $currency;
 }

@@ -20,21 +20,23 @@
  * @license https://opensource.org/licenses/Apache-2.0 Apache 2.0
  */
 
-namespace Amadeus\Client\RequestOptions\Hotel\EnhancedPricing;
-
-use Amadeus\Client\LoadParamsFromArray;
+namespace Amadeus\Client\Struct\Hotel\EnhancedPricing;
 
 /**
- * Rates
+ * MealsIncluded
  *
- * @package Amadeus\Client\RequestOptions\Hotel\MultiSingleAvail
+ * @package Amadeus\Client\Struct\Hotel\MultiSingleAvailability
  * @author Dieter Devlieghere <dieter.devlieghere@benelux.amadeus.com>
  */
-class Award extends LoadParamsFromArray
+class MealsIncluded
 {
+    public $MealPlanCodes;
 
-    public $provider;
-
-    public $rating;
-
+    /**
+     * MealsIncluded constructor.
+     */
+    public function __construct(string $mealPlanCodes)
+    {
+        $this->MealPlanCodes = $mealPlanCodes;
+    }
 }

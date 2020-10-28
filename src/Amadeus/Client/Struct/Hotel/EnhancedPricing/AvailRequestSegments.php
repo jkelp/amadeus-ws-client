@@ -20,21 +20,14 @@
  * @license https://opensource.org/licenses/Apache-2.0 Apache 2.0
  */
 
-namespace Amadeus\Client\RequestOptions\Hotel\MultiSingleAvail;
-
-use Amadeus\Client\LoadParamsFromArray;
+namespace Amadeus\Client\Struct\Hotel\EnhancedPricing;
 
 /**
- * Rates
+ * AvailRequestSegments
  *
- * @package Amadeus\Client\RequestOptions\Hotel\MultiSingleAvail
+ * @package Amadeus\Client\Struct\Hotel\MultiSingleAvailability
  * @author Dieter Devlieghere <dieter.devlieghere@benelux.amadeus.com>
  */
-class Award extends LoadParamsFromArray
+class AvailRequestSegments extends AvailRequestSegmentsType
 {
-
-    public $provider;
-
-    public $rating;
-
 }
