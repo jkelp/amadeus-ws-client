@@ -20,48 +20,29 @@
  * @license https://opensource.org/licenses/Apache-2.0 Apache 2.0
  */
 
-namespace Amadeus\Client\RequestOptions\Hotel\EnhancedPricing;
-
-use Amadeus\Client\LoadParamsFromArray;
+namespace Amadeus\Client\Struct\Hotel\DescriptiveInfo;
 
 /**
- * Rates
+ * ContentInfo
  *
- * @package Amadeus\Client\RequestOptions\Hotel\MultiSingleAvail
+ * @package Amadeus\Client\Struct\Hotel\DescriptiveInfo
  * @author Dieter Devlieghere <dieter.devlieghere@benelux.amadeus.com>
  */
-class Rates extends LoadParamsFromArray
+class ContentInfo
 {
-    const TIMEUNIT_YEAR = "Year";
-    const TIMEUNIT_MONTH = "Month";
-    const TIMEUNIT_WEEK = "Week";
-    const TIMEUNIT_DAY = "Day";
-    const TIMEUNIT_HOUR = "Hour";
-    const TIMEUNIT_SECOND = "Second";
-    const TIMEUNIT_FULL_DURATION = "FullDuration";
-    const TIMEUNIT_MINUTE = "Minute";
-
     /**
-     * @var double
-     */
-    public $min;
-
-    /**
-     * @var double
-     */
-    public $max;
-
-    /**
-     * self::TIMEUNIT_*
-     *
      * @var string
      */
-    public $timeUnit;
+    public $Name;
 
     /**
-     * 3-character ISO currency code
+     * ContentInfo constructor.
      *
-     * @var string
+     * @param string $name
      */
-    public $currency;
+    public function __construct($name)
+    {
+        $this->Name = $name;
+
+    }
 }

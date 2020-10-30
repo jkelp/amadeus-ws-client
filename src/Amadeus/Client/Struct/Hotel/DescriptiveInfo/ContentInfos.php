@@ -20,21 +20,32 @@
  * @license https://opensource.org/licenses/Apache-2.0 Apache 2.0
  */
 
-namespace Amadeus\Client\RequestOptions\Hotel\EnhancedPricing;
-
-use Amadeus\Client\LoadParamsFromArray;
+namespace Amadeus\Client\Struct\Hotel\DescriptiveInfo;
 
 /**
- * Rates
+ * GuestCounts
  *
- * @package Amadeus\Client\RequestOptions\Hotel\MultiSingleAvail
+ * @package Amadeus\Client\Struct\Hotel\DescriptiveInfo
  * @author Dieter Devlieghere <dieter.devlieghere@benelux.amadeus.com>
  */
-class RefPoint extends LoadParamsFromArray
+class ContentInfos
 {
 
-    public $countryCode;
+    /**
+     * @var ContentInfo[]
+     */
+    public $ContentInfo = [];
 
-    public $name;
+    /**
+     * ContentInfos constructor.
+     *
+     * @param ContentInfo[] $infos
+     */
+    public function __construct($infos)
+    {
 
+        foreach ($infos as $info) {
+            $this->ContentInfo[] = new ContentInfo($info->name);
+        }
+    }
 }

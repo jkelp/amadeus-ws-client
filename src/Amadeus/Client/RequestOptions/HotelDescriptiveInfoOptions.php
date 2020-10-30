@@ -28,24 +28,13 @@ namespace Amadeus\Client\RequestOptions;
  * @package Amadeus\Client\RequestOptions
  * @author Dieter Devlieghere <dieter.devlieghere@benelux.amadeus.com>
  */
-class HotelEnhancedPricingOptions extends Base
+class HotelDescriptiveInfoOptions extends Base
 {
-    const SORT_NONE = "N";
-    const SORT_CHEAPEST_FIRST = "RA";
-    const SORT_CHEAPEST_LAST = "RD";
-    const SORT_PROPERTY_CODE_ALPHABETIC = "CA";
-    const SORT_PROPERTY_CODE_REVERSE = "CD";
-    const SORT_PROPERTY_NAME_ALPHABETIC = "PA";
-    const SORT_PROPERTY_NAME_REVERSE = "PD";
-
-    const CACHE_LIVE = "Live";
-    const CACHE_ONLY = "LessRecent";
-    const CACHE_OR_AGGREGATOR = "VeryRecent";
 
     /**
      * Hotel segments availability requested
      *
-     * @var Hotel\EnhancedPricing\Segment[]
+     * @var Hotel\DescriptiveInfo\Segment[]
      */
     public $segments = [];
 

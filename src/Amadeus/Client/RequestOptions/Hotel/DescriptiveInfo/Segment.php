@@ -20,7 +20,7 @@
  * @license https://opensource.org/licenses/Apache-2.0 Apache 2.0
  */
 
-namespace Amadeus\Client\RequestOptions\Hotel\EnhancedPricing;
+namespace Amadeus\Client\RequestOptions\Hotel\DescriptiveInfo;
 
 use Amadeus\Client\LoadParamsFromArray;
 
@@ -32,29 +32,18 @@ use Amadeus\Client\LoadParamsFromArray;
  */
 class Segment extends LoadParamsFromArray
 {
-    const SOURCE_LEISURE = "Leisure";
-    const SOURCE_DISTRIBUTION = "Distribution";
-    const SOURCE_MULTI_SOURCE = "MultiSource";
 
     /**
      * self::SOURCE_*
      *
      * @var string
      */
-    public $infoSource;
+    public $hotelCode;
 
     /**
-     * @var bool
+     * @var RequestedInfo
      */
-    public $bestOnly;
+    public $requestedInfo;
 
-    /**
-     * @var bool
-     */
-    public $availableOnly;
 
-    /**
-     * @var Criteria[]
-     */
-    public $criteria = [];
 }

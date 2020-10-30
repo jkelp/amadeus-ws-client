@@ -20,36 +20,44 @@
  * @license https://opensource.org/licenses/Apache-2.0 Apache 2.0
  */
 
-namespace Amadeus\Client\Struct\Hotel\EnhancedPricing;
-
-use Amadeus\Client\RequestOptions\Hotel\EnhancedPricing\Guest;
+namespace Amadeus\Client\Struct\Hotel\DescriptiveInfo;
 
 /**
- * GuestCount
+ * FacilityInfo
  *
- * @package Amadeus\Client\Struct\Hotel\MultiSingleAvailability
+ * @package Amadeus\Client\Struct\Hotel\DescriptiveInfo
  * @author Dieter Devlieghere <dieter.devlieghere@benelux.amadeus.com>
  */
-class GuestCount
+class FacilityInfo
 {
-    public $AgeQualifyingCode;
-
-    public $Age;
-
-    public $Count;
-
-    public $AgeBucket;
-
-    public $ResGuestRPH;
+    /**
+     * @var bool
+     */
+    public $SendMeetingRooms;
 
     /**
-     * GuestCount constructor.
-     *
-     * @param Guest $guest
+     * @var bool
      */
-    public function __construct(Guest $guest)
+    public $SendGuestRooms;
+
+    /**
+     * @var bool
+     */
+    public $SendRestaurants;
+
+    /**
+     * GuestCounts constructor.
+     *
+     * @param bool $meetingRooms
+     * @param bool $guestRooms
+     * @param bool $restaurants
+     */
+    public function __construct($meetingRooms, $guestRooms, $restaurants)
     {
-        $this->AgeQualifyingCode = $guest->occupantCode;
-        $this->Count = $guest->amount;
+        $this->SendMeetingRooms = $meetingRooms;
+        $this->SendGuestRooms = $guestRooms;
+        $this->SendRestaurants = $restaurants;
+
+
     }
 }

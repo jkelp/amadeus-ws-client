@@ -20,23 +20,38 @@
  * @license https://opensource.org/licenses/Apache-2.0 Apache 2.0
  */
 
-namespace Amadeus\Client\Struct\Hotel\EnhancedPricing;
+namespace Amadeus\Client\Struct\Hotel\DescriptiveInfo;
+
 
 /**
- * MealsIncluded
+ * GuestCounts
  *
- * @package Amadeus\Client\Struct\Hotel\MultiSingleAvailability
+ * @package Amadeus\Client\Struct\Hotel\DescriptiveInfo
  * @author Dieter Devlieghere <dieter.devlieghere@benelux.amadeus.com>
  */
-class MealsIncluded
+class AffiliationInfo
 {
-    public $MealPlanCodes;
+    /**
+     * @var bool
+     */
+    public $SendLoyalProgams;
 
     /**
-     * MealsIncluded constructor.
+     * @var bool
      */
-    public function __construct(string $mealPlanCodes)
+    public $SendAwards;
+
+
+    /**
+     * GuestCounts constructor.
+     *
+     * @param bool $loyalPrograms
+     * @param bool $awards
+     */
+    public function __construct($loyalPrograms, $awards)
     {
-        $this->MealPlanCodes = $mealPlanCodes;
+        $this->SendLoyalPrograms = $loyalPrograms;
+        $this->SendAwards = $awards;
+
     }
 }

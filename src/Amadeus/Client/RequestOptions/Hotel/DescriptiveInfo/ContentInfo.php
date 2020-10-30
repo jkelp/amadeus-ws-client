@@ -20,23 +20,27 @@
  * @license https://opensource.org/licenses/Apache-2.0 Apache 2.0
  */
 
-namespace Amadeus\Client\Struct\Hotel\EnhancedPricing;
+namespace Amadeus\Client\RequestOptions\Hotel\DescriptiveInfo;
+
+use Amadeus\Client\LoadParamsFromArray;
 
 /**
- * AvailRequestSegmentsType
+ * Segment
  *
- * @package Amadeus\Client\Struct\Hotel\MultiSingleAvailability
+ * @package Amadeus\Client\RequestOptions\Hotel\MultiSingleAvail
  * @author Dieter Devlieghere <dieter.devlieghere@benelux.amadeus.com>
  */
-class AvailRequestSegmentsType
+class ContentInfo extends LoadParamsFromArray
 {
-    /**
-     * @var AvailRequestSegment[]
-     */
-    public $AvailRequestSegment = [];
+
+    const SECURE_MULTIMEDIA = "SecureMultimediaURLS";
 
     /**
-     * @var int
+     * @var string
      */
-    public $MaximumWaitTime;
+     public $name;
+
+
+
+
 }

@@ -20,68 +20,29 @@
  * @license https://opensource.org/licenses/Apache-2.0 Apache 2.0
  */
 
-namespace Amadeus\Client\RequestOptions\Hotel\EnhancedPricing;
-
-use Amadeus\Client\LoadParamsFromArray;
+namespace Amadeus\Client\Struct\Hotel\DescriptiveInfo;
 
 /**
- * Criteria
+ * ContactInfo
  *
- * @package Amadeus\Client\RequestOptions\Hotel\MultiSingleAvail
+ * @package Amadeus\Client\Struct\Hotel\DescriptiveInfo
  * @author Dieter Devlieghere <dieter.devlieghere@benelux.amadeus.com>
  */
-class Criteria extends LoadParamsFromArray
+class MultimediaObjects
 {
-    const ALT_AVAIL_NEVER = "Never";
-
     /**
      * @var bool
      */
-    public $exactMatch;
+    public $SendData;
 
     /**
-     * @var HotelReference[]
-     */
-    public $hotelReferences = [];
-
-    /**
-     * @var \DateTime
-     */
-    public $stayStart;
-
-    /**
-     * @var \DateTime
-     */
-    public $stayEnd;
-
-    /**
-     * @var Rates[]
-     */
-    public $rates = [];
-
-    /**
-     * @var RatePlans[]
-     */
-    public $ratePlans = [];
-
-    /**
-     * @var Room[]
-     */
-    public $rooms = [];
-
-    /**
-     * self::ALT_AVAIL_*
+     * MultiMediaObjects constructor.
      *
-     * @var string
+     * @param bool $data
      */
-    public $alternateAvailability;
+    public function __construct($data)
+    {
+        $this->SendData = $data;
 
-
-    public $radius;
-
-    public $award;
-
-    public $position;
-
-    public $refPoint;
+    }
 }

@@ -20,14 +20,30 @@
  * @license https://opensource.org/licenses/Apache-2.0 Apache 2.0
  */
 
-namespace Amadeus\Client\Struct\Hotel\EnhancedPricing;
+namespace Amadeus\Client\Struct\Hotel\DescriptiveInfo;
 
 /**
- * HotelSearchCriteria
+ * ContactInfo
  *
- * @package Amadeus\Client\Struct\Hotel\MultiSingleAvailability
+ * @package Amadeus\Client\Struct\Hotel\DescriptiveInfo
  * @author Dieter Devlieghere <dieter.devlieghere@benelux.amadeus.com>
  */
-class HotelSearchCriteria extends HotelSearchCriteriaType
+class ContactInfo
 {
+    /**
+     * @var bool
+     */
+    public $SendData;
+
+    /**
+     * ContactInfo constructor.
+     *
+     * @param bool $data
+     * @param Guest[] $guests
+     */
+    public function __construct($data)
+    {
+        $this->SendData = $data;
+
+    }
 }

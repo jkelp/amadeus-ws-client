@@ -20,26 +20,27 @@
  * @license https://opensource.org/licenses/Apache-2.0 Apache 2.0
  */
 
-namespace Amadeus\Client\RequestOptions\Hotel\EnhancedPricing;
+namespace Amadeus\Client\RequestOptions\Hotel\DescriptiveInfo;
 
 use Amadeus\Client\LoadParamsFromArray;
 
 /**
- * Rates
+ * Segment
  *
  * @package Amadeus\Client\RequestOptions\Hotel\MultiSingleAvail
  * @author Dieter Devlieghere <dieter.devlieghere@benelux.amadeus.com>
  */
-class RatePlan extends LoadParamsFromArray
+class ContentInfos extends LoadParamsFromArray
 {
-    /**
-     * @var string
-     */
-    public $RatePlanCode;
+
+    const SECURE_MULTIMEDIA = "SecureMultimediaURLS";
 
     /**
-     * @var string
+     * @var ContentInfo[]
      */
-    public $MealPlanCode;
+     public $contentInfos = [];
+
+
+
 
 }

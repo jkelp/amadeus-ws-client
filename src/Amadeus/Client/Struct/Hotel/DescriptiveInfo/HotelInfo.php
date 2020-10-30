@@ -20,40 +20,31 @@
  * @license https://opensource.org/licenses/Apache-2.0 Apache 2.0
  */
 
-namespace Amadeus\Client\RequestOptions\Hotel\EnhancedPricing;
+namespace Amadeus\Client\Struct\Hotel\DescriptiveInfo;
 
-use Amadeus\Client\LoadParamsFromArray;
 
 /**
- * HotelReference
+ * GuestCounts
  *
- * @package Amadeus\Client\RequestOptions\Hotel\MultiSingleAvail
+ * @package Amadeus\Client\Struct\Hotel\DescriptiveInfo
  * @author Dieter Devlieghere <dieter.devlieghere@benelux.amadeus.com>
  */
-class HotelReference extends LoadParamsFromArray
+class HotelInfo
 {
     /**
-     * @var string
+     * @var bool
      */
-    public $chainCode;
+    public $SendData;
+
+
 
     /**
-     * @var string
+     * HotelInfo constructor.
+     *
+     * @param bool $sendData
      */
-    public $cityCode;
-
-    /**
-     * @var string
-     */
-    public $name;
-
-    /**
-     * @var string
-     */
-    public $hotelCode;
-
-    /**
-     * @var string
-     */
-    public $codeContext;
+    public function __construct($sendData)
+    {
+        $this->SendData = $sendData;
+    }
 }

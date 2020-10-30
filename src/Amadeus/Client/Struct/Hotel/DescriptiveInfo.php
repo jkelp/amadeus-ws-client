@@ -22,11 +22,11 @@
 
 namespace Amadeus\Client\Struct\Hotel;
 
-use Amadeus\Client\RequestOptions\HotelEnhancedPricingOptions;
-use Amadeus\Client\RequestOptions\Hotel\EnhancedPricing\Segment;
+use Amadeus\Client\RequestOptions\HotelDescriptiveInfoOptions;
+use Amadeus\Client\RequestOptions\Hotel\DescriptiveInfo\Segment;
 use Amadeus\Client\Struct\BaseWsMessage;
-use Amadeus\Client\Struct\Hotel\EnhancedPricing\AvailRequestSegment;
-use Amadeus\Client\Struct\Hotel\EnhancedPricing\AvailRequestSegments;
+use Amadeus\Client\Struct\Hotel\DescriptiveInfo\HotelDescriptiveInfo;
+use Amadeus\Client\Struct\Hotel\DescriptiveInfo\HotelDescriptiveInfos;
 
 /**
  * Hotel_MultiSingleAvailability request structure
@@ -34,12 +34,12 @@ use Amadeus\Client\Struct\Hotel\EnhancedPricing\AvailRequestSegments;
  * @package Amadeus\Client\Struct\Hotel
  * @author Dieter Devlieghere <dieter.devlieghere@benelux.amadeus.com>
  */
-class EnhancedPricing extends BaseWsMessage
+class DescriptiveInfo extends BaseWsMessage
 {
     /**
      * @var string
      */
-    public $EchoToken = 'Pricing';
+    public $EchoToken = 'WithParsing';
 
     /**
      * @var string
@@ -49,12 +49,12 @@ class EnhancedPricing extends BaseWsMessage
     /**
      * @var bool
      */
-    public $SummaryOnly = false;
+    public $SummaryOnly;
 
     /**
      * @var bool
      */
-    public $RateRangeOnly = false;
+    public $RateRangeOnly;
 
     /**
      * @var bool
@@ -88,9 +88,9 @@ class EnhancedPricing extends BaseWsMessage
 
 
     /**
-     * @var AvailRequestSegments
+     * @var HotelDescriptiveInfos
      */
-    public $AvailRequestSegments;
+    public $HotelDescriptiveInfos;
 
     /**
      * @var string
@@ -110,16 +110,16 @@ class EnhancedPricing extends BaseWsMessage
     /**
      * MultiSingleAvailability constructor.
      *
-     * @param HotelEnhancedPricingOptions $options
+     * @param HotelDescriptiveInfoOptions $options
      */
-    public function __construct(HotelEnhancedPricingOptions $options)
+    public function __construct(HotelDescriptiveInfoOptions $options)
     {
         $this->loadAttributes($options);
         $this->loadSegments($options->segments);
     }
 
     /**
-     * @param HotelEnhancedPricingOptions $options
+     * @param HotelDescriptiveInfoOptions $options
      */
     protected function loadAttributes($options)
     {
@@ -141,10 +141,10 @@ class EnhancedPricing extends BaseWsMessage
      */
     protected function loadSegments($segments)
     {
-        $this->AvailRequestSegments = new AvailRequestSegments();
+        $this->HotelDescriptiveInfos = new HotelDescriptiveInfos();
 
         foreach ($segments as $segment) {
-            $this->AvailRequestSegments->AvailRequestSegment[] = new AvailRequestSegment($segment);
+            $this->HotelDescriptiveInfos->HotelDescriptiveInfo[] = new HotelDescriptiveInfo($segment);
         }
     }
 }

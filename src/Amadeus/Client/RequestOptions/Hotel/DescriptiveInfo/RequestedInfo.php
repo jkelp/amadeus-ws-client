@@ -20,41 +20,87 @@
  * @license https://opensource.org/licenses/Apache-2.0 Apache 2.0
  */
 
-namespace Amadeus\Client\RequestOptions\Hotel\EnhancedPricing;
+namespace Amadeus\Client\RequestOptions\Hotel\DescriptiveInfo;
 
 use Amadeus\Client\LoadParamsFromArray;
 
 /**
- * Room
+ * RequestedInfo
  *
  * @package Amadeus\Client\RequestOptions\Hotel\MultiSingleAvail
  * @author Dieter Devlieghere <dieter.devlieghere@benelux.amadeus.com>
  */
-class Room extends LoadParamsFromArray
+class RequestedInfo extends LoadParamsFromArray
 {
-    /**
-     * Your unique ID for this room request
-     *
-     * @var int
-     */
-    public $id;
+
+    const SECURE_MULTIMEDIA = "SecureMultimediaURLS";
 
     /**
-     * How many rooms?
-     *
-     * @var int
-     */
-    public $amount;
-
-    /**
-     * All guests share the same room?
-     *
      * @var bool
      */
-    public $guestsIsPerRoom = true;
+    public $generalInfo;
 
     /**
-     * @var Guest[]
+     * @var bool
      */
-    public $guests = [];
+    public $guestRooms;
+
+    /**
+     * @var bool
+     */
+    public $meetingRooms;
+
+    /**
+     * @var bool
+     */
+    public $restaurants;
+
+    /**
+     * @var bool
+     */
+    public $policies;
+
+    /**
+     * @var bool
+     */
+    public $referencePoints;
+
+    /**
+     * @var bool
+     */
+    public $attractions;
+
+    /**
+     * @var bool
+     */
+    public $recreations;
+
+    /**
+     * @var bool
+     */
+    public $loyaltyPrograms;
+
+    /**
+     * @var bool
+     */
+    public $awards;
+
+
+    /**
+     * @var bool
+     */
+    public $contactInformation;
+
+    /**
+     * @var bool
+     */
+    public $multimedia;
+
+    /**
+     * @var ContentInfo[]
+     */
+    public $contentInfos;
+
+
+
 }

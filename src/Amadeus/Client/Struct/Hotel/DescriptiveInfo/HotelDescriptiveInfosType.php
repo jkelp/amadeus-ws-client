@@ -20,21 +20,23 @@
  * @license https://opensource.org/licenses/Apache-2.0 Apache 2.0
  */
 
-namespace Amadeus\Client\RequestOptions\Hotel\EnhancedPricing;
-
-use Amadeus\Client\LoadParamsFromArray;
+namespace Amadeus\Client\Struct\Hotel\DescriptiveInfo;
 
 /**
- * Rates
+ * AvailRequestSegmentsType
  *
- * @package Amadeus\Client\RequestOptions\Hotel\MultiSingleAvail
+ * @package Amadeus\Client\Struct\Hotel\DescriptiveInfo
  * @author Dieter Devlieghere <dieter.devlieghere@benelux.amadeus.com>
  */
-class RatePlans extends LoadParamsFromArray
+class HotelDescriptiveInfosType
 {
-  /**
-   * @var RatePlan[]
-   */
-   public $ratePlans = [];
+    /**
+     * @var HotelDescriptiveInfo[]
+     */
+    public $HotelDescriptiveInfo = [];
 
+    /**
+     * @var int
+     */
+    public $MaximumWaitTime;
 }

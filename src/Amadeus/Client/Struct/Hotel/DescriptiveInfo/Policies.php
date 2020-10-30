@@ -20,44 +20,31 @@
  * @license https://opensource.org/licenses/Apache-2.0 Apache 2.0
  */
 
-namespace Amadeus\Client\Struct\Hotel\EnhancedPricing;
-
-use Amadeus\Client\RequestOptions\Hotel\EnhancedPricing\Segment;
+namespace Amadeus\Client\Struct\Hotel\DescriptiveInfo;
 
 /**
- * AvailRequestSegment
+ * Policies
  *
- * @package Amadeus\Client\Struct\Hotel\MultiSingleAvailability
+ * @package Amadeus\Client\Struct\Hotel\DescriptiveInfo
  * @author Dieter Devlieghere <dieter.devlieghere@benelux.amadeus.com>
  */
-class AvailRequestSegment
+class Policies
 {
     /**
-     * @var HotelSearchCriteria
+     * @var bool
      */
-    public $HotelSearchCriteria;
+    public $SendPolicies;
+
 
     /**
-     * @var string
-     */
-    public $InfoSource;
-
-    public $MoreDataEchoToken;
-
-    /**
-     * AvailRequestSegment constructor.
+     * Policies constructor.
      *
-     * @param Segment|null $segment
+     * @param bool $policies
+     * @param Guest[] $guests
      */
-    public function __construct($segment = null)
+    public function __construct($policies)
     {
-        if ($segment instanceof Segment) {
-            $this->InfoSource = $segment->infoSource;
-            $this->HotelSearchCriteria = new HotelSearchCriteria(
-                $segment->criteria,
-                $segment->bestOnly,
-                $segment->availableOnly
-            );
-        }
+        $this->SendPolicies = $policies;
+
     }
 }

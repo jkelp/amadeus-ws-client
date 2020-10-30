@@ -52,7 +52,7 @@ class HotelEnhancedPricingOptions extends Base
     /**
      * Return only rates that are available within the range of the minimum and maximum amount specified
      *
-     * @var bool
+     * @var bool 
      */
     public $rateRangeOnly = false;
 
