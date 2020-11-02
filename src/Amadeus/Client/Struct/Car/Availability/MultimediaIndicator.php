@@ -22,6 +22,7 @@
 
 namespace Amadeus\Client\Struct\Car\Availability;
 
+use Amadeus\Client\RequestOptions\Car\Availability\MediaIndicator;
 
 /**
  * RoomStayCandidate
@@ -29,23 +30,24 @@ namespace Amadeus\Client\Struct\Car\Availability;
  * @package Amadeus\Client\Struct\Car\Availability
  * @author Dieter Devlieghere <dieter.devlieghere@benelux.amadeus.com>
  */
-class StatusDetails
+class CarProviderIndicator
 {
 
     /**
-     * @var string
+     * @var StatusDetails
      */
-    public $_;
+    public $StatusDetails;
 
 
     /**
-     * StatusDetails constructor.
+     * CarProviderIndicator constructor.
      *
-     * @param string
+     * @param MediaIndicator
      */
-    public function __construct(string $indicator)
+    public function __construct(MediaIndicator $indicator)
     {
 
-        $_ = $indicator;
+
+        $this->StatusDetails = new StatusDetails($indicator->provider);
     }
 }

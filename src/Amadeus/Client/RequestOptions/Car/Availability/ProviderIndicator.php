@@ -30,7 +30,7 @@ use Amadeus\Client\LoadParamsFromArray;
  * @package Amadeus\Client\RequestOptions\Car\Availability
  * @author Dieter Devlieghere <dieter.devlieghere@benelux.amadeus.com>
  */
-class Availability extends LoadParamsFromArray
+class ProviderIndicator extends LoadParamsFromArray
 {
 
     public $provider;

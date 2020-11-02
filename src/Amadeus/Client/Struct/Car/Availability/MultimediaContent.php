@@ -22,6 +22,8 @@
 
 namespace Amadeus\Client\Struct\Car\Availability;
 
+use Amadeus\Client\RequestOptions\Car\Availability\MediaContent;
+use Amadeus\Client\RequestOptions\Car\Availability\MultimediaContent;
 
 /**
  * RoomStayCandidate
@@ -29,23 +31,30 @@ namespace Amadeus\Client\Struct\Car\Availability;
  * @package Amadeus\Client\Struct\Car\Availability
  * @author Dieter Devlieghere <dieter.devlieghere@benelux.amadeus.com>
  */
-class StatusDetails
+class CarProviderIndicator
 {
 
     /**
-     * @var string
+     * @var PicturesType
      */
-    public $_;
+    public $PicturesType;
+
+    /**
+     * @var PicturesSize
+     */
+    public $PicturesSize;
 
 
     /**
-     * StatusDetails constructor.
+     * MediaContent constructor.
      *
-     * @param string
+     * @param MediaContent
      */
-    public function __construct(string $indicator)
+    public function __construct(MediaContent $mediaContent)
     {
 
-        $_ = $indicator;
+        $this->PictureType = new PictureType($mediaContent->pictureType);
+        $this->PictureSize = new PictureSize($mediaContent->pictureSize);
+
     }
 }
