@@ -20,6 +20,7 @@
  * @license https://opensource.org/licenses/Apache-2.0 Apache 2.0
  */
 
+//
 namespace Amadeus\Client\RequestOptions\Hotel\DescriptiveInfo;
 
 use Amadeus\Client\LoadParamsFromArray;
