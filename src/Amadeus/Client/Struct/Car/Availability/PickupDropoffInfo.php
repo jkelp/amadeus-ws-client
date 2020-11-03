@@ -20,25 +20,35 @@
  * @license https://opensource.org/licenses/Apache-2.0 Apache 2.0
  */
 
-namespace Amadeus\Client\RequestOptions\Car\Availability;
+namespace Amadeus\Client\Struct\Car\Availability;
 
-use Amadeus\Client\LoadParamsFromArray;
+use Amadeus\Client\RequestOptions\Car\Availability\PUDOInfo;
+use Amadeus\Client\Struct\Car\Availability\PickupDropoffTime;
 
 /**
- * ProviderIndicator
+ * RoomStayCandidate
  *
- * @package Amadeus\Client\RequestOptions\Car\Availability
+ * @package Amadeus\Client\Struct\Car\Availability
  * @author Dieter Devlieghere <dieter.devlieghere@benelux.amadeus.com>
  */
-class ProviderIndicator extends LoadParamsFromArray
+class PickupDropoffTime
 {
 
-  /**
-   * Car Provider Indicator
-   *
-   * @var string
-   */
-   
-    public $provider;
+    /**
+     * @var PickupDropoffTime
+     */
+    public $PickupDropoffTime;
 
+
+    /**
+     * PickupDropoff constructor.
+     *
+     * @param PUDOInfo
+     */
+    public function __construct(PUDOInfo $pickupDropoff)
+    {
+
+        $this->PickupDropoffTime = new PickupDropoffTime($pickupDropoff);
+
+    }
 }

@@ -25,20 +25,26 @@ namespace Amadeus\Client\RequestOptions\Car\Availability;
 use Amadeus\Client\LoadParamsFromArray;
 
 /**
- * ProviderIndicator
+ * PickupDropoffInfo
  *
  * @package Amadeus\Client\RequestOptions\Car\Availability
  * @author Dieter Devlieghere <dieter.devlieghere@benelux.amadeus.com>
  */
-class ProviderIndicator extends LoadParamsFromArray
+class PickupDropoffInfo extends LoadParamsFromArray
 {
 
   /**
-   * Car Provider Indicator
+   * Start Date
    *
-   * @var string
+   * @var DateHolder
    */
-   
-    public $provider;
+    public $beginDateTime;
+
+  /**
+   * End Date
+   *
+   * @var DateHolder
+   */
+    public $endDateTime;
 
 }

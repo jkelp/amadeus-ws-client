@@ -21,8 +21,12 @@
  */
 
 namespace Amadeus\Client\Struct\Car\Availability;
+use Amadeus\Client\Struct\Car\Availability\Day;
+use Amadeus\Client\Struct\Car\Availability\Year;
+use Amadeus\Client\Struct\Car\Availability\Hour;
+use Amadeus\Client\Struct\Car\Availability\Month;
+use Amadeus\Client\Struct\Car\Availability\Minutes;
 
-use Amadeus\Client\RequestOptions\Car\Availability\MediaContent;
 
 /**
  * RoomStayCandidate
@@ -30,30 +34,52 @@ use Amadeus\Client\RequestOptions\Car\Availability\MediaContent;
  * @package Amadeus\Client\Struct\Car\Availability
  * @author Dieter Devlieghere <dieter.devlieghere@benelux.amadeus.com>
  */
-class CarProviderIndicator
+class BeginDateTime
 {
 
     /**
-     * @var PicturesType
+     * @var Year
      */
-    public $PicturesType;
+    public $Year
 
     /**
-     * @var PicturesSize
+     * @var Month
      */
-    public $PicturesSize;
+    public $Month
+
+    /**
+     * @var Day
+     */
+    public $Day
+
+    /**
+     * @var Hour
+     */
+    public $Hour
+
+    /**
+     * @var Minutes
+     */
+    public $Minutes
 
 
     /**
-     * MediaContent constructor.
+     * StatusDetails constructor.
      *
-     * @param MediaContent
+     * @param DateHolder
      */
-    public function __construct(MediaContent $mediaContent)
+    public function __construct(DateHolder $date)
     {
 
-        $this->PictureType = new PictureType($mediaContent->pictureType);
-        $this->PictureSize = new PictureSize($mediaContent->pictureSize);
+        $this->Year = new ($date->year);
+
+        $this->Month = new ($date->month);
+
+        $this->Day = new ($date->day);
+
+        $this->Hour = new ($date->hour);
+
+        $this->Minutes = new ($date->minutes);
 
     }
 }

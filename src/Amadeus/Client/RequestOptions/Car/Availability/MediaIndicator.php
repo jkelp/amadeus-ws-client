@@ -33,6 +33,11 @@ use Amadeus\Client\LoadParamsFromArray;
 class MediaIndicator extends LoadParamsFromArray
 {
 
+  /**
+   * Multimedia Indicator
+   *
+   * @var string
+   */
     public $mulitMedia;
 
 }

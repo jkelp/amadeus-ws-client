@@ -32,8 +32,18 @@ use Amadeus\Client\LoadParamsFromArray;
  */
 class MediaContent extends LoadParamsFromArray
 {
-
+  /**
+   * Picture Type
+   *
+   * @var string
+   */
     public $pictureType;
+
+    /**
+     * Picture Size
+     *
+     * @var string
+     */
     public $pictureSize;
 
 }
