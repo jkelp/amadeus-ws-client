@@ -1,4 +1,5 @@
 <?php
+
 /**
  * amadeus-ws-client
  *
@@ -84,6 +85,7 @@ class SoapClient extends \SoapClient implements Log\LoggerAwareInterface
 
     /**
      * @param string $request
+     * @param string $action
      * @return string
      * @throws Exception when XSLT file isn't readable
      */
@@ -91,9 +93,9 @@ class SoapClient extends \SoapClient implements Log\LoggerAwareInterface
     {
         $newRequest = null;
 
-        $xsltFile = dirname(__FILE__).DIRECTORY_SEPARATOR.self::REMOVE_EMPTY_XSLT_LOCATION;
+        $xsltFile = dirname(__FILE__) . DIRECTORY_SEPARATOR . self::REMOVE_EMPTY_XSLT_LOCATION;
         if (!is_readable($xsltFile)) {
-            throw new Exception('XSLT file "'.$xsltFile.'" is not readable!');
+            throw new Exception('XSLT file "' . $xsltFile . '" is not readable!');
         }
 
         $dom = new \DOMDocument('1.0', 'UTF-8');
@@ -109,8 +111,8 @@ class SoapClient extends \SoapClient implements Log\LoggerAwareInterface
             //On transform error: usually when modifying the XSLT transformation incorrectly...
             $this->logger->log(
                 Log\LogLevel::ERROR,
-                __METHOD__."__doRequest(): XSLTProcessor::transformToXml "
-                . "returned FALSE: could not perform transformation!!"
+                __METHOD__ . "__doRequest(): XSLTProcessor::transformToXml "
+                    . "returned FALSE: could not perform transformation!!"
             );
             $newRequest = $request;
         } else {
@@ -132,7 +134,6 @@ class SoapClient extends \SoapClient implements Log\LoggerAwareInterface
         return $newRequest;
     }
 
-    
     protected function transformString($transform)
     {
         $retVal = $transform;
