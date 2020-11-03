@@ -1013,6 +1013,41 @@ class Client extends Base
         return $this->callMessage($msgName, $options, $messageOptions);
     }
 
+
+    /**
+     * Hotel_DescriptiveInfo
+     *
+     * @param RequestOptions\HotelDescriptiveInfoOptions $options
+     * @param array $messageOptions (OPTIONAL)
+     * @return Result
+     */
+    public function hotelDescriptiveInfo(
+        RequestOptions\HotelDescriptiveInfoOptions $options,
+        $messageOptions = []
+    ) {
+        $msgName = 'Hotel_DescriptiveInfo';
+
+        return $this->callMessage($msgName, $options, $messageOptions);
+    }
+
+
+    /**
+     * Hotel_EnhancedPricing
+     *
+     * @param RequestOptions\HotelEnhancedPricingOptions $options
+     * @param array $messageOptions (OPTIONAL)
+     * @return Result
+     */
+    public function hotelEnhancedPricing(
+        RequestOptions\HotelEnhancedPricingOptions $options,
+        $messageOptions = []
+    ) {
+        $msgName = 'Hotel_EnhancedPricing';
+
+        return $this->callMessage($msgName, $options, $messageOptions);
+    }
+
+
     /**
      * Hotel_Sell
      *
