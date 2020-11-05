@@ -34,7 +34,7 @@ use Amadeus\Client\LoadParamsFromArray;
 class ContentInfo extends LoadParamsFromArray
 {
 
-    const SECURE_MULTIMEDIA = "SecureMultimediaURLS";
+    const SECURE_MULTIMEDIA = "SecureMultimediaURLs";
 
     /**
      * @var string

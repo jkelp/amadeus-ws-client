@@ -33,7 +33,7 @@ use Amadeus\Client\LoadParamsFromArray;
 class RequestedInfo extends LoadParamsFromArray
 {
 
-    const SECURE_MULTIMEDIA = "SecureMultimediaURLS";
+    const SECURE_MULTIMEDIA = "SecureMultimediaURLs";
 
     /**
      * @var bool

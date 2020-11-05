@@ -20,33 +20,27 @@
  * @license https://opensource.org/licenses/Apache-2.0 Apache 2.0
  */
 
-namespace Amadeus\Client\Struct\Hotel\DescriptiveInfo;
+namespace Amadeus\Client\RequestCreator\Converter\Hotel;
+
+use Amadeus\Client\RequestCreator\Converter\BaseConverter;
+use Amadeus\Client\RequestOptions\HotelDescriptiveInfoOptions;
+use Amadeus\Client\Struct;
 
 /**
- * GuestCounts
+ * Hotel_MultiSingleAvailability request converter
  *
- * @package Amadeus\Client\Struct\Hotel\DescriptiveInfo
+ * @package Amadeus\Client\RequestCreator\Converter\Hotel
  * @author Dieter Devlieghere <dieter.devlieghere@benelux.amadeus.com>
  */
-class ContentInfos
+class DescriptiveInfoConv extends BaseConverter
 {
-
     /**
-     * @var ContentInfo[]
+     * @param HotelDescriptiveInfoOptions $requestOptions
+     * @param int|string $version
+     * @return Struct\Hotel\DescriptiveInfo
      */
-    public $ContentInfo = [];
-
-    /**
-     * ContentInfos constructor.
-     *
-     * @param ContentInfo[] $infos
-     */
-    public function __construct($infos)
+    public function convert($requestOptions, $version)
     {
-        if (!$infos) return;
-        
-        foreach ($infos as $info) {
-            $this->ContentInfo[] = new ContentInfo($info->name);
-        }
+        return new Struct\Hotel\DescriptiveInfo($requestOptions);
     }
 }
