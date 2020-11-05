@@ -20,27 +20,27 @@
  * @license https://opensource.org/licenses/Apache-2.0 Apache 2.0
  */
 
-namespace Amadeus\Client\Struct\Hotel\MultiSingleAvailability;
+namespace Amadeus\Client\RequestCreator\Converter\Hotel;
+
+use Amadeus\Client\RequestCreator\Converter\BaseConverter;
+use Amadeus\Client\RequestOptions\HotelEnhancedPricingOptions;
+use Amadeus\Client\Struct;
 
 /**
- * MealsIncluded
+ * Hotel_MultiSingleAvailability request converter
  *
- * @package Amadeus\Client\Struct\Hotel\MultiSingleAvailability
+ * @package Amadeus\Client\RequestCreator\Converter\Hotel
  * @author Dieter Devlieghere <dieter.devlieghere@benelux.amadeus.com>
  */
-class MealsIncluded
+class EnhancedPricingConv extends BaseConverter
 {
-    public $MealPlanCodes;
-
-    public $Breakfast;
-
     /**
-     * MealsIncluded constructor.
+     * @param HotelEnhancedPricingOptions $requestOptions
+     * @param int|string $version
+     * @return Struct\Hotel\EnhancedPricing
      */
-    public function __construct(string $mealPlanCodes = null, bool $breakfast = null)
+    public function convert($requestOptions, $version)
     {
-        $this->MealPlanCodes = $mealPlanCodes;
-
-        $this->Breakfast = $breakfast;
+        return new Struct\Hotel\EnhancedPricing($requestOptions);
     }
 }

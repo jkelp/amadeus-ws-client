@@ -32,6 +32,8 @@ use Amadeus\Client\LoadParamsFromArray;
  */
 class RatePlan extends LoadParamsFromArray
 {
+    public $RatePlanType;
+    
     /**
      * @var string
      */

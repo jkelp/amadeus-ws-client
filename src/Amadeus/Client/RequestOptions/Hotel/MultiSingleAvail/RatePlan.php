@@ -42,4 +42,6 @@ class RatePlan extends LoadParamsFromArray
      */
     public $MealPlanCode;
 
+    public $Breakfast;
+
 }

@@ -52,6 +52,6 @@ class RatePlanCandidate
     {
         $this->RatePlanCode = $ratePlan->RatePlanCode;
 
-        $this->MealsIncluded = new MealsIncluded($ratePlan->MealPlanCode);
+        $this->MealsIncluded = new MealsIncluded($ratePlan->MealPlanCode, $ratePlan->Breakfast);
     }
 }

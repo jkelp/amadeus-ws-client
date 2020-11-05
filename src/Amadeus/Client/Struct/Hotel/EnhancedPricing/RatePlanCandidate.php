@@ -32,6 +32,9 @@ use Amadeus\Client\RequestOptions\Hotel\EnhancedPricing\RatePlan;
  */
 class RatePlanCandidate
 {
+
+    public $RatePlanType;
+
     /**
      * @var string
      */
@@ -50,8 +53,12 @@ class RatePlanCandidate
      */
     public function __construct(RatePlan $ratePlan)
     {
+        $this->RatePlanType = $ratePlan->RatePlanType;
+        
         $this->RatePlanCode = $ratePlan->RatePlanCode;
 
-        $this->MealsIncluded = new MealsIncluded($ratePlan->MealPlanCode);
+        if (!empty($ratePlan->MealPlanCode)) {
+            $this->MealsIncluded = new MealsIncluded($ratePlan->MealPlanCode);
+        }
     }
 }

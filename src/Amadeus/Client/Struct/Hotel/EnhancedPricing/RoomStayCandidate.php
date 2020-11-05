@@ -32,16 +32,21 @@ use Amadeus\Client\RequestOptions\Hotel\EnhancedPricing\Room;
  */
 class RoomStayCandidate
 {
+    public $RoomTypeCode;
+
+    
     /**
      * @var int
      */
     public $RoomID;
-
+    
     /**
      * @var int
      */
     public $Quantity;
-
+    
+    public $BookingCode;
+    
     /**
      * @var GuestCounts
      */
@@ -54,6 +59,8 @@ class RoomStayCandidate
      */
     public function __construct(Room $room)
     {
+        $this->RoomTypeCode = $room->roomTypeCode;
+        $this->BookingCode = $room->bookingCode;
         $this->RoomID = $room->id;
         $this->Quantity = $room->amount;
 
