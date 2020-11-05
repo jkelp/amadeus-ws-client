@@ -57,4 +57,8 @@ class Room extends LoadParamsFromArray
      * @var Guest[]
      */
     public $guests = [];
+
+    public $roomTypeCode;
+
+    public $bookingCode;
 }
