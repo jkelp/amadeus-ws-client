@@ -23,7 +23,9 @@
 namespace Amadeus\Client\Struct\Car\Availability;
 
 use Amadeus\Client\RequestOptions\Car\Availability\PUDOInfo;
-use Amadeus\Client\Struct\Car\Availability\PickupDropoffTime;
+use Amadeus\Client\Struct\Car\Availability\pickupDropoffTime;
+use Amadeus\Client\Struct\Car\Availability\iataAirportLocations;
+use Amadeus\Client\Struct\Car\Availability\locationType;
 
 /**
  * RoomStayCandidate
@@ -31,13 +33,30 @@ use Amadeus\Client\Struct\Car\Availability\PickupDropoffTime;
  * @package Amadeus\Client\Struct\Car\Availability
  * @author Dieter Devlieghere <dieter.devlieghere@benelux.amadeus.com>
  */
-class PickupDropoffTime
+class pickupDropoffInfo
 {
 
     /**
-     * @var PickupDropoffTime
+     * @var pickupDropoffTime
      */
-    public $PickupDropoffTime;
+    public $pickupDropoffTime;
+
+    /**
+     * @var pickupDropoffInfo
+     */
+    public $pickupDropoffInfo;
+
+
+    /**
+     * @var iataAirportLocations
+     */
+    public $iataAirportLocations;
+
+    /**
+     * @var locationType
+     */
+    public $locationType;
+
 
 
     /**
@@ -48,7 +67,22 @@ class PickupDropoffTime
     public function __construct(PUDOInfo $pickupDropoff)
     {
 
-        $this->PickupDropoffTime = new PickupDropoffTime($pickupDropoff);
+        if (!empty($pickupDropoff->times)){
+          $this->pickupDropoffTime = new pickupDropoffTime($pickupDropoff->times);
+        }
+        if (!empty($pickupDropoff->nestedInfo)){
+          $this->pickupDropoffInfo = new self($pickupDropoff->nestedInfo);
+        }
+        if (!empty($pickupDropoff->locationType)){
+          $this->locationType = new locationType($pickupDropoff->locationType);
+        }
+        if (!empty($pickupDropoff->aitaAirportLoc)){
+          $this->iataAirportLocations = new iataAirportLocations($pickupDropoff->iataAirportLoc);
+        }
+
+
+
+
 
     }
 }

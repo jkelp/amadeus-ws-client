@@ -21,7 +21,7 @@
  */
 
 namespace Amadeus\Client\Struct\Car\Availability;
-
+use Amadeus\Client\Struct\Car\Availability\indicator
 
 /**
  * RoomStayCandidate
@@ -29,13 +29,13 @@ namespace Amadeus\Client\Struct\Car\Availability;
  * @package Amadeus\Client\Struct\Car\Availability
  * @author Dieter Devlieghere <dieter.devlieghere@benelux.amadeus.com>
  */
-class StatusDetails
+class statusDetails
 {
 
     /**
-     * @var Indicator
+     * @var indicator
      */
-    public $Indicator;
+    public $indicator;
 
 
     /**
@@ -46,6 +46,6 @@ class StatusDetails
     public function __construct(string $indicator)
     {
 
-        $this->Indicator = new Indicator($indicator);
+        $this->indicator = new indicator($indicator);
     }
 }

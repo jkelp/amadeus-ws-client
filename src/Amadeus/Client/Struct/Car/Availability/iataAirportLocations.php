@@ -21,11 +21,8 @@
  */
 
 namespace Amadeus\Client\Struct\Car\Availability;
-use Amadeus\Client\Struct\Car\Availability\day;
-use Amadeus\Client\Struct\Car\Availability\year;
-use Amadeus\Client\Struct\Car\Availability\hour;
-use Amadeus\Client\Struct\Car\Availability\month;
-use Amadeus\Client\Struct\Car\Availability\minutes;
+use Amadeus\Client\Struct\Car\Availability\locationDescription;
+use Amadeus\Client\RequestOptions\Car\Availability\AirportLoc;
 
 
 /**
@@ -34,52 +31,24 @@ use Amadeus\Client\Struct\Car\Availability\minutes;
  * @package Amadeus\Client\Struct\Car\Availability
  * @author Dieter Devlieghere <dieter.devlieghere@benelux.amadeus.com>
  */
-class endDateTime
+class iataAirportLocations
 {
 
     /**
-     * @var year
+     * @var locationDescription
      */
-    public $year
-
-    /**
-     * @var month
-     */
-    public $month
-
-    /**
-     * @var day
-     */
-    public $day
-
-    /**
-     * @var hour
-     */
-    public $hour
-
-    /**
-     * @var minutes
-     */
-    public $minutes
+    public $locationDescription;
 
 
     /**
-     * StatusDetails constructor.
+     * CarProviderIndicator constructor.
      *
-     * @param DateHolder
+     * @param AirportLoc
      */
-    public function __construct(DateHolder $date)
+    public function __construct(AirportLoc $airportLoc)
     {
 
-        $this->year = new ($date->year);
 
-        $this->month = new ($date->month);
-
-        $this->day = new ($date->day);
-
-        $this->hour = new ($date->hour);
-
-        $this->minutes = new ($date->minutes);
-
+        $this->locationDescription = new locationDescription($airportLoc);
     }
 }

@@ -30,13 +30,13 @@ use Amadeus\Client\RequestOptions\Car\Availability\ProviderIndicator;
  * @package Amadeus\Client\Struct\Car\Availability
  * @author Dieter Devlieghere <dieter.devlieghere@benelux.amadeus.com>
  */
-class CarProviderIndicator
+class carProviderIndicator
 {
 
     /**
-     * @var StatusDetails
+     * @var statusDetails
      */
-    public $StatusDetails;
+    public $statusDetails;
 
 
     /**
@@ -47,6 +47,6 @@ class CarProviderIndicator
     public function __construct(ProviderIndicator $indicator)
     {
 
-        $this->StatusDetails = new StatusDetails($indicator->provider);
+        $this->StatusDetails = new statusDetails($indicator->provider);
     }
 }

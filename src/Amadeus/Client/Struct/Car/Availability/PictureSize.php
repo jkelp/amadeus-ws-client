@@ -21,7 +21,7 @@
  */
 
 namespace Amadeus\Client\Struct\Car\Availability;
-
+use Amadeus\Client\Struct\Car\Availability\selectionDetails
 
 /**
  * RoomStayCandidate
@@ -29,13 +29,13 @@ namespace Amadeus\Client\Struct\Car\Availability;
  * @package Amadeus\Client\Struct\Car\Availability
  * @author Dieter Devlieghere <dieter.devlieghere@benelux.amadeus.com>
  */
-class PicturesSize
+class picturesSize
 {
 
     /**
      * @var string
      */
-    public $SelectionDetails;
+    public $selectionDetails;
 
 
     /**
@@ -45,6 +45,6 @@ class PicturesSize
      */
     public function __construct(string $pictureSize)
     {
-        $this->SelectionDetails = new SelectionDetails($pictureSize);
+        $this->selectionDetails = new selectionDetails($pictureSize);
     }
 }

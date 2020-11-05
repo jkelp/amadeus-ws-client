@@ -20,32 +20,36 @@
  * @license https://opensource.org/licenses/Apache-2.0 Apache 2.0
  */
 
-namespace Amadeus\Client\Struct\Car\Availability;
+namespace Amadeus\Client\RequestOptions\Car\Availability;
 
+use Amadeus\Client\LoadParamsFromArray;
+use Amadeus\Client\RequestOptions\Car\Availability\CustomRefs;
 
 /**
- * RoomStayCandidate
+ * ProviderIndicator
  *
- * @package Amadeus\Client\Struct\Car\Availability
+ * @package Amadeus\Client\RequestOptions\Car\Availability
  * @author Dieter Devlieghere <dieter.devlieghere@benelux.amadeus.com>
  */
-class indicator
+class ProviderSpecOps extends LoadParamsFromArray
 {
 
+  /**
+   *
+   *
+   * @var CustomRefs
+   */
+
+    public $refs;
+
     /**
+     *
+     *
      * @var string
      */
-    public $_;
+
+      public $companyDetails;
 
 
-    /**
-     * StatusDetails constructor.
-     *
-     * @param string
-     */
-    public function __construct(string $indicator)
-    {
 
-        $_ = $indicator;
-    }
 }

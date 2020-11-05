@@ -21,7 +21,7 @@
  */
 
 namespace Amadeus\Client\Struct\Car\Availability;
-
+use Amadeus\Client\Struct\Car\Availability\actionRequestCode;
 
 /**
  * RoomStayCandidate
@@ -29,13 +29,13 @@ namespace Amadeus\Client\Struct\Car\Availability;
  * @package Amadeus\Client\Struct\Car\Availability
  * @author Dieter Devlieghere <dieter.devlieghere@benelux.amadeus.com>
  */
-class PicturesType
+class picturesType
 {
 
     /**
      * @var string
      */
-    public $ActionRequestCode;
+    public $actionRequestCode;
 
 
     /**
@@ -45,6 +45,6 @@ class PicturesType
      */
     public function __construct(string $picturesType)
     {
-        $this->ActionRequestCode = new ActionsRequestCode($pictureType);
+        $this->actionRequestCode = new actionRequestCode($pictureType);
     }
 }

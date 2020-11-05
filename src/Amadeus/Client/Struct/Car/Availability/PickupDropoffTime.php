@@ -22,9 +22,9 @@
 
 namespace Amadeus\Client\Struct\Car\Availability;
 
-use Amadeus\Client\Struct\Car\Availability\PUDOInfo;
-use Amadeus\Client\Struct\Car\Availability\BeginDateTime;
-use Amadeus\Client\Struct\Car\Availability\EndDateTime;
+use Amadeus\Client\Struct\Car\Availability\PUDOTimes;
+use Amadeus\Client\Struct\Car\Availability\beginDateTime;
+use Amadeus\Client\Struct\Car\Availability\endDateTime;
 
 
 /**
@@ -33,18 +33,18 @@ use Amadeus\Client\Struct\Car\Availability\EndDateTime;
  * @package Amadeus\Client\Struct\Car\Availability
  * @author Dieter Devlieghere <dieter.devlieghere@benelux.amadeus.com>
  */
-class PickupDropoffTime
+class pickupDropoffTime
 {
 
     /**
-     * @var BeginDateTime
+     * @var beginDateTime
      */
-    public $BeginDateTime;
+    public $beginDateTime;
 
     /**
-     * @var EndDateTime
+     * @var endDateTime
      */
-    public $EndDateTime;
+    public $endDateTime;
 
 
     /**
@@ -52,11 +52,11 @@ class PickupDropoffTime
      *
      * @param PUDOInfo
      */
-    public function __construct(PUDOInfo $pickupDropoff)
+    public function __construct(PUDOTimes $pickupDropoff)
     {
 
-        $this->BeginDateTime = new BeginDateTime($pickupDropoff->beginDateTime);
-        $this->EndDateTime = new EndDateTime($pickupDropoff->endDateTime);
+        $this->beginDateTime = new beginDateTime($pickupDropoff->beginDateTime);
+        $this->endDateTime = new endDateTime($pickupDropoff->endDateTime);
 
     }
 }

@@ -21,12 +21,6 @@
  */
 
 namespace Amadeus\Client\Struct\Car\Availability;
-use Amadeus\Client\Struct\Car\Availability\day;
-use Amadeus\Client\Struct\Car\Availability\year;
-use Amadeus\Client\Struct\Car\Availability\hour;
-use Amadeus\Client\Struct\Car\Availability\month;
-use Amadeus\Client\Struct\Car\Availability\minutes;
-
 
 /**
  * RoomStayCandidate
@@ -34,52 +28,38 @@ use Amadeus\Client\Struct\Car\Availability\minutes;
  * @package Amadeus\Client\Struct\Car\Availability
  * @author Dieter Devlieghere <dieter.devlieghere@benelux.amadeus.com>
  */
-class endDateTime
+
+
+class locationType
 {
 
     /**
-     * @var year
+     * @var string
      */
-    public $year
+    public $_;
+
 
     /**
-     * @var month
+     * @var locationType
      */
-    public $month
-
-    /**
-     * @var day
-     */
-    public $day
-
-    /**
-     * @var hour
-     */
-    public $hour
-
-    /**
-     * @var minutes
-     */
-    public $minutes
+    public $locationType
 
 
     /**
      * StatusDetails constructor.
      *
-     * @param DateHolder
+     * @param string
      */
-    public function __construct(DateHolder $date)
+    public function __construct()
     {
-
-        $this->year = new ($date->year);
-
-        $this->month = new ($date->month);
-
-        $this->day = new ($date->day);
-
-        $this->hour = new ($date->hour);
-
-        $this->minutes = new ($date->minutes);
-
     }
+
+
+    public static function withLocationType( string $type ) {
+        $this->locationType = new self();
+        $this->locationType->_ = $type;
+    }
+
+
+
 }

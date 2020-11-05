@@ -21,11 +21,6 @@
  */
 
 namespace Amadeus\Client\Struct\Car\Availability;
-use Amadeus\Client\Struct\Car\Availability\day;
-use Amadeus\Client\Struct\Car\Availability\year;
-use Amadeus\Client\Struct\Car\Availability\hour;
-use Amadeus\Client\Struct\Car\Availability\month;
-use Amadeus\Client\Struct\Car\Availability\minutes;
 
 
 /**
@@ -34,52 +29,23 @@ use Amadeus\Client\Struct\Car\Availability\minutes;
  * @package Amadeus\Client\Struct\Car\Availability
  * @author Dieter Devlieghere <dieter.devlieghere@benelux.amadeus.com>
  */
-class endDateTime
+class referenceNumber
 {
 
     /**
-     * @var year
+     * @var string
      */
-    public $year
-
-    /**
-     * @var month
-     */
-    public $month
-
-    /**
-     * @var day
-     */
-    public $day
-
-    /**
-     * @var hour
-     */
-    public $hour
-
-    /**
-     * @var minutes
-     */
-    public $minutes
+    public $_;
 
 
     /**
      * StatusDetails constructor.
      *
-     * @param DateHolder
+     * @param string
      */
-    public function __construct(DateHolder $date)
+    public function __construct(string $ref)
     {
 
-        $this->year = new ($date->year);
-
-        $this->month = new ($date->month);
-
-        $this->day = new ($date->day);
-
-        $this->hour = new ($date->hour);
-
-        $this->minutes = new ($date->minutes);
-
+        $_ = $ref;
     }
 }
