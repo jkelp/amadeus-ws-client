@@ -46,6 +46,6 @@ class minutes
     public function __construct(string $minutes)
     {
 
-        $_ = $minutes;
+        $this->_ = $minutes;
     }
 }

@@ -40,12 +40,11 @@ class indicator
 
     /**
      * StatusDetails constructor.
-     *
      * @param string
      */
     public function __construct(string $indicator)
     {
 
-        $_ = $indicator;
+        $this->_ = $indicator;
     }
 }

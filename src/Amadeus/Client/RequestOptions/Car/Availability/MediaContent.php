@@ -37,7 +37,7 @@ class MediaContent extends LoadParamsFromArray
    *
    * @var string
    */
-    public $pictureType;
+    public $picturesType;
 
     /**
      * Picture Size

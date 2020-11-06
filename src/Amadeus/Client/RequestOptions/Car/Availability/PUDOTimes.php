@@ -30,7 +30,7 @@ use Amadeus\Client\LoadParamsFromArray;
  * @package Amadeus\Client\RequestOptions\Car\Availability
  * @author Dieter Devlieghere <dieter.devlieghere@benelux.amadeus.com>
  */
-class PickupDropoffTimes extends LoadParamsFromArray
+class PUDOTimes extends LoadParamsFromArray
 {
 
   /**

@@ -46,6 +46,6 @@ class name
     public function __construct(string $name)
     {
 
-        $_ = $name;
+        $this->_ = $name;
     }
 }

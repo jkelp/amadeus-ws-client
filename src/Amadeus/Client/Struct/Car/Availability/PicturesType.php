@@ -45,6 +45,6 @@ class picturesType
      */
     public function __construct(string $picturesType)
     {
-        $this->actionRequestCode = new actionRequestCode($pictureType);
+        $this->actionRequestCode = new actionRequestCode($picturesType);
     }
 }

@@ -38,9 +38,9 @@ class multimediaContent
 {
 
     /**
-     * @var pictureType
+     * @var picturesType
      */
-    public $pictureType;
+    public $picturesType;
 
     /**
      * @var pictureSize
@@ -56,7 +56,7 @@ class multimediaContent
     public function __construct(MediaContent $mediaContent)
     {
 
-        $this->pictureType = new pictureType($mediaContent->pictureType);
+        $this->picturesType = new picturesType($mediaContent->picturesType);
         $this->pictureSize = new pictureSize($mediaContent->pictureSize);
 
     }

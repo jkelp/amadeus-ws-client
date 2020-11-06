@@ -21,7 +21,7 @@
  */
 
 namespace Amadeus\Client\Struct\Car\Availability;
-use Amadeus\Client\Struct\Car\Availability\indicator
+use Amadeus\Client\Struct\Car\Availability\indicator;
 
 /**
  * RoomStayCandidate

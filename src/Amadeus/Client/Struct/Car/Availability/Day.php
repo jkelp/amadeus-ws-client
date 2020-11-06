@@ -46,6 +46,6 @@ class day
     public function __construct(string $day)
     {
 
-        $_ = $day;
+        $this->_ = $day;
     }
 }

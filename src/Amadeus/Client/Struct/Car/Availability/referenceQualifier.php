@@ -46,6 +46,6 @@ class referenceQualifier
     public function __construct(string $ref)
     {
 
-        $_ = $ref;
+        $this->_ = $ref;
     }
 }

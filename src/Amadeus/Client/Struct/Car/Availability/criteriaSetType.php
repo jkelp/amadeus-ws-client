@@ -46,6 +46,6 @@ class criteriaSetType
     public function __construct(string $type)
     {
 
-        $_ = $type;
+        $this->_ = $type;
     }
 }

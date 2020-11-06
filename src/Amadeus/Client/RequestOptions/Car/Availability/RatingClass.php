@@ -30,11 +30,11 @@ use Amadeus\Client\LoadParamsFromArray;
  * @package Amadeus\Client\RequestOptions\Car\Availability
  * @author Dieter Devlieghere <dieter.devlieghere@benelux.amadeus.com>
  */
-class RatingClass extends LoadParamsFromArray
+class RatingClass
 {
 
   /**
-   * Car Provider Indicator
+   *
    *
    * @var string
    */

@@ -21,7 +21,7 @@
  */
 
 namespace Amadeus\Client\Struct\Car\Availability;
-use Amadeus\Client\Struct\Car\Availability\selectionDetails
+use Amadeus\Client\Struct\Car\Availability\selectionDetails;
 
 /**
  * RoomStayCandidate
@@ -29,7 +29,7 @@ use Amadeus\Client\Struct\Car\Availability\selectionDetails
  * @package Amadeus\Client\Struct\Car\Availability
  * @author Dieter Devlieghere <dieter.devlieghere@benelux.amadeus.com>
  */
-class picturesSize
+class pictureSize
 {
 
     /**

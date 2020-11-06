@@ -23,48 +23,40 @@
 namespace Amadeus\Client\RequestOptions\Car\Availability;
 
 use Amadeus\Client\LoadParamsFromArray;
+use Amadeus\Client\RequestOptions\Car\Availability\CustomRefs;
 
 /**
- * DateHolder
+ * ProviderIndicator
  *
  * @package Amadeus\Client\RequestOptions\Car\Availability
  * @author Dieter Devlieghere <dieter.devlieghere@benelux.amadeus.com>
  */
-class DateHolder extends LoadParamsFromArray
+class GeocodeInfo extends LoadParamsFromArray
 {
+
   /**
-   * Year
+   *
    *
    * @var string
    */
-    public $year;
+
+    public $encoding;
 
     /**
-     * Month
+     *
      *
      * @var string
      */
-    public $month;
+
+      public $longitude;
 
     /**
-     * Day
+     *
      *
      * @var string
      */
-    public $day;
 
-    /**
-     * Hour
-     *
-     * @var string
-     */
-    public $hour;
+      public $latitude;
 
-    /**
-     * Minutes
-     *
-     * @var string
-     */
-    public $minutes;
 
 }

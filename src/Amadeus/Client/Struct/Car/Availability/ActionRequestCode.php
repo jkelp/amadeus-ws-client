@@ -46,6 +46,6 @@ class actionRequestCode
     public function __construct(string $actionRequestCode)
     {
 
-        $_ = $actionRequestCode;
+        $this->_ = $actionRequestCode;
     }
 }

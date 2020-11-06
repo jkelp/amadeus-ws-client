@@ -20,51 +20,32 @@
  * @license https://opensource.org/licenses/Apache-2.0 Apache 2.0
  */
 
-namespace Amadeus\Client\RequestOptions\Car\Availability;
+namespace Amadeus\Client\Struct\Car\Availability;
 
-use Amadeus\Client\LoadParamsFromArray;
 
 /**
- * DateHolder
+ * RoomStayCandidate
  *
- * @package Amadeus\Client\RequestOptions\Car\Availability
+ * @package Amadeus\Client\Struct\Car\Availability
  * @author Dieter Devlieghere <dieter.devlieghere@benelux.amadeus.com>
  */
-class DateHolder extends LoadParamsFromArray
+class encoding
 {
-  /**
-   * Year
-   *
-   * @var string
-   */
-    public $year;
 
     /**
-     * Month
-     *
      * @var string
      */
-    public $month;
+    public $_;
+
 
     /**
-     * Day
+     * StatusDetails constructor.
      *
-     * @var string
+     * @param string
      */
-    public $day;
+    public function __construct(string $code)
+    {
 
-    /**
-     * Hour
-     *
-     * @var string
-     */
-    public $hour;
-
-    /**
-     * Minutes
-     *
-     * @var string
-     */
-    public $minutes;
-
+        $this->_ = $code;
+    }
 }

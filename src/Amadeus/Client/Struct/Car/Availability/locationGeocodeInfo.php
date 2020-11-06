@@ -20,51 +20,38 @@
  * @license https://opensource.org/licenses/Apache-2.0 Apache 2.0
  */
 
-namespace Amadeus\Client\RequestOptions\Car\Availability;
+namespace Amadeus\Client\Struct\Car\Availability;
 
-use Amadeus\Client\LoadParamsFromArray;
+use Amadeus\Client\Struct\Car\Availability\position;
+use Amadeus\Client\Struct\Car\Availability\code;
+use Amadeus\Client\RequestOptions\Car\Availability\locationGeocodeInfo;
+
 
 /**
- * DateHolder
+ * RoomStayCandidate
  *
- * @package Amadeus\Client\RequestOptions\Car\Availability
+ * @package Amadeus\Client\Struct\Car\Availability
  * @author Dieter Devlieghere <dieter.devlieghere@benelux.amadeus.com>
  */
-class DateHolder extends LoadParamsFromArray
+class locationGeocodeInfo
 {
-  /**
-   * Year
-   *
-   * @var string
-   */
-    public $year;
 
     /**
-     * Month
-     *
-     * @var string
+     * @var position
      */
-    public $month;
+    public $position;
+
+
 
     /**
-     * Day
+     * MediaContent constructor.
      *
-     * @var string
+     * @param locationGeocodeInfo
      */
-    public $day;
+    public function __construct(locationGeocodeInfo $loc)
+    {
 
-    /**
-     * Hour
-     *
-     * @var string
-     */
-    public $hour;
+        $this->position = new position($loc);
 
-    /**
-     * Minutes
-     *
-     * @var string
-     */
-    public $minutes;
-
+    }
 }

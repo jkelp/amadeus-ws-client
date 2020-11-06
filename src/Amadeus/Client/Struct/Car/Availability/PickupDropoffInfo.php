@@ -57,6 +57,11 @@ class pickupDropoffInfo
      */
     public $locationType;
 
+    /**
+     * @var locationGeocodeInfo
+     */
+    public $locationGeocodeInfo;
+
 
 
     /**
@@ -78,6 +83,9 @@ class pickupDropoffInfo
         }
         if (!empty($pickupDropoff->aitaAirportLoc)){
           $this->iataAirportLocations = new iataAirportLocations($pickupDropoff->iataAirportLoc);
+        }
+        if (!empty($pickupDropoff->locationGeocodeInfo)){
+          $this->locationGeocodeInfo = new locationGeocodeInfo($pickupDropoff->locationGeocodeInfo);
         }
 
 

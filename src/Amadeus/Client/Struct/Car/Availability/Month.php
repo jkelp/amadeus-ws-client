@@ -46,6 +46,6 @@ class month
     public function __construct(string $month)
     {
 
-        $_ = $month;
+        $this->_ = $month;
     }
 }

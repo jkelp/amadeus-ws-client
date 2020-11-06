@@ -20,51 +20,43 @@
  * @license https://opensource.org/licenses/Apache-2.0 Apache 2.0
  */
 
-namespace Amadeus\Client\RequestOptions\Car\Availability;
+namespace Amadeus\Client\Struct\Car\Availability;
 
-use Amadeus\Client\LoadParamsFromArray;
+
+use Amadeus\Client\Struct\Car\Availability\porLongitude;
+use Amadeus\Client\Struct\Car\Availability\porLatitude;
+
 
 /**
- * DateHolder
+ * RoomStayCandidate
  *
- * @package Amadeus\Client\RequestOptions\Car\Availability
+ * @package Amadeus\Client\Struct\Car\Availability
  * @author Dieter Devlieghere <dieter.devlieghere@benelux.amadeus.com>
  */
-class DateHolder extends LoadParamsFromArray
+class porPosition
 {
-  /**
-   * Year
-   *
-   * @var string
-   */
-    public $year;
 
     /**
-     * Month
-     *
-     * @var string
+     * @var porLongitude
      */
-    public $month;
+    public $porLongitude;
 
     /**
-     * Day
-     *
-     * @var string
+     * @var porLatitude
      */
-    public $day;
+    public $porLatitude;
+
 
     /**
-     * Hour
+     * MediaContent constructor.
      *
-     * @var string
+     * 
      */
-    public $hour;
+    public function __construct(string $longitude, string $latitude)
+    {
 
-    /**
-     * Minutes
-     *
-     * @var string
-     */
-    public $minutes;
+        $this->porLongitude = new porLongitude($longitude);
+        $this->porLatitude = new porLatitude($latitude);
 
+    }
 }

@@ -22,6 +22,7 @@
 
 namespace Amadeus\Client\Struct\Car\Availability;
 use Amadeus\Client\Struct\Car\Availability\actionRequestCode;
+use Amadeus\Client\RequestOptions\Car\Availability\Markups;
 
 /**
  * RoomStayCandidate
@@ -41,10 +42,10 @@ class computeMarkups
     /**
      * StatusDetails constructor.
      *
-     * @param string
+     * @param Markups
      */
-    public function __construct(string $actionRequestCode)
+    public function __construct(Markups $markups)
     {
-        $this->actionRequestCode = new actionRequestCode($actionRequestCode);
+        $this->actionRequestCode = new actionRequestCode($markups->actionRequestCode);
     }
 }

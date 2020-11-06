@@ -22,6 +22,7 @@
 
 namespace Amadeus\Client\Struct\Car\Availability;
 use Amadeus\Client\Struct\Car\Availability\actionRequestCode;
+use Amadeus\Client\RequestOptions\Car\Availability\SortRule;
 
 /**
  * RoomStayCandidate
@@ -41,10 +42,10 @@ class sortingRule
     /**
      * StatusDetails constructor.
      *
-     * @param string
+     * @param SortRule
      */
-    public function __construct(string $actionRequestCode)
+    public function __construct(SortRule $sortRule)
     {
-        $this->actionRequestCode = new actionRequestCode($actionRequestCode);
+        $this->actionRequestCode = new actionRequestCode($sortRule->actionRequestCode);
     }
 }

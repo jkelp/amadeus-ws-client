@@ -46,6 +46,6 @@ class option
     public function __construct(string $option)
     {
 
-        $_ = $option;
+        $this->_ = $option;
     }
 }

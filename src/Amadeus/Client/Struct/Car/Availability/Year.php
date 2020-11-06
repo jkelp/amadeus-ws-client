@@ -46,6 +46,6 @@ class year
     public function __construct(string $year)
     {
 
-        $_ = $year;
+        $this->_ = $year;
     }
 }
