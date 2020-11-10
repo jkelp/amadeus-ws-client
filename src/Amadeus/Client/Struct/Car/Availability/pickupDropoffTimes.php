@@ -22,9 +22,10 @@
 
 namespace Amadeus\Client\Struct\Car\Availability;
 
-use Amadeus\Client\Struct\Car\Availability\referenceNumber;
-use Amadeus\Client\Struct\Car\Availability\referenceQualifier;
-use Amadeus\Client\RequestOptions\Car\Availability\CustomRef;
+use Amadeus\Client\RequestOptions\Car\Availability\PUDOTimes;
+use Amadeus\Client\Struct\Car\Availability\beginDateTime;
+use Amadeus\Client\Struct\Car\Availability\endDateTime;
+
 
 /**
  * RoomStayCandidate
@@ -32,30 +33,30 @@ use Amadeus\Client\RequestOptions\Car\Availability\CustomRef;
  * @package Amadeus\Client\Struct\Car\Availability
  * @author Dieter Devlieghere <dieter.devlieghere@benelux.amadeus.com>
  */
-class costumerReferenceInfo
+class pickupDropoffTimes
 {
 
     /**
-     * @var referenceQualifier
+     * @var beginDateTime
      */
-    public $referenceQualifier;
+    public $beginDateTime;
 
     /**
-     * @var referenceNumber
+     * @var endDateTime
      */
-    public $referenceNumber;
+    public $endDateTime;
 
 
     /**
-     * MediaContent constructor.
+     * PickupDropoff constructor.
      *
-     * @param CustomRef
+     * @param PUDOInfo
      */
-    public function __construct(CostumRef $ref)
+    public function __construct(PUDOTimes $pickupDropoff)
     {
 
-        $this->referenceQualifier = new referenceQualifier($ref->qualifier);
-        $this->referenceQualifier = new referenceNumber($ref->number);
+        $this->beginDateTime = new beginDateTime($pickupDropoff->beginDateTime);
+        $this->endDateTime = new endDateTime($pickupDropoff->endDateTime);
 
     }
 }

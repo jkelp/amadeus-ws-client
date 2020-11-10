@@ -42,7 +42,7 @@ class locationType
     /**
      * @var locationType
      */
-    public $locationType
+    public $locationType;
 
 
     /**
@@ -55,10 +55,14 @@ class locationType
     }
 
 
-    public static function withLocationType( string $type ) {
-        $this->locationType = new self();
-        $this->locationType->_ = $type;
+    public function addType(string $type) {
+      $this->_ = $type;
     }
+
+    public function addLocationType(locationType $type) {
+      $this->locationType = $type;
+    }
+
 
 
 

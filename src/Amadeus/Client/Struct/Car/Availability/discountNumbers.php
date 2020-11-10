@@ -22,7 +22,7 @@
 
 namespace Amadeus\Client\Struct\Car\Availability;
 use Amadeus\Client\RequestOptions\Car\Availability\CustomRefs;
-
+use Amadeus\Client\Struct\Car\Availability\customerReferenceInfo;
 
 /**
  * RoomStayCandidate
@@ -33,16 +33,19 @@ use Amadeus\Client\RequestOptions\Car\Availability\CustomRefs;
 class discountNumbers
 {
 
-
+  /**
+   * @var customerReferenceInfo[]
+   */
+  public $customerReferenceInfo = [];
     /**
      * DiscountNumbers constructor.
      *
-     * @param CustomRefs
+     * @param CustomRef[]
      */
-    public function __construct(CustomRefs $refs)
+    public function __construct($refs)
     {
       foreach ($refs as $ref) {
-        $this->costumerReferenceInfo[] = new customerReferenceInfo($ref)
+        $this->customerReferenceInfo[] = new customerReferenceInfo($ref);
       }
     }
 }

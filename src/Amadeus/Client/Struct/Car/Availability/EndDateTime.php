@@ -26,7 +26,7 @@ use Amadeus\Client\Struct\Car\Availability\year;
 use Amadeus\Client\Struct\Car\Availability\hour;
 use Amadeus\Client\Struct\Car\Availability\month;
 use Amadeus\Client\Struct\Car\Availability\minutes;
-
+use Amadeus\Client\RequestOptions\Car\Availability\DateHolder;
 
 /**
  * RoomStayCandidate
@@ -37,49 +37,49 @@ use Amadeus\Client\Struct\Car\Availability\minutes;
 class endDateTime
 {
 
-    /**
-     * @var year
-     */
-    public $year
+      /**
+       * @var year
+       */
+      public $year;
 
-    /**
-     * @var month
-     */
-    public $month
+      /**
+       * @var month
+       */
+      public $Month;
 
-    /**
-     * @var day
-     */
-    public $day
+      /**
+       * @var day
+       */
+      public $day;
 
-    /**
-     * @var hour
-     */
-    public $hour
+      /**
+       * @var hour
+       */
+      public $hour;
 
-    /**
-     * @var minutes
-     */
-    public $minutes
+      /**
+       * @var minutes
+       */
+      public $minutes;
 
 
-    /**
-     * StatusDetails constructor.
-     *
-     * @param DateHolder
-     */
-    public function __construct(DateHolder $date)
-    {
+      /**
+       * StatusDetails constructor.
+       *
+       * @param DateHolder
+       */
+      public function __construct(DateHolder $date)
+      {
 
-        $this->year = new ($date->year);
+          $this->year = new year($date->year);
 
-        $this->month = new ($date->month);
+          $this->month = new month($date->month);
 
-        $this->day = new ($date->day);
+          $this->day = new day($date->day);
 
-        $this->hour = new ($date->hour);
+          $this->hour = new hour($date->hour);
 
-        $this->minutes = new ($date->minutes);
+          $this->minutes = new minutes($date->minutes);
 
-    }
+      }
 }

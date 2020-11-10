@@ -62,7 +62,7 @@ class CarAvailabilityTest extends BaseTestCase
               "pictureSize" => '1'
             ]),
             "pickupDropoffInfo" => new PUDOInfo([
-              "pickupDropoffTime" => new PUDOTimes([
+              "times" => new PUDOTimes([
                 "beginDateTime" => new DateHolder([
                   "year" => "2019",
                   "month" => "11",
@@ -78,9 +78,9 @@ class CarAvailabilityTest extends BaseTestCase
                   "minutes" => "0"
                 ])
               ]),
-              "pickupDropOffInfo" => new PUDOInfo([
+              "nestedInfo" => new PUDOInfo([
                 "locationType" => "PUP",
-                "iataAirportLocations" => new AirportLoc([
+                "iataAirportLoc" => new AirportLoc([
                   "code" => "1A",
                   "name" => "MIA"
                 ]),
@@ -90,16 +90,16 @@ class CarAvailabilityTest extends BaseTestCase
                   "latitude" => "4042008"
                 ])
               ]),
-              "providerSpecificOptions" => new ProviderSpecOps([
-                "refs" => new CustomRefs([
-                  "refs" => [new CustomRef([
-                    "qualifier" => "CD",
-                    "number" => "501037"
-                    ])
-                  ]
-                ]),
-                "companyDetails" => "ZE"
-              ])
+            ]),
+            "providerSpecificOptions" => new ProviderSpecOps([
+              "refs" => new CustomRefs([
+                "refs" => [new CustomRef([
+                  "qualifier" => "CD",
+                  "number" => "501037"
+                  ])
+                ]
+              ]),
+              "companyDetails" => "ZE"
             ]),
             "rateClass" => new RatingClass([
               "criteriaSetType" => "COR"
@@ -112,44 +112,40 @@ class CarAvailabilityTest extends BaseTestCase
             ])
         ]);
 
-        //print_r($opt);
+        // print_r($opt);
         //exit;
+
 
         $msg = new Car_Availability($opt);
 
-        print_r($msg);
-        exit;
 
-        // // $this->assertEquals('MultiSingle', $msg->EchoToken);
-        // $this->assertEquals('4.000', $msg->Version);
-        // $this->assertTrue($msg->SummaryOnly);
-        // $this->assertTrue($msg->RateRangeOnly);
-        // $this->assertTrue($msg->RateDetailsInd);
-        //
-        // $this->assertCount(1, $msg->AvailRequestSegments->AvailRequestSegment);
-        // $this->assertEquals('Distribution', $msg->AvailRequestSegments->AvailRequestSegment[0]->InfoSource);
-        //
-        // $this->assertCount(1, $msg->AvailRequestSegments->AvailRequestSegment[0]->HotelSearchCriteria->Criterion);
-        // $this->assertTrue($msg->AvailRequestSegments->AvailRequestSegment[0]->HotelSearchCriteria->Criterion[0]->ExactMatch);
-        // $this->assertCount(1, $msg->AvailRequestSegments->AvailRequestSegment[0]->HotelSearchCriteria->Criterion[0]->HotelRef);
-        // $this->assertEquals('RT', $msg->AvailRequestSegments->AvailRequestSegment[0]->HotelSearchCriteria->Criterion[0]->HotelRef[0]->ChainCode);
-        //
-        // // $this->assertCount(1, $msg->AvailRequestSegments->AvailRequestSegment[0]->HotelSearchCriteria->Criterion[0]->Radius);
-        // $this->assertEquals(10, $msg->AvailRequestSegments->AvailRequestSegment[0]->HotelSearchCriteria->Criterion[0]->Radius->Distance);
-        // $this->assertEquals(1, $msg->AvailRequestSegments->AvailRequestSegment[0]->HotelSearchCriteria->Criterion[0]->Radius->UnitOfMeasureCode);
-        // $this->assertEquals('DIS', $msg->AvailRequestSegments->AvailRequestSegment[0]->HotelSearchCriteria->Criterion[0]->Radius->DistanceMeasure);
-        //
-        //
-        // // $this->assertCount(1, $msg->AvailRequestSegments->AvailRequestSegment[0]->HotelSearchCriteria->Criterion[0]->Position);
-        // $this->assertEquals(424627, $msg->AvailRequestSegments->AvailRequestSegment[0]->HotelSearchCriteria->Criterion[0]->Position->Latitude);
-        // $this->assertEquals(-244610, $msg->AvailRequestSegments->AvailRequestSegment[0]->HotelSearchCriteria->Criterion[0]->Position->Longitude);
-        //
-        // // $this->assertCount(1, $msg->AvailRequestSegments->AvailRequestSegment[0]->HotelSearchCriteria->Criterion[0]->Award);
-        // $this->assertEquals('LSR', $msg->AvailRequestSegments->AvailRequestSegment[0]->HotelSearchCriteria->Criterion[0]->Award->Provider);
-        // $this->assertEquals(5, $msg->AvailRequestSegments->AvailRequestSegment[0]->HotelSearchCriteria->Criterion[0]->Award->Rating);
-        //
-        // // $this->assertCount(1, $msg->AvailRequestSegments->AvailRequestSegment[0]->HotelSearchCriteria->Criterion[0]->RefPoint);
-        // $this->assertEquals('ES', $msg->AvailRequestSegments->AvailRequestSegment[0]->HotelSearchCriteria->Criterion[0]->RefPoint->CountryCode);
-        // $this->assertEquals('MUSEO DEL PRADO', $msg->AvailRequestSegments->AvailRequestSegment[0]->HotelSearchCriteria->Criterion[0]->RefPoint->Name);
+        // exit;
+
+
+        $this->assertEquals('Y', $msg->carProviderIndicator->statusDetails->indicator->_);
+        $this->assertEquals('MY', $msg->multimediaIndicator->statusDetails->indicator->_);
+        $this->assertEquals('VEH', $msg->multimediaContent->picturesType->actionRequestCode->_);
+        $this->assertEquals('1', $msg->multimediaContent->pictureSize->selectionDetails->option->_);
+        $this->assertEquals('2019', $msg->pickupDropoffInfo->pickupDropoffTimes->beginDateTime->year->_);
+        $this->assertEquals('11', $msg->pickupDropoffInfo->pickupDropoffTimes->beginDateTime->month->_);
+        $this->assertEquals('11', $msg->pickupDropoffInfo->pickupDropoffTimes->beginDateTime->day->_);
+        $this->assertEquals('9', $msg->pickupDropoffInfo->pickupDropoffTimes->beginDateTime->hour->_);
+        $this->assertEquals('0', $msg->pickupDropoffInfo->pickupDropoffTimes->beginDateTime->minutes->_);
+        $this->assertEquals('2019', $msg->pickupDropoffInfo->pickupDropoffTimes->endDateTime->year->_);
+        $this->assertEquals('11', $msg->pickupDropoffInfo->pickupDropoffTimes->endDateTime->month->_);
+        $this->assertEquals('15', $msg->pickupDropoffInfo->pickupDropoffTimes->endDateTime->day->_);
+        $this->assertEquals('9', $msg->pickupDropoffInfo->pickupDropoffTimes->endDateTime->hour->_);
+        $this->assertEquals('0', $msg->pickupDropoffInfo->pickupDropoffTimes->endDateTime->minutes->_);
+        $this->assertEquals('PUP', $msg->pickupDropoffInfo->pickupDropoffInfo->locationType->locationType->_);
+        $this->assertEquals('1A', $msg->pickupDropoffInfo->pickupDropoffInfo->iataAirportLocations->locationDescription->code->_);
+        $this->assertEquals('MIA', $msg->pickupDropoffInfo->pickupDropoffInfo->iataAirportLocations->locationDescription->name->_);
+        $this->assertEquals('ZE', $msg->providerSpecificOptions->companyDetails->companyCode->_);
+        $this->assertEquals('CD', $msg->providerSpecificOptions->loyaltyNumbersList->discountNumbers->customerReferenceInfo[0]->referenceQualifier->_);
+        $this->assertEquals('501037', $msg->providerSpecificOptions->loyaltyNumbersList->discountNumbers->customerReferenceInfo[0]->referenceNumber->_);
+        $this->assertEquals('COR', $msg->rateClass->criteriaSetType->_);
+        $this->assertEquals('N', $msg->computeMarkups->actionRequestCode->_);
+        $this->assertEquals('SDT', $msg->sortingRule->actionRequestCode->_);
+
+
     }
 }

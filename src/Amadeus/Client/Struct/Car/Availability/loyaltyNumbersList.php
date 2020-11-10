@@ -46,7 +46,6 @@ class loyaltyNumbersList
      */
     public function __construct(CustomRefs $refs)
     {
-
-        $discountNumbers = new discountNumbers($refs);
+        $this->discountNumbers = new discountNumbers($refs->refs);
     }
 }

@@ -26,6 +26,7 @@ use Amadeus\Client\Struct\Car\Availability\year;
 use Amadeus\Client\Struct\Car\Availability\hour;
 use Amadeus\Client\Struct\Car\Availability\month;
 use Amadeus\Client\Struct\Car\Availability\minutes;
+use Amadeus\Client\RequestOptions\Car\Availability\DateHolder;
 
 
 /**
@@ -40,27 +41,27 @@ class beginDateTime
     /**
      * @var year
      */
-    public $year
+    public $year;
 
     /**
      * @var month
      */
-    public $Month
+    public $Month;
 
     /**
      * @var day
      */
-    public $day
+    public $day;
 
     /**
      * @var hour
      */
-    public $hour
+    public $hour;
 
     /**
      * @var minutes
      */
-    public $minutes
+    public $minutes;
 
 
     /**
@@ -71,15 +72,15 @@ class beginDateTime
     public function __construct(DateHolder $date)
     {
 
-        $this->year = new ($date->year);
+        $this->year = new year($date->year);
 
-        $this->month = new ($date->month);
+        $this->month = new month($date->month);
 
-        $this->day = new ($date->day);
+        $this->day = new day($date->day);
 
-        $this->hour = new ($date->hour);
+        $this->hour = new hour($date->hour);
 
-        $this->minutes = new ($date->minutes);
+        $this->minutes = new minutes($date->minutes);
 
     }
 }

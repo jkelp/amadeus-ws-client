@@ -23,7 +23,7 @@
 namespace Amadeus\Client\Struct\Car\Availability;
 
 use Amadeus\Client\RequestOptions\Car\Availability\PUDOInfo;
-use Amadeus\Client\Struct\Car\Availability\pickupDropoffTime;
+use Amadeus\Client\Struct\Car\Availability\pickupDropoffTimes;
 use Amadeus\Client\Struct\Car\Availability\iataAirportLocations;
 use Amadeus\Client\Struct\Car\Availability\locationType;
 
@@ -37,9 +37,9 @@ class pickupDropoffInfo
 {
 
     /**
-     * @var pickupDropoffTime
+     * @var pickupDropoffTimes
      */
-    public $pickupDropoffTime;
+    public $pickupDropoffTimes;
 
     /**
      * @var pickupDropoffInfo
@@ -73,15 +73,18 @@ class pickupDropoffInfo
     {
 
         if (!empty($pickupDropoff->times)){
-          $this->pickupDropoffTime = new pickupDropoffTime($pickupDropoff->times);
+          $this->pickupDropoffTimes = new pickupDropoffTimes($pickupDropoff->times);
         }
         if (!empty($pickupDropoff->nestedInfo)){
           $this->pickupDropoffInfo = new self($pickupDropoff->nestedInfo);
         }
         if (!empty($pickupDropoff->locationType)){
-          $this->locationType = new locationType($pickupDropoff->locationType);
+          $this->locationType = new locationType();
+          $nested = new locationType();
+          $nested->addType($pickupDropoff->locationType);
+          $this->locationType->addLocationType($nested);
         }
-        if (!empty($pickupDropoff->aitaAirportLoc)){
+        if (!empty($pickupDropoff->iataAirportLoc)){
           $this->iataAirportLocations = new iataAirportLocations($pickupDropoff->iataAirportLoc);
         }
         if (!empty($pickupDropoff->locationGeocodeInfo)){

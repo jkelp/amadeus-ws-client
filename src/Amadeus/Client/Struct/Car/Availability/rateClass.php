@@ -24,6 +24,8 @@ namespace Amadeus\Client\Struct\Car\Availability;
 
 use Amadeus\Client\RequestOptions\Car\Availability\RatingClass;
 
+use Amadeus\Client\Struct\Car\Availability\criteriaSetType;
+
 /**
  * RoomStayCandidate
  *
@@ -47,6 +49,6 @@ class rateClass
     public function __construct(RatingClass $ratingClass)
     {
 
-        $this->StatusDetails = new RatingClass($ratingClass->criteriaSetType);
+        $this->criteriaSetType = new criteriaSetType($ratingClass->criteriaSetType);
     }
 }

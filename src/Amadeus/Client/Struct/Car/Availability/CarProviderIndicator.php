@@ -47,6 +47,6 @@ class carProviderIndicator
     public function __construct(ProviderIndicator $indicator)
     {
 
-        $this->StatusDetails = new statusDetails($indicator->provider);
+        $this->statusDetails = new statusDetails($indicator->provider);
     }
 }
