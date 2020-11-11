@@ -20,32 +20,19 @@
  * @license https://opensource.org/licenses/Apache-2.0 Apache 2.0
  */
 
- namespace Amadeus\Client\Struct\Car\RateInformation;
+namespace Amadeus\Client\RequestOptions\Car\Sell;
 
- use Amadeus\Client\Struct\Car\Sell\paxTattpNbr;
- use Amadeus\Client\RequestOptions\Car\Sell\Pnr;
+use Amadeus\Client\LoadParamsFromArray;
 
- /**
-  * RoomStayCandidate
-  *
-  * @package Amadeus\Client\Struct\Car\RateInformation
+/**
+ *
+ *
+ * @package Amadeus\Client\RequestOptions\Car\RateInformation
  * @author Dieter Devlieghere <dieter.devlieghere@benelux.amadeus.com>
  */
-class pnrInfo
+class RateCode extends LoadParamsFromArray
 {
 
-    public $paxTattooNbr;
+      public $fareType;
 
-
-
-    /**
-     * CarProviderIndicator constructor.
-     *
-     */
-    public function __construct(Pnr $pnr)
-    {
-
-        $this->paxTattooNbr = new paxTattooNbr($pnr->type, $pnr->value);
-
-    }
 }

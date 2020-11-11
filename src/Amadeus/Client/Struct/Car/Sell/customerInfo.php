@@ -39,12 +39,12 @@ class customerInfo
      * CarProviderIndicator constructor.
      *
      */
-    public function __construct($qualifier, $number)
+    public function __construct($customInfo)
     {
 
         $this->customerReferences = [
-            'referenceQualifier' => $qualifier,
-            'referenceNumber' => $number
+            'referenceQualifier' => $customInfo->qualifier,
+            'referenceNumber' => $customInfo->number
         ];
 
     }
