@@ -20,9 +20,9 @@
  * @license https://opensource.org/licenses/Apache-2.0 Apache 2.0
  */
 
- namespace Amadeus\Client\Struct\Car\RateInformation;
+ namespace Amadeus\Client\Struct\Car\Sell;
 
-  use Amadeus\Client\RequestOptions\Car\RateInformation\VehicleInfo;
+  use Amadeus\Client\RequestOptions\Car\Sell\VehicleInfo;
 
  /**
   * RoomStayCandidate

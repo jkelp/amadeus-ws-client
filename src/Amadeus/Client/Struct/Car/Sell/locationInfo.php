@@ -20,30 +20,40 @@
  * @license https://opensource.org/licenses/Apache-2.0 Apache 2.0
  */
 
-namespace Amadeus\Client\Struct\Car\RateInformation;
+ namespace Amadeus\Client\Struct\Car\locationInfo;
 
-/**
- * RoomStayCandidate
- *
- * @package Amadeus\Client\Struct\Car\RateInformation
+ use Amadeus\Client\RequestOptions\Car\Sell\Location;
+
+ /**
+  * RoomStayCandidate
+  *
+  * @package Amadeus\Client\Struct\Car\RateInformation
  * @author Dieter Devlieghere <dieter.devlieghere@benelux.amadeus.com>
  */
-class businessSemantic
+class locationInfo
 {
 
-  /**
-   * @var string
-   */
-  public $_;
+    /**
+     * @var locationType
+     */
+    public $locationType;
+
+    /**
+     * @var locationDescription
+     */
+    public $locationDescription;
 
 
     /**
      * CarProviderIndicator constructor.
+     *
+     * @param Location
      */
-    public function __construct($option)
+    public function __construct(Location $details)
     {
 
-        $this->_ = $option;
+        $this->locationType = new locationType($details->locationType);
+        $this->locationDescription = new locationDescription($details->code, $details->name);
 
     }
 }

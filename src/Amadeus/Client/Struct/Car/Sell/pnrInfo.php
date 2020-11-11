@@ -20,30 +20,31 @@
  * @license https://opensource.org/licenses/Apache-2.0 Apache 2.0
  */
 
-namespace Amadeus\Client\Struct\Car\RateInformation;
+ namespace Amadeus\Client\Struct\Car\RateInformation;
 
-/**
- * RoomStayCandidate
- *
- * @package Amadeus\Client\Struct\Car\RateInformation
+ use Amadeus\Client\Struct\Car\Sell\paxTattpNbr;
+
+ /**
+  * RoomStayCandidate
+  *
+  * @package Amadeus\Client\Struct\Car\RateInformation
  * @author Dieter Devlieghere <dieter.devlieghere@benelux.amadeus.com>
  */
-class currencyQualifier
+class pnrInfo
 {
 
-  /**
-   * @var string
-   */
-  public $_;
+    public $paxTattooNbr;
+
 
 
     /**
      * CarProviderIndicator constructor.
+     *
      */
-    public function __construct($option)
+    public function __construct($type, $value)
     {
 
-        $this->_ = $option;
+        $this->paxTattooNbr = new paxTattooNbr($type, $value);
 
     }
 }

@@ -20,34 +20,33 @@
  * @license https://opensource.org/licenses/Apache-2.0 Apache 2.0
  */
 
- namespace Amadeus\Client\Struct\Car\RateInformation;
+ namespace Amadeus\Client\Struct\Car\Sell;
 
-use Amadeus\Client\RequestOptions\Car\RateInformation\CurrencyInfo;
-
+ use Amadeus\Client\Struct\Car\Sell\companyCode;
+ use Amadeus\Client\Struct\Car\Sell\travelSector;
  /**
   * RoomStayCandidate
   *
   * @package Amadeus\Client\Struct\Car\RateInformation
  * @author Dieter Devlieghere <dieter.devlieghere@benelux.amadeus.com>
  */
-class currency
+class companyIdentification
 {
 
-    /**
-     * @var currencyDetails
-     */
-    public $currencyDetails;
+    public $companyCode;
+
+    public $travelSector;
+
 
 
     /**
      * CarProviderIndicator constructor.
      *
-     * @param CurrencyInfo
      */
-    public function __construct(CurrencyInfo $details)
+    public function __construct($travelSector, $companyCode)
     {
 
-        $this->travelSector = new currencyDetails($details->qualifier, $details->isoCode);
-
+        $this->compnayCode = new companyCode($companyCode);
+        $this->travelSector = new travelSector($travelSector);
     }
 }

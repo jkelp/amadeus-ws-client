@@ -20,7 +20,7 @@
  * @license https://opensource.org/licenses/Apache-2.0 Apache 2.0
  */
 
-namespace Amadeus\Client\Struct\Car\RateInformation;
+namespace Amadeus\Client\Struct\Car\Sell;
 
 /**
  *

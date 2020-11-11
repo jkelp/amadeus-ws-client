@@ -20,30 +20,32 @@
  * @license https://opensource.org/licenses/Apache-2.0 Apache 2.0
  */
 
-namespace Amadeus\Client\Struct\Car\RateInformation;
+ namespace Amadeus\Client\Struct\Car\Sell;
 
-/**
- * RoomStayCandidate
- *
- * @package Amadeus\Client\Struct\Car\RateInformation
+ /**
+  * RoomStayCandidate
+  *
+  * @package Amadeus\Client\Struct\Car\RateInformation
  * @author Dieter Devlieghere <dieter.devlieghere@benelux.amadeus.com>
  */
-class otherSelectionDetails
+class customerInfo
 {
 
-  /**
-   * @var option
-   */
-  public $option;
+    public $customerReferences;
+
 
 
     /**
      * CarProviderIndicator constructor.
+     *
      */
-    public function __construct($option)
+    public function __construct($qualifier, $number)
     {
 
-        $this->option = new option($option);
+        $this->customerReferences = [
+            'referenceQualifier' => $qualifier,
+            'referenceNumber' => $number
+        ];
 
     }
 }
