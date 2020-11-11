@@ -33,6 +33,12 @@ use Amadeus\Client\LoadParamsFromArray;
 class ProviderIndicator extends LoadParamsFromArray
 {
 
+  /**
+   * Car Provider Indicator
+   *
+   * @var string
+   */
+   
     public $provider;
 
 }

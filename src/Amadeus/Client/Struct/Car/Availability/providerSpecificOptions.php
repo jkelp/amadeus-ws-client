@@ -20,30 +20,43 @@
  * @license https://opensource.org/licenses/Apache-2.0 Apache 2.0
  */
 
-namespace Amadeus\Client\RequestOptions\Car\Availability;
+namespace Amadeus\Client\Struct\Car\Availability;
 
-use Amadeus\Client\LoadParamsFromArray;
+use Amadeus\Client\RequestOptions\Car\Availability\ProviderSpecOps;
+
+use Amadeus\Client\Struct\Car\Availability\companyDetails;
+
+use Amadeus\Client\Struct\Car\Availability\loyaltyNumbersList;
 
 /**
- * ProviderIndicator
+ * RoomStayCandidate
  *
- * @package Amadeus\Client\RequestOptions\Car\Availability
+ * @package Amadeus\Client\Struct\Car\Availability
  * @author Dieter Devlieghere <dieter.devlieghere@benelux.amadeus.com>
  */
-class MediaContent extends LoadParamsFromArray
+class providerSpecificOptions
 {
-  /**
-   * Picture Type
-   *
-   * @var string
-   */
-    public $picturesType;
 
     /**
-     * Picture Size
-     *
-     * @var string
+     * @var companyDetails
      */
-    public $pictureSize;
+    public $companyDetails;
 
+    /**
+     * @var loyaltyNumbersList
+     */
+    public $loyaltyNumbersList;
+
+
+    /**
+     * providerSpecificOptions constructor.
+     *
+     * @param ProviderSpecOps
+     */
+    public function __construct(ProviderSpecOps $providerOps)
+    {
+        $this->companyDetails = new companyDetails($providerOps->companyDetails);
+        $this->loyaltyNumbersList = new loyaltyNumbersList($providerOps->refs);
+
+    }
 }

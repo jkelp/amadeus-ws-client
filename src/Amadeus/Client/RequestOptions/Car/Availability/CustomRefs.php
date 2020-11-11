@@ -23,6 +23,7 @@
 namespace Amadeus\Client\RequestOptions\Car\Availability;
 
 use Amadeus\Client\LoadParamsFromArray;
+use Amadeus\Client\RequestOptions\Car\Availability\CustomRefs;
 
 /**
  * ProviderIndicator
@@ -30,20 +31,16 @@ use Amadeus\Client\LoadParamsFromArray;
  * @package Amadeus\Client\RequestOptions\Car\Availability
  * @author Dieter Devlieghere <dieter.devlieghere@benelux.amadeus.com>
  */
-class MediaContent extends LoadParamsFromArray
+class CustomRefs extends LoadParamsFromArray
 {
-  /**
-   * Picture Type
-   *
-   * @var string
-   */
-    public $picturesType;
 
-    /**
-     * Picture Size
-     *
-     * @var string
-     */
-    public $pictureSize;
+  /**
+   *
+   *
+   * @var CustomRef[]
+   */
+
+    public $refs = [];
+
 
 }

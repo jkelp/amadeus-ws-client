@@ -23,6 +23,7 @@
 namespace Amadeus\Client\RequestOptions\Car\Availability;
 
 use Amadeus\Client\LoadParamsFromArray;
+use Amadeus\Client\RequestOptions\Car\Availability\CustomRefs;
 
 /**
  * ProviderIndicator
@@ -30,20 +31,32 @@ use Amadeus\Client\LoadParamsFromArray;
  * @package Amadeus\Client\RequestOptions\Car\Availability
  * @author Dieter Devlieghere <dieter.devlieghere@benelux.amadeus.com>
  */
-class MediaContent extends LoadParamsFromArray
+class GeocodeInfo extends LoadParamsFromArray
 {
+
   /**
-   * Picture Type
+   *
    *
    * @var string
    */
-    public $picturesType;
+
+    public $encoding;
 
     /**
-     * Picture Size
+     *
      *
      * @var string
      */
-    public $pictureSize;
+
+      public $longitude;
+
+    /**
+     *
+     *
+     * @var string
+     */
+
+      public $latitude;
+
 
 }

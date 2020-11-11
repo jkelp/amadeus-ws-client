@@ -20,30 +20,31 @@
  * @license https://opensource.org/licenses/Apache-2.0 Apache 2.0
  */
 
-namespace Amadeus\Client\RequestOptions\Car\Availability;
-
-use Amadeus\Client\LoadParamsFromArray;
+namespace Amadeus\Client\Struct\Car\Availability;
+use Amadeus\Client\Struct\Car\Availability\option;
 
 /**
- * ProviderIndicator
+ * RoomStayCandidate
  *
- * @package Amadeus\Client\RequestOptions\Car\Availability
+ * @package Amadeus\Client\Struct\Car\Availability
  * @author Dieter Devlieghere <dieter.devlieghere@benelux.amadeus.com>
  */
-class MediaContent extends LoadParamsFromArray
+class SelectionDetails
 {
-  /**
-   * Picture Type
-   *
-   * @var string
-   */
-    public $picturesType;
 
     /**
-     * Picture Size
-     *
-     * @var string
+     * @var option
      */
-    public $pictureSize;
+    public $option;
 
+
+    /**
+     * StatusDetails constructor.
+     *
+     * @param string
+     */
+    public function __construct(string $selectionDetails)
+    {
+        $this->option = new option($selectionDetails);
+    }
 }

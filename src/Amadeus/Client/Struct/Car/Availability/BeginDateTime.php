@@ -21,9 +21,13 @@
  */
 
 namespace Amadeus\Client\Struct\Car\Availability;
+use Amadeus\Client\Struct\Car\Availability\day;
+use Amadeus\Client\Struct\Car\Availability\year;
+use Amadeus\Client\Struct\Car\Availability\hour;
+use Amadeus\Client\Struct\Car\Availability\month;
+use Amadeus\Client\Struct\Car\Availability\minutes;
+use Amadeus\Client\RequestOptions\Car\Availability\DateHolder;
 
-use Amadeus\Client\RequestOptions\Car\Availability\MediaIndicator;
-use Amadeus\Client\Struct\Car\Availability\statusDetails;
 
 /**
  * RoomStayCandidate
@@ -31,24 +35,52 @@ use Amadeus\Client\Struct\Car\Availability\statusDetails;
  * @package Amadeus\Client\Struct\Car\Availability
  * @author Dieter Devlieghere <dieter.devlieghere@benelux.amadeus.com>
  */
-class multimediaIndicator
+class beginDateTime
 {
 
     /**
-     * @var statusDetails
+     * @var year
      */
-    public $statusDetails;
+    public $year;
+
+    /**
+     * @var month
+     */
+    public $Month;
+
+    /**
+     * @var day
+     */
+    public $day;
+
+    /**
+     * @var hour
+     */
+    public $hour;
+
+    /**
+     * @var minutes
+     */
+    public $minutes;
 
 
     /**
-     * CarProviderIndicator constructor.
+     * StatusDetails constructor.
      *
-     * @param MediaIndicator
+     * @param DateHolder
      */
-    public function __construct(MediaIndicator $indicator)
+    public function __construct(DateHolder $date)
     {
 
+        $this->year = new year($date->year);
 
-        $this->statusDetails = new statusDetails($indicator->mulitMedia);
+        $this->month = new month($date->month);
+
+        $this->day = new day($date->day);
+
+        $this->hour = new hour($date->hour);
+
+        $this->minutes = new minutes($date->minutes);
+
     }
 }

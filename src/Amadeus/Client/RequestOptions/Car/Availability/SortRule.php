@@ -30,20 +30,15 @@ use Amadeus\Client\LoadParamsFromArray;
  * @package Amadeus\Client\RequestOptions\Car\Availability
  * @author Dieter Devlieghere <dieter.devlieghere@benelux.amadeus.com>
  */
-class MediaContent extends LoadParamsFromArray
+class SortRule extends LoadParamsFromArray
 {
+
   /**
-   * Picture Type
+   * Car Provider Indicator
    *
    * @var string
    */
-    public $picturesType;
 
-    /**
-     * Picture Size
-     *
-     * @var string
-     */
-    public $pictureSize;
+    public $actionRequestCode;
 
 }

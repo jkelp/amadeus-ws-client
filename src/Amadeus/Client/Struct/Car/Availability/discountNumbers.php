@@ -20,30 +20,32 @@
  * @license https://opensource.org/licenses/Apache-2.0 Apache 2.0
  */
 
-namespace Amadeus\Client\RequestOptions\Car\Availability;
-
-use Amadeus\Client\LoadParamsFromArray;
+namespace Amadeus\Client\Struct\Car\Availability;
+use Amadeus\Client\RequestOptions\Car\Availability\CustomRefs;
+use Amadeus\Client\Struct\Car\Availability\customerReferenceInfo;
 
 /**
- * ProviderIndicator
+ * RoomStayCandidate
  *
- * @package Amadeus\Client\RequestOptions\Car\Availability
+ * @package Amadeus\Client\Struct\Car\Availability
  * @author Dieter Devlieghere <dieter.devlieghere@benelux.amadeus.com>
  */
-class MediaContent extends LoadParamsFromArray
+class discountNumbers
 {
+
   /**
-   * Picture Type
-   *
-   * @var string
+   * @var customerReferenceInfo[]
    */
-    public $picturesType;
-
+  public $customerReferenceInfo = [];
     /**
-     * Picture Size
+     * DiscountNumbers constructor.
      *
-     * @var string
+     * @param CustomRef[]
      */
-    public $pictureSize;
-
+    public function __construct($refs)
+    {
+      foreach ($refs as $ref) {
+        $this->customerReferenceInfo[] = new customerReferenceInfo($ref);
+      }
+    }
 }

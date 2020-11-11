@@ -23,7 +23,10 @@
 namespace Amadeus\Client\Struct\Car\Availability;
 
 use Amadeus\Client\RequestOptions\Car\Availability\MediaContent;
-use Amadeus\Client\RequestOptions\Car\Availability\MultimediaContent;
+
+use Amadeus\Client\Struct\Car\Availability\picturesType;
+use Amadeus\Client\Struct\Car\Availability\pictureSize;
+
 
 /**
  * RoomStayCandidate
@@ -31,18 +34,18 @@ use Amadeus\Client\RequestOptions\Car\Availability\MultimediaContent;
  * @package Amadeus\Client\Struct\Car\Availability
  * @author Dieter Devlieghere <dieter.devlieghere@benelux.amadeus.com>
  */
-class CarProviderIndicator
+class multimediaContent
 {
 
     /**
-     * @var PicturesType
+     * @var picturesType
      */
-    public $PicturesType;
+    public $picturesType;
 
     /**
-     * @var PicturesSize
+     * @var pictureSize
      */
-    public $PicturesSize;
+    public $pictureSize;
 
 
     /**
@@ -53,8 +56,8 @@ class CarProviderIndicator
     public function __construct(MediaContent $mediaContent)
     {
 
-        $this->PictureType = new PictureType($mediaContent->pictureType);
-        $this->PictureSize = new PictureSize($mediaContent->pictureSize);
+        $this->picturesType = new picturesType($mediaContent->picturesType);
+        $this->pictureSize = new pictureSize($mediaContent->pictureSize);
 
     }
 }

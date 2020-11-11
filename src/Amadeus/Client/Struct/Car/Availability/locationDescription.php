@@ -20,30 +20,43 @@
  * @license https://opensource.org/licenses/Apache-2.0 Apache 2.0
  */
 
-namespace Amadeus\Client\RequestOptions\Car\Availability;
+namespace Amadeus\Client\Struct\Car\Availability;
 
-use Amadeus\Client\LoadParamsFromArray;
+use Amadeus\Client\Struct\Car\Availability\name;
+use Amadeus\Client\Struct\Car\Availability\code;
+use Amadeus\Client\RequestOptions\Car\Availability\AirportLoc;
+
 
 /**
- * ProviderIndicator
+ * RoomStayCandidate
  *
- * @package Amadeus\Client\RequestOptions\Car\Availability
+ * @package Amadeus\Client\Struct\Car\Availability
  * @author Dieter Devlieghere <dieter.devlieghere@benelux.amadeus.com>
  */
-class MediaContent extends LoadParamsFromArray
+class locationDescription
 {
-  /**
-   * Picture Type
-   *
-   * @var string
-   */
-    public $picturesType;
 
     /**
-     * Picture Size
-     *
-     * @var string
+     * @var name
      */
-    public $pictureSize;
+    public $name;
 
+    /**
+     * @var code
+     */
+    public $code;
+
+
+    /**
+     * MediaContent constructor.
+     *
+     * @param AirportLoc
+     */
+    public function __construct(AirportLoc $loc)
+    {
+
+        $this->name = new name($loc->name);
+        $this->code = new code($loc->code);
+
+    }
 }

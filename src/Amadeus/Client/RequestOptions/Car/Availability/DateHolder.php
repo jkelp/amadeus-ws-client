@@ -25,25 +25,46 @@ namespace Amadeus\Client\RequestOptions\Car\Availability;
 use Amadeus\Client\LoadParamsFromArray;
 
 /**
- * ProviderIndicator
+ * DateHolder
  *
  * @package Amadeus\Client\RequestOptions\Car\Availability
  * @author Dieter Devlieghere <dieter.devlieghere@benelux.amadeus.com>
  */
-class MediaContent extends LoadParamsFromArray
+class DateHolder extends LoadParamsFromArray
 {
   /**
-   * Picture Type
+   * Year
    *
    * @var string
    */
-    public $picturesType;
+    public $year;
 
     /**
-     * Picture Size
+     * Month
      *
      * @var string
      */
-    public $pictureSize;
+    public $month;
+
+    /**
+     * Day
+     *
+     * @var string
+     */
+    public $day;
+
+    /**
+     * Hour
+     *
+     * @var string
+     */
+    public $hour;
+
+    /**
+     * Minutes
+     *
+     * @var string
+     */
+    public $minutes;
 
 }

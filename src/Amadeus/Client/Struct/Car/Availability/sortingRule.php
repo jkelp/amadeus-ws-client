@@ -20,30 +20,32 @@
  * @license https://opensource.org/licenses/Apache-2.0 Apache 2.0
  */
 
-namespace Amadeus\Client\RequestOptions\Car\Availability;
-
-use Amadeus\Client\LoadParamsFromArray;
+namespace Amadeus\Client\Struct\Car\Availability;
+use Amadeus\Client\Struct\Car\Availability\actionRequestCode;
+use Amadeus\Client\RequestOptions\Car\Availability\SortRule;
 
 /**
- * ProviderIndicator
+ * RoomStayCandidate
  *
- * @package Amadeus\Client\RequestOptions\Car\Availability
+ * @package Amadeus\Client\Struct\Car\Availability
  * @author Dieter Devlieghere <dieter.devlieghere@benelux.amadeus.com>
  */
-class MediaContent extends LoadParamsFromArray
+class sortingRule
 {
-  /**
-   * Picture Type
-   *
-   * @var string
-   */
-    public $picturesType;
 
     /**
-     * Picture Size
-     *
      * @var string
      */
-    public $pictureSize;
+    public $actionRequestCode;
 
+
+    /**
+     * StatusDetails constructor.
+     *
+     * @param SortRule
+     */
+    public function __construct(SortRule $sortRule)
+    {
+        $this->actionRequestCode = new actionRequestCode($sortRule->actionRequestCode);
+    }
 }

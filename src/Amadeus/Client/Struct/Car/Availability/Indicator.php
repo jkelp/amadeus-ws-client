@@ -29,7 +29,7 @@ namespace Amadeus\Client\Struct\Car\Availability;
  * @package Amadeus\Client\Struct\Car\Availability
  * @author Dieter Devlieghere <dieter.devlieghere@benelux.amadeus.com>
  */
-class StatusDetails
+class indicator
 {
 
     /**
@@ -40,12 +40,11 @@ class StatusDetails
 
     /**
      * StatusDetails constructor.
-     *
      * @param string
      */
     public function __construct(string $indicator)
     {
 
-        $_ = $indicator;
+        $this->_ = $indicator;
     }
 }

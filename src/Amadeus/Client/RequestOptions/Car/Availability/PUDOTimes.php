@@ -25,25 +25,26 @@ namespace Amadeus\Client\RequestOptions\Car\Availability;
 use Amadeus\Client\LoadParamsFromArray;
 
 /**
- * ProviderIndicator
+ * PickupDropoffInfo
  *
  * @package Amadeus\Client\RequestOptions\Car\Availability
  * @author Dieter Devlieghere <dieter.devlieghere@benelux.amadeus.com>
  */
-class MediaContent extends LoadParamsFromArray
+class PUDOTimes extends LoadParamsFromArray
 {
-  /**
-   * Picture Type
-   *
-   * @var string
-   */
-    public $picturesType;
 
-    /**
-     * Picture Size
-     *
-     * @var string
-     */
-    public $pictureSize;
+  /**
+   * Start Date
+   *
+   * @var DateHolder
+   */
+    public $beginDateTime;
+
+  /**
+   * End Date
+   *
+   * @var DateHolder
+   */
+    public $endDateTime;
 
 }

@@ -20,30 +20,32 @@
  * @license https://opensource.org/licenses/Apache-2.0 Apache 2.0
  */
 
-namespace Amadeus\Client\RequestOptions\Car\Availability;
+namespace Amadeus\Client\Struct\Car\Availability;
+use Amadeus\Client\Struct\Car\Availability\companyCode;
 
-use Amadeus\Client\LoadParamsFromArray;
 
 /**
- * ProviderIndicator
+ * RoomStayCandidate
  *
- * @package Amadeus\Client\RequestOptions\Car\Availability
+ * @package Amadeus\Client\Struct\Car\Availability
  * @author Dieter Devlieghere <dieter.devlieghere@benelux.amadeus.com>
  */
-class MediaContent extends LoadParamsFromArray
+class companyDetails
 {
-  /**
-   * Picture Type
-   *
-   * @var string
-   */
-    public $picturesType;
 
     /**
-     * Picture Size
-     *
-     * @var string
+     * @var companyCode
      */
-    public $pictureSize;
+    public $companyCode;
 
+
+    /**
+     *
+     *
+     * @param string
+     */
+    public function __construct(string $code)
+    {
+        $this->companyCode = new companyCode($code);
+    }
 }
