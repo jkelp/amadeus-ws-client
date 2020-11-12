@@ -66,7 +66,7 @@ class beginDateTime
      */
     public function __construct(Time $details)
     {
-
+      
         $this->year = new year($details->year);
         $this->month = new month($details->month);
         $this->day = new day($details->day);

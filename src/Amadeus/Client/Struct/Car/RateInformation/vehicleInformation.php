@@ -53,7 +53,7 @@ class vehicleInformation
     {
 
         $this->vehTypeOptionQualifier = new vehTypeOptionQualifier($details->vehTypeOptionQualifier);
-        $this->vehicleRentalNeedTye = new vehicleRentalNeedType($details->owner, $details->rentalPrefType);
+        $this->vehicleRentalNeedType = new vehicleRentalNeedType($details->owner, $details->rentalPrefType);
 
     }
 }

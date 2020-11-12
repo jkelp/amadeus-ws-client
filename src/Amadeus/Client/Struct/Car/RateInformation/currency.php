@@ -47,7 +47,7 @@ class currency
     public function __construct(CurrencyInfo $details)
     {
 
-        $this->travelSector = new currencyDetails($details->qualifier, $details->isoCode);
+        $this->currencyDetails = new currencyDetails($details->qualifier, $details->isoCode);
 
     }
 }
