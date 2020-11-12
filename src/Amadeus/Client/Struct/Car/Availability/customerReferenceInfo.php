@@ -53,7 +53,6 @@ class customerReferenceInfo
      */
     public function __construct(CustomRef $ref)
     {
-        print_r($ref);
         $this->referenceQualifier = new referenceQualifier($ref->qualifier);
         $this->referenceNumber = new referenceNumber($ref->number);
 

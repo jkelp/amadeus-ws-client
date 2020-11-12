@@ -20,42 +20,51 @@
  * @license https://opensource.org/licenses/Apache-2.0 Apache 2.0
  */
 
- namespace Amadeus\Client\Struct\Car\RateInformation;
+namespace Amadeus\Client\Struct\Car\Sell;
 
- use Amadeus\Client\RequestOptions\Car\RateInformation\Times;
+use Amadeus\Client\RequestOptions\CarSellOptions;
+use Amadeus\Client\Struct\Car\Sell\pnrInfo;
+use Amadeus\Client\Struct\Car\Sell\sellData;
 
- /**
-  * RoomStayCandidate
-  *
-  * @package Amadeus\Client\Struct\Car\RateInformation
+
+/**
+ * RoomStayCandidate
+ *
+ * @package Amadeus\Client\Struct\Car\Availability
  * @author Dieter Devlieghere <dieter.devlieghere@benelux.amadeus.com>
  */
-class pickupDropoffTimes
+class Car_Sell
 {
 
 
     /**
-     * @var beginDateTime
+     * @var pnrInfo
      */
-    public $beginDateTime;
-
-    /**
-     * @var endDateTime
-     */
-    public $endDateTime;
+    public $pnrInfo;
 
 
     /**
-     * CarProviderIndicator constructor.
+     * @var sellData
+     */
+    public $sellData;
+
+
+
+    /**
+     * PickupDropoff constructor.
      *
-     * @param Times
+     * @param CarSellOptions
      */
-    public function __construct(Times $details)
+    public function __construct(CarSellOptions $car)
     {
 
-        $this->businessSemantic = new businessSemantic($details->businessSemantic);
-        $this->beginDateTime = new beginDateTime($details->pickup);
-        $this->endDateTime = new endDateTime($details->dropoff);
+
+        if (!empty($car->pnrInfo)){
+          $this->pnrInfo = new pnrInfo($car->pnrInfo);
+        }
+        if (!empty($car->sellData)){
+          $this->sellData = new sellData($car->sellData);
+        }
 
     }
 }

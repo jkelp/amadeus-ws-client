@@ -42,10 +42,11 @@ class customerInfo
     public function __construct($customInfo)
     {
 
-        $this->customerReferences = [
+        $this->customerReferences = (object) [
             'referenceQualifier' => $customInfo->qualifier,
             'referenceNumber' => $customInfo->number
         ];
 
     }
+
 }

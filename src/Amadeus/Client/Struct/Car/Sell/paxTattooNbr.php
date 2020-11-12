@@ -42,7 +42,7 @@ class paxTattooNbr
     public function __construct($type, $value)
     {
 
-        $this->referenceDetails = [
+        $this->referenceDetails = (object)[
             'type' => $type,
             'value' => $value
         ];
