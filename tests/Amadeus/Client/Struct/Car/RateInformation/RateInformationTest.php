@@ -89,7 +89,7 @@ class CarRateInformationTest extends BaseTestCase
             'rateInfo' => new RateInform([
               'rateType' => 'DPWR9S7Q01',
               'ratePlanIndicator' => 'WY',
-              'category' => 024,
+              'category' => '024',
             ]),
             'rateCodeInfo' => new RateCode([
               'fareType' => 'AKLEW'
@@ -106,7 +106,7 @@ class CarRateInformationTest extends BaseTestCase
                 ]),
               'otherSelectionDetails' =>
                 new Details([
-                  'option' => 013
+                  'option' => '013'
                 ])
             ]),
             'currency' => new CurrencyInfo([
@@ -120,7 +120,7 @@ class CarRateInformationTest extends BaseTestCase
 
         $msg = new RateInformation($opt);
 
-        // print_r($msg);
+        // print_r($msg->vehicleInformation->vehicleRentalNeedType);
         // exit;
 
         $this->assertEquals('CAR', $msg->companyDetails->travelSector->_);
@@ -143,11 +143,11 @@ class CarRateInformationTest extends BaseTestCase
         $this->assertEquals('1', $msg->pickupDropoffTimes->beginDateTime->day->_);
         $this->assertEquals('10', $msg->pickupDropoffTimes->beginDateTime->hour->_);
         $this->assertEquals('0', $msg->pickupDropoffTimes->beginDateTime->minutes->_);
-        $this->assertEquals('2015', $msg->pickupDropoffTimes->beginDateTime->year->_);
-        $this->assertEquals('8', $msg->pickupDropoffTimes->beginDateTime->month->_);
-        $this->assertEquals('10', $msg->pickupDropoffTimes->beginDateTime->day->_);
-        $this->assertEquals('10', $msg->pickupDropoffTimes->beginDateTime->hour->_);
-        $this->assertEquals('0', $msg->pickupDropoffTimes->beginDateTime->minutes->_);
+        $this->assertEquals('2015', $msg->pickupDropoffTimes->endDateTime->year->_);
+        $this->assertEquals('8', $msg->pickupDropoffTimes->endDateTime->month->_);
+        $this->assertEquals('10', $msg->pickupDropoffTimes->endDateTime->day->_);
+        $this->assertEquals('10', $msg->pickupDropoffTimes->endDateTime->hour->_);
+        $this->assertEquals('0', $msg->pickupDropoffTimes->endDateTime->minutes->_);
 
         $this->assertEquals('DPWR9S7Q01', $msg->rateInfo->tariffInfo->rateType->_);
         $this->assertEquals('WY', $msg->rateInfo->tariffInfo->ratePlanIndicator->_);
@@ -155,6 +155,15 @@ class CarRateInformationTest extends BaseTestCase
 
         $this->assertEquals('AKLEW', $msg->rateCodeInfo->fareCategories->fareType->_);
 
+        $this->assertEquals('VT', $msg->vehicleInformation->vehTypeOptionQualifier->_);
+        $this->assertEquals('ACR', $msg->vehicleInformation->vehicleRentalNeedType->vehicleTypeOwner->_);
+        $this->assertEquals('ICAR', $msg->vehicleInformation->vehicleRentalNeedType->vehicleRentalPrefType->_);
+
+        $this->assertEquals('COV', $msg->categorySelection->selectionDetails->option->_);
+        $this->assertEquals('013', $msg->categorySelection->otherSelectionDetails->option->_);
+
+        $this->assertEquals('2', $msg->currency->currencyDetails->currencyQualifier->_);
+        $this->assertEquals('USD', $msg->currency->currencyDetails->currencyIsoCode->_);
 
     }
 }
