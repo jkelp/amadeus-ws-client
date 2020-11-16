@@ -107,7 +107,6 @@ class Car_Availability
         }
         if (!empty($car->providerSpecificOptions)){
           $this->providerSpecificOptions = new providerSpecificOptions($car->providerSpecificOptions);
-          // print_r($this->providerSpecificOptions);
         }
         if (!empty($car->rateClass)){
           $this->rateClass = new rateClass($car->rateClass);

@@ -20,42 +20,30 @@
  * @license https://opensource.org/licenses/Apache-2.0 Apache 2.0
  */
 
- namespace Amadeus\Client\Struct\Car\RateInformation;
+namespace Amadeus\Client\Struct\Car\Sell;
 
- use Amadeus\Client\RequestOptions\Car\RateInformation\Times;
-
- /**
-  * RoomStayCandidate
-  *
-  * @package Amadeus\Client\Struct\Car\RateInformation
+/**
+ * RoomStayCandidate
+ *
+ * @package Amadeus\Client\Struct\Car\RateInformation
  * @author Dieter Devlieghere <dieter.devlieghere@benelux.amadeus.com>
  */
-class pickupDropoffTimes
+class travelSector
 {
 
-
-    /**
-     * @var beginDateTime
-     */
-    public $beginDateTime;
-
-    /**
-     * @var endDateTime
-     */
-    public $endDateTime;
+  /**
+   * @var string
+   */
+  public $_;
 
 
     /**
      * CarProviderIndicator constructor.
-     *
-     * @param Times
      */
-    public function __construct(Times $details)
+    public function __construct($sector)
     {
 
-        $this->businessSemantic = new businessSemantic($details->businessSemantic);
-        $this->beginDateTime = new beginDateTime($details->pickup);
-        $this->endDateTime = new endDateTime($details->dropoff);
+        $this->_ = $sector;
 
     }
 }
