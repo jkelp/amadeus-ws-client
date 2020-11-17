@@ -22,8 +22,10 @@
 
 namespace Amadeus\Client\Struct\Profile\Create;
 
+use stdClass;
+use Amadeus\Client\Struct\Profile\Create\Comment;
+use Amadeus\Client\Struct\Profile\Create\Comments;
 use Amadeus\Client\RequestOptions\ProfileCreateProfileOptions;
-
 
 class Profile
 {
@@ -49,6 +51,9 @@ class Profile
   public $CompanyInfo;
 
 
+  public $Comments;
+
+
   public $PrefCollections;
 
   public function __construct($options)
@@ -58,6 +63,10 @@ class Profile
     $this->loadCompanyInfo($options);
 
     $this->loadPrefCollections($options);
+
+    $this->loadComments($options);
+
+    // dd($this);
   }
 
 
@@ -74,7 +83,7 @@ class Profile
   public function loadCompanyInfo($options)
   {
     if ($options->CompanyInfo) {
-      $this->CompanyInfo = new CompanyInfo($options->CompanyInfo->CompanyName);
+      $this->CompanyInfo = new CompanyInfo($options->CompanyInfo);
       $this->ProfileType = 3;
     }
 
@@ -86,6 +95,23 @@ class Profile
       if ($options->Preferences) {
         $this->PrefCollections = new PrefCollections($options->Preferences);
       }
+  }
+
+
+  public function loadComments($options)
+  {
+    if (!$options->Comments) return;
+    
+    $this->Comments = new Comments;
+
+    foreach ($options->Comments as $comment) {
+      $this->Comments->Comment[] = new Comment([
+        'Name' => $comment->name,
+        'Category' => $comment->category,
+        'TransferIndicator' => $comment->transferIndicator,
+        'Text' => $comment->value
+      ]);
+    }
   }
 
 }

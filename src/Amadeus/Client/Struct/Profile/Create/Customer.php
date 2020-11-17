@@ -25,7 +25,7 @@ namespace Amadeus\Client\Struct\Profile\Create;
 use Amadeus\Client\LoadParamsFromArray;
 
 use Amadeus\Client\RequestOptions\Profile\EmployeeInfo;
-
+use Amadeus\Client\RequestOptions\Profile\PaymentMethod;
 
 class Customer extends LoadParamsFromArray
 {
@@ -47,6 +47,9 @@ class Customer extends LoadParamsFromArray
 
   public $Gender;
 
+  public $ExternalCustLoyalty = [];
+
+  public $PaymentForm = [];
 
   public function __construct($params)
   {
@@ -63,6 +66,10 @@ class Customer extends LoadParamsFromArray
     $this->loadAddresses($params);
 
     $this->loadEmployeeInfo($params);
+
+    $this->loadExternalCustLoyalty($params);
+
+    $this->loadPaymentForm($params);
   }
 
 
@@ -112,5 +119,44 @@ class Customer extends LoadParamsFromArray
       $this->EmployeeInfo = new EmployeeInfo($params->EmployeeInfo);
     }
   }
+
+
+  public function loadExternalCustLoyalty($params)
+  {
+    if ($params->ExternalCustLoyalty) {
+      foreach ($params->ExternalCustLoyalty as $custLoyalty) {
+        $this->ExternalCustLoyalty[] = new ExternalCustLoyalty($custLoyalty);
+      }
+    }
+  }
+
+
+  public function loadPaymentForm($params)
+  {
+    if ($params->PaymentMethod) {
+      foreach ($params->PaymentMethod as $paymentMethod) {
+
+        $parts = [
+          'start' => 'CC',
+          'brand' => $paymentMethod->brand,
+          'cardNumber' => $paymentMethod->cardNumber,
+          'slash' => '/',
+          'expMonth' => str_pad($paymentMethod->expirationMonth, 2, '0', STR_PAD_LEFT),
+          'expYear' => substr($paymentMethod->expirationYear, -2, 2)
+        ];
+        $text = implode('', $parts); //'CCVI4141424243434444/1226';
+
+        $this->PaymentForm[] = new PaymentForm([
+          'TransferIndicator' => $paymentMethod->transferIndicator,
+          'PaymentCard' => new PaymentCard([
+            'FormattedInd' => false,
+            'Text' => $text
+          ])
+        ]);
+      }
+    }
+  }
+
+  
 
 }

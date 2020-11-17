@@ -45,4 +45,6 @@ class ProfileUpdateProfileOptions extends Base
     public $Index;
     
     public $Preferences;
+
+    public $Comments;
 }

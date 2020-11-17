@@ -35,4 +35,40 @@ class CompanyInfo extends LoadParamsFromArray
     public $CompanyName;
 
     public $OtherCompanyName;
+
+    public $AddressInfo = [];
+
+    public $TelephoneInfo = [];
+
+    public $PaymentMethod = [];
+
+
+    public function __construct($params)
+    {
+        parent::__construct($params);
+
+        // dd($params);
+        
+        // $this->loadAddressInfo();
+    }
+
+
+    /* public function loadAddressInfo()
+    {
+        if (!empty($params['AddressInfo'])) {
+
+            $address = $params['AddressInfo'];
+
+            $this->AddressInfo[] = new Address([
+                'UseType' => Address::TYPE_USE_TYPE_BILLING,
+                'TransferIndicator' => 'A',
+                'FormattedInd' => true,
+                'AddressLine' => $address['addressLine1'],
+                'CityName' => $address['city'],
+                'StateProv' => $address['state'],
+                'PostalCode' => $address['postalCode'],
+                'CompanyName' => $this->CompanyName
+            ]);
+        }
+    } */
 }

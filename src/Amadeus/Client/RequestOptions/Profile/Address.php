@@ -70,4 +70,6 @@ class Address extends LoadParamsFromArray
 
   public $CountryName;
 
+  public $CompanyName;
+
 }

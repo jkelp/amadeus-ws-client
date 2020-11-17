@@ -43,4 +43,6 @@ class ProfileCreateProfileOptions extends Base
     public $Index;
 
     public $Preferences;
+
+    public $Comments;
 }

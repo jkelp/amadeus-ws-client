@@ -36,7 +36,9 @@ class Preferences extends LoadParamsFromArray
 
     public $HotelPreferences;
 
-    public $CarPreferences;
+    public $VehicleRentalPreferences;
 
     public $RailPreferences;
+
+    public $RuleManagement;
 }

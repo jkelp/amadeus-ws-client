@@ -42,4 +42,6 @@ class Telephone extends LoadParamsFromArray
 
   public $DefaultInd;
 
+  public $TransferIndicator;
+
 }

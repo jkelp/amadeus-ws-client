@@ -27,23 +27,22 @@ use Amadeus\Client\LoadParamsFromArray;
 
 class Address extends LoadParamsFromArray
 {
-
-  public $DefaultInd;
-
-  public $FormattedInd;
-
-  public $TransferIndicator;
-
-  public $UseType;
-
   public $AddressLine;
-
+  
   public $CityName;
-
-  public $StateProv;
-
+  
   public $PostalCode;
-
+  
+  public $StateProv;
+  
   public $CountryName;
+  
+  public $FormattedInd;
+  
+  public $TransferIndicator;
+  
+  public $UseType;
+  
+  public $DefaultInd;
 
 }

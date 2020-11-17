@@ -25,31 +25,13 @@ namespace Amadeus\Client\Struct\Profile\Create;
 use Amadeus\Client\LoadParamsFromArray;
 
 
-class AirlinePref extends LoadParamsFromArray
+class RuleManagement extends LoadParamsFromArray
 {
 
-  public $AirportOriginPref;
+  public $RuleType;
 
-  public $SeatPref;
+  public $TravelSector;
 
-  public $CabinPref;
-
-  public $MealPref;
-
-  public $TicketingAccountInformation;
-
-
-  public function __construct($options)
-  {
-    parent::__construct($options);
-
-    $this->AirportOriginPref = new AirportOriginPref([
-      'LocationCode' => $options->HomeAirport
-    ]);
-
-    $this->MealPref = $options->MealPref;
-
-    // $this->TicketingAccountInformation = $options->TicketingAccountInformation;
-  }
+  public $PrivilegeIndicator;
 
 }

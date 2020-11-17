@@ -23,6 +23,8 @@
 namespace Amadeus\Client\Struct\Profile\Create;
 
 use Amadeus\Client\LoadParamsFromArray;
+use Amadeus\Client\Struct\Profile\Create\HotelPref;
+use Amadeus\Client\Struct\Profile\Create\VehicleRentalPref;
 
 
 class PrefCollection extends LoadParamsFromArray
@@ -36,10 +38,20 @@ class PrefCollection extends LoadParamsFromArray
 
   public $RailPref;
 
+  public $RuleManagement;
+
+  public $TravelPurpose;
+
 
   public function __construct($options)
   {
     $this->loadAirlinePref($options);
+
+    $this->loadHotelPref($options);
+
+    $this->loadVehicleRentalPref($options);
+
+    $this->loadRuleManagement($options);
   }
 
 
@@ -47,6 +59,28 @@ class PrefCollection extends LoadParamsFromArray
   {
     if ($options->AirPreferences) {
       $this->AirlinePref = new AirlinePref($options->AirPreferences);
+    }
+  }
+
+  public function loadHotelPref($options)
+  {
+    if ($options->HotelPreferences) {
+      $this->HotelPref = new HotelPref($options->HotelPreferences);
+    }
+  }
+
+  public function loadVehicleRentalPref($options)
+  {
+    if ($options->VehicleRentalPreferences) {
+      $this->VehicleRentalPref = new VehicleRentalPref($options->VehicleRentalPreferences);
+    }
+  }
+
+
+  public function loadRuleManagement($options)
+  {
+    if ($options->RuleManagement) {
+      $this->RuleManagement = new RuleManagement($options->RuleManagement);
     }
   }
 

@@ -51,4 +51,8 @@ class Customer extends LoadParamsFromArray
     public $Gender;
 
     public $EmployeeInfo;
+
+    public $PaymentMethod = [];
+
+    public $ExternalCustLoyalty = [];
 }

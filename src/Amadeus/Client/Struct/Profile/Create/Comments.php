@@ -22,34 +22,36 @@
 
 namespace Amadeus\Client\Struct\Profile\Create;
 
-use Amadeus\Client\LoadParamsFromArray;
+use Amadeus\Client\Struct\Profile\Create\Text;
+use Amadeus\Client\Struct\Profile\Create\Comment;
 
 
-class AirlinePref extends LoadParamsFromArray
+class Comments
 {
 
-  public $AirportOriginPref;
-
-  public $SeatPref;
-
-  public $CabinPref;
-
-  public $MealPref;
-
-  public $TicketingAccountInformation;
+  public $Comment = [];
 
 
-  public function __construct($options)
+  public function __construct($comments = null)
   {
-    parent::__construct($options);
+    
+    $this->loadComments($comments);
+  }
 
-    $this->AirportOriginPref = new AirportOriginPref([
-      'LocationCode' => $options->HomeAirport
-    ]);
+  public function loadComments($comments)
+  {
+    if (!$comments) return;
 
-    $this->MealPref = $options->MealPref;
-
-    // $this->TicketingAccountInformation = $options->TicketingAccountInformation;
+    foreach ($comments as $comment) {
+      $this->Comment[] = new Comment([
+        'Name' => $comment->name,
+        'Category' => $comment->category,
+        //'TransferIndicator' => $comment->transferIndicator,
+        //'Text' => new Text([
+          //'_' => $comment->value
+        //])
+      ]);
+    }
   }
 
 }

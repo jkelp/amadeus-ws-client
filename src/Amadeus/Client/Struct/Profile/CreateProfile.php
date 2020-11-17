@@ -23,19 +23,20 @@
 namespace Amadeus\Client\Struct\Profile;
 
 // use Amadeus\Client\RequestOptions\Profile;
-use Amadeus\Client\RequestOptions\Profile\Customer;
-use Amadeus\Client\RequestOptions\Profile\Telephone;
-use Amadeus\Client\RequestOptions\Profile\PersonName;
-
-use Amadeus\Client\RequestOptions\Offer\AirRecommendation;
-use Amadeus\Client\RequestOptions\OfferCreateOptions;
-use Amadeus\Client\RequestOptions\Offer\ProductReference as ProdRefOpt;
-
-use Amadeus\Client\RequestOptions\ProfileCreateProfileOptions;
-
 use Amadeus\Client\Struct\BaseWsMessage;
 use Amadeus\Client\Struct\Profile\Create\Profile;
 use Amadeus\Client\Struct\Profile\Shared\UniqueID;
+
+use Amadeus\Client\RequestOptions\Profile\Customer;
+use Amadeus\Client\RequestOptions\Profile\Telephone;
+use Amadeus\Client\RequestOptions\OfferCreateOptions;
+
+use Amadeus\Client\RequestOptions\Profile\PersonName;
+
+use Amadeus\Client\RequestOptions\Profile\UniqueIDType;
+use Amadeus\Client\RequestOptions\Offer\AirRecommendation;
+use Amadeus\Client\RequestOptions\ProfileCreateProfileOptions;
+use Amadeus\Client\RequestOptions\Offer\ProductReference as ProdRefOpt;
 
 /**
  * Offer_CreateOffer request structure
@@ -51,11 +52,19 @@ class CreateProfile extends BaseWsMessage
 
     public function __construct(ProfileCreateProfileOptions $options)
     {
-        $this->UniqueID = new UniqueID([
+        $this->UniqueID[] = new UniqueID([
           'ID_Context' => 'CSX',
           'Type' => 9,
           'ID' => $options->OfficeId
         ]);
+
+        if ($options->Index) {
+          $this->UniqueID[] = new UniqueID([
+            'Type' => UniqueIDType::UNIQUE_ID_PROFILE_ID,
+            'ID' => $options->Index,
+            'ID_Context' => 'PIN',
+          ]);
+        }
 
         $this->loadProfile($options);
     }

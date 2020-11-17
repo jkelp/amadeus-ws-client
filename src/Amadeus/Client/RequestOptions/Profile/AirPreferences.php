@@ -37,4 +37,6 @@ class AirPreferences extends LoadParamsFromArray
     public $MealPref;
 
     public $SeatPref;
+
+    public $TicketingAccountInformation;
 }
