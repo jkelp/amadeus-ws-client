@@ -45,6 +45,8 @@ class PrefCollection extends LoadParamsFromArray
 
   public function __construct($options)
   {
+    parent::__construct($options);
+    
     $this->loadAirlinePref($options);
 
     $this->loadHotelPref($options);

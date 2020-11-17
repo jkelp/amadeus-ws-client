@@ -36,6 +36,8 @@ class CompanyInfo extends LoadParamsFromArray
 
   public $PaymentForm = [];
 
+  public $Rates = [];
+
   //public $OtherCompanyName;
 
   // public $telephone = [];
@@ -53,6 +55,12 @@ class CompanyInfo extends LoadParamsFromArray
     //$this->loadTelephoneInfo();
 
     $this->loadPaymentForm($options);
+
+    /* $rate = new stdClass;
+    $rate->RateCategory = '13';
+    $rate->CorpDiscountNmbr = 'XZBZ123';
+    $rate->PromotionVendorCode = 'ET';
+    $this->Rates[] = $rate; */
   }
 
 

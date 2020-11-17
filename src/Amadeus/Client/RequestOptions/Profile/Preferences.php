@@ -41,4 +41,6 @@ class Preferences extends LoadParamsFromArray
     public $RailPreferences;
 
     public $RuleManagement;
+
+    public $TravelPurpose;
 }

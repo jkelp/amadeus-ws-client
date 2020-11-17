@@ -70,10 +70,10 @@ class PrefCollections extends LoadParamsFromArray
 
 
     $prefCollection2 = new stdClass;
-    //$prefCollection2->RuleManagement = new stdClass;
-    //$prefCollection2->RuleManagement->RuleType = '4';
-    //$prefCollection2->RuleManagement->TravelSector = '3';
-    //$prefCollection2->RuleManagement->PrivilegeIndicator = 'S';
+    $prefCollection2->RuleManagement = new stdClass;
+    $prefCollection2->RuleManagement->RuleType = '4';
+    $prefCollection2->RuleManagement->TravelSector = '3';
+    $prefCollection2->RuleManagement->PrivilegeIndicator = 'S';
     $prefCollection2->HotelPref = [];
     $prefCollection2->HotelPref[0] = new stdClass;
     $prefCollection2->HotelPref[0]->SpecialRatePref = [];
@@ -84,14 +84,15 @@ class PrefCollections extends LoadParamsFromArray
     $this->PrefCollection[] = $prefCollection2;
 
     /* $prefCollection3 = new stdClass;
-    //$prefCollection3->RuleManagement = new stdClass;
-    //$prefCollection3->RuleManagement->RuleType = '4';
-    //$prefCollection3->RuleManagement->TravelSector = '2';
-    //$prefCollection3->RuleManagement->PrivilegeIndicator = 'S';
+    $prefCollection3->RuleManagement = new stdClass;
+    $prefCollection3->RuleManagement->RuleType = '4';
+    $prefCollection3->RuleManagement->TravelSector = '2';
+    $prefCollection3->RuleManagement->PrivilegeIndicator = 'S';
     $prefCollection3->VehicleRentalPref = new stdClass;
     $prefCollection3->VehicleRentalPref->RateQualifierPref = new stdClass;
     $prefCollection3->VehicleRentalPref->RateQualifierPref->CorpDiscountNmbr = 'XZBZ123';
     $prefCollection3->VehicleRentalPref->RateQualifierPref->PromotionVendorCode = 'ET';
+    $prefCollection3->TravelPurpose = '0';
 
     $this->PrefCollection[] = $prefCollection3; */
   }
