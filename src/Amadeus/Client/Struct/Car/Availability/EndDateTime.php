@@ -21,12 +21,12 @@
  */
 
 namespace Amadeus\Client\Struct\Car\Availability;
-use Amadeus\Client\Struct\Car\Availability\Day;
-use Amadeus\Client\Struct\Car\Availability\Year;
-use Amadeus\Client\Struct\Car\Availability\Hour;
-use Amadeus\Client\Struct\Car\Availability\Month;
-use Amadeus\Client\Struct\Car\Availability\Minutes;
-
+use Amadeus\Client\Struct\Car\Availability\day;
+use Amadeus\Client\Struct\Car\Availability\year;
+use Amadeus\Client\Struct\Car\Availability\hour;
+use Amadeus\Client\Struct\Car\Availability\month;
+use Amadeus\Client\Struct\Car\Availability\minutes;
+use Amadeus\Client\RequestOptions\Car\Availability\DateHolder;
 
 /**
  * RoomStayCandidate
@@ -34,52 +34,52 @@ use Amadeus\Client\Struct\Car\Availability\Minutes;
  * @package Amadeus\Client\Struct\Car\Availability
  * @author Dieter Devlieghere <dieter.devlieghere@benelux.amadeus.com>
  */
-class EndDateTime
+class endDateTime
 {
 
-    /**
-     * @var Year
-     */
-    public $Year
+      /**
+       * @var year
+       */
+      public $year;
 
-    /**
-     * @var Month
-     */
-    public $Month
+      /**
+       * @var month
+       */
+      public $Month;
 
-    /**
-     * @var Day
-     */
-    public $Day
+      /**
+       * @var day
+       */
+      public $day;
 
-    /**
-     * @var Hour
-     */
-    public $Hour
+      /**
+       * @var hour
+       */
+      public $hour;
 
-    /**
-     * @var Minutes
-     */
-    public $Minutes
+      /**
+       * @var minutes
+       */
+      public $minutes;
 
 
-    /**
-     * StatusDetails constructor.
-     *
-     * @param DateHolder
-     */
-    public function __construct(DateHolder $date)
-    {
+      /**
+       * StatusDetails constructor.
+       *
+       * @param DateHolder
+       */
+      public function __construct(DateHolder $date)
+      {
 
-        $this->Year = new ($date->year);
+          $this->year = new year($date->year);
 
-        $this->Month = new ($date->month);
+          $this->month = new month($date->month);
 
-        $this->Day = new ($date->day);
+          $this->day = new day($date->day);
 
-        $this->Hour = new ($date->hour);
+          $this->hour = new hour($date->hour);
 
-        $this->Minutes = new ($date->minutes);
+          $this->minutes = new minutes($date->minutes);
 
-    }
+      }
 }

@@ -29,7 +29,7 @@ namespace Amadeus\Client\Struct\Car\Availability;
  * @package Amadeus\Client\Struct\Car\Availability
  * @author Dieter Devlieghere <dieter.devlieghere@benelux.amadeus.com>
  */
-class Year
+class year
 {
 
     /**
@@ -46,6 +46,6 @@ class Year
     public function __construct(string $year)
     {
 
-        $_ = $year;
+        $this->_ = $year;
     }
 }

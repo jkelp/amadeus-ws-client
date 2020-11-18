@@ -21,7 +21,7 @@
  */
 
 namespace Amadeus\Client\Struct\Car\Availability;
-
+use Amadeus\Client\Struct\Car\Availability\option;
 
 /**
  * RoomStayCandidate
@@ -33,9 +33,9 @@ class SelectionDetails
 {
 
     /**
-     * @var string
+     * @var option
      */
-    public $Option;
+    public $option;
 
 
     /**
@@ -45,6 +45,6 @@ class SelectionDetails
      */
     public function __construct(string $selectionDetails)
     {
-        $this->Option = new Option($selectionDetails);
+        $this->option = new option($selectionDetails);
     }
 }

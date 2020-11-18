@@ -65,6 +65,6 @@ class DateHolder extends LoadParamsFromArray
      *
      * @var string
      */
-    public $minutes
+    public $minutes;
 
 }

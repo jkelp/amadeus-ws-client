@@ -29,7 +29,7 @@ namespace Amadeus\Client\Struct\Car\Availability;
  * @package Amadeus\Client\Struct\Car\Availability
  * @author Dieter Devlieghere <dieter.devlieghere@benelux.amadeus.com>
  */
-class ActionRequestCode
+class actionRequestCode
 {
 
     /**
@@ -46,6 +46,6 @@ class ActionRequestCode
     public function __construct(string $actionRequestCode)
     {
 
-        $_ = $actionRequestCode;
+        $this->_ = $actionRequestCode;
     }
 }

@@ -29,7 +29,7 @@ namespace Amadeus\Client\Struct\Car\Availability;
  * @package Amadeus\Client\Struct\Car\Availability
  * @author Dieter Devlieghere <dieter.devlieghere@benelux.amadeus.com>
  */
-class Minutes
+class minutes
 {
 
     /**
@@ -46,6 +46,6 @@ class Minutes
     public function __construct(string $minutes)
     {
 
-        $_ = $minutes;
+        $this->_ = $minutes;
     }
 }

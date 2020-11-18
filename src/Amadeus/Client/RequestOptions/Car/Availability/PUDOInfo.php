@@ -23,6 +23,9 @@
 namespace Amadeus\Client\RequestOptions\Car\Availability;
 
 use Amadeus\Client\LoadParamsFromArray;
+use Amadeus\Client\RequestOptions\Car\Availability\PUDOTimes;
+use Amadeus\Client\RequestOptions\Car\Availability\AirportLoc;
+use Amadeus\Client\RequestOptions\Car\Availability\GeocodeInfo;
 
 /**
  * PickupDropoffInfo
@@ -30,21 +33,47 @@ use Amadeus\Client\LoadParamsFromArray;
  * @package Amadeus\Client\RequestOptions\Car\Availability
  * @author Dieter Devlieghere <dieter.devlieghere@benelux.amadeus.com>
  */
-class PickupDropoffInfo extends LoadParamsFromArray
+class PUDOInfo extends LoadParamsFromArray
 {
 
   /**
-   * Start Date
+   * Times for pickup and dropoff
    *
-   * @var DateHolder
+   * @var PUDOTimes
    */
-    public $beginDateTime;
+    public $times;
+
 
   /**
-   * End Date
+   * Nested Info
    *
-   * @var DateHolder
+   * @var PUDOInfo
    */
-    public $endDateTime;
+    public $nestedInfo;
+
+
+  /**
+   * Location Type
+   *
+   * @var string
+   */
+    public $locationType;
+
+
+  /**
+   * Iata code and name
+   *
+   * @var AirportLoc
+   */
+    public $iataAirportLoc;
+
+    /**
+     * Geo lat long
+     *
+     * @var GeocodeInfo
+     */
+      public $locationGeocodeInfo;
+
+
 
 }

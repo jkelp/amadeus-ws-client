@@ -23,6 +23,7 @@
 namespace Amadeus\Client\Struct\Car\Availability;
 
 use Amadeus\Client\RequestOptions\Car\Availability\MediaIndicator;
+use Amadeus\Client\Struct\Car\Availability\statusDetails;
 
 /**
  * RoomStayCandidate
@@ -30,13 +31,13 @@ use Amadeus\Client\RequestOptions\Car\Availability\MediaIndicator;
  * @package Amadeus\Client\Struct\Car\Availability
  * @author Dieter Devlieghere <dieter.devlieghere@benelux.amadeus.com>
  */
-class CarProviderIndicator
+class multimediaIndicator
 {
 
     /**
-     * @var StatusDetails
+     * @var statusDetails
      */
-    public $StatusDetails;
+    public $statusDetails;
 
 
     /**
@@ -48,6 +49,6 @@ class CarProviderIndicator
     {
 
 
-        $this->StatusDetails = new StatusDetails($indicator->provider);
+        $this->statusDetails = new statusDetails($indicator->mulitMedia);
     }
 }

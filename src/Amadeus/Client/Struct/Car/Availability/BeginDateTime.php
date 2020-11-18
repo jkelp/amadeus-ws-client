@@ -21,11 +21,12 @@
  */
 
 namespace Amadeus\Client\Struct\Car\Availability;
-use Amadeus\Client\Struct\Car\Availability\Day;
-use Amadeus\Client\Struct\Car\Availability\Year;
-use Amadeus\Client\Struct\Car\Availability\Hour;
-use Amadeus\Client\Struct\Car\Availability\Month;
-use Amadeus\Client\Struct\Car\Availability\Minutes;
+use Amadeus\Client\Struct\Car\Availability\day;
+use Amadeus\Client\Struct\Car\Availability\year;
+use Amadeus\Client\Struct\Car\Availability\hour;
+use Amadeus\Client\Struct\Car\Availability\month;
+use Amadeus\Client\Struct\Car\Availability\minutes;
+use Amadeus\Client\RequestOptions\Car\Availability\DateHolder;
 
 
 /**
@@ -34,33 +35,33 @@ use Amadeus\Client\Struct\Car\Availability\Minutes;
  * @package Amadeus\Client\Struct\Car\Availability
  * @author Dieter Devlieghere <dieter.devlieghere@benelux.amadeus.com>
  */
-class BeginDateTime
+class beginDateTime
 {
 
     /**
-     * @var Year
+     * @var year
      */
-    public $Year
+    public $year;
 
     /**
-     * @var Month
+     * @var month
      */
-    public $Month
+    public $Month;
 
     /**
-     * @var Day
+     * @var day
      */
-    public $Day
+    public $day;
 
     /**
-     * @var Hour
+     * @var hour
      */
-    public $Hour
+    public $hour;
 
     /**
-     * @var Minutes
+     * @var minutes
      */
-    public $Minutes
+    public $minutes;
 
 
     /**
@@ -71,15 +72,15 @@ class BeginDateTime
     public function __construct(DateHolder $date)
     {
 
-        $this->Year = new ($date->year);
+        $this->year = new year($date->year);
 
-        $this->Month = new ($date->month);
+        $this->month = new month($date->month);
 
-        $this->Day = new ($date->day);
+        $this->day = new day($date->day);
 
-        $this->Hour = new ($date->hour);
+        $this->hour = new hour($date->hour);
 
-        $this->Minutes = new ($date->minutes);
+        $this->minutes = new minutes($date->minutes);
 
     }
 }

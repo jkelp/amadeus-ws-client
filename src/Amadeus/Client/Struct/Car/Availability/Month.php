@@ -29,7 +29,7 @@ namespace Amadeus\Client\Struct\Car\Availability;
  * @package Amadeus\Client\Struct\Car\Availability
  * @author Dieter Devlieghere <dieter.devlieghere@benelux.amadeus.com>
  */
-class Month
+class month
 {
 
     /**
@@ -46,6 +46,6 @@ class Month
     public function __construct(string $month)
     {
 
-        $_ = $month;
+        $this->_ = $month;
     }
 }

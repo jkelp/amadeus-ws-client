@@ -20,43 +20,30 @@
  * @license https://opensource.org/licenses/Apache-2.0 Apache 2.0
  */
 
-namespace Amadeus\Client\Struct\Car\Availability;
-
-use Amadeus\Client\Struct\Car\Availability\PUDOInfo;
-use Amadeus\Client\Struct\Car\Availability\BeginDateTime;
-use Amadeus\Client\Struct\Car\Availability\EndDateTime;
-
+namespace Amadeus\Client\Struct\Car\Sell;
 
 /**
  * RoomStayCandidate
  *
- * @package Amadeus\Client\Struct\Car\Availability
+ * @package Amadeus\Client\Struct\Car\RateInformation
  * @author Dieter Devlieghere <dieter.devlieghere@benelux.amadeus.com>
  */
-class PickupDropoffTime
+class fareType
 {
 
-    /**
-     * @var BeginDateTime
-     */
-    public $BeginDateTime;
-
-    /**
-     * @var EndDateTime
-     */
-    public $EndDateTime;
+  /**
+   * @var string
+   */
+  public $_;
 
 
     /**
-     * PickupDropoff constructor.
-     *
-     * @param PUDOInfo
+     * CarProviderIndicator constructor.
      */
-    public function __construct(PUDOInfo $pickupDropoff)
+    public function __construct($option)
     {
 
-        $this->BeginDateTime = new BeginDateTime($pickupDropoff->beginDateTime);
-        $this->EndDateTime = new EndDateTime($pickupDropoff->endDateTime);
+        $this->_ = $option;
 
     }
 }

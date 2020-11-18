@@ -29,7 +29,7 @@ namespace Amadeus\Client\Struct\Car\Availability;
  * @package Amadeus\Client\Struct\Car\Availability
  * @author Dieter Devlieghere <dieter.devlieghere@benelux.amadeus.com>
  */
-class Hour
+class hour
 {
 
     /**
@@ -46,6 +46,6 @@ class Hour
     public function __construct(string $hour)
     {
 
-        $_ = $hour;
+        $this->_ = $hour;
     }
 }
