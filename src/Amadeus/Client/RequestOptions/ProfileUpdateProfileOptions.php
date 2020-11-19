@@ -32,6 +32,8 @@ class ProfileUpdateProfileOptions extends Base
 {
     public $ProfileType;
 
+    public $OfficeId;
+
     public $RecordLocator;
 
     public $Instance;
