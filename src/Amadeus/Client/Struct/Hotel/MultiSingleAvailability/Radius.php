@@ -32,14 +32,7 @@ use Amadeus\Client\RequestOptions\Hotel\MultiSingleAvail\RadiusReq;
  */
 class Radius
 {
-  const UNIT_OF_MEASURE_CODE_MILES = 1;
-
-  const UNIT_OF_MEASURE_CODE_KILOMETERS = 2;
-
-  const DISTANCE_MEASURE_SORT_BY_DISTANCE = 'DIS';
-
-  const DISTANCE_MEASURE_SORT_RANDOM = 'RND';
-
+  
   public $Distance;
 
   public $UnitOfMeasureCode;

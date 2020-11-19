@@ -32,12 +32,11 @@ use Amadeus\Client\Session\Handler\SendResult;
  * @package Amadeus\Client\ResponseHandler\Offer
  * @author Dieter Devlieghere <dermikagh@gmail.com>
  */
-class HandlerReadProfile extends StandardResponseHandler
+class HandlerUpdateProfile extends StandardResponseHandler
 {
-
-    const Q_ERR_CODE = "/m:AMA_ProfileReadRS/m:Errors/m:Error/@Code";
-    const Q_ERR_SRC = "/m:AMA_ProfileReadRS/m:Errors/m:Error/@Status";
-    const Q_ERR_MSG = "/m:AMA_ProfileReadRS/m:Errors/m:Error/@ShortText";
+    const Q_ERR_CODE = "/m:AMA_UpdateRS/m:Errors/m:Error/@Code";
+    const Q_ERR_SRC = "/m:AMA_UpdateRS/m:Errors/m:Error/@Status";
+    const Q_ERR_MSG = "/m:AMA_UpdateRS/m:Errors/m:Error/@ShortText";
 
     /**
      * @param SendResult $response

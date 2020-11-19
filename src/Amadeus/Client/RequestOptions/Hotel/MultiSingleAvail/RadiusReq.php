@@ -43,7 +43,7 @@ class RadiusReq extends LoadParamsFromArray
 
     public $distance;
 
-    public $unitOfMeasureCode;
+    public $unitOfMeasureCode = self::UNIT_OF_MEASURE_CODE_MILES;
 
-    public $distanceMeasure;
+    public $distanceMeasure = self::DISTANCE_MEASURE_SORT_BY_DISTANCE;
 }
