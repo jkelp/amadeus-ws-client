@@ -25,14 +25,23 @@ namespace Amadeus\Client\Struct\Profile\Create;
 use Amadeus\Client\LoadParamsFromArray;
 
 
-class VehicleRentalPref extends LoadParamsFromArray
+class Document extends LoadParamsFromArray
 {
 
-  public $SmokingAllowed;
+  public $DocType;
 
-  public $LoyaltyPref;
+  public $DocID;
 
-  public $VendorPref;
+  public $EffectiveDate;
 
+  public $ExpireDate;
+
+  public $DocIssueCountry;
+
+  public $DocIssueLocation;
+
+  public $Gender;
+
+  public $Birthplace;
 
 }

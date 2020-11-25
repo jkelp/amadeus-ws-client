@@ -47,15 +47,21 @@ class Customer extends LoadParamsFromArray
 
   public $Gender;
 
+  public $BirthDate;
+
   public $ExternalCustLoyalty = [];
 
   public $PaymentForm = [];
+
+  public $Document = [];
 
   public function __construct($params)
   {
     $this->PersonName = new PersonName($params->PersonName);
 
     $this->Gender = $params->Gender;
+
+    $this->BirthDate = $params->BirthDate;
 
     $this->loadRelatedCompany($params);
 
@@ -70,6 +76,8 @@ class Customer extends LoadParamsFromArray
     $this->loadExternalCustLoyalty($params);
 
     $this->loadPaymentForm($params);
+
+    $this->loadDocument($params);
   }
 
 
@@ -130,6 +138,15 @@ class Customer extends LoadParamsFromArray
     }
   }
 
+  public function loadDocument($params)
+  {
+    if ($params->Document) {
+      foreach ($params->Document as $doc) {
+        $this->Document[] = new Document($doc);
+      }
+    }
+  }
+
 
   public function loadPaymentForm($params)
   {
@@ -148,6 +165,9 @@ class Customer extends LoadParamsFromArray
 
         $this->PaymentForm[] = new PaymentForm([
           'TransferIndicator' => $paymentMethod->transferIndicator,
+          'PaymentTransactionTypeCode' => $paymentMethod->paymentTransactionTypeCode,
+          'PaymentTypeCode' => $paymentMethod->paymentTypeCode,
+          'RPH' => $paymentMethod->rph,
           'PaymentCard' => new PaymentCard([
             'FormattedInd' => false,
             'Text' => $text

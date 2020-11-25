@@ -25,14 +25,9 @@ namespace Amadeus\Client\Struct\Profile\Create;
 use Amadeus\Client\LoadParamsFromArray;
 
 
-class VehicleRentalPref extends LoadParamsFromArray
+class PaymentFormPref extends LoadParamsFromArray
 {
 
-  public $SmokingAllowed;
-
-  public $LoyaltyPref;
-
-  public $VendorPref;
-
+  public $RPH;
 
 }

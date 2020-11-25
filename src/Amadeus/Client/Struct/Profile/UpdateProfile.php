@@ -27,7 +27,13 @@ class UpdateProfile extends BaseWsMessage
 
     public function __construct(ProfileUpdateProfileOptions $options)
     {
-      $this->UniqueID = new UniqueID([
+      $this->UniqueID[] = new UniqueID([
+        'ID_Context' => 'CSX',
+        'Type' => 9,
+        'ID' => $options->OfficeId
+      ]);
+
+      $this->UniqueID[] = new UniqueID([
         'Type' => UniqueIDType::UNIQUE_ID_PROFILE_ID,
         'ID' => $options->RecordLocator,
         'ID_Context' => 'CSX',

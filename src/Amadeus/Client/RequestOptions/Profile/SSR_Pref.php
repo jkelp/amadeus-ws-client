@@ -20,19 +20,29 @@
  * @license https://opensource.org/licenses/Apache-2.0 Apache 2.0
  */
 
-namespace Amadeus\Client\Struct\Profile\Create;
+namespace Amadeus\Client\RequestOptions\Profile;
 
 use Amadeus\Client\LoadParamsFromArray;
 
-
-class VehicleRentalPref extends LoadParamsFromArray
+/**
+ * Traveller in a PNR
+ *
+ * @package Amadeus\Client\RequestOptions\Pnr
+ * @author Dieter Devlieghere <dermikagh@gmail.com>
+ */
+class SSR_Pref extends LoadParamsFromArray
 {
+    public $SSR_Code;
 
-  public $SmokingAllowed;
+    public $AirlineCode;
 
-  public $LoyaltyPref;
+    public $NumberInParty;
 
-  public $VendorPref;
+    public $StatusCode;
 
+    public $SSR_FreeText;
 
+    public $ExplosionIndicator;
+
+    public $TransferIndicator;
 }

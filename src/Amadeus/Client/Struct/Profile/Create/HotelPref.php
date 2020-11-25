@@ -32,4 +32,10 @@ class HotelPref extends LoadParamsFromArray
 
   public $SpecialRatePref;
 
+  public $LoyaltyPref;
+
+  public $VendorPref;
+
+  public $PaymentFormPref;
+
 }

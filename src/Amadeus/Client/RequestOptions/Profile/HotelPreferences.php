@@ -35,4 +35,12 @@ class HotelPreferences extends LoadParamsFromArray
     public $SmokingAllowed;
 
     public $SpecialRatePref;
+
+    public $LoyaltyPref;
+
+    public $VendorPref;
+
+    public $PaymentFormPref;
+
+
 }

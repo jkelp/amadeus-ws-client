@@ -36,4 +36,6 @@ class ExternalCustLoyalty extends LoadParamsFromArray
 
   public $TravelSector;
 
+  public $RPH;
+
 }

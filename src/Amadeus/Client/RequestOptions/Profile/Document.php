@@ -20,19 +20,44 @@
  * @license https://opensource.org/licenses/Apache-2.0 Apache 2.0
  */
 
-namespace Amadeus\Client\Struct\Profile\Create;
+namespace Amadeus\Client\RequestOptions\Profile;
 
 use Amadeus\Client\LoadParamsFromArray;
 
-
-class VehicleRentalPref extends LoadParamsFromArray
+/**
+ * Traveller in a PNR
+ *
+ * @package Amadeus\Client\RequestOptions\Pnr
+ * @author Dieter Devlieghere <dermikagh@gmail.com>
+ */
+class Document extends LoadParamsFromArray
 {
+    const TYPE_VISA = 1;
 
-  public $SmokingAllowed;
+    const TYPE_PASSPORT = 2;
 
-  public $LoyaltyPref;
+    const TYPE_DRIVERS_LICENSE = 4;
 
-  public $VendorPref;
+    const TYPE_REDRESS_NUMBER = 15;
 
+    const TYPE_KNOWN_TRAVELER_NUMBER = 16;
+
+    const TYPE_PASSPORT_CARD = 21;
+
+    public $DocType;
+
+    public $DocID;
+
+    public $EffectiveDate;
+
+    public $ExpireDate;
+
+    public $DocIssueCountry;
+
+    public $DocIssueLocation;
+
+    public $Gender;
+
+    public $Birthplace;
 
 }

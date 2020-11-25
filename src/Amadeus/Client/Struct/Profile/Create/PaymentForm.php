@@ -32,4 +32,10 @@ class PaymentForm extends LoadParamsFromArray
 
   public $PaymentCard;
 
+  public $RPH;
+
+  public $PaymentTransactionTypeCode;
+
+  public $PaymentTypeCode;
+
 }

@@ -41,4 +41,10 @@ class PaymentMethod extends LoadParamsFromArray
     public $expirationYear;
 
     public $transferIndicator;
+
+    public $rph;
+
+    public $paymentTransactionTypeCode;
+
+    public $paymentTypeCode;
 }

@@ -38,6 +38,8 @@ class AirlinePref extends LoadParamsFromArray
 
   public $TicketingAccountInformation;
 
+  public $SSR_Pref;
+
 
   public function __construct($options)
   {
@@ -48,8 +50,6 @@ class AirlinePref extends LoadParamsFromArray
     ]);
 
     $this->MealPref = $options->MealPref;
-
-    // $this->TicketingAccountInformation = $options->TicketingAccountInformation;
   }
 
 }

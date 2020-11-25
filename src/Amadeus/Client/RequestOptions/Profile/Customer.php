@@ -50,9 +50,13 @@ class Customer extends LoadParamsFromArray
 
     public $Gender;
 
+    public $BirthDate;
+
     public $EmployeeInfo;
 
     public $PaymentMethod = [];
 
     public $ExternalCustLoyalty = [];
+
+    public $Document = [];
 }

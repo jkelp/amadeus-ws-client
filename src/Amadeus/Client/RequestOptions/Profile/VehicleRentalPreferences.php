@@ -33,4 +33,8 @@ use Amadeus\Client\LoadParamsFromArray;
 class VehicleRentalPreferences extends LoadParamsFromArray
 {
     public $SmokingAllowed;
+
+    public $LoyaltyPref;
+
+    public $VendorPref;
 }
