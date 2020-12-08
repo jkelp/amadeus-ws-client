@@ -32,12 +32,12 @@ class currencyDetails
 {
 
     /**
-     * @var currencyQualifier
+     * @var string
      */
     public $currencyQualifier;
 
     /**
-     * @var currencyIsoCode
+     * @var string
      */
     public $currencyIsoCode;
 
@@ -49,8 +49,8 @@ class currencyDetails
     public function __construct($qualifier, $isoCode)
     {
 
-        $this->currencyQualifier = new currencyQualifier($qualifier);
-        $this->currencyIsoCode = new currencyIsoCode($isoCode);
+        $this->currencyQualifier = $qualifier;
+        $this->currencyIsoCode = $isoCode;
 
     }
 }

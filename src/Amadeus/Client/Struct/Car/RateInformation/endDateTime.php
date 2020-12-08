@@ -33,45 +33,45 @@
 class endDateTime
 {
 
-    /**
-     * @var year
-     */
-    public $year;
+  /**
+   * @var string
+   */
+  public $year;
 
-    /**
-     * @var month
-     */
-    public $month;
+  /**
+   * @var string
+   */
+  public $month;
 
-    /**
-     * @var day
-     */
-    public $day;
+  /**
+   * @var string
+   */
+  public $day;
 
-    /**
-     * @var hour
-     */
-    public $hour;
+  /**
+   * @var string
+   */
+  public $hour;
 
-    /**
-     * @var minutes
-     */
-    public $minutes;
+  /**
+   * @var string
+   */
+  public $minutes;
 
 
-    /**
-     * CarProviderIndicator constructor.
-     *
-     * @param Time
-     */
-    public function __construct(Time $details)
-    {
+  /**
+   * CarProviderIndicator constructor.
+   *
+   * @param Time
+   */
+  public function __construct(Time $details)
+  {
 
-        $this->year = new year($details->year);
-        $this->month = new month($details->month);
-        $this->day = new day($details->day);
-        $this->hour = new hour($details->hour);
-        $this->minutes = new minutes($details->minutes);
+      $this->year = $details->year;
+      $this->month = $details->month;
+      $this->day = $details->day;
+      $this->hour = $details->hour;
+      $this->minutes = $details->minutes;
 
-    }
+  }
 }

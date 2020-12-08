@@ -46,7 +46,7 @@ class companyIdentification
     public function __construct($travelSector, $companyCode)
     {
 
-        $this->companyCode = new companyCode($companyCode);
-        $this->travelSector = new travelSector($travelSector);
+        $this->companyCode = $companyCode;
+        $this->travelSector = $travelSector;
     }
 }

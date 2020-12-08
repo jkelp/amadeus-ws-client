@@ -32,12 +32,12 @@ class vehicleRentalNeedType
 {
 
     /**
-     * @var vehicleTypeOwner
+     * @var string
      */
     public $vehicleTypeOwner;
 
     /**
-     * @var vehicleRentalPrefType
+     * @var string
      */
     public $vehicleRentalPrefType;
 
@@ -50,7 +50,7 @@ class vehicleRentalNeedType
     public function __construct($owner, $type)
     {
 
-        $this->vehicleTypeOwner = new vehicleTypeOwner($owner);
-        $this->vehicleRentalPrefType = new vehicleRentalPrefType($type);
+        $this->vehicleTypeOwner = $owner;
+        $this->vehicleRentalPrefType = $type;
     }
 }

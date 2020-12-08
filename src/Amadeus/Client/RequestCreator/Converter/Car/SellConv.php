@@ -20,58 +20,27 @@
  * @license https://opensource.org/licenses/Apache-2.0 Apache 2.0
  */
 
- namespace Amadeus\Client\Struct\Car\Sell;
+namespace Amadeus\Client\RequestCreator\Converter\Car;
 
-  use Amadeus\Client\RequestOptions\Car\Sell\Time;
+use Amadeus\Client\RequestCreator\Converter\BaseConverter;
+use Amadeus\Client\RequestOptions\CarSellOptions;
+use Amadeus\Client\Struct;
 
- /**
-  * RoomStayCandidate
-  *
-  * @package Amadeus\Client\Struct\Car\Sell
+/**
+ * Hotel_Sell Request converter
+ *
+ * @package Amadeus\Client\RequestCreator\Converter\Hotel
  * @author Dieter Devlieghere <dieter.devlieghere@benelux.amadeus.com>
  */
-class endDateTime
+class SellConv extends BaseConverter
 {
-
-  /**
-   * @var string
-   */
-  public $year;
-
-  /**
-   * @var string
-   */
-  public $month;
-
-  /**
-   * @var string
-   */
-  public $day;
-
-  /**
-   * @var string
-   */
-  public $hour;
-
-  /**
-   * @var string
-   */
-  public $minutes;
-
-
-  /**
-   * CarProviderIndicator constructor.
-   *
-   * @param Time
-   */
-  public function __construct(Time $details)
-  {
-
-      $this->year = $details->year;
-      $this->month = $details->month;
-      $this->day = $details->day;
-      $this->hour = $details->hour;
-      $this->minutes = $details->minutes;
-
-  }
+    /**
+     * @param CarSellOptions $requestOptions
+     * @param int|string $version
+     * @return Struct\Car\Sell\Car_Sell
+     */
+    public function convert($requestOptions, $version)
+    {
+        return new Struct\Car\Sell\Car_Sell($requestOptions);
+    }
 }

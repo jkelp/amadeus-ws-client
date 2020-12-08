@@ -37,12 +37,12 @@ class porPosition
 {
 
     /**
-     * @var porLongitude
+     * @var string
      */
     public $porLongitude;
 
     /**
-     * @var porLatitude
+     * @var string
      */
     public $porLatitude;
 
@@ -50,13 +50,13 @@ class porPosition
     /**
      * MediaContent constructor.
      *
-     * 
+     *
      */
     public function __construct(string $longitude, string $latitude)
     {
 
-        $this->porLongitude = new porLongitude($longitude);
-        $this->porLatitude = new porLatitude($latitude);
+        $this->porLongitude = $longitude;
+        $this->porLatitude = $latitude;
 
     }
 }

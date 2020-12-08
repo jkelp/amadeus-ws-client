@@ -32,7 +32,7 @@ class rateInformation
 {
 
     /**
-     * @var category
+     * @var string
      */
     public $category;
 
@@ -44,7 +44,7 @@ class rateInformation
     public function __construct($category)
     {
 
-        $this->category = new category($category);
+        $this->category = $category;
 
     }
 }

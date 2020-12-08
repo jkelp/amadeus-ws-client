@@ -32,12 +32,12 @@ class locationDescription
 {
 
     /**
-     * @var code
+     * @var string
      */
     public $code;
 
     /**
-     * @var name
+     * @var string
      */
     public $name;
 
@@ -48,8 +48,8 @@ class locationDescription
     public function __construct($code, $name)
     {
 
-        $this->code = new code($code);
-        $this->name = new name($name);
+        $this->code = $code;
+        $this->name = $name;
 
     }
 }

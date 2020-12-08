@@ -118,8 +118,8 @@ class CarAvailabilityTest extends BaseTestCase
 
         $msg = new Car_Availability($opt);
 
-
-        // exit;
+        print_r($msg);
+        exit;
 
 
         $this->assertEquals('Y', $msg->carProviderIndicator->statusDetails->indicator->_);

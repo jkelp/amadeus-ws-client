@@ -22,6 +22,7 @@
 
 namespace Amadeus\Client\Struct\Car\Availability;
 
+use Amadeus\Client\Struct\BaseWsMessage;
 use Amadeus\Client\RequestOptions\CarAvailOptions;
 use Amadeus\Client\Struct\Car\Availability\pickupDropoffInfo;
 use Amadeus\Client\Struct\Car\Availability\carProviderIndicator;
@@ -38,7 +39,7 @@ use Amadeus\Client\Struct\Car\Availability\sortingRule;
  * @package Amadeus\Client\Struct\Car\Availability
  * @author Dieter Devlieghere <dieter.devlieghere@benelux.amadeus.com>
  */
-class Car_Availability
+class Car_Availability extends BaseWsMessage
 {
 
 

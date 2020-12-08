@@ -32,7 +32,7 @@ class fareCategories
 {
 
     /**
-     * @var fareType
+     * @var string
      */
     public $fareType;
 
@@ -44,7 +44,7 @@ class fareCategories
     public function __construct($details)
     {
 
-        $this->fareType = new fareType($details);
+        $this->fareType = $details;
 
     }
 }

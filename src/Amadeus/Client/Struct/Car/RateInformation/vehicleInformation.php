@@ -34,7 +34,7 @@ class vehicleInformation
 {
 
     /**
-     * @var vehTypeOptionQualifier
+     * @var string
      */
     public $vehTypeOptionQualifier;
 
@@ -52,7 +52,7 @@ class vehicleInformation
     public function __construct(VehicleInfo $details)
     {
 
-        $this->vehTypeOptionQualifier = new vehTypeOptionQualifier($details->vehTypeOptionQualifier);
+        $this->vehTypeOptionQualifier = $details->vehTypeOptionQualifier;
         $this->vehicleRentalNeedType = new vehicleRentalNeedType($details->owner, $details->rentalPrefType);
 
     }

@@ -32,12 +32,12 @@ class tariffInfo
 {
 
     /**
-     * @var rateType
+     * @var string
      */
     public $rateType;
 
     /**
-     * @var ratePlanIndicator
+     * @var string
      */
     public $ratePlanIndicator;
 
@@ -49,8 +49,8 @@ class tariffInfo
     public function __construct($ratePlan, $rateType)
     {
 
-        $this->rateType = new rateType($rateType);
-        $this->ratePlanIndicator = new ratePlanIndicator($ratePlan);
+        $this->rateType = $rateType;
+        $this->ratePlanIndicator = $ratePlan;
 
     }
 }

@@ -34,7 +34,7 @@ class pickupDropoffLocs
 {
 
     /**
-     * @var locationType
+     * @var string
      */
     public $locationType;
 
@@ -52,7 +52,7 @@ class pickupDropoffLocs
     public function __construct(Location $details)
     {
 
-        $this->locationType = new locationType($details->locationType);
+        $this->locationType = $details->locationType;
         $this->locationDescription = new locationDescription($details->code, $details->name);
 
     }
