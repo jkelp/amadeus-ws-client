@@ -36,7 +36,7 @@ class rateClass
 {
 
     /**
-     * @var criteriaSetType
+     * @var string
      */
     public $criteriaSetType;
 
@@ -49,6 +49,6 @@ class rateClass
     public function __construct(RatingClass $ratingClass)
     {
 
-        $this->criteriaSetType = new criteriaSetType($ratingClass->criteriaSetType);
+        $this->criteriaSetType = $ratingClass->criteriaSetType;
     }
 }

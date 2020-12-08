@@ -34,7 +34,7 @@ use Amadeus\Client\RequestOptions\Car\RateInformation\Category;
 use Amadeus\Client\RequestOptions\Car\RateInformation\CurrencyInfo;
 use Amadeus\Client\RequestOptions\Car\RateInformation\Details;
 use Amadeus\Client\RequestOptions\CarRateInformationOptions;
-use Amadeus\Client\Struct\Car\RateInformation;
+use Amadeus\Client\Struct\Car\Car_RateInformationFromAvailability;
 use Test\Amadeus\BaseTestCase;
 
 /**
@@ -118,7 +118,7 @@ class CarRateInformationTest extends BaseTestCase
         //print_r($opt);
         //exit;
 
-        $msg = new RateInformation($opt);
+        $msg = new Car_RateInformationFromAvailability($opt);
 
         // print_r($msg->vehicleInformation->vehicleRentalNeedType);
         // exit;

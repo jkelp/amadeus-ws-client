@@ -20,58 +20,48 @@
  * @license https://opensource.org/licenses/Apache-2.0 Apache 2.0
  */
 
- namespace Amadeus\Client\Struct\Car\Sell;
+namespace Amadeus\Client\Struct\Car\Policy;
+use Amadeus\Client\RequestOptions\Car\Policy\Company;
 
-  use Amadeus\Client\RequestOptions\Car\Sell\Time;
-
- /**
-  * RoomStayCandidate
-  *
-  * @package Amadeus\Client\Struct\Car\Sell
+/**
+ * RoomStayCandidate
+ *
+ * @package Amadeus\Client\Struct\Car\Policy
  * @author Dieter Devlieghere <dieter.devlieghere@benelux.amadeus.com>
  */
-class endDateTime
+class locationSelection
 {
 
   /**
    * @var string
    */
-  public $year;
+  public $cityOrAirportTag;
 
   /**
-   * @var string
+   * @var object
    */
-  public $month;
-
-  /**
-   * @var string
-   */
-  public $day;
-
-  /**
-   * @var string
-   */
-  public $hour;
-
-  /**
-   * @var string
-   */
-  public $minutes;
+  public $locationInfo;
 
 
-  /**
-   * CarProviderIndicator constructor.
-   *
-   * @param Time
-   */
-  public function __construct(Time $details)
-  {
+    /**
+     * CarProviderIndicator constructor.
+     */
 
-      $this->year = $details->year;
-      $this->month = $details->month;
-      $this->day = $details->day;
-      $this->hour = $details->hour;
-      $this->minutes = $details->minutes;
+    public function __construct($location)
+    {
 
-  }
+        $this->cityOrAirportTag = new cityOrAirportTag($location->cityOrAirportTag);
+        $this->locationInfo = $this->load($location->airportCode);
+
+    }
+
+    public function load($item)
+    {
+
+      $data = [
+        'locationCode' => $item
+      ];
+
+      return (object) $data;
+    }
 }

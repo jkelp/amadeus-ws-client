@@ -37,12 +37,12 @@ class locationDescription
 {
 
     /**
-     * @var name
+     * @var string
      */
     public $name;
 
     /**
-     * @var code
+     * @var string
      */
     public $code;
 
@@ -55,8 +55,8 @@ class locationDescription
     public function __construct(AirportLoc $loc)
     {
 
-        $this->name = new name($loc->name);
-        $this->code = new code($loc->code);
+        $this->name = $loc->name;
+        $this->code = $loc->code;
 
     }
 }

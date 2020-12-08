@@ -20,58 +20,45 @@
  * @license https://opensource.org/licenses/Apache-2.0 Apache 2.0
  */
 
- namespace Amadeus\Client\Struct\Car\Sell;
+namespace Amadeus\Client\RequestOptions;
 
-  use Amadeus\Client\RequestOptions\Car\Sell\Time;
-
- /**
-  * RoomStayCandidate
-  *
-  * @package Amadeus\Client\Struct\Car\Sell
+/**
+ * Hotel_MultiSingleAvailability request options
+ *
+ * @package Amadeus\Client\RequestOptions
  * @author Dieter Devlieghere <dieter.devlieghere@benelux.amadeus.com>
  */
-class endDateTime
+class CarPolicyOptions extends Base
 {
 
-  /**
-   * @var string
-   */
-  public $year;
+    /**
+     *
+     *
+     * @var Car\Policy\Company
+     */
+    public $company;
 
-  /**
-   * @var string
-   */
-  public $month;
+    /**
+     *
+     *
+     * @var Car\Policy\Location
+     */
+    public $location;
 
-  /**
-   * @var string
-   */
-  public $day;
+    /**
+     *
+     *
+     * @var Car\RateInformation\Policy[]
+     */
+    public $policyTypes;
 
-  /**
-   * @var string
-   */
-  public $hour;
-
-  /**
-   * @var string
-   */
-  public $minutes;
+    /**
+     *
+     *
+     * @var Car\RateInformation\Vehicle
+     */
+    public $vehicles;
 
 
-  /**
-   * CarProviderIndicator constructor.
-   *
-   * @param Time
-   */
-  public function __construct(Time $details)
-  {
 
-      $this->year = $details->year;
-      $this->month = $details->month;
-      $this->day = $details->day;
-      $this->hour = $details->hour;
-      $this->minutes = $details->minutes;
-
-  }
 }

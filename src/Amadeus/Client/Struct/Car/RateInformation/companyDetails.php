@@ -33,22 +33,22 @@ class companyDetails
 {
 
     /**
-     * @var travelSector
+     * @var string
      */
     public $travelSector;
 
     /**
-     * @var companyCode
+     * @var string
      */
     public $companyCode;
 
     /**
-     * @var companyName
+     * @var string
      */
     public $companyName;
 
     /**
-     * @var accessLevel
+     * @var string
      */
     public $accessLevel;
 
@@ -61,9 +61,9 @@ class companyDetails
     public function __construct(CompDetails $details)
     {
 
-        $this->travelSector = new travelSector($details->sector);
-        $this->companyCode = new companyCode($details->companyCode);
-        $this->companyName = new companyName($details->companyName);
-        $this->accessLevel = new accessLevel($details->accessLevel);
+        $this->travelSector = $details->sector;
+        $this->companyCode = $details->companyCode;
+        $this->companyName = $details->companyName;
+        $this->accessLevel = $details->accessLevel;
     }
 }

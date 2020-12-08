@@ -33,14 +33,9 @@ namespace Amadeus\Client\Struct\Car\Availability;
 class locationType
 {
 
+
     /**
      * @var string
-     */
-    public $_;
-
-
-    /**
-     * @var locationType
      */
     public $locationType;
 
@@ -50,18 +45,12 @@ class locationType
      *
      * @param string
      */
-    public function __construct()
+    public function __construct(string $type)
     {
-    }
-
-
-    public function addType(string $type) {
-      $this->_ = $type;
-    }
-
-    public function addLocationType(locationType $type) {
       $this->locationType = $type;
     }
+
+
 
 
 

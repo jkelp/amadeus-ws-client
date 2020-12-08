@@ -46,7 +46,7 @@ class beginDateTime
     /**
      * @var month
      */
-    public $Month;
+    public $month;
 
     /**
      * @var day
@@ -72,15 +72,15 @@ class beginDateTime
     public function __construct(DateHolder $date)
     {
 
-        $this->year = new year($date->year);
+        $this->year = $date->year;
 
-        $this->month = new month($date->month);
+        $this->month = $date->month;
 
-        $this->day = new day($date->day);
+        $this->day = $date->day;
 
-        $this->hour = new hour($date->hour);
+        $this->hour = $date->hour;
 
-        $this->minutes = new minutes($date->minutes);
+        $this->minutes = $date->minutes;
 
     }
 }

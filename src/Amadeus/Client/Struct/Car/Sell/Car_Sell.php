@@ -25,6 +25,7 @@ namespace Amadeus\Client\Struct\Car\Sell;
 use Amadeus\Client\RequestOptions\CarSellOptions;
 use Amadeus\Client\Struct\Car\Sell\pnrInfo;
 use Amadeus\Client\Struct\Car\Sell\sellData;
+use Amadeus\Client\Struct\BaseWsMessage;
 
 
 /**
@@ -33,7 +34,7 @@ use Amadeus\Client\Struct\Car\Sell\sellData;
  * @package Amadeus\Client\Struct\Car\Availability
  * @author Dieter Devlieghere <dieter.devlieghere@benelux.amadeus.com>
  */
-class Car_Sell
+class Car_Sell extends BaseWsMessage
 {
 
 

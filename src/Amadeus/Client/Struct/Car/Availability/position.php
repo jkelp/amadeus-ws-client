@@ -38,7 +38,7 @@ class position
 {
 
     /**
-     * @var encoding
+     * @var string
      */
     public $encoding;
 
@@ -55,7 +55,7 @@ class position
      */
     public function __construct(GeocodeInfo $geo)
     {
-        $this->encoding = new encoding($geo->encoding);
+        $this->encoding = $geo->encoding;
         $this->porPosition = new porPosition($geo->longitude, $geo->latitude);
 
     }

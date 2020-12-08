@@ -46,6 +46,6 @@ class computeMarkups
      */
     public function __construct(Markups $markups)
     {
-        $this->actionRequestCode = new actionRequestCode($markups->actionRequestCode);
+        $this->actionRequestCode = $markups->actionRequestCode;
     }
 }

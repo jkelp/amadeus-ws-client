@@ -46,6 +46,6 @@ class statusDetails
     public function __construct(string $indicator)
     {
 
-        $this->indicator = new indicator($indicator);
+        $this->indicator = $indicator;
     }
 }

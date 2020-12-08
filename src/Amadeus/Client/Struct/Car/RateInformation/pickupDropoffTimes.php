@@ -35,6 +35,11 @@ class pickupDropoffTimes
 
 
     /**
+     * @var string
+     */
+    public $businessSemantic;
+
+    /**
      * @var beginDateTime
      */
     public $beginDateTime;
@@ -53,7 +58,7 @@ class pickupDropoffTimes
     public function __construct(Times $details)
     {
 
-        $this->businessSemantic = new businessSemantic($details->businessSemantic);
+        $this->businessSemantic = $details->businessSemantic;
         $this->beginDateTime = new beginDateTime($details->pickup);
         $this->endDateTime = new endDateTime($details->dropoff);
 

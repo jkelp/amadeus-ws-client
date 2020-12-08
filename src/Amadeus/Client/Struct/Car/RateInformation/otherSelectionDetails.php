@@ -32,7 +32,7 @@ class otherSelectionDetails
 {
 
   /**
-   * @var option
+   * @var string
    */
   public $option;
 
@@ -43,7 +43,7 @@ class otherSelectionDetails
     public function __construct($option)
     {
 
-        $this->option = new option($option);
+        $this->option = $option;
 
     }
 }

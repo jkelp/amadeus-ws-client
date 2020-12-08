@@ -46,6 +46,6 @@ class sortingRule
      */
     public function __construct(SortRule $sortRule)
     {
-        $this->actionRequestCode = new actionRequestCode($sortRule->actionRequestCode);
+        $this->actionRequestCode = $sortRule->actionRequestCode;
     }
 }

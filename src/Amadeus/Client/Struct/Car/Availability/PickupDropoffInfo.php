@@ -79,10 +79,7 @@ class pickupDropoffInfo
           $this->pickupDropoffInfo = new self($pickupDropoff->nestedInfo);
         }
         if (!empty($pickupDropoff->locationType)){
-          $this->locationType = new locationType();
-          $nested = new locationType();
-          $nested->addType($pickupDropoff->locationType);
-          $this->locationType->addLocationType($nested);
+          $this->locationType = new locationType($pickupDropoff->locationType);
         }
         if (!empty($pickupDropoff->iataAirportLoc)){
           $this->iataAirportLocations = new iataAirportLocations($pickupDropoff->iataAirportLoc);

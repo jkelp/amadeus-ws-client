@@ -42,7 +42,7 @@ use Amadeus\Client\Struct\Car\RateInformation\currency;
  * @package Amadeus\Client\Struct\Car
  * @author Dieter Devlieghere <dieter.devlieghere@benelux.amadeus.com>
  */
-class RateInformation extends BaseWsMessage
+class Car_RateInformationFromAvailability extends BaseWsMessage
 {
     /**
      * @var RateInformation\companyDetails

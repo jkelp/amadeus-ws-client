@@ -34,27 +34,27 @@ class beginDateTime
 {
 
     /**
-     * @var year
+     * @var string
      */
     public $year;
 
     /**
-     * @var month
+     * @var string
      */
     public $month;
 
     /**
-     * @var day
+     * @var string
      */
     public $day;
 
     /**
-     * @var hour
+     * @var string
      */
     public $hour;
 
     /**
-     * @var minutes
+     * @var string
      */
     public $minutes;
 
@@ -66,12 +66,12 @@ class beginDateTime
      */
     public function __construct(Time $details)
     {
-      
-        $this->year = new year($details->year);
-        $this->month = new month($details->month);
-        $this->day = new day($details->day);
-        $this->hour = new hour($details->hour);
-        $this->minutes = new minutes($details->minutes);
+
+        $this->year = $details->year;
+        $this->month = $details->month;
+        $this->day = $details->day;
+        $this->hour = $details->hour;
+        $this->minutes = $details->minutes;
 
     }
 }

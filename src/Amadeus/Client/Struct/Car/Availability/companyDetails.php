@@ -34,7 +34,7 @@ class companyDetails
 {
 
     /**
-     * @var companyCode
+     * @var string
      */
     public $companyCode;
 
@@ -46,6 +46,6 @@ class companyDetails
      */
     public function __construct(string $code)
     {
-        $this->companyCode = new companyCode($code);
+        $this->companyCode = $code;
     }
 }
