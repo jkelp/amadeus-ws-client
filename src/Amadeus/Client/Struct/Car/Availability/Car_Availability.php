@@ -54,7 +54,7 @@ class Car_Availability
     public $multimediaIndicator;
 
     /**
-     * @var multimediaContent
+     * @var multimediaContent[]
      */
     public $multimediaContent;
 
@@ -99,8 +99,9 @@ class Car_Availability
         if (!empty($car->multimediaIndicator)){
           $this->multimediaIndicator = new multimediaIndicator($car->multimediaIndicator);
         }
-        if (!empty($car->multimediaContent)){
-          $this->multimediaContent = new multimediaContent($car->multimediaContent);
+        foreach ($car->multimediaContent as $content) {
+            print_r($content);
+            $this->multimediaContent[] = new multimediaContent($content);
         }
         if (!empty($car->pickupDropoffInfo)){
           $this->pickupDropoffInfo = new pickupDropoffInfo($car->pickupDropoffInfo);

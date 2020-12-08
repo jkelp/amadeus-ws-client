@@ -57,10 +57,10 @@ class CarAvailabilityTest extends BaseTestCase
             "multimediaIndicator" => new MediaIndicator([
               "mulitMedia" => "MY"
             ]),
-            "multimediaContent" => new MediaContent([
+            "multimediaContent" => [new MediaContent([
               "picturesType" => "VEH",
               "pictureSize" => '1'
-            ]),
+            ])],
             "pickupDropoffInfo" => new PUDOInfo([
               "times" => new PUDOTimes([
                 "beginDateTime" => new DateHolder([
@@ -124,8 +124,8 @@ class CarAvailabilityTest extends BaseTestCase
 
         $this->assertEquals('Y', $msg->carProviderIndicator->statusDetails->indicator->_);
         $this->assertEquals('MY', $msg->multimediaIndicator->statusDetails->indicator->_);
-        $this->assertEquals('VEH', $msg->multimediaContent->picturesType->actionRequestCode->_);
-        $this->assertEquals('1', $msg->multimediaContent->pictureSize->selectionDetails->option->_);
+        $this->assertEquals('VEH', $msg->multimediaContent[0]->picturesType->actionRequestCode->_);
+        $this->assertEquals('1', $msg->multimediaContent[0]->pictureSize->selectionDetails->option->_);
         $this->assertEquals('2019', $msg->pickupDropoffInfo->pickupDropoffTimes->beginDateTime->year->_);
         $this->assertEquals('11', $msg->pickupDropoffInfo->pickupDropoffTimes->beginDateTime->month->_);
         $this->assertEquals('11', $msg->pickupDropoffInfo->pickupDropoffTimes->beginDateTime->day->_);

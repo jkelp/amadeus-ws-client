@@ -61,7 +61,7 @@ class CarAvailOptions extends Base
     /**
      *
      *
-     * @var MediaContent
+     * @var MediaContent[]
      */
 
       public $multimediaContent;
