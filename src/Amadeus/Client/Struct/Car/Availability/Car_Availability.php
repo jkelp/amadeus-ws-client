@@ -27,7 +27,7 @@ use Amadeus\Client\RequestOptions\CarAvailOptions;
 use Amadeus\Client\Struct\Car\Availability\pickupDropoffInfo;
 use Amadeus\Client\Struct\Car\Availability\carProviderIndicator;
 use Amadeus\Client\Struct\Car\Availability\multimediaIndicator;
-use Amadeus\Client\Struct\Car\Availability\multimediaContent;
+use Amadeus\Client\Struct\Car\Availability\multiMediaContent;
 use Amadeus\Client\Struct\Car\Availability\providerSpecificOptions;
 use Amadeus\Client\Struct\Car\Availability\rateClass;
 use Amadeus\Client\Struct\Car\Availability\computeMarkups;
@@ -55,9 +55,9 @@ class Car_Availability extends BaseWsMessage
     public $multimediaIndicator;
 
     /**
-     * @var multimediaContent[]
+     * @var multiMediaContent[]
      */
-    public $multimediaContent;
+    public $multiMediaContent;
 
     /**
      * @var pickupDropoffInfo
@@ -102,7 +102,7 @@ class Car_Availability extends BaseWsMessage
         }
         foreach ($car->multimediaContent as $content) {
             print_r($content);
-            $this->multimediaContent[] = new multimediaContent($content);
+            $this->multiMediaContent[] = new multiMediaContent($content);
         }
         if (!empty($car->pickupDropoffInfo)){
           $this->pickupDropoffInfo = new pickupDropoffInfo($car->pickupDropoffInfo);

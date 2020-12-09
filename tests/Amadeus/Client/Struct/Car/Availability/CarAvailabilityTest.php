@@ -57,10 +57,16 @@ class CarAvailabilityTest extends BaseTestCase
             "multimediaIndicator" => new MediaIndicator([
               "mulitMedia" => "MY"
             ]),
-            "multimediaContent" => [new MediaContent([
+            "multimediaContent" => [
+              new MediaContent([
               "picturesType" => "VEH",
-              "pictureSize" => '1'
-            ])],
+              "pictureSize" => '5'
+            ]),
+              new MediaContent([
+              "picturesType" => "CPY",
+              "pictureSize" => '0'
+            ])
+          ],
             "pickupDropoffInfo" => new PUDOInfo([
               "times" => new PUDOTimes([
                 "beginDateTime" => new DateHolder([

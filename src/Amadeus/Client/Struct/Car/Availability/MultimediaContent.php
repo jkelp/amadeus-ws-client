@@ -34,7 +34,7 @@ use Amadeus\Client\Struct\Car\Availability\pictureSize;
  * @package Amadeus\Client\Struct\Car\Availability
  * @author Dieter Devlieghere <dieter.devlieghere@benelux.amadeus.com>
  */
-class multimediaContent
+class multiMediaContent
 {
 
     /**
