@@ -49,6 +49,6 @@ class multimediaIndicator
     {
 
 
-        $this->statusDetails = new statusDetails($indicator->mulitMedia);
+        $this->statusDetails = new statusDetails($indicator->multiMedia);
     }
 }

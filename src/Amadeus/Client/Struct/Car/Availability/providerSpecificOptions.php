@@ -56,7 +56,8 @@ class providerSpecificOptions
     public function __construct(ProviderSpecOps $providerOps)
     {
         $this->companyDetails = new companyDetails($providerOps->companyDetails);
-        $this->loyaltyNumbersList = new loyaltyNumbersList($providerOps->refs);
-
+        if ($providerOps->refs) {
+          $this->loyaltyNumbersList = new loyaltyNumbersList($providerOps->refs);
+        }
     }
 }

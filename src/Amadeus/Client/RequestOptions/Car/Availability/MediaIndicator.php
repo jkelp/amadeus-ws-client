@@ -38,6 +38,6 @@ class MediaIndicator extends LoadParamsFromArray
    *
    * @var string
    */
-    public $mulitMedia;
+    public $multiMedia;
 
 }
