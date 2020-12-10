@@ -101,7 +101,6 @@ class Car_Availability extends BaseWsMessage
           $this->multimediaIndicator = new multimediaIndicator($car->multimediaIndicator);
         }
         foreach ($car->multimediaContent as $content) {
-            print_r($content);
             $this->multiMediaContent[] = new multiMediaContent($content);
         }
         if (!empty($car->pickupDropoffInfo)){
