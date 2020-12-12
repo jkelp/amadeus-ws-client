@@ -20,38 +20,21 @@
  * @license https://opensource.org/licenses/Apache-2.0 Apache 2.0
  */
 
-namespace Amadeus\Client\Struct\Profile\Create;
+namespace Amadeus\Client\RequestOptions\Profile;
 
 use Amadeus\Client\LoadParamsFromArray;
 
-
-class AirlinePref extends LoadParamsFromArray
+/**
+ * Traveller in a PNR
+ *
+ * @package Amadeus\Client\RequestOptions\Pnr
+ * @author Dieter Devlieghere <dermikagh@gmail.com>
+ */
+class FareElementsPref extends LoadParamsFromArray
 {
+    public $Code;
 
-  public $AirportOriginPref;
+    public $Text;
 
-  public $SeatPref;
-
-  public $CabinPref;
-
-  public $MealPref;
-
-  public $TicketingAccountInformation;
-
-  public $SSR_Pref;
-
-  public $FareElementsPref;
-
-
-  public function __construct($options)
-  {
-    parent::__construct($options);
-
-    $this->AirportOriginPref = new AirportOriginPref([
-      'LocationCode' => $options->HomeAirport
-    ]);
-
-    $this->MealPref = $options->MealPref;
-  }
-
+    public $TransferIndicator;
 }

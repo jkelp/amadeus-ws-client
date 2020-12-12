@@ -41,4 +41,6 @@ class AirPreferences extends LoadParamsFromArray
     public $TicketingAccountInformation;
 
     public $SSR_Pref;
+
+    public $FareElementsPref;
 }
