@@ -64,10 +64,8 @@ class Car_Availability extends BaseWsMessage
      */
     public $pickupDropoffInfo;
 
-    /**
-     * @var providerSpecificOptions
-     */
-    public $providerSpecificOptions;
+
+    public $providerSpecificOptions = [];
 
     /**
      * @var rateClass
@@ -101,14 +99,15 @@ class Car_Availability extends BaseWsMessage
           $this->multimediaIndicator = new multimediaIndicator($car->multimediaIndicator);
         }
         foreach ($car->multimediaContent as $content) {
-            print_r($content);
             $this->multiMediaContent[] = new multiMediaContent($content);
         }
         if (!empty($car->pickupDropoffInfo)){
           $this->pickupDropoffInfo = new pickupDropoffInfo($car->pickupDropoffInfo);
         }
         if (!empty($car->providerSpecificOptions)){
-          $this->providerSpecificOptions = new providerSpecificOptions($car->providerSpecificOptions);
+          foreach ($car->providerSpecificOptions as $content) {
+              $this->providerSpecificOptions[] = new providerSpecificOptions($content);
+          }
         }
         if (!empty($car->rateClass)){
           $this->rateClass = new rateClass($car->rateClass);

@@ -41,10 +41,8 @@ class pickupDropoffInfo
      */
     public $pickupDropoffTimes;
 
-    /**
-     * @var pickupDropoffInfo
-     */
-    public $pickupDropoffInfo;
+
+    public $pickupDropoffInfo = [];
 
 
     /**
@@ -76,7 +74,9 @@ class pickupDropoffInfo
           $this->pickupDropoffTimes = new pickupDropoffTimes($pickupDropoff->times);
         }
         if (!empty($pickupDropoff->nestedInfo)){
-          $this->pickupDropoffInfo = new self($pickupDropoff->nestedInfo);
+          foreach($pickupDropoff->nestedInfo as $location){
+            $this->pickupDropoffInfo[] = new self($location);
+          }
         }
         if (!empty($pickupDropoff->locationType)){
           $this->locationType = new locationType($pickupDropoff->locationType);

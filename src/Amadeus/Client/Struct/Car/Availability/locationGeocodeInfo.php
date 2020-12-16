@@ -23,6 +23,7 @@
 namespace Amadeus\Client\Struct\Car\Availability;
 
 use Amadeus\Client\Struct\Car\Availability\position;
+use Amadeus\Client\Struct\Car\Availability\distance;
 use Amadeus\Client\Struct\Car\Availability\code;
 use Amadeus\Client\RequestOptions\Car\Availability\GeocodeInfo;
 
@@ -41,6 +42,11 @@ class locationGeocodeInfo
      */
     public $position;
 
+    /**
+     * @var distance
+     */
+    public $distance;
+
 
 
     /**
@@ -52,6 +58,10 @@ class locationGeocodeInfo
     {
 
         $this->position = new position($loc);
+
+        $this->distance = new distance($loc);
+
+
 
     }
 }

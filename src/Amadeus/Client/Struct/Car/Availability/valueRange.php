@@ -22,11 +22,6 @@
 
 namespace Amadeus\Client\Struct\Car\Availability;
 
-use Amadeus\Client\RequestOptions\Car\Availability\GeocodeInfo;
-
-use Amadeus\Client\Struct\Car\Availability\encoding;
-
-use Amadeus\Client\Struct\Car\Availability\porPosition;
 
 /**
  * RoomStayCandidate
@@ -34,34 +29,29 @@ use Amadeus\Client\Struct\Car\Availability\porPosition;
  * @package Amadeus\Client\Struct\Car\Availability
  * @author Dieter Devlieghere <dieter.devlieghere@benelux.amadeus.com>
  */
-class position
+class valueRange
 {
 
     /**
      * @var string
      */
-    public $geoSystem = '1';
+    public $measureUnitQualifier;
 
     /**
      * @var string
      */
-    public $encoding;
-
-    /**
-     * @var porPosition
-     */
-    public $porPosition;
+    public $measurementValue;
 
 
     /**
-     * providerSpecificOptions constructor.
+     * StatusDetails constructor.
      *
-     * @param GeocodeInfo
+     * @param string
      */
-    public function __construct(GeocodeInfo $geo)
+    public function __construct($unit, $val)
     {
-        $this->encoding = $geo->encoding;
-        $this->porPosition = new porPosition($geo->longitude, $geo->latitude);
 
+        $this->measureUnitQualifier = $unit;
+        $this->measurementValue = $val;
     }
 }

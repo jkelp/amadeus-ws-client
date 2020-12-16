@@ -74,11 +74,7 @@ class CarAvailOptions extends Base
 
         public $pickupDropoffInfo;
 
-      /**
-       *
-       *
-       * @var ProviderSpecOps
-       */
+
 
         public $providerSpecificOptions;
 

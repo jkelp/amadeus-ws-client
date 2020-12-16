@@ -58,5 +58,14 @@ class GeocodeInfo extends LoadParamsFromArray
 
       public $latitude;
 
+      public $measurementQualifier;
+
+      public $unit;
+
+      public $distance;
+
+      public $significance;
+
+
 
 }

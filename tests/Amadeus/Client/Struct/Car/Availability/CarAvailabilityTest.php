@@ -55,71 +55,77 @@ class CarAvailabilityTest extends BaseTestCase
               "provider" => "Y"
             ]),
             "multimediaIndicator" => new MediaIndicator([
-              "mulitMedia" => "MY"
+              "multiMedia" => "MY"
             ]),
             "multimediaContent" => [
               new MediaContent([
               "picturesType" => "VEH",
-              "pictureSize" => '5'
+              "pictureSize" => '7'
             ]),
               new MediaContent([
               "picturesType" => "CPY",
               "pictureSize" => '0'
             ])
           ],
-            "pickupDropoffInfo" => new PUDOInfo([
-              "times" => new PUDOTimes([
-                "beginDateTime" => new DateHolder([
-                  "year" => "2019",
-                  "month" => "11",
-                  "day" => "11",
-                  "hour" => "9",
-                  "minutes" => "0"
-                ]),
-                "endDateTime" => new DateHolder([
-                  "year" => "2019",
-                  "month" => "11",
-                  "day" => "15",
-                  "hour" => "9",
-                  "minutes" => "0"
-                ])
+          "pickupDropoffInfo" => new PUDOInfo([
+            "times" => new PUDOTimes([
+              "beginDateTime" => new DateHolder([
+                "year" => '2020',
+                "month" => '12',
+                "day" => '17',
+                "hour" => '12',
+                "minutes" => '0'
               ]),
-              "nestedInfo" => new PUDOInfo([
-                "locationType" => "PUP",
-                "iataAirportLoc" => new AirportLoc([
-                  "code" => "1A",
-                  "name" => "MIA"
-                ]),
-                "locationGeocodeInfo" => new GeocodeInfo([
-                  "encoding" => "D",
-                  "longitude" => "-368881",
-                  "latitude" => "4042008"
-                ])
-              ]),
+              "endDateTime" => new DateHolder([
+                "year" => '2020',
+                "month" => '12',
+                "day" => '30',
+                "hour" => '12',
+                "minutes" => '0'
+              ])
             ]),
-            "providerSpecificOptions" => new ProviderSpecOps([
-              "refs" => new CustomRefs([
-                "refs" => [new CustomRef([
-                  "qualifier" => "CD",
-                  "number" => "501037"
-                  ])
-                ]
-              ]),
-              "companyDetails" => "ZE"
+            "nestedInfo" => [new PUDOInfo([
+              "locationType" => "PUP",
+              "locationGeocodeInfo" => new GeocodeInfo([
+                "encoding" => "D",
+                "longitude" => 30 * 100000,
+                "latitude" => 40 * 100000,
+                "measurementQualifier" => 'DST',
+                "significance" => 'RD',
+                "unit" => '2',
+                "distance" => '20'
+              ])
             ]),
-            "rateClass" => new RatingClass([
-              "criteriaSetType" => "COR"
-            ]),
-            "computeMarkups" => new Markups([
-              "actionRequestCode" => "N"
-            ]),
-            "sortingRule" => new SortRule([
-              "actionRequestCode" => "SDT"
+            new PUDOInfo([
+            "locationType" => "DOP",
+            "locationGeocodeInfo" => new GeocodeInfo([
+              "encoding" => "D",
+              "longitude" => 30 * 100000,
+              "latitude" => 40 * 100000,
+              "measurementQualifier" => 'DST',
+              "significance" => 'RD',
+              "unit" => '2',
+              "distance" => '20'
             ])
-        ]);
+            ])
+          ]
+          ]),
+          "providerSpecificOptions" => [new ProviderSpecOps([
+            "companyDetails" => 'ZE'
+          ])],
+          "rateClass" => new RatingClass([
+            "criteriaSetType" => "COR"
+          ]),
+          "computeMarkups" => new Markups([
+            "actionRequestCode" => "N"
+          ]),
+          "sortingRule" => new SortRule([
+            "actionRequestCode" => "SDT"
+          ])
+      ]);
 
-        // print_r($opt);
-        //exit;
+        print_r($opt);
+        exit;
 
 
         $msg = new Car_Availability($opt);
