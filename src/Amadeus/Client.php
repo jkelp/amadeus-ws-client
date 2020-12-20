@@ -1587,6 +1587,78 @@ class Client extends Base
     }
 
     /**
+     * Hotel_MultiSingleAvailability
+     *
+     * @param RequestOptions\HotelMultiSingleAvailOptions $options
+     * @param array $messageOptions (OPTIONAL)
+     * @return Result
+     */
+    public function hotelMultiSingleAvailability(
+        RequestOptions\HotelMultiSingleAvailOptions $options,
+        $messageOptions = []
+    ) {
+        $msgName = 'Hotel_MultiSingleAvailability';
+
+        return $this->callMessage($msgName, $options, $messageOptions);
+    }
+
+    /**
+     * Hotel_Sell
+     *
+     * @param RequestOptions\HotelSellOptions $options
+     * @param array $messageOptions (OPTIONAL)
+     * @return Result
+     */
+    public function hotelSell(RequestOptions\HotelSellOptions $options, $messageOptions = [])
+    {
+        $msgName = 'Hotel_Sell';
+
+        return $this->callMessage($msgName, $options, $messageOptions);
+    }
+
+    /**
+     * CarAvailability
+     *
+     * @param RequestOptions\CarAvailOptions $options
+     * @param array $messageOptions (OPTIONAL)
+     * @return Result
+     */
+    public function carAvailability(RequestOptions\CarAvailOptions $options, $messageOptions = [])
+    {
+        $msgName = 'Car_Availability';
+
+        return $this->callMessage($msgName, $options, $messageOptions);
+    }
+
+    /**
+     * CarRateInformation
+     *
+     * @param RequestOptions\CarRateInformationOptions $options
+     * @param array $messageOptions (OPTIONAL)
+     * @return Result
+     */
+    public function carRateInformation(RequestOptions\CarRateInformationOptions $options, $messageOptions = [])
+    {
+        $msgName = 'Car_RateInformationFromAvailability';
+
+        return $this->callMessage($msgName, $options, $messageOptions);
+    }
+
+    /**
+     * CarSell
+     *
+     * @param RequestOptions\CarSellOptions $options
+     * @param array $messageOptions (OPTIONAL)
+     * @return Result
+     */
+    public function carSell(RequestOptions\CarSellOptions $options, $messageOptions = [])
+    {
+        $msgName = 'Car_Sell';
+
+        return $this->callMessage($msgName, $options, $messageOptions);
+    }
+
+    /**
      * PriceXplorer_ExtremeSearch
      *
      * @param RequestOptions\PriceXplorerExtremeSearchOptions $options

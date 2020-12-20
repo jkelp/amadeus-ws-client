@@ -71,6 +71,8 @@ This is the list of messages that are at least partially supported at this time:
 - Service_IntegratedCatalogue
 - Service_StandaloneCatalogue
 - Service_BookPriceService
+- Hotel_MultiSingleAvailability
+- Hotel_Sell
 - Offer_CreateOffer
 - Offer_VerifyOffer
 - Offer_ConfirmAirOffer

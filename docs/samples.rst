@@ -3978,5 +3978,3 @@ that 'salesIndicator' option here named as 'documentInfo' and request doesn't ha
     ]);
 
     $salesReportResult = $client->salesReportsDisplayQueryReport($opt);
-
-

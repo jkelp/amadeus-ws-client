@@ -37,7 +37,9 @@ abstract class StandardResponseHandler implements MessageResponseHandler
     /**
      * Default namespace prefix we'll be using for xpath queries
      *
-     * Why not "m"? It's as good as any other letter.
+     * Why not "m"? It's as good as any other letter. And it's short.
+     *
+     * If you disagree, 1v1 me at the sun. In highsec, limited engagement. I don't want you blobbing me.
      */
     const XMLNS_PREFIX = "m";
 
