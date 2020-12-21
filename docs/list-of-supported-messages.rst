@@ -68,9 +68,8 @@ This is the list of messages that are at least partially supported at this time:
 - DocRefund_ProcessRefund
 - DocRefund_IgnoreRefund
 - Service_IntegratedPricing
-- Service_IntegratedCatalogue
-- Service_StandaloneCatalogue
-- Service_BookPriceService
+- Hotel_MultiSingleAvailability
+- Hotel_Sell
 - Offer_CreateOffer
 - Offer_VerifyOffer
 - Offer_ConfirmAirOffer
@@ -109,13 +108,10 @@ These messages will be implemented at some point in the future. *Pull requests a
 - Media_GetMedia
 - Service_PriceServiceViaCatalogue
 - Service_PriceIntegratedMode
-- Service_StandalonePricing
-- Hotel_MultiSingleAvailability (see `issue 70 <https://github.com/amabnl/amadeus-ws-client/issues/70>`_)
-- Hotel_DescriptiveInfo (see `issue 70 <https://github.com/amabnl/amadeus-ws-client/issues/70>`_)
-- Hotel_EnhancedPricing (see `issue 70 <https://github.com/amabnl/amadeus-ws-client/issues/70>`_)
-- Hotel_Sell (see `issue 70 <https://github.com/amabnl/amadeus-ws-client/issues/70>`_)
-- Hotel_CompleteReservationDetails (see `issue 70 <https://github.com/amabnl/amadeus-ws-client/issues/70>`_)
-- Hotel_Terms (see `issue 70 <https://github.com/amabnl/amadeus-ws-client/issues/70>`_)
+- Hotel_DescriptiveInfo
+- Hotel_EnhancedPricing
+- Hotel_CompleteReservationDetails
+- Hotel_Terms
 - Car_Availability
 - Car_RateInformationFromAvailability
 - Car_Sell

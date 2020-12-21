@@ -3350,134 +3350,14 @@ Assign an account code to a passenger:
         ])
     );
 
-Form of Payment:
+*****
+Hotel
+*****
+----------
+Hotel_Sell
+----------
 
-.. code-block:: php
-
-    use Amadeus\Client\RequestOptions\ServiceIntegratedPricingOptions;
-    use Amadeus\Client\RequestOptions\Service\FormOfPayment;
-
-    $pricingResponse = $client->serviceIntegratedPricing(
-        new ServiceIntegratedPricingOptions([
-            'formOfPayment' => [
-                new FormOfPayment([
-                    'type' => FormOfPayment::TYPE_CREDIT_CARD,
-                    'amount' => 10,
-                    'creditCardNumber' => '400000'
-                ]),
-                new FormOfPayment([
-                    'type' => FormOfPayment::TYPE_CASH
-                ]),
-            ]
-        ])
-    );
-
-Frequent Flyer:
-
-.. code-block:: php
-
-    use Amadeus\Client\RequestOptions\ServiceIntegratedPricingOptions;
-    use Amadeus\Client\RequestOptions\Service\FrequentFlyer;
-
-    $pricingResponse = $client->serviceIntegratedPricing(
-        new ServiceIntegratedPricingOptions([
-            'frequentFlyers' => [
-                new FrequentFlyer([
-                    'company' => '6X',
-                    'number' => '1234567891011',
-                    'tierLevel' => 'SILVER',
-                    'priorityCode' => '1'
-                ])
-            ]
-        ])
-    );
-
----------------------------
-Service_IntegratedCatalogue
----------------------------
-
-The options for ``Service_IntegratedCatalogue`` are identical to ``Service_IntegratedPricing``.
-
-All the examples for ``Service_IntegratedPricing`` (see above) should also work for this message. You can just swap out the options object in the request. For example:
-
-.. code-block:: php
-
-    use Amadeus\Client\RequestOptions\ServiceIntegratedCatalogueOptions;
-    use Amadeus\Client\RequestOptions\Service\PaxSegRef;
-
-    $pricingResponse = $client->serviceIntegratedCatalogue(
-        new ServiceIntegratedCatalogueOptions([
-            'accountCode' => 'AAA123456',
-            'accountCodeRefs' => [
-                new PaxSegRef([
-                    'type' => PaxSegRef::TYPE_PASSENGER,
-                    'reference' => 1
-                ])
-            ]
-        ])
-    );
-
----------------------------
-Service_StandaloneCatalogue
----------------------------
-
-.. code-block:: php
-
-    use Amadeus\Client\RequestOptions\Fare\InformativePricing\Segment;
-    use Amadeus\Client\RequestOptions\ServiceStandaloneCatalogueOptions;
-    use Amadeus\Client\RequestOptions\Service\StandaloneCatalogue\ServiceStandalonePricingOptions;
-    use Amadeus\Client\RequestOptions\Service\StandaloneCatalogue\ServicePassenger;
-    use Amadeus\Client\RequestOptions\Service\PaxSegRef;
-    use Amadeus\Client\RequestOptions\Fare\PricePnr\FareBasis;
-
-    $standaloneCatalogueResponse = $client->serviceStandaloneCatalogue(
-    new ServiceStandaloneCatalogueOptions([
-        'passengers' => [
-            new ServicePassenger([
-                'reference' => 1,
-                'type' => ServicePassenger::TYPE_ADULT
-            ])
-        ],
-        'segments' => [
-            new Segment([
-                'departureDate' => \DateTime::createFromFormat('Y-m-d H:i:s', '2018-07-31 12:55:00'),
-                'arrivalDate' => \DateTime::createFromFormat('Y-m-d H:i:s', '2018-07-31 15:10:00'),
-                'from' => 'CAI',
-                'to' => 'TUN',
-                'marketingCompany' => 'TU',
-                'operatingCompany' => 'TU',
-                'flightNumber' => '814',
-                'bookingClass' => 'L',
-                'groupNumber' => 'L',
-                'segmentTattoo' => 1
-            ])
-        ],
-        'pricingOptions' => new ServiceStandalonePricingOptions([
-            'pricingsFareBasis' => [
-                new FareBasis([
-                    'fareBasisCode' => 'LOXOW',
-                ])
-            ],
-            'references' => [
-                new PaxSegRef([
-                    'reference' => 1,
-                    'type' => 'S'
-                ]),
-                new PaxSegRef([
-                    'reference' => 1,
-                    'type' => 'P'
-                ])
-            ]
-        ])
-    ])
-);
-
-------------------------
-Service_BookPriceService
-------------------------
-
-*docs missing*
-
+*coming soon*
 
 ***
 FOP
@@ -3978,5 +3858,3 @@ that 'salesIndicator' option here named as 'documentInfo' and request doesn't ha
     ]);
 
     $salesReportResult = $client->salesReportsDisplayQueryReport($opt);
-
-
