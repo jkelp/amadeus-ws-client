@@ -1694,6 +1694,20 @@ class Client extends Base
     }
 
     /**
+     * CarLocation
+     *
+     * @param RequestOptions\CarLocationListOptions $options
+     * @param array $messageOptions (OPTIONAL)
+     * @return Result
+     */
+    public function carLocationList(RequestOptions\CarLocationListOptions $options, $messageOptions = [])
+    {
+        $msgName = 'Car_LocationList';
+
+        return $this->callMessage($msgName, $options, $messageOptions);
+    }
+
+    /**
      * PriceXplorer_ExtremeSearch
      *
      * @param RequestOptions\PriceXplorerExtremeSearchOptions $options
