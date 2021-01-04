@@ -1680,6 +1680,20 @@ class Client extends Base
     }
 
     /**
+     * CarRateInformation
+     *
+     * @param RequestOptions\CarRateFromSegmentOptions $options
+     * @param array $messageOptions (OPTIONAL)
+     * @return Result
+     */
+    public function carRateInformationFromCarSegment(RequestOptions\CarRateFromSegmentOptions $options, $messageOptions = [])
+    {
+        $msgName = 'Car_RateInformationFromCarSegment';
+
+        return $this->callMessage($msgName, $options, $messageOptions);
+    }
+
+    /**
      * CarSell
      *
      * @param RequestOptions\CarSellOptions $options
