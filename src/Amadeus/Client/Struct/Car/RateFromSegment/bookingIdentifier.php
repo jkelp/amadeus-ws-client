@@ -20,10 +20,9 @@
  * @license https://opensource.org/licenses/Apache-2.0 Apache 2.0
  */
 
-namespace Amadeus\Client\Struct\Car\LocationList;
+namespace Amadeus\Client\Struct\Car\RateFromSegment;
 
 use Amadeus\Client\Struct\BaseWsMessage;
-use Amadeus\Client\RequestOptions\Car\LocationList\GeocodeInfo;
 
 
 /**
@@ -32,36 +31,30 @@ use Amadeus\Client\RequestOptions\Car\LocationList\GeocodeInfo;
  * @package Amadeus\Client\Struct\Car\Availability
  * @author Dieter Devlieghere <dieter.devlieghere@benelux.amadeus.com>
  */
-class geoCoding extends BaseWsMessage
+class bookingIdentifier extends BaseWsMessage
 {
 
 
     /**
-     * @var position
+     * @var string
      */
-    public $position;
+    public $referenceType;
 
     /**
-     * @var distance
+     * @var string
      */
-    public $distance;
+    public $uniqueReference;
 
-    public $dummy;
     /**
      * PickupDropoff constructor.
      *
      * @param GeocodeInfo
      */
-    public function __construct(GeocodeInfo $car)
+    public function __construct($refType, $uniqueReference)
     {
 
-        if (!empty($car)){
-          $this->position = new position($car);
-          $this->distance = new distance($car);
-        }
-
-
-
+        $this->referenceType = $refType;
+        $this->uniqueReference = $uniqueReference;
 
 
     }

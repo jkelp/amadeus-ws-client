@@ -20,46 +20,38 @@
  * @license https://opensource.org/licenses/Apache-2.0 Apache 2.0
  */
 
-namespace Amadeus\Client\Struct\Car\LocationList;
+namespace Test\Amadeus\Client\Struct\Car\Sell;
 
-use Amadeus\Client\Struct\BaseWsMessage;
-use Amadeus\Client\RequestOptions\Car\LocationList\GeocodeInfo;
-
+use Amadeus\Client\RequestOptions\CarRateFromSegmentOptions;
+use Amadeus\Client\Struct\Car\Car_RateInformationFromCarSegment;
+use Test\Amadeus\BaseTestCase;
 
 /**
- * RoomStayCandidate
+ * CarSellTest
  *
- * @package Amadeus\Client\Struct\Car\Availability
+ * @package Test\Amadeus\Client\Struct\Car
  * @author Dieter Devlieghere <dieter.devlieghere@benelux.amadeus.com>
  */
-class geoCoding extends BaseWsMessage
+class CarSellTest extends BaseTestCase
 {
-
-
-    /**
-     * @var position
-     */
-    public $position;
-
-    /**
-     * @var distance
-     */
-    public $distance;
-
-    public $dummy;
-    /**
-     * PickupDropoff constructor.
-     *
-     * @param GeocodeInfo
-     */
-    public function __construct(GeocodeInfo $car)
+    public function testCanMakeMessage()
     {
+        $opt = new CarRateFromSegmentOptions([
+            'type' => "RCFSRQ",
+            'agency' => "1A",
+            'version' => "05",
+            'release' => "1",
+            'referenceType' => "S",
+            'uniqueReference' => "1"
+        ]);
 
-        if (!empty($car)){
-          $this->position = new position($car);
-          $this->distance = new distance($car);
-        }
+        // print_r($opt);
+        //exit;
 
+        $msg = new Car_RateInformationFromCarSegment($opt);
+
+        print_r($msg);
+        exit;
 
 
 
