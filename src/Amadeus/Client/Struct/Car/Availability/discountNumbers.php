@@ -37,11 +37,8 @@ class discountNumbers
    * @var customerReferenceInfo[]
    */
   public $customerReferenceInfo = [];
-    /**
-     * DiscountNumbers constructor.
-     *
-     * @param CustomRef[]
-     */
+
+
     public function __construct($refs)
     {
       foreach ($refs as $ref) {

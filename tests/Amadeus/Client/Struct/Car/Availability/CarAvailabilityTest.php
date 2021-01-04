@@ -110,9 +110,13 @@ class CarAvailabilityTest extends BaseTestCase
             ])
           ]
           ]),
-          "providerSpecificOptions" => [new ProviderSpecOps([
-            "companyDetails" => 'ZE'
-          ])],
+          "providerSpecificOptions" => new ProviderSpecOps([
+            "companies" => ['ZE'],
+            "refs" => [new CustomRef([
+              "qualifier" => 'CD',
+              "number" => '501037'
+            ])],
+          ]),
           "rateClass" => new RatingClass([
             "criteriaSetType" => "COR"
           ]),
@@ -124,8 +128,8 @@ class CarAvailabilityTest extends BaseTestCase
           ])
       ]);
 
-        print_r($opt);
-        exit;
+        // print_r($opt);
+        // exit;
 
 
         $msg = new Car_Availability($opt);

@@ -34,21 +34,10 @@ use Amadeus\Client\RequestOptions\Car\Availability\CustomRefs;
 class ProviderSpecOps extends LoadParamsFromArray
 {
 
-  /**
-   *
-   *
-   * @var CustomRefs
-   */
-
     public $refs;
 
-    /**
-     *
-     *
-     * @var string
-     */
 
-      public $companyDetails;
+    public $companies;
 
 
 
