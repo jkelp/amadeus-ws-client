@@ -41,8 +41,11 @@ class discountNumbers
 
     public function __construct($refs)
     {
-      foreach ($refs as $ref) {
-        $this->customerReferenceInfo[] = new customerReferenceInfo($ref);
+      if($refs){
+        foreach ($refs as $ref) {
+          $this->customerReferenceInfo[] = new customerReferenceInfo($ref);
+        }
       }
+
     }
 }
