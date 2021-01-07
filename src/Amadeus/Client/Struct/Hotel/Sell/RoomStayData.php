@@ -22,12 +22,43 @@
 
 namespace Amadeus\Client\Struct\Hotel\Sell;
 
+use Amadeus\Client\RequestOptions\Hotel\Sell\RoomStay;
+
+use Amadeus\Client\Struct\Hotel\Sell\roomList;
+use Amadeus\Client\Struct\Hotel\Sell\globalBookingInfo;
+
 /**
- * RoomStayData
+ * Criterion
  *
  * @package Amadeus\Client\Struct\Hotel\Sell
  * @author Dieter Devlieghere <dieter.devlieghere@benelux.amadeus.com>
  */
-class RoomStayData extends \Amadeus\Client\Struct\Offer\ConfirmHotel\RoomStayData
+class roomStayData
 {
+    /***
+     * @var string
+     */
+    public $markerRoomStayData;
+
+    public $globalBookingInfo;
+
+    public $roomList;
+
+
+    /**
+     * Criterion constructor.
+     *
+     * @param RoomStay $stay
+     */
+    public function __construct(RoomStay $stay)
+    {
+
+        foreach ($stay->rooms as $room) {
+            $this->roomList[] = new roomList($room);
+        }
+
+        $this->globalBookingInfo = new globalBookingInfo($stay->bookingInfo);
+
+
+    }
 }

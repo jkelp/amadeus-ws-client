@@ -22,41 +22,41 @@
 
 namespace Amadeus\Client\Struct\Hotel\Sell;
 
+use Amadeus\Client\RequestOptions\Hotel\Sell\Room;
+
+use Amadeus\Client\Struct\Hotel\Sell\roomRateDetails;
+use Amadeus\Client\Struct\Hotel\Sell\guaranteeOrDeposit;
+
 /**
- * AddressDetails
+ * Criterion
  *
  * @package Amadeus\Client\Struct\Hotel\Sell
  * @author Dieter Devlieghere <dieter.devlieghere@benelux.amadeus.com>
  */
-class AddressDetails
+class roomList
 {
-    /**
+    /***
      * @var string
      */
-    public $format;
+    public $markerRoomStayQuery;
+
+    public $roomRateDetails;
+
+    public $guaranteeOrDeposit;
+
 
     /**
-     * @var string
+     * Criterion constructor.
+     *
+     * @param Room $stay
      */
-    public $line1;
+    public function __construct(Room $stay)
+    {
 
-    /**
-     * @var string
-     */
-    public $line2;
+        $this->roomRateDetails = new roomRateDetails($stay->hotelProductReference);
 
-    /**
-     * @var string
-     */
-    public $line3;
+        $this->guaranteeOrDeposit = new guaranteeOrDeposit($stay->paymentDetails);
 
-    /**
-     * @var string
-     */
-    public $line4;
 
-    /**
-     * @var string
-     */
-    public $line5;
+    }
 }

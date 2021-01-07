@@ -22,46 +22,84 @@
 
 namespace Amadeus\Client\Struct\Hotel\Sell;
 
+
+use Amadeus\Client\RequestOptions\Hotel\Sell\CreditCardInfo;
+
 /**
- * DocumentIdentification
+ * Criterion
  *
  * @package Amadeus\Client\Struct\Hotel\Sell
  * @author Dieter Devlieghere <dieter.devlieghere@benelux.amadeus.com>
  */
-class DocumentIdentification
+class ccInfo
 {
-    const TYPE_CEDULA_ARGENTINIAN_ID = "CED";
-    /**
-     *  NUMBER FOR BRAZILIANS AND RESIDENT ALIENS WHO PAY TAXES IN BRAZIL
-     */
-    const TYPE_CADASTRO_DE_PESSOAS_FISICAS = "CPF";
-    const TYPE_LOCAL_ID_DOCUMENT = "ID";
-    const TYPE_NATIONAL_ID_CARD = "NI";
-    const TYPE_OTHER_ID_DOCUMENT = "OTH";
-    const TYPE_PASSPORT = "PT";
-    const TYPE_VISA = "VI";
+  /**
+   * Number of travellers
+   *
+   * @var string
+   */
+    public $vendorCode;
+
+  /**
+   *
+   *
+   * @var string
+   */
+    public $cardNumber;
+
+  /**
+   *
+   *
+   * @var string
+   */
+    public $securityId;
+
+  /**
+   *
+   *
+   * @var string
+   */
+    public $expiryDate;
+
+  /**
+   *
+   *
+   * @var string
+   */
+    public $ccHolderName;
+
+  /**
+   *
+   *
+   * @var string
+   */
+    public $surname;
 
     /**
-     * self::TYPE_*
+     *
      *
      * @var string
      */
-    public $type;
+      public $firstName;
+
+
 
     /**
-     * @var string
-     */
-    public $number;
-
-    /**
-     * DocumentIdentification constructor.
+     * Criterion constructor.
      *
-     * @param string $number
-     * @param string $type
+     *
      */
-    public function __construct($number, $type)
+    public function __construct(CreditCardInfo $info)
     {
-        $this->type = $type;
-        $this->number = $number;
+
+      $this->vendorCode = $info->vendorCode;
+      $this->cardNumber = $info->cardNumber;
+      $this->securityId = $info->securityId;
+      $this->expiryDate = $info->expiration;
+      $this->ccHolderName = $info->holderFirstName . ' ' . $info->holderSurname;
+      $this->surname = $info->holderSurname;
+      $this->firstName = $info->holderFirstName;
+
+
     }
 }

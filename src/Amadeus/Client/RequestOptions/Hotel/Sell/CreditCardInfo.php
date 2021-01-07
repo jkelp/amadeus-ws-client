@@ -20,18 +20,59 @@
  * @license https://opensource.org/licenses/Apache-2.0 Apache 2.0
  */
 
-namespace Amadeus\Client\Struct\Hotel\Sell;
+namespace Amadeus\Client\RequestOptions\Hotel\Sell;
+
+
+use Amadeus\Client\LoadParamsFromArray;
 
 /**
- * ExtraIndentification
+ * BookingCompany
  *
- * @package Amadeus\Client\Struct\Hotel\Sell
+ * @package Amadeus\Client\RequestOptions\Hotel\Sell
  * @author Dieter Devlieghere <dieter.devlieghere@benelux.amadeus.com>
  */
-class ExtraIndentification
+class CreditCardInfo extends LoadParamsFromArray
 {
+
     /**
-     * @var ReferenceDetails[]
+     *
+     *
+     * @var string
      */
-    public $referenceDetails = [];
+    public $vendorCode;
+
+    /**
+     *
+     *
+     * @var string
+     */
+    public $cardNumber;
+
+    /**
+     *
+     *
+     * @var string
+     */
+    public $securityId;
+
+    /**
+     *
+     *
+     * @var string
+     */
+    public $expiration;
+
+    /**
+     *
+     *
+     * @var string
+     */
+    public $holderFirstName;
+
+    /**
+     *
+     *
+     * @var string
+     */
+    public $holderSurname;
 }

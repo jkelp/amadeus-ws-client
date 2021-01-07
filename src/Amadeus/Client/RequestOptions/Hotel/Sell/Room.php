@@ -22,32 +22,29 @@
 
 namespace Amadeus\Client\RequestOptions\Hotel\Sell;
 
+use Amadeus\Client\RequestOptions\Hotel\Sell\HotelProductReference;
+use Amadeus\Client\RequestOptions\Hotel\Sell\PaymentDetails;
+
 use Amadeus\Client\LoadParamsFromArray;
 
 /**
- * BookingCompany
+ * Booker
  *
  * @package Amadeus\Client\RequestOptions\Hotel\Sell
  * @author Dieter Devlieghere <dieter.devlieghere@benelux.amadeus.com>
  */
-class BookingCompany extends LoadParamsFromArray
+class Room extends LoadParamsFromArray
 {
-    const TYPE_BRAND = "BRA";
-    const TYPE_CORPORATION_NAME = "CORP";
-    const TYPE_SUB_BRAND = "SBR";
-    const TYPE_SUB_SUB_BRAND = "SSB";
+    /**
+     * Number of travellers
+     *
+     * @var HotelProductReference
+     */
+    public $hotelProductReference;
 
     /**
-     * self::TYPE_*
-     *
-     * @var string
+     * @var PaymentDetails
      */
-    public $type;
+    public $paymentDetails;
 
-    /**
-     * The name of the booking company
-     *
-     * @var string
-     */
-    public $name;
 }

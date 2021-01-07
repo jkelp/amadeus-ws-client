@@ -22,35 +22,44 @@
 
 namespace Amadeus\Client\Struct\Hotel\Sell;
 
+use Amadeus\Client\RequestOptions\Hotel\Sell\BookingInfo;
+
+use Amadeus\Client\Struct\Hotel\Sell\representativeParties;
+
 /**
- * Reference
+ * Criterion
  *
  * @package Amadeus\Client\Struct\Hotel\Sell
  * @author Dieter Devlieghere <dieter.devlieghere@benelux.amadeus.com>
  */
-class Reference
+class globalBookingInfo
 {
-    const TYPE_SEGMENT_TATTOO = "ST";
-
-    /**
+    /***
      * @var string
      */
-    public $type = self::TYPE_SEGMENT_TATTOO;
+    public $markerGlobalBookingInfo;
+
+    public $bookingSource;
+
+    public $representativeParties;
+
 
     /**
-     * @var int
-     */
-    public $value;
-
-    /**
-     * Reference constructor.
+     * Criterion constructor.
      *
-     * @param int $value
-     * @param string $type
+     * @param BookingInfo $info
      */
-    public function __construct($value, $type = self::TYPE_SEGMENT_TATTOO)
+    public function __construct(BookingInfo $info)
     {
-        $this->type = $type;
-        $this->value = $value;
+
+      $bookingSource = new \StdClass;
+      $originIdentification = new \StdClass;
+      $originIdentification->originatorId = $info->originatorId;
+      $bookingSource->originIdentification = $originIdentification;
+      $this->bookingSource = $bookingSource;
+
+      $this->representativeParties = new representativeParties($info->occupants);
+
+
     }
 }

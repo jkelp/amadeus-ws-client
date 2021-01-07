@@ -22,43 +22,38 @@
 
 namespace Amadeus\Client\Struct\Hotel\Sell;
 
+
+use Amadeus\Client\Struct\Hotel\Sell\passengerReference;
+
 /**
- * StatusDetails
+ * Criterion
  *
  * @package Amadeus\Client\Struct\Hotel\Sell
  * @author Dieter Devlieghere <dieter.devlieghere@benelux.amadeus.com>
  */
-class StatusDetails
+class occupantList
 {
-    const INDICATOR_GROUP_BILLING = "GB";
-    const INDICATOR_GROUP_BOOKING = "GR";
+  /**
+   * Number of travellers
+   *
+   * @var passengerReference[]
+   */
+    public $passengerReference = [];
 
-    const ACTION_YES = 1;
-    const ACTION_NO = 2;
 
-    /**
-     * self::INDICATOR_*
-     *
-     * @var string
-     */
-    public $indicator;
 
     /**
-     * self::ACTION_*
+     * Criterion constructor.
      *
-     * @var string|int
-     */
-    public $action;
-
-    /**
-     * StatusDetails constructor.
      *
-     * @param string $indicator self::INDICATOR_*
-     * @param int|string $action self::ACTION_*
      */
-    public function __construct($indicator, $action)
+    public function __construct($info)
     {
-        $this->indicator = $indicator;
-        $this->action = $action;
+
+      foreach($info as $occ){
+        $this->passengerReference[] = new passengerReference($occ);
+      }
+
+
     }
 }

@@ -20,29 +20,31 @@
  * @license https://opensource.org/licenses/Apache-2.0 Apache 2.0
  */
 
-namespace Amadeus\Client\Struct\Hotel\Sell;
+namespace Amadeus\Client\RequestOptions\Hotel\Sell;
+
+use Amadeus\Client\RequestOptions\Hotel\Sell\BookingInfo;
+use Amadeus\Client\RequestOptions\Hotel\Sell\Room;
+
+use Amadeus\Client\LoadParamsFromArray;
 
 /**
- * GroupIndicator
+ * Booker
  *
- * @package Amadeus\Client\Struct\Hotel
+ * @package Amadeus\Client\RequestOptions\Hotel\Sell
  * @author Dieter Devlieghere <dieter.devlieghere@benelux.amadeus.com>
  */
-class GroupIndicator
+class RoomStay extends LoadParamsFromArray
 {
     /**
-     * @var StatusDetails[]
+     * Number of travellers
+     *
+     * @var BookingInfo
      */
-    public $statusDetails = [];
+    public $bookingInfo;
 
     /**
-     * GroupIndicator constructor.
-     *
-     * @param string $indicator StatusDetails::INDICATOR_*
-     * @param int|string $action StatusDetails::ACTION_*
+     * @var Room[]
      */
-    public function __construct($indicator, $action)
-    {
-        $this->statusDetails[] = new StatusDetails($indicator, $action);
-    }
+    public $rooms;
+
 }

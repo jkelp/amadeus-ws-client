@@ -22,21 +22,36 @@
 
 namespace Amadeus\Client\Struct\Hotel\Sell;
 
+
+use Amadeus\Client\Struct\Hotel\Sell\ocupantList;
+
 /**
- * ArrivalFlightDetailsGrp
+ * Criterion
  *
- * @package Amadeus\Client\Struct\Hotel
+ * @package Amadeus\Client\Struct\Hotel\Sell
  * @author Dieter Devlieghere <dieter.devlieghere@benelux.amadeus.com>
  */
-class ArrivalFlightDetailsGrp
+class representativeParties
 {
-    /**
-     * @var ArrivalFlightDetailsTag
-     */
-    public $arrivalFlightDetailsTag;
+  /**
+   * Number of travellers
+   *
+   * @var occupantList
+   */
+    public $occupantList;
+
+
 
     /**
-     * @var ArrivalFlightDetailsData
+     * Criterion constructor.
+     *
+     *
      */
-    public $arrivalFlightDetailsData;
+    public function __construct($info)
+    {
+
+      $this->occupantList = new occupantList($info);
+
+
+    }
 }

@@ -22,8 +22,9 @@
 
 namespace Amadeus\Client\Struct\Hotel\Sell;
 
+use Amadeus\Client\RequestOptions\Hotel\Sell\PaymentDetails;
 
-use Amadeus\Client\RequestOptions\Hotel\Sell\Occupant;
+use Amadeus\Client\Struct\Hotel\Sell\ccInfo;
 
 /**
  * Criterion
@@ -31,34 +32,37 @@ use Amadeus\Client\RequestOptions\Hotel\Sell\Occupant;
  * @package Amadeus\Client\Struct\Hotel\Sell
  * @author Dieter Devlieghere <dieter.devlieghere@benelux.amadeus.com>
  */
-class passengerReference
+class guaranteeOrDeposit
 {
-  /**
-   * Number of travellers
-   *
-   * @var string
-   */
-    public $type;
-
-    /**
-     * Number of travellers
-     *
+    /***
      * @var string
      */
-      public $value;
+    public $paymentInfo;
 
+    public $groupCreditCardInfo;
 
 
     /**
      * Criterion constructor.
      *
-     *
+     * @param PaymentDetails $det
      */
-    public function __construct(Occupant $info)
+    public function __construct(PaymentDetails $det)
     {
 
-      $this->type = $info->occupantType;
-      $this->value = $info->value;
+        $paymentInfo = new \StdClass;
+        $paymentDetails = new \StdClass;
+        $paymentDetails->formOfPaymentCode = $det->paymentInfo->formOfPaymentCode;
+        $paymentDetails->paymentType = $det->paymentInfo->paymentType;
+        $paymentDetails->serviceToPay = $det->paymentInfo->serviceToPay;
+        $paymentInfo->paymentDetails = $paymentDetails;
+        $this->paymentInfo = $paymentInfo;
+
+        $groupCreditCardInfo = new \StdClass;
+        $creditCardInfo = new \StdClass;
+        $creditCardInfo->ccInfo = new ccInfo($det->creditCardInfo);
+        $groupCreditCardInfo->creditCardInfo = $creditCardInfo;
+        $this->groupCreditCardInfo = $groupCreditCardInfo;
 
 
     }

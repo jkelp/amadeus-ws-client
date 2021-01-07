@@ -22,26 +22,39 @@
 
 namespace Amadeus\Client\Struct\Hotel\Sell;
 
+use Amadeus\Client\RequestOptions\Hotel\Sell\HotelProductReference;
+
 /**
- * LocationDetails
+ * Criterion
  *
  * @package Amadeus\Client\Struct\Hotel\Sell
  * @author Dieter Devlieghere <dieter.devlieghere@benelux.amadeus.com>
  */
-class LocationDetails
+class roomRateDetails
 {
-    /**
+    /***
      * @var string
      */
-    public $name;
+    public $marker;
+
+    public $hotelProductReference;
+
 
     /**
-     * LocationDetails constructor.
+     * Criterion constructor.
      *
-     * @param string $name
+     * @param HotelProductReference $ref
      */
-    public function __construct($name)
+    public function __construct(HotelProductReference $ref)
     {
-        $this->name = $name;
+
+        $hotelProductReference = new \StdClass;
+        $referenceDetails = new \StdClass;
+        $referenceDetails->type = $ref->type;
+        $referenceDetails->value = $ref->value;
+        $hotelProductReference->referenceDetails = $referenceDetails;
+        $this->hotelProductReference = $hotelProductReference;
+
+
     }
 }

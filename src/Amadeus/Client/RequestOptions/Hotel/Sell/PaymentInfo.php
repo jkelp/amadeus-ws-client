@@ -20,42 +20,48 @@
  * @license https://opensource.org/licenses/Apache-2.0 Apache 2.0
  */
 
-namespace Amadeus\Client\Struct\Hotel\Sell;
+namespace Amadeus\Client\RequestOptions\Hotel\Sell;
+
+
+use Amadeus\Client\LoadParamsFromArray;
 
 /**
- * OtherPaxNamesDetails
+ * BookingCompany
  *
- * @package Amadeus\Client\Struct\Hotel\Sell
+ * @package Amadeus\Client\RequestOptions\Hotel\Sell
  * @author Dieter Devlieghere <dieter.devlieghere@benelux.amadeus.com>
  */
-class OtherPaxNamesDetails
+class PaymentInfo extends LoadParamsFromArray
 {
-    /**
-     * @var string
-     */
-    public $surname;
+
+    const CREDIT_CARD = 1;
+    const CHECK = 6;
+    const WIRE_PAYMENT = 28;
+
+    const GUARANTEED = 1;
+    const DEPOSIT = 2;
+
+    const HOTEL = 3;
+
 
     /**
-     * @var string
-     */
-    public $givenName;
-
-    /**
-     * @var string
-     */
-    public $title;
-
-    /**
-     * OtherPaxNamesDetails constructor.
      *
-     * @param string $surname
-     * @param string $givenName
-     * @param string|null $title
+     *
+     * @var string
      */
-    public function __construct($surname, $givenName, $title = null)
-    {
-        $this->surname = $surname;
-        $this->givenName = $givenName;
-        $this->title = $title;
-    }
+    public $formOfPaymentCode;
+
+    /**
+     *
+     *
+     * @var string
+     */
+    public $paymentType;
+
+    /**
+     *
+     *
+     * @var string
+     */
+    public $serviceToPay;
 }

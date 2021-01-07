@@ -22,42 +22,29 @@
 
 namespace Amadeus\Client\RequestOptions\Hotel\Sell;
 
+
 use Amadeus\Client\LoadParamsFromArray;
 
 /**
- * Booker
+ * BookingCompany
  *
  * @package Amadeus\Client\RequestOptions\Hotel\Sell
  * @author Dieter Devlieghere <dieter.devlieghere@benelux.amadeus.com>
  */
-class Booker extends LoadParamsFromArray
+class Occupant extends LoadParamsFromArray
 {
+
     /**
-     * Number of travellers
      *
-     * @var int
-     */
-    public $travellerCount = 1;
-
-    /**
-     * @var string
-     */
-    public $firstName;
-
-    /**
-     * @var string
-     */
-    public $lastName;
-
-    /**
-     * @var string
-     */
-    public $title;
-
-    /**
-     * Gender - 'M' or 'F'
      *
      * @var string
      */
-    public $gender;
+    public $occupantType;
+
+    /**
+     *
+     *
+     * @var string
+     */
+    public $value;
 }
