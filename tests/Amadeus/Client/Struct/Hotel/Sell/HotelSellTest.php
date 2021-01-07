@@ -74,7 +74,15 @@ class HotelSellTest extends BaseTestCase
                     ])
                   ])
                 ])
-                ]])]
+              ],
+              'guests' => [new Occupant([
+                'occupantType' => 'BHO',
+                'value' => '1'
+              ]),
+              new Occupant([
+                'age' => '20'
+                ])]
+                ])]
               ]);
 
         // print_r($opt);

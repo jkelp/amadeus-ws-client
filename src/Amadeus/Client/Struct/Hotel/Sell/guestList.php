@@ -22,11 +22,10 @@
 
 namespace Amadeus\Client\Struct\Hotel\Sell;
 
-use Amadeus\Client\RequestOptions\Hotel\Sell\RoomStay;
+use Amadeus\Client\RequestOptions\Hotel\Sell\Occupant;
 
-use Amadeus\Client\Struct\Hotel\Sell\roomList;
-use Amadeus\Client\Struct\Hotel\Sell\guestList;
-use Amadeus\Client\Struct\Hotel\Sell\globalBookingInfo;
+use Amadeus\Client\Struct\Hotel\Sell\roomRateDetails;
+use Amadeus\Client\Struct\Hotel\Sell\guaranteeOrDeposit;
 
 /**
  * Criterion
@@ -34,38 +33,40 @@ use Amadeus\Client\Struct\Hotel\Sell\globalBookingInfo;
  * @package Amadeus\Client\Struct\Hotel\Sell
  * @author Dieter Devlieghere <dieter.devlieghere@benelux.amadeus.com>
  */
-class roomStayData
+class guestList
 {
     /***
      * @var string
      */
-    public $markerRoomStayData;
+    public $occupantList;
 
-    public $globalBookingInfo;
-
-    public $roomList;
-
-    public $guestList;
+    public $age;
 
 
     /**
      * Criterion constructor.
      *
-     * @param RoomStay $stay
+     * @param Occupant $occ
      */
-    public function __construct(RoomStay $stay)
+    public function __construct(Occupant $occ)
     {
+      if(!empty($occ->occupantType)){
+        $occupantList = new \StdClass;
+        $passengerReference = new \StdClass;
+        $passengerReference->type = $occ->occupantType;
+        $passengerReference->value = $occ->value;
+        $occupantList->passengerReference = $passengerReference;
+        $this->occupantList = $occupantList;
+      }
 
-        foreach ($stay->rooms as $room) {
-            $this->roomList[] = new roomList($room);
-        }
-
-        $this->globalBookingInfo = new globalBookingInfo($stay->bookingInfo);
-
-        foreach ($stay->guests as $guest) {
-            $this->guestList[] = new guestList($guest);
-        }
-
+      if(!empty($occ->age)){
+        $age = new \StdClass;
+        $quantityDetails = new \StdClass;
+        $quantityDetails->qualifier = 'AGE';
+        $quantityDetails->value = $occ->age;
+        $age->quantityDetails = $quantityDetails;
+        $this->age = $age;
+      }
 
     }
 }

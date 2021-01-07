@@ -47,4 +47,11 @@ class Occupant extends LoadParamsFromArray
      * @var string
      */
     public $value;
+
+    /**
+     *
+     *
+     * @var string
+     */
+    public $age;
 }

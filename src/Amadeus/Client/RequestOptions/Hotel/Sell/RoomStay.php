@@ -47,4 +47,6 @@ class RoomStay extends LoadParamsFromArray
      */
     public $rooms;
 
+    public $guests;
+
 }
