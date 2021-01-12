@@ -40,6 +40,10 @@ class Sell extends BaseWsMessage
      */
     public $roomStayData = [];
 
+    public $systemIdentifier;
+
+    public $travelAgentRef;
+
     /**
      * Hotel_Sell constructor.
      *
@@ -50,5 +54,20 @@ class Sell extends BaseWsMessage
         foreach($options->roomStays as $roomStay){
           $this->roomStayData[] = new roomStayData($roomStay);
         }
+
+
+        $systemIdentifier = new \StdClass;
+        $deliveringSystem = new \StdClass;
+        $deliveringSystem->companyId = $options->systemId;
+        $systemIdentifier->deliveringSystem = $deliveringSystem;
+        $this->systemIdentifier = $systemIdentifier;
+
+        $travelAgentRef = new \StdClass;
+        $travelAgentRef->status = $options->travelAgentReference->status;
+        $reference = new \StdClass;
+        $reference->type = $options->travelAgentReference->type;
+        $reference->value = $options->travelAgentReference->value;
+        $travelAgentRef->reference = $reference;
+        $this->travelAgentRef = $travelAgentRef;
     }
 }

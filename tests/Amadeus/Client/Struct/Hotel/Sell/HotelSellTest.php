@@ -23,6 +23,7 @@
 namespace Test\Amadeus\Client\Struct\Hotel;
 
 use Amadeus\Client\RequestOptions\Hotel\Sell\RoomStay;
+use Amadeus\Client\RequestOptions\Hotel\Sell\AgentRef;
 use Amadeus\Client\RequestOptions\Hotel\Sell\BookingInfo;
 use Amadeus\Client\RequestOptions\Hotel\Sell\Occupant;
 use Amadeus\Client\RequestOptions\Hotel\Sell\Room;
@@ -45,6 +46,12 @@ class HotelSellTest extends BaseTestCase
     public function testCanMakeMessage()
     {
         $opt = new HotelSellOptions([
+            'systemId' => 'WEBS',
+            'travelAgentReference' => new AgentRef([
+              'status' => 'APE',
+              'type' => 'ST',
+              'value' => '1'
+            ]),
             'roomStays' => [new RoomStay([
               'bookingInfo' => new BookingInfo([
                 'originatorId' => '12345675',

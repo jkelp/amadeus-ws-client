@@ -20,34 +20,37 @@
  * @license https://opensource.org/licenses/Apache-2.0 Apache 2.0
  */
 
-namespace Amadeus\Client\RequestOptions;
+namespace Amadeus\Client\RequestOptions\Hotel\Sell;
 
-use Amadeus\Client\RequestOptions\Hotel\Sell\RoomStay;
-use Amadeus\Client\RequestOptions\Hotel\Sell\AgentRef;
+use Amadeus\Client\LoadParamsFromArray;
 
 /**
- * Hotel_Sell Request Options
+ * BookingCompany
  *
- * @package Amadeus\Client\RequestOptions
+ * @package Amadeus\Client\RequestOptions\Hotel\Sell
  * @author Dieter Devlieghere <dieter.devlieghere@benelux.amadeus.com>
  */
-class HotelSellOptions extends Base
+class AgentRef extends LoadParamsFromArray
 {
 
-  /**
-   * Hotel segments availability requested
-   *
-   * @var RoomStay[]
-   */
-  public $roomStays = [];
+    /**
+     *
+     *
+     * @var string
+     */
+    public $status;
 
-  /**
-   * Hotel segments availability requested
-   *
-   * @var AgentRef[]
-   */
-  public $travelAgentReference;
+    /**
+     *
+     *
+     * @var string
+     */
+    public $type;
 
-  public $systemId;
-
+    /**
+     *
+     *
+     * @var string
+     */
+    public $value;
 }
