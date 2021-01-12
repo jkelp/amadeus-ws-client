@@ -24,6 +24,7 @@ namespace Test\Amadeus\Client\Struct\Hotel;
 
 use Amadeus\Client\RequestOptions\Hotel\Sell\RoomStay;
 use Amadeus\Client\RequestOptions\Hotel\Sell\AgentRef;
+use Amadeus\Client\RequestOptions\Hotel\Sell\HotelRef;
 use Amadeus\Client\RequestOptions\Hotel\Sell\BookingInfo;
 use Amadeus\Client\RequestOptions\Hotel\Sell\Occupant;
 use Amadeus\Client\RequestOptions\Hotel\Sell\Room;
@@ -54,6 +55,11 @@ class HotelSellTest extends BaseTestCase
             ]),
             'roomStays' => [new RoomStay([
               'bookingInfo' => new BookingInfo([
+                'hotelRef' => new HotelRef([
+                  'chainCode' => 'AR',
+                  'hotelCode' => 'HLT',
+                  'cityCode' => 'MIA'
+                ]),
                 'originatorId' => '12345675',
                 'occupants' => [new Occupant([
                   'occupantType' => 'BHO',
@@ -85,10 +91,7 @@ class HotelSellTest extends BaseTestCase
               'guests' => [new Occupant([
                 'occupantType' => 'BHO',
                 'value' => '1'
-              ]),
-              new Occupant([
-                'age' => '20'
-                ])]
+              ])]
                 ])]
               ]);
 

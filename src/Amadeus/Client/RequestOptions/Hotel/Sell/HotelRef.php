@@ -20,46 +20,38 @@
  * @license https://opensource.org/licenses/Apache-2.0 Apache 2.0
  */
 
-namespace Amadeus\Client\Struct\Hotel\Sell;
+namespace Amadeus\Client\RequestOptions\Hotel\Sell;
 
-use Amadeus\Client\RequestOptions\Hotel\Sell\BookingInfo;
 
-use Amadeus\Client\Struct\Hotel\Sell\representativeParties;
+use Amadeus\Client\LoadParamsFromArray;
 
 /**
- * Criterion
+ * BookingCompany
  *
- * @package Amadeus\Client\Struct\Hotel\Sell
+ * @package Amadeus\Client\RequestOptions\Hotel\Sell
  * @author Dieter Devlieghere <dieter.devlieghere@benelux.amadeus.com>
  */
-class globalBookingInfo
+class HotelRef extends LoadParamsFromArray
 {
-    /***
-     * @var string
-     */
-    public $markerGlobalBookingInfo;
-
-    public $bookingSource;
-
-    public $representativeParties;
-
-    public $hotelReference;
-
 
     /**
-     * Criterion constructor.
      *
-     * @param BookingInfo $info
+     *
+     * @var string
      */
-    public function __construct(BookingInfo $info)
-    {
+    public $chainCode;
 
-      $this->bookingSource = new bookingSource($info->originatorId);
+    /**
+     *
+     *
+     * @var string
+     */
+    public $cityCode;
 
-      $this->representativeParties = new representativeParties($info->occupants);
-
-      $this->hotelReference = new hotelReference($info->hotelRef);
-
-
-    }
+    /**
+     *
+     *
+     * @var string
+     */
+    public $hotelCode;
 }

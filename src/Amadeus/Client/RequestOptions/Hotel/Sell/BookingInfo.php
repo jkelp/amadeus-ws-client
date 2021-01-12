@@ -45,6 +45,13 @@ class BookingInfo extends LoadParamsFromArray
     /**
      *
      *
+     * @var HotelRef
+     */
+    public $hotelRef;
+
+    /**
+     *
+     *
      * @var Occupant[]
      */
     public $occupants;

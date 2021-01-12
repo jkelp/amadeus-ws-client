@@ -22,9 +22,8 @@
 
 namespace Amadeus\Client\Struct\Hotel\Sell;
 
-use Amadeus\Client\RequestOptions\Hotel\Sell\BookingInfo;
 
-use Amadeus\Client\Struct\Hotel\Sell\representativeParties;
+use Amadeus\Client\RequestOptions\Hotel\Sell\CreditCardInfo;
 
 /**
  * Criterion
@@ -32,33 +31,42 @@ use Amadeus\Client\Struct\Hotel\Sell\representativeParties;
  * @package Amadeus\Client\Struct\Hotel\Sell
  * @author Dieter Devlieghere <dieter.devlieghere@benelux.amadeus.com>
  */
-class globalBookingInfo
+class hotelReference
 {
-    /***
-     * @var string
-     */
-    public $markerGlobalBookingInfo;
+  /**
+   * Number of travellers
+   *
+   * @var string
+   */
+    public $chainCode;
 
-    public $bookingSource;
+  /**
+   *
+   *
+   * @var string
+   */
+    public $hotelCode;
 
-    public $representativeParties;
+  /**
+   *
+   *
+   * @var string
+   */
+    public $cityCode;
 
-    public $hotelReference;
 
 
     /**
      * Criterion constructor.
      *
-     * @param BookingInfo $info
+     *
      */
-    public function __construct(BookingInfo $info)
+    public function __construct($info)
     {
 
-      $this->bookingSource = new bookingSource($info->originatorId);
-
-      $this->representativeParties = new representativeParties($info->occupants);
-
-      $this->hotelReference = new hotelReference($info->hotelRef);
+      $this->chainCode = $info->chainCode;
+      $this->hotelCode = $info->hotelCode;
+      $this->cityCode = $info->cityCode;
 
 
     }
