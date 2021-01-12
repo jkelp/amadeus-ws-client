@@ -54,7 +54,10 @@ class globalBookingInfo
     public function __construct(BookingInfo $info)
     {
 
-      $this->bookingSource = new bookingSource($info->originatorId);
+      if(!empty($info->originatorId)){
+        $this->bookingSource = new bookingSource($info->originatorId);
+      }
+
 
       $this->representativeParties = new representativeParties($info->occupants);
 
