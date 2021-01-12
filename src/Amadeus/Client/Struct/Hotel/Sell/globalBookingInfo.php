@@ -52,11 +52,7 @@ class globalBookingInfo
     public function __construct(BookingInfo $info)
     {
 
-      $bookingSource = new \StdClass;
-      $originIdentification = new \StdClass;
-      $originIdentification->originatorId = $info->originatorId;
-      $bookingSource->originIdentification = $originIdentification;
-      $this->bookingSource = $bookingSource;
+      $this->bookingSource = new bookingSource($info->originatorId);
 
       $this->representativeParties = new representativeParties($info->occupants);
 

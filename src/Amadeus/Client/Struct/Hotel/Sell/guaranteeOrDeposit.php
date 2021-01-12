@@ -50,19 +50,9 @@ class guaranteeOrDeposit
     public function __construct(PaymentDetails $det)
     {
 
-        $paymentInfo = new \StdClass;
-        $paymentDetails = new \StdClass;
-        $paymentDetails->formOfPaymentCode = $det->paymentInfo->formOfPaymentCode;
-        $paymentDetails->paymentType = $det->paymentInfo->paymentType;
-        $paymentDetails->serviceToPay = $det->paymentInfo->serviceToPay;
-        $paymentInfo->paymentDetails = $paymentDetails;
-        $this->paymentInfo = $paymentInfo;
+        $this->paymentInfo = new paymentInfo($det->paymentInfo);
 
-        $groupCreditCardInfo = new \StdClass;
-        $creditCardInfo = new \StdClass;
-        $creditCardInfo->ccInfo = new ccInfo($det->creditCardInfo);
-        $groupCreditCardInfo->creditCardInfo = $creditCardInfo;
-        $this->groupCreditCardInfo = $groupCreditCardInfo;
+        $this->groupCreditCardInfo = new groupCreditCardInfo($det->creditCardInfo);
 
 
     }

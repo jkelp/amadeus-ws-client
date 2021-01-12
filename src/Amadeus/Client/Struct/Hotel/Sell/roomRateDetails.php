@@ -22,7 +22,7 @@
 
 namespace Amadeus\Client\Struct\Hotel\Sell;
 
-use Amadeus\Client\RequestOptions\Hotel\Sell\HotelProductReference;
+use Amadeus\Client\RequestOptions\Hotel\Sell\HotelProductReference as requestHotelRef;
 
 /**
  * Criterion
@@ -43,17 +43,12 @@ class roomRateDetails
     /**
      * Criterion constructor.
      *
-     * @param HotelProductReference $ref
+     * @param requestHotelRef $ref
      */
-    public function __construct(HotelProductReference $ref)
+    public function __construct(requestHotelRef $ref)
     {
 
-        $hotelProductReference = new \StdClass;
-        $referenceDetails = new \StdClass;
-        $referenceDetails->type = $ref->type;
-        $referenceDetails->value = $ref->value;
-        $hotelProductReference->referenceDetails = $referenceDetails;
-        $this->hotelProductReference = $hotelProductReference;
+        $this->hotelProductReference = new hotelProductReference($ref);
 
 
     }

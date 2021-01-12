@@ -22,7 +22,6 @@
 
 namespace Amadeus\Client\Struct\Hotel\Sell;
 
-use Amadeus\Client\RequestOptions\Hotel\Sell\Occupant;
 
 /**
  * Criterion
@@ -30,30 +29,22 @@ use Amadeus\Client\RequestOptions\Hotel\Sell\Occupant;
  * @package Amadeus\Client\Struct\Hotel\Sell
  * @author Dieter Devlieghere <dieter.devlieghere@benelux.amadeus.com>
  */
-class guestList
+class hotelProductReference
 {
-    /***
-     * @var string
-     */
-    public $occupantList;
 
-    public $age;
+    public $referenceDetails;
 
 
     /**
      * Criterion constructor.
      *
-     * @param Occupant $occ
+     *
      */
-    public function __construct(Occupant $occ)
+    public function __construct($ref)
     {
-      if(!empty($occ->occupantType)){
-        $this->occupantList = new occupantList([$occ]);
-      }
 
-      // if(!empty($occ->age)){
-      // }
-      // $this->age = new age($occ);
+        $this->referenceDetails = new referenceDetails($ref);
+
 
     }
 }

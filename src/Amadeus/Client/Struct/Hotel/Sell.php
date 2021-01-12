@@ -25,6 +25,8 @@ namespace Amadeus\Client\Struct\Hotel;
 use Amadeus\Client\RequestOptions\HotelSellOptions;
 use Amadeus\Client\Struct\BaseWsMessage;
 use Amadeus\Client\Struct\Hotel\Sell\roomStayData;
+use Amadeus\Client\Struct\Hotel\Sell\systemIdentifier;
+use Amadeus\Client\Struct\Hotel\Sell\travelAgentRef;
 
 /**
  * Hotel_Sell request structure
@@ -55,19 +57,8 @@ class Sell extends BaseWsMessage
           $this->roomStayData[] = new roomStayData($roomStay);
         }
 
+        $this->systemIdentifier = new systemIdentifier($options->systemId);
 
-        $systemIdentifier = new \StdClass;
-        $deliveringSystem = new \StdClass;
-        $deliveringSystem->companyId = $options->systemId;
-        $systemIdentifier->deliveringSystem = $deliveringSystem;
-        $this->systemIdentifier = $systemIdentifier;
-
-        $travelAgentRef = new \StdClass;
-        $travelAgentRef->status = $options->travelAgentReference->status;
-        $reference = new \StdClass;
-        $reference->type = $options->travelAgentReference->type;
-        $reference->value = $options->travelAgentReference->value;
-        $travelAgentRef->reference = $reference;
-        $this->travelAgentRef = $travelAgentRef;
+        $this->travelAgentRef = new travelAgentRef($options->travelAgentReference);
     }
 }
