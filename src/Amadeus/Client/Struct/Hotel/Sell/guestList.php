@@ -48,7 +48,7 @@ class guestList
     public function __construct(Occupant $occ)
     {
       if(!empty($occ->occupantType)){
-        $this->occupantList = new occupantList([$occ]);
+        $this->occupantList = new occupantList($occ);
       }
 
       // if(!empty($occ->age)){

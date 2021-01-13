@@ -61,10 +61,10 @@ class HotelSellTest extends BaseTestCase
                   'cityCode' => 'MIA'
                 ]),
                 'originatorId' => '12345675',
-                'occupants' => [new Occupant([
+                'occupants' => new Occupant([
                   'occupantType' => 'BHO',
                   'value' => '1'
-                  ])]
+                  ])
               ]),
               'rooms' => [new Room([
                 'hotelProductReference' => new HotelProductReference([

@@ -36,9 +36,9 @@ class occupantList
   /**
    * Number of travellers
    *
-   * @var passengerReference[]
+   * @var passengerReference
    */
-    public $passengerReference = [];
+    public $passengerReference;
 
 
 
@@ -50,9 +50,7 @@ class occupantList
     public function __construct($info)
     {
 
-      foreach($info as $occ){
-        $this->passengerReference[] = new passengerReference($occ);
-      }
+      $this->passengerReference = new passengerReference($info);
 
 
     }
