@@ -38,7 +38,7 @@ class roomList
     /***
      * @var string
      */
-    public $markerRoomStayQuery;
+    public $markerRoomstayQuery;
 
     public $roomRateDetails;
 

@@ -39,6 +39,8 @@ class roomRateDetails
 
     public $hotelProductReference;
 
+    public $markerOfExtra;
+
 
     /**
      * Criterion constructor.
