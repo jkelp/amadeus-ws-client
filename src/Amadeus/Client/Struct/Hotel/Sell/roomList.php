@@ -59,10 +59,10 @@ class roomList
 
         $this->guaranteeOrDeposit = new guaranteeOrDeposit($stay->paymentDetails);
 
-        foreach ($stay->guests as $guest) {
-            $this->guestList[] = new guestList($guest);
+        if(!empty($stay->guests)){
+          foreach ($stay->guests as $guest) {
+              $this->guestList[] = new guestList($guest);
+          }
         }
-
-
     }
 }
