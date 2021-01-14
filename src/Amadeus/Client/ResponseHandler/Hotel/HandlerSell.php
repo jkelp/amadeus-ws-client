@@ -1,4 +1,5 @@
 <?php
+
 /**
  * amadeus-ws-client
  *
@@ -34,12 +35,21 @@ use Amadeus\Client\Session\Handler\SendResult;
  */
 class HandlerSell extends StandardResponseHandler
 {
+    const Q_ERR_CODE = "/m:OTA_HotelAvailRS/m:Errors/m:Error/@Code";
+    const Q_ERR_SRC = "/m:OTA_HotelAvailRS/m:Errors/m:Error/@Status";
+    const Q_ERR_MSG = "/m:OTA_HotelAvailRS/m:Errors/m:Error/@ShortText";
+
     /**
      * @param SendResult $response
      * @return Result
      */
     public function analyze(SendResult $response)
     {
-        //TODO
+        return $this->analyzeWithErrorCodeMsgQuerySource(
+            $response,
+            self::Q_ERR_CODE,
+            self::Q_ERR_MSG,
+            self::Q_ERR_SRC
+        );
     }
 }
