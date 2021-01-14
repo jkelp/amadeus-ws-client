@@ -45,7 +45,6 @@ class roomStayData
 
     public $roomList;
 
-    public $guestList;
 
 
     /**
@@ -62,9 +61,7 @@ class roomStayData
 
         $this->globalBookingInfo = new globalBookingInfo($stay->bookingInfo);
 
-        foreach ($stay->guests as $guest) {
-            $this->guestList[] = new guestList($guest);
-        }
+        
 
 
     }

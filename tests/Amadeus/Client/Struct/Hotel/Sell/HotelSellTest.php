@@ -46,7 +46,7 @@ class HotelSellTest extends BaseTestCase
 {
     public function testCanMakeMessage()
     {
-      
+
         $opt = new HotelSellOptions([
             'systemId' => 'WEBS',
             'travelAgentReference' => new AgentRef([
@@ -86,13 +86,13 @@ class HotelSellTest extends BaseTestCase
                       'holderFirstName' => 'David',
                       'holderSurname' => 'Bowie'
                     ])
-                  ])
+                  ]),
+                  'guests' => [new Occupant([
+                    'occupantType' => 'BHO',
+                    'value' => '1'
+                  ])]
                 ])
-              ],
-              'guests' => [new Occupant([
-                'occupantType' => 'BHO',
-                'value' => '1'
-              ])]
+              ]
                 ])]
               ]);
 

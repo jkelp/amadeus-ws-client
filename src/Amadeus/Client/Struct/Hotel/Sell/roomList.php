@@ -44,6 +44,8 @@ class roomList
 
     public $guaranteeOrDeposit;
 
+    public $guestList;
+
 
     /**
      * Criterion constructor.
@@ -56,6 +58,10 @@ class roomList
         $this->roomRateDetails = new roomRateDetails($stay->hotelProductReference);
 
         $this->guaranteeOrDeposit = new guaranteeOrDeposit($stay->paymentDetails);
+
+        foreach ($stay->guests as $guest) {
+            $this->guestList[] = new guestList($guest);
+        }
 
 
     }

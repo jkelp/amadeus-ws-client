@@ -47,4 +47,6 @@ class Room extends LoadParamsFromArray
      */
     public $paymentDetails;
 
+    public $guests;
+
 }
