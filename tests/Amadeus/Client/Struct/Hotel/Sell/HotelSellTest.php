@@ -46,6 +46,7 @@ class HotelSellTest extends BaseTestCase
 {
     public function testCanMakeMessage()
     {
+      
         $opt = new HotelSellOptions([
             'systemId' => 'WEBS',
             'travelAgentReference' => new AgentRef([
