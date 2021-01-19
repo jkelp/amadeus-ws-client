@@ -39,7 +39,7 @@ class GeocodeInfo extends LoadParamsFromArray
    * @var string
    */
 
-    public $encoding;
+    public $encoding = 'POR';
 
     /**
      *
@@ -57,7 +57,7 @@ class GeocodeInfo extends LoadParamsFromArray
 
       public $latitude;
 
-      public $measurementQualifier;
+      public $measurementQualifier = 'DST';
 
       public $unit;
 
@@ -66,5 +66,22 @@ class GeocodeInfo extends LoadParamsFromArray
       public $significance;
 
 
+      const SIGNIFICANCE_FLY = 'FLY';
+
+      const SIGNIFICANCE_ROAD = 'RD';
+
+      const UNIT_MILES = 1;
+
+      const UNIT_KILOMETERS = 2;
+
+
+      public function __construct($params = [])
+      {
+        parent::__construct($params);
+
+        $this->latitude = (int) $this->latitude * 100000;
+
+        $this->longitude = (int) $this->longitude * 100000;
+      }
 
 }
