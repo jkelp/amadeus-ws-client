@@ -54,6 +54,11 @@ class Segment extends LoadParamsFromArray
     public $availableOnly;
 
     /**
+     * @var String
+     */
+    public $moreDataEchoToken;
+
+    /**
      * @var Criteria[]
      */
     public $criteria = [];
