@@ -46,4 +46,28 @@ class MediaContent extends LoadParamsFromArray
      */
     public $pictureSize;
 
+    const PICTURE_TYPE_COMPANY = 'CPY';
+
+    const PICTURE_TYPE_VEHICLE = 'VEH';
+
+    const PICTURE_SIZE_70_40 = 0;
+
+    const PICTURE_SIZE_90_50 = 1;
+
+    const PICTURE_SIZE_110_70 = 2;
+
+    const PICTURE_SIZE_140_80 = 3;
+
+    const PICTURE_SIZE_180_110 = 4;
+
+    const PICTURE_SIZE_230_140 = 5;
+
+    const PICTURE_SIZE_290_170 = 6;
+
+    const PICTURE_SIZE_370_220 = 7;
+
+    const PICTURE_SIZE_470_280 = 8;
+
+    const PICTURE_SIZE_600_350 = 9;
+
 }

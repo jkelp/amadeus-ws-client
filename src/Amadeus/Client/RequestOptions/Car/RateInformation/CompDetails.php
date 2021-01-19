@@ -33,9 +33,18 @@ use Amadeus\Client\LoadParamsFromArray;
 class CompDetails extends LoadParamsFromArray
 {
 
-    public $sector;
+    public $sector = 'CAR';
+
     public $companyCode;
+
     public $accessLevel;
+
     public $companyName;
+
+    const ACCESS_LEVEL_COMPLETE = 'CA';
+
+    const ACCESS_LEVEL_COMPLETE_PLUS = 'CP';
+
+    const ACCESS_LEVEL_STANDARD = 'SA';
 
 }

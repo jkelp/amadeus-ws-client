@@ -39,6 +39,14 @@ class SortRule extends LoadParamsFromArray
    * @var string
    */
 
-    public $actionRequestCode;
+    public $actionRequestCode = self::SORT_STANDARD;
+
+    const SORT_LOWEST_PRICES = 'LOW';
+
+    const SORT_WIDE_RANGE_OF_VEHICLES = 'WRV';
+
+    const SORT_BEST = 'BST';
+
+    const SORT_STANDARD = 'STD';
 
 }

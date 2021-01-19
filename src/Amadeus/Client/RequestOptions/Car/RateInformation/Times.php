@@ -33,8 +33,12 @@ use Amadeus\Client\LoadParamsFromArray;
 class Times extends LoadParamsFromArray
 {
 
-      public $businessSemantic;
+      public $businessSemantic = self::BUSINESS_SEMANTIC_PICKUP_AND_DROPOFF_DATE_AND_TIME;
+
       public $pickup;
+      
       public $dropoff;
+
+      const BUSINESS_SEMANTIC_PICKUP_AND_DROPOFF_DATE_AND_TIME = 'PDA';
 
 }

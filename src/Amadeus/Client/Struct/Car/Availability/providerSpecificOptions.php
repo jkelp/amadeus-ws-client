@@ -55,9 +55,8 @@ class providerSpecificOptions
      */
     public function __construct(ProviderSpecOps $providerOps)
     {
-        foreach($providerOps->companies as $company){
-          $this->companyDetails = new companyDetails($company);
-        }
+        $this->companyDetails = new companyDetails($providerOps->company);
+
         $this->loyaltyNumbersList = new loyaltyNumbersList($providerOps->refs);
     }
 }

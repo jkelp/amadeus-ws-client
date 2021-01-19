@@ -22,7 +22,7 @@
 
 namespace Amadeus\Client\Struct\Car\Availability;
 
-use Amadeus\Client\RequestOptions\Car\Availability\RatingClass;
+use Amadeus\Client\RequestOptions\Car\Availability\RateClass as RateClassRequestOptions;
 
 use Amadeus\Client\Struct\Car\Availability\criteriaSetType;
 
@@ -44,11 +44,11 @@ class rateClass
     /**
      * CarProviderIndicator constructor.
      *
-     * @param RatingClass
+     * @param RateClass
      */
-    public function __construct(RatingClass $ratingClass)
+    public function __construct(RateClassRequestOptions $rateClass)
     {
 
-        $this->criteriaSetType = $ratingClass->criteriaSetType;
+        $this->criteriaSetType = $rateClass->criteriaSetType;
     }
 }

@@ -33,6 +33,6 @@ use Amadeus\Client\LoadParamsFromArray;
 class Rate extends LoadParamsFromArray
 {
 
-    public $option;
+    public $option = 'P6';
 
 }
