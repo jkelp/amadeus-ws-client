@@ -22,7 +22,8 @@
 
  namespace Amadeus\Client\Struct\Car\RateInformation;
 
-  use Amadeus\Client\RequestOptions\Car\RateInformation\Time;
+use Amadeus\Client\RequestOptions\Car\Availability\DateHolder;
+
 
  /**
   * RoomStayCandidate
@@ -62,9 +63,9 @@ class endDateTime
   /**
    * CarProviderIndicator constructor.
    *
-   * @param Time
+   * @param DateHolder
    */
-  public function __construct(Time $details)
+  public function __construct(DateHolder $details)
   {
 
       $this->year = $details->year;
