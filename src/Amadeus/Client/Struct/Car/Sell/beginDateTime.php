@@ -22,7 +22,7 @@
 
  namespace Amadeus\Client\Struct\Car\Sell;
 
- use Amadeus\Client\RequestOptions\Car\Sell\Time;
+ use Amadeus\Client\RequestOptions\Car\Availability\DateHolder;
 
  /**
   * RoomStayCandidate
@@ -64,7 +64,7 @@ class beginDateTime
    *
    * @param Time
    */
-  public function __construct(Time $details)
+  public function __construct(DateHolder $details)
   {
 
       $this->year = $details->year;

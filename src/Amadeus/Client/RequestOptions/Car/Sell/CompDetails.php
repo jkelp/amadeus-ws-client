@@ -33,7 +33,8 @@ use Amadeus\Client\LoadParamsFromArray;
 class CompDetails extends LoadParamsFromArray
 {
 
-    public $sector;
+    public $sector = 'CAR';
+    
     public $companyCode;
 
 }
