@@ -39,7 +39,7 @@ class AirportLoc extends LoadParamsFromArray
    * @var string
    */
 
-    public $airportTag;
+    public $airportTag = self::AIRPORT_TAG_AIRPORT_PASSENGER_TERMINAL;
 
     /**
      *
@@ -47,8 +47,9 @@ class AirportLoc extends LoadParamsFromArray
      * @var string
      */
 
-      public $airportCode;
+    public $airportCode;
 
 
+    const AIRPORT_TAG_AIRPORT_PASSENGER_TERMINAL = 215;
 
 }

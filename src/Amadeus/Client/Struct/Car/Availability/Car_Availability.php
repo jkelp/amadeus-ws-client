@@ -105,7 +105,9 @@ class Car_Availability extends BaseWsMessage
           $this->pickupDropoffInfo = new pickupDropoffInfo($car->pickupDropoffInfo);
         }
         if (!empty($car->providerSpecificOptions)){
-            $this->providerSpecificOptions = new providerSpecificOptions($car->providerSpecificOptions);
+          foreach ($car->providerSpecificOptions as $providerSpecificOption) {
+            $this->providerSpecificOptions[] = new providerSpecificOptions($providerSpecificOption);
+          }
         }
         if (!empty($car->rateClass)){
           $this->rateClass = new rateClass($car->rateClass);

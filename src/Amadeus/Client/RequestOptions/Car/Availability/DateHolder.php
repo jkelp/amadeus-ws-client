@@ -23,6 +23,7 @@
 namespace Amadeus\Client\RequestOptions\Car\Availability;
 
 use Amadeus\Client\LoadParamsFromArray;
+use Carbon\Carbon;
 
 /**
  * DateHolder
@@ -66,5 +67,24 @@ class DateHolder extends LoadParamsFromArray
      * @var string
      */
     public $minutes;
+
+
+
+    public function __construct($params = [])
+    {
+      $carbonDate = Carbon::parse($params['date'])->startOfDay();
+
+      $this->year = $carbonDate->format('Y');
+
+      $this->month = $carbonDate->format('m');
+
+      $this->day = $carbonDate->format('j');
+
+      $carbonTime = Carbon::parse($params['time']);
+
+      $this->hour = $carbonTime->format('G');
+
+      $this->minutes = $carbonTime->format('i');
+    }
 
 }

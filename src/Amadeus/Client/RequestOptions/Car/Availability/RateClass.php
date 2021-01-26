@@ -30,19 +30,21 @@ use Amadeus\Client\LoadParamsFromArray;
  * @package Amadeus\Client\RequestOptions\Car\Availability
  * @author Dieter Devlieghere <dieter.devlieghere@benelux.amadeus.com>
  */
-class MediaIndicator extends LoadParamsFromArray
+class RateClass extends LoadParamsFromArray
 {
 
   /**
-   * Multimedia Indicator
+   *
    *
    * @var string
    */
-    public $multiMedia;
 
+    public $criteriaSetType;
 
-    const INCLUDE_MULTIMEDIA = 'MY';
+    const RATES_ALL = 'ALL';
 
-    const EXCLUDE_MULTIMEDIA = 'MN';
+    const RATES_CORPORATE_ONLY = 'COR';
+
+    const RATES_LEISURE_ONLY = 'LEI';
 
 }

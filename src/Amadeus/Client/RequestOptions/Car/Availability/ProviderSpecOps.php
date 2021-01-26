@@ -37,7 +37,7 @@ class ProviderSpecOps extends LoadParamsFromArray
     public $refs;
 
 
-    public $companies;
+    public $company;
 
 
 

@@ -75,5 +75,7 @@ class PUDOInfo extends LoadParamsFromArray
       public $locationGeocodeInfo;
 
 
+    const LOCATION_TYPE_DROPOFF = 'DOP';
 
+    const LOCATION_TYPE_PICKUP = 'PUP';
 }

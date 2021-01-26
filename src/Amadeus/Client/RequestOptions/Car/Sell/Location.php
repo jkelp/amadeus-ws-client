@@ -34,7 +34,13 @@ class Location extends LoadParamsFromArray
 {
 
       public $locationType;
+
       public $code;
+
       public $name;
+
+      const LOCATION_TYPE_PICKUP = '176';
+
+      const LOCATION_TYPE_DROPOFF = 'DOL';
 
 }

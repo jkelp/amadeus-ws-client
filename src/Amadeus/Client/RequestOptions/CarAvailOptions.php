@@ -86,7 +86,7 @@ class CarAvailOptions extends Base
       /**
        *
        *
-       * @var RatingClass
+       * @var RateClass
        */
 
         public $rateClass;

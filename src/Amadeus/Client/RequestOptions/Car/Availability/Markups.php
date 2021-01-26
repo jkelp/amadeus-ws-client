@@ -39,6 +39,11 @@ class Markups extends LoadParamsFromArray
    * @var string
    */
 
-    public $actionRequestCode;
+    public $actionRequestCode  = self::MARK_UP_COMPUTATION_NO;
+
+
+    const MARK_UP_COMPUTATION_YES = 'Y';
+
+    const MARK_UP_COMPUTATION_NO = 'N';
 
 }
