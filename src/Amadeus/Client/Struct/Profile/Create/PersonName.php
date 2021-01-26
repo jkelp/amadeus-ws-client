@@ -20,7 +20,7 @@
  * @license https://opensource.org/licenses/Apache-2.0 Apache 2.0
  */
 
-namespace Amadeus\Client\RequestOptions\Profile;
+namespace Amadeus\Client\Struct\Profile\Create;
 
 use Amadeus\Client\LoadParamsFromArray;
 
@@ -32,7 +32,7 @@ use Amadeus\Client\LoadParamsFromArray;
  */
 class PersonName extends LoadParamsFromArray
 {
-    public $NamePrefix;
+    public $NamePrefix; 
 
     public $GivenName;
 
