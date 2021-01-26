@@ -20,22 +20,25 @@
  * @license https://opensource.org/licenses/Apache-2.0 Apache 2.0
  */
 
-namespace Amadeus\Client\Struct\Profile\Create;
+namespace Amadeus\Client\RequestOptions\Profile;
 
 use Amadeus\Client\LoadParamsFromArray;
 
-
+/**
+ * Traveller in a PNR
+ *
+ * @package Amadeus\Client\RequestOptions\Pnr
+ * @author Dieter Devlieghere <dermikagh@gmail.com>
+ */
 class PersonName extends LoadParamsFromArray
 {
+    public $NamePrefix;
 
-  /**
-  * @var GivenName
-  */
-  public $GivenName;
+    public $GivenName;
 
-  /**
-  * @var Surname
-  */
-  public $Surname;
+    public $MiddleName;
 
+    public $NameSuffix;
+
+    public $Surname;
 }
