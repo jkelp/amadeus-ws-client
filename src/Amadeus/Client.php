@@ -1725,6 +1725,21 @@ class Client extends Base
     }
 
     /**
+     * CarModify
+     *
+     * @param RequestOptions\CarModifyOptions $options
+     * @param array $messageOptions (OPTIONAL)
+     * @return Result
+     */
+    public function carSell(RequestOptions\CarModifyOptions $options, $messageOptions = [])
+    {
+        $msgName = 'Car_Modify';
+
+        return $this->callMessage($msgName, $options, $messageOptions);
+    }
+
+
+    /**
      * CarLocation
      *
      * @param RequestOptions\CarLocationListOptions $options
