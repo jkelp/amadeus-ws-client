@@ -1731,7 +1731,7 @@ class Client extends Base
      * @param array $messageOptions (OPTIONAL)
      * @return Result
      */
-    public function carSell(RequestOptions\CarModifyOptions $options, $messageOptions = [])
+    public function carModify(RequestOptions\CarModifyOptions $options, $messageOptions = [])
     {
         $msgName = 'Car_Modify';
 
