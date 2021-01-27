@@ -31,6 +31,8 @@ namespace Amadeus\Client\Struct\Car\Modify;
 class modificationData
 {
 
+  public $dummy;
+   
   /**
    * @var object
    */
@@ -49,6 +51,7 @@ class modificationData
         $formOfPayment->creditCardNumber = $ref->cardNumber;
         $formOfPayment->vendorCode = $ref->vendorCode;
         $formOfPayment->expiryDate = $ref->expiration;
+        $formOfPayment->extendedPayment = $ref->extendedPayment;
         $payment->formOfPayment = $formOfPayment;
         $this->payment = $payment;
 
