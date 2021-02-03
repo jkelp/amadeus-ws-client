@@ -153,15 +153,29 @@ class Customer extends LoadParamsFromArray
     if ($params->PaymentMethod) {
       foreach ($params->PaymentMethod as $paymentMethod) {
 
-        $parts = [
-          'start' => 'CC',
-          'brand' => $paymentMethod->brand,
-          'cardNumber' => $paymentMethod->cardNumber,
-          'slash' => '/',
-          'expMonth' => str_pad($paymentMethod->expirationMonth, 2, '0', STR_PAD_LEFT),
-          'expYear' => substr($paymentMethod->expirationYear, -2, 2)
-        ];
-        $text = implode('', $parts); //'CCVI4141424243434444/1226';
+        if ($paymentMethod->paymentTransactionTypeCode == 'reserve') {
+          //Produces this version: VI4141424243434444EXP1226;
+          $parts = [
+            'brand' => $paymentMethod->brand,
+            'cardNumber' => $paymentMethod->cardNumber,
+            'slash' => 'EXP',
+            'expMonth' => str_pad($paymentMethod->expirationMonth, 2, '0', STR_PAD_LEFT),
+            'expYear' => substr($paymentMethod->expirationYear, -2, 2)
+          ];
+        } else {
+          //Produces this version: CCVI4141424243434444/1226;
+          $parts = [
+            'start' => 'CC',
+            'brand' => $paymentMethod->brand,
+            'cardNumber' => $paymentMethod->cardNumber,
+            'slash' => '/',
+            'expMonth' => str_pad($paymentMethod->expirationMonth, 2, '0', STR_PAD_LEFT),
+            'expYear' => substr($paymentMethod->expirationYear, -2, 2)
+          ];
+        }
+
+        
+        $text = implode('', $parts); 
 
         $this->PaymentForm[] = new PaymentForm([
           'TransferIndicator' => $paymentMethod->transferIndicator,
