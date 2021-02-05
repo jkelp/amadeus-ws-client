@@ -29,7 +29,7 @@ use Amadeus\Client\Struct\Car\Availability\option;
  * @package Amadeus\Client\Struct\Car\Availability
  * @author Dieter Devlieghere <dieter.devlieghere@benelux.amadeus.com>
  */
-class SelectionDetails
+class selectionDetails
 {
 
     /**
