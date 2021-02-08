@@ -94,7 +94,7 @@ class HotelDescriptiveInfo
             $this->AreaInfo = new AreaInfo($segment->requestedInfo->referencePoints, $segment->requestedInfo->attractions, $segment->requestedInfo->recreations);
             $this->AffiliationInfo = new AffiliationInfo($segment->requestedInfo->loyaltyPrograms, $segment->requestedInfo->awards);
             $this->ContactInfo = new ContactInfo($segment->requestedInfo->contactInformation);
-            $this->MultimediaObjects = new MultiMediaObjects($segment->requestedInfo->multimedia);
+            $this->MultimediaObjects = new MultimediaObjects($segment->requestedInfo->multimedia);
             $this->ContentInfos = new ContentInfos($segment->requestedInfo->contentInfos);
         }
     }
