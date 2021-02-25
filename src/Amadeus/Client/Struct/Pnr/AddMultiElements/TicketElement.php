@@ -74,5 +74,10 @@ class TicketElement
             $ticketOptions->date,
             $ticketOptions->ticketQueue
         );
+
+        // JK
+        if (property_exists($ticketOptions, 'freetext')) {
+            $this->ticket->freetext = $ticketOptions->freetext;
+        }
     }
 }
