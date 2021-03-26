@@ -23,7 +23,7 @@
 namespace Amadeus\Client\Struct\Car\Availability;
 
 use Amadeus\Client\RequestOptions\Car\Availability\ProviderSpecOps;
-
+use Amadeus\Client\RequestOptions\Car\Availability\PUDOTimes;
 use Amadeus\Client\Struct\Car\Availability\companyDetails;
 
 use Amadeus\Client\Struct\Car\Availability\loyaltyNumbersList;
@@ -47,6 +47,8 @@ class providerSpecificOptions
      */
     public $loyaltyNumbersList;
 
+    public $pickupDropoffInfos;
+
 
     /**
      * providerSpecificOptions constructor.
@@ -58,5 +60,26 @@ class providerSpecificOptions
         $this->companyDetails = new companyDetails($providerOps->company);
 
         $this->loyaltyNumbersList = new loyaltyNumbersList($providerOps->refs);
+
+
+        // $pickupDropoffLocation = [];
+        $pickupDropoffLocation = new \stdClass;
+        $pickupDropoffLocation->locationType = 'PUP';
+        $pickupDropoffLocation->locationDescription = new \stdClass;
+        $pickupDropoffLocation->locationDescription->code = '1A';
+        $pickupDropoffLocation->locationDescription->name = 'BMGN70';
+
+        $pickupDropoffLocations = $pickupDropoffLocation;
+
+        //dd([$pickupDropoffLocations, $providerOps->locations[0]]);
+
+        $this->pickupDropoffInfos = new \stdClass;
+        //$this->pickupDropoffInfos->pickupDropoffLocations = $pickupDropoffLocations;
+        $this->pickupDropoffInfos->pickupDropoffLocations = $providerOps->locations;
+        $this->pickupDropoffInfos->pickupDropoffTimes = $providerOps->times;
+
+        // dd($providerOps->locations);
+
+        //dd($this);
     }
 }
