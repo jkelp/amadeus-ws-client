@@ -39,7 +39,7 @@ class DescriptiveInfo extends BaseWsMessage
     /**
      * @var string
      */
-    public $EchoToken = 'WithParsing';
+    public $EchoToken;
 
     /**
      * @var string
@@ -134,6 +134,7 @@ class DescriptiveInfo extends BaseWsMessage
         $this->SortOrder = $options->sortOrder;
         $this->MaxResponses = $options->maxResponses;
         $this->SearchCacheLevel = $options->searchCacheLevel;
+        $this->EchoToken = $options->echoToken;
     }
 
     /**

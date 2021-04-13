@@ -22,8 +22,8 @@
 
 namespace Amadeus\Client\RequestOptions;
 
-use Amadeus\Client\RequestOptions\Hotel\Sell\Booker;
-use Amadeus\Client\RequestOptions\Hotel\Sell\BookingCompany;
+use Amadeus\Client\RequestOptions\Hotel\Sell\RoomStay;
+use Amadeus\Client\RequestOptions\Hotel\Sell\AgentRef;
 
 /**
  * Hotel_Sell Request Options
@@ -33,30 +33,21 @@ use Amadeus\Client\RequestOptions\Hotel\Sell\BookingCompany;
  */
 class HotelSellOptions extends Base
 {
-    const DELIVER_ERETAIL = "AERE";
-    const DELIVER_ETRAVEL_MANAGEMENT = "AETM";
-    const DELIVER_COMMAND_PAGE = "COMM";
-    const DELIVER_SELL2_SELL_CONNECT = "SECO";
-    const DELIVER_SELLING_PLATFORM_CLASSIC = "SELL";
-    const DELIVER_NON_SPECIFIC_PRODUCT_FROM_SEL = "SEP";
-    const DELIVER_WEBSERVICES = "WEBS";
 
-    /**
-     * Booking system identifier
-     *
-     * self::DELIVER_*
-     *
-     * @var string
-     */
-    public $deliveringSystem;
+  /**
+   * Hotel segments availability requested
+   *
+   * @var RoomStay[]
+   */
+  public $roomStays = [];
 
-    /**
-     * @var BookingCompany[]
-     */
-    public $bookingCompany = [];
+  /**
+   * Hotel segments availability requested
+   *
+   * @var AgentRef[]
+   */
+  public $travelAgentReference;
 
-    /**
-     * @var Booker
-     */
-    public $booker;
+  public $systemId;
+
 }

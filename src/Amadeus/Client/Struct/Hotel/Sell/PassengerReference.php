@@ -22,38 +22,44 @@
 
 namespace Amadeus\Client\Struct\Hotel\Sell;
 
+
+use Amadeus\Client\RequestOptions\Hotel\Sell\Occupant;
+
 /**
- * PassengerReference
+ * Criterion
  *
  * @package Amadeus\Client\Struct\Hotel\Sell
  * @author Dieter Devlieghere <dieter.devlieghere@benelux.amadeus.com>
  */
-class PassengerReference
+class passengerReference
 {
-    const TYPE_BOOKING_PAYER_AND_HOLDER_NON_OCCUPANT = "BHN";
-    const TYPE_BOOKING_PAYER_AND_HOLDER_OCCUPANT = "BHO";
-    const TYPE_BOOKING_PAYER_NON_OCCUPANT = "BPN";
-    const TYPE_BOOKING_PAYER_OCCUPANT = "BPO";
-
-    /**
-     * self::TYPE_*
-     *
-     * @var string
-     */
+  /**
+   * Number of travellers
+   *
+   * @var string
+   */
     public $type;
 
     /**
-     * @var int
+     * Number of travellers
+     *
+     * @var string
      */
-    public $value;
+      public $value;
+
+
 
     /**
-     * @param int $tattoo
-     * @param string $type self::TYPE_*
+     * Criterion constructor.
+     *
+     *
      */
-    public function __construct($tattoo, $type)
+    public function __construct(Occupant $info)
     {
-        $this->value = $tattoo;
-        $this->type = $type;
+
+      $this->type = $info->occupantType;
+      $this->value = $info->value;
+
+
     }
 }
