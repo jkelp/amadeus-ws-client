@@ -1,4 +1,5 @@
 <?php
+
 /**
  * amadeus-ws-client
  *
@@ -31,11 +32,11 @@ namespace Amadeus\Client\Struct\Hotel\Sell;
  */
 class deliveringSystem
 {
-  /**
-   * Number of travellers
-   *
-   * @var string
-   */
+    /**
+     * Number of travellers
+     *
+     * @var string
+     */
     public $companyId;
 
 
@@ -48,8 +49,6 @@ class deliveringSystem
     public function __construct($info)
     {
 
-      $this->companyId = $info;
-
-
+        $this->companyId = $info;
     }
 }
