@@ -32,7 +32,13 @@ use Amadeus\Client\LoadParamsFromArray;
  */
 class PersonName extends LoadParamsFromArray
 {
+    public $NamePrefix;
+
     public $GivenName;
+
+    public $MiddleName;
+
+    public $NameSuffix;
 
     public $Surname;
 }
