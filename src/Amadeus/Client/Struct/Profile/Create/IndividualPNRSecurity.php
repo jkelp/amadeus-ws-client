@@ -20,29 +20,20 @@
  * @license https://opensource.org/licenses/Apache-2.0 Apache 2.0
  */
 
-namespace Amadeus\Client\RequestOptions\Profile;
+namespace Amadeus\Client\Struct\Profile\Create;
 
 use Amadeus\Client\LoadParamsFromArray;
 
-/**
- * Traveller in a PNR
- *
- * @package Amadeus\Client\RequestOptions\Pnr
- * @author Dieter Devlieghere <dermikagh@gmail.com>
- */
-class Preferences extends LoadParamsFromArray
+
+class IndividualPNRSecurity extends LoadParamsFromArray
 {
-    public $AirPreferences;
 
-    public $OtherServicePreferences;
+  public $ReceiverType;
 
-    public $HotelPreferences;
+  public $AccessMod;
 
-    public $VehicleRentalPreferences;
+  public $Receiver;
 
-    public $RailPreferences;
+  public $TransferIndicator;
 
-    public $RuleManagement;
-
-    public $TravelPurpose;
 }

@@ -32,6 +32,8 @@ class PrefCollection extends LoadParamsFromArray
 
   public $AirlinePref;
 
+  public $OtherSrvcPref;
+
   public $HotelPref;
 
   public $VehicleRentalPref;
@@ -49,6 +51,8 @@ class PrefCollection extends LoadParamsFromArray
     
     $this->loadAirlinePref($options);
 
+    $this->loadOtherSrvcPref($options);
+
     $this->loadHotelPref($options);
 
     $this->loadVehicleRentalPref($options);
@@ -61,6 +65,13 @@ class PrefCollection extends LoadParamsFromArray
   {
     if ($options->AirPreferences) {
       $this->AirlinePref = new AirlinePref($options->AirPreferences);
+    }
+  }
+
+  public function loadOtherSrvcPref($options)
+  {
+    if (!empty($options->OtherServicePreferences)) {
+      $this->OtherSrvcPref = new OtherSrvcPref($options->OtherServicePreferences);
     }
   }
 
