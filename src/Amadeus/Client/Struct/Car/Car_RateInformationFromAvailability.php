@@ -33,8 +33,7 @@ use Amadeus\Client\Struct\Car\RateInformation\rateCodeInfo;
 use Amadeus\Client\Struct\Car\RateInformation\vehicleInformation;
 use Amadeus\Client\Struct\Car\RateInformation\categorySelection;
 use Amadeus\Client\Struct\Car\RateInformation\currency;
-
-
+use Amadeus\Client\Struct\Car\RateInformation\customerInfo;
 
 /**
  * Hotel_MultiSingleAvailability request structure
@@ -80,6 +79,11 @@ class Car_RateInformationFromAvailability extends BaseWsMessage
     public $vehicleInformation;
 
     /**
+     * @var RateInformation\customerInfo
+     */
+    public $customerInfo;
+
+    /**
      * @var RateInformation\categorySelection
      */
     public $categorySelection;
@@ -115,8 +119,14 @@ class Car_RateInformationFromAvailability extends BaseWsMessage
         $this->rateInfo = new rateInfo($options->rateInfo);
         $this->rateCodeInfo = new rateCodeInfo($options->rateCodeInfo);
         $this->vehicleInformation = new vehicleInformation($options->vehicleInfo);
+
+        if (property_exists($options, 'customerInfo')) {
+            $this->customerInfo = new customerInfo($options->customerInfo);
+        }
+
         $this->categorySelection = new categorySelection($options->categorySelection);
         $this->currency = new currency($options->currency);
+        
 
     }
 

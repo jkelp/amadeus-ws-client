@@ -80,6 +80,14 @@ class CarRateInformationOptions extends Base
      */
     public $vehicleInfo;
 
+
+    /**
+     *
+     *
+     * @var Car\RateInformation\CustomerInfo
+     */
+    public $customerInfo;
+
     /**
      *
      *
