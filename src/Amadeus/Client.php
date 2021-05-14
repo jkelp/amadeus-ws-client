@@ -433,6 +433,25 @@ class Client extends Base
         return $this->callMessage($msgName, $options, $messageOptions);
     }
 
+
+    /**
+     * Queue_CountTotal - Return the total number of PNRs on each queue, category and date range
+     *
+     * @param RequestOptions\QueuePlacePnrOptions $options
+     * @param array $messageOptions (OPTIONAL)
+     * @return Result
+     * @throws Client\InvalidMessageException
+     * @throws Client\RequestCreator\MessageVersionUnsupportedException
+     * @throws Exception
+     */
+    public function queueCountTotal(RequestOptions\QueueCountTotalOptions $options, $messageOptions = [])
+    {
+        $msgName = 'Queue_CountTotal';
+
+        return $this->callMessage($msgName, $options, $messageOptions);
+    }
+
+
     /**
      * PNR_Ignore - Ignore an Amadeus PNR by record locator
      *
