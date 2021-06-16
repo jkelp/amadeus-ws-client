@@ -58,6 +58,8 @@ class AvailRequestSegment
                 $segment->bestOnly,
                 $segment->availableOnly
             );
+
+            $this->MoreDataEchoToken = $segment->moreDataEchoToken;
         }
     }
 }

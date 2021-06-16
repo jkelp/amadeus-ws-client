@@ -59,6 +59,15 @@ class Queue
      */
     public $category = 0;
 
+
+    /**
+     * OPTIONAL
+     *
+     * @var int
+     */
+    public $categoryType;
+
+
     /**
      * OPTIONAL
      *

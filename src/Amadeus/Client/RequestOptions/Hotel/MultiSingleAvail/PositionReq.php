@@ -41,8 +41,10 @@ class PositionReq extends LoadParamsFromArray
     {
 
         parent::__construct($params);
-        $this->latitude *= 100000;
-        $this->longitude *= 100000;
+        
+        $this->latitude = (int) ($this->latitude * 100000);
+
+        $this->longitude = (int) ($this->longitude * 100000);
     }
 
 }

@@ -31,6 +31,10 @@ namespace Amadeus\Client\RequestOptions;
 class HotelDescriptiveInfoOptions extends Base
 {
 
+
+    public $echoToken;
+
+    
     /**
      * Hotel segments availability requested
      *

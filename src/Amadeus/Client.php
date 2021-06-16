@@ -433,6 +433,25 @@ class Client extends Base
         return $this->callMessage($msgName, $options, $messageOptions);
     }
 
+
+    /**
+     * Queue_CountTotal - Return the total number of PNRs on each queue, category and date range
+     *
+     * @param RequestOptions\QueuePlacePnrOptions $options
+     * @param array $messageOptions (OPTIONAL)
+     * @return Result
+     * @throws Client\InvalidMessageException
+     * @throws Client\RequestCreator\MessageVersionUnsupportedException
+     * @throws Exception
+     */
+    public function queueCountTotal(RequestOptions\QueueCountTotalOptions $options, $messageOptions = [])
+    {
+        $msgName = 'Queue_CountTotal';
+
+        return $this->callMessage($msgName, $options, $messageOptions);
+    }
+
+
     /**
      * PNR_Ignore - Ignore an Amadeus PNR by record locator
      *
@@ -1602,6 +1621,38 @@ class Client extends Base
         return $this->callMessage($msgName, $options, $messageOptions);
     }
 
+    /**
+     * Hotel_Sell
+     *
+     * @param RequestOptions\HotelSellOptions $options
+     * @param array $messageOptions (OPTIONAL)
+     * @return Result
+     */
+    public function hotelSell(
+        RequestOptions\HotelSellOptions $options,
+        $messageOptions = []
+    ) {
+        $msgName = 'Hotel_Sell';
+
+        return $this->callMessage($msgName, $options, $messageOptions);
+    }
+
+    /**
+     * Hotel_MultiSingleAvailability
+     *
+     * @param RequestOptions\HotelCompleteReservationDetailsOptions $options
+     * @param array $messageOptions (OPTIONAL)
+     * @return Result
+     */
+    public function hotelCompleteReservationDetails(
+        RequestOptions\HotelCompleteReservationDetailsOptions $options,
+        $messageOptions = []
+    ) {
+        $msgName = 'Hotel_CompleteReservationDetails';
+
+        return $this->callMessage($msgName, $options, $messageOptions);
+    }
+
 
     /**
      * Hotel_DescriptiveInfo
@@ -1636,17 +1687,87 @@ class Client extends Base
         return $this->callMessage($msgName, $options, $messageOptions);
     }
 
-
     /**
-     * Hotel_Sell
+     * CarAvailability
      *
-     * @param RequestOptions\HotelSellOptions $options
+     * @param RequestOptions\CarAvailOptions $options
      * @param array $messageOptions (OPTIONAL)
      * @return Result
      */
-    public function hotelSell(RequestOptions\HotelSellOptions $options, $messageOptions = [])
+    public function carAvailability(RequestOptions\CarAvailOptions $options, $messageOptions = [])
     {
-        $msgName = 'Hotel_Sell';
+        $msgName = 'Car_Availability';
+
+        return $this->callMessage($msgName, $options, $messageOptions);
+    }
+
+    /**
+     * CarRateInformation
+     *
+     * @param RequestOptions\CarRateInformationOptions $options
+     * @param array $messageOptions (OPTIONAL)
+     * @return Result
+     */
+    public function carRateInformation(RequestOptions\CarRateInformationOptions $options, $messageOptions = [])
+    {
+        $msgName = 'Car_RateInformationFromAvailability';
+
+        return $this->callMessage($msgName, $options, $messageOptions);
+    }
+
+    /**
+     * CarRateInformation
+     *
+     * @param RequestOptions\CarRateFromSegmentOptions $options
+     * @param array $messageOptions (OPTIONAL)
+     * @return Result
+     */
+    public function carRateInformationFromCarSegment(RequestOptions\CarRateFromSegmentOptions $options, $messageOptions = [])
+    {
+        $msgName = 'Car_RateInformationFromCarSegment';
+
+        return $this->callMessage($msgName, $options, $messageOptions);
+    }
+
+    /**
+     * CarSell
+     *
+     * @param RequestOptions\CarSellOptions $options
+     * @param array $messageOptions (OPTIONAL)
+     * @return Result
+     */
+    public function carSell(RequestOptions\CarSellOptions $options, $messageOptions = [])
+    {
+        $msgName = 'Car_Sell';
+
+        return $this->callMessage($msgName, $options, $messageOptions);
+    }
+
+    /**
+     * CarModify
+     *
+     * @param RequestOptions\CarModifyOptions $options
+     * @param array $messageOptions (OPTIONAL)
+     * @return Result
+     */
+    public function carModify(RequestOptions\CarModifyOptions $options, $messageOptions = [])
+    {
+        $msgName = 'Car_Modify';
+
+        return $this->callMessage($msgName, $options, $messageOptions);
+    }
+
+
+    /**
+     * CarLocation
+     *
+     * @param RequestOptions\CarLocationListOptions $options
+     * @param array $messageOptions (OPTIONAL)
+     * @return Result
+     */
+    public function carLocationList(RequestOptions\CarLocationListOptions $options, $messageOptions = [])
+    {
+        $msgName = 'Car_LocationList';
 
         return $this->callMessage($msgName, $options, $messageOptions);
     }

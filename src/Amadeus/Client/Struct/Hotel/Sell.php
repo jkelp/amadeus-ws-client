@@ -24,15 +24,9 @@ namespace Amadeus\Client\Struct\Hotel;
 
 use Amadeus\Client\RequestOptions\HotelSellOptions;
 use Amadeus\Client\Struct\BaseWsMessage;
-use Amadeus\Client\Struct\Hotel\Sell\ArrivalFlightDetailsGrp;
-use Amadeus\Client\Struct\Hotel\Sell\BookingCompany;
-use Amadeus\Client\Struct\Hotel\Sell\BookingPayerDetails;
-use Amadeus\Client\Struct\Hotel\Sell\ExtraIndentification;
-use Amadeus\Client\Struct\Hotel\Sell\GroupIndicator;
-use Amadeus\Client\Struct\Hotel\Sell\RoomStayData;
-use Amadeus\Client\Struct\Hotel\Sell\SystemIdentifier;
-use Amadeus\Client\Struct\Hotel\Sell\TravelAgentRef;
-use Amadeus\Client\Struct\Pnr\ReservationInfo;
+use Amadeus\Client\Struct\Hotel\Sell\roomStayData;
+use Amadeus\Client\Struct\Hotel\Sell\systemIdentifier;
+use Amadeus\Client\Struct\Hotel\Sell\travelAgentRef;
 
 /**
  * Hotel_Sell request structure
@@ -42,50 +36,15 @@ use Amadeus\Client\Struct\Pnr\ReservationInfo;
  */
 class Sell extends BaseWsMessage
 {
-    /**
-     * @var SystemIdentifier
-     */
-    public $systemIdentifier;
 
     /**
-     * @var BookingCompany[]
-     */
-    public $bookingCompany = [];
-
-    /**
-     * @var ReservationInfo
-     */
-    public $reservationInfo;
-
-    /**
-     * @var ExtraIndentification
-     */
-    public $extraIndentification;
-
-    /**
-     * @var GroupIndicator
-     */
-    public $groupIndicator;
-
-    /**
-     * @var TravelAgentRef[]
-     */
-    public $travelAgentRef = [];
-
-    /**
-     * @var BookingPayerDetails
-     */
-    public $bookingPayerDetails;
-
-    /**
-     * @var RoomStayData[]
+     * @var roomStayData[]
      */
     public $roomStayData = [];
 
-    /**
-     * @var ArrivalFlightDetailsGrp
-     */
-    public $arrivalFlightDetailsGrp;
+    public $systemIdentifier;
+
+    public $travelAgentRef;
 
     /**
      * Hotel_Sell constructor.
@@ -94,6 +53,12 @@ class Sell extends BaseWsMessage
      */
     public function __construct(HotelSellOptions $options)
     {
-        //TODO
+        foreach($options->roomStays as $roomStay){
+          $this->roomStayData[] = new roomStayData($roomStay);
+        }
+
+        $this->systemIdentifier = new systemIdentifier($options->systemId);
+
+        $this->travelAgentRef = new travelAgentRef($options->travelAgentReference);
     }
 }
