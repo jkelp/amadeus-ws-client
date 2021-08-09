@@ -47,4 +47,6 @@ class PaymentMethod extends LoadParamsFromArray
     public $paymentTransactionTypeCode;
 
     public $paymentTypeCode;
+
+    public $text = null;
 }
