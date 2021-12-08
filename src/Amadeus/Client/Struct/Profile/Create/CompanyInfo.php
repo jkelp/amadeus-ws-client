@@ -105,7 +105,7 @@ class CompanyInfo extends LoadParamsFromArray
     foreach ($options->PaymentMethod as $paymentMethod) {
       $paymentForm = new stdClass;
       $paymentForm->PaymentCard = new stdClass;
-      $paymentForm->TransferIndicator = 'S';
+      $paymentForm->TransferIndicator = $paymentMethod->transferIndicator;
 
       // Use a text string if provided, otherwise combine fields
       if ($paymentMethod->text) {
