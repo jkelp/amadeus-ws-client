@@ -215,6 +215,12 @@ class MasterPricerTravelBoardSearch extends BaseMasterPricerMessage
                     $anchoredSegment
                 );
             }, $opt->anchoredSegments);
+        } else {
+            // See https://developers.amadeus.com/api-library/soap/functional-doc/581/doc-read/136165?serviceVersion=21.4
+            // If not using anchored search for one of the segments
+            // we must set the actionRequestCode to "MF"
+            $tmpItinerary->requestedSegmentAction = new \stdClass;
+            $tmpItinerary->requestedSegmentAction->actionRequestCode = 'MF';
         }
 
         $tmpItinerary->arrivalLocalization = new MasterPricer\ArrivalLocalization(
