@@ -34,6 +34,9 @@ class OrderCreateRequest
 
         $this->CreateOrder = new CreateOrder($options->createOrder);
 
-        $this->PaymentInfo = new PaymentInfo($options->paymentInfo);
+        if (isset($options->paymentInfo)){
+            $this->PaymentInfo = new PaymentInfo($options->paymentInfo);
+        }
+
     }
 }

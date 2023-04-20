@@ -17,4 +17,5 @@ class Pax extends LoadParamsFromArray
     public $individual;
     public $identityDoc;
     public $profileId;
+    public $loyaltyProgramAccount = [];	
 }

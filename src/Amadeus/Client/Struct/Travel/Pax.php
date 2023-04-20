@@ -9,7 +9,9 @@ namespace Amadeus\Client\Struct\Travel;
 use Amadeus\Client\Struct\Travel\ContactInfo;
 use Amadeus\Client\Struct\Travel\Individual;
 use Amadeus\Client\Struct\Travel\IdentityDoc;
+use Amadeus\Client\Struct\Travel\LoyaltyProgramAccount;
 
+use Amadeus\Client\RequestOptions\Travel\Pax as PaxOptions;
 
 class Pax 
 {
@@ -21,12 +23,13 @@ class Pax
     public $Individual;
     public $IdentityDoc;
     public $ProfileID_Text;
+    public $LoyaltyProgramAccount = [];
 
     /**
      *
      * @param $options
      */
-    public function __construct($options)
+    public function __construct(PaxOptions $options)
     {
         $this->PaxID = $options->paxId;
         $this->PTC = $options->ptc;
@@ -44,6 +47,10 @@ class Pax
 
         if ($options->identityDoc){
             $this->IdentityDoc = new IdentityDoc($options->identityDoc);
+        }
+
+        foreach($options->loyaltyProgramAccount as $program){
+            $this->LoyaltyProgramAccount[] = new LoyaltyProgramAccount($program);
         }
         
         
