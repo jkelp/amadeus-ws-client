@@ -32,6 +32,7 @@ class UnitNumberDetail
 {
     const TYPE_PASS = 'PX';
     const TYPE_RESULTS = 'RC';
+    const TYPE_NDC = 'NDC';
     const TYPE_NUM_OF_CONNECTIONS_ALLOWED = 'C';
     const TYPE_DEPARTED_FLIGHTS = 'DPT';
     const TYPE_MAXIMUM_PROGRESSIVE_CONNECTIONS = 'MAC';
