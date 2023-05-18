@@ -13,5 +13,6 @@ class LoyaltyProgramAccount extends LoadParamsFromArray
     public $programCode;
     public $accountNumber; 
     public $providerName;
+    public $carrier;
 
 }

@@ -5,6 +5,7 @@
  */
 
 namespace Amadeus\Client\Struct\Travel;
+use Amadeus\Client\Struct\Travel\Carrier;
 
 use Amadeus\Client\RequestOptions\Travel\LoyaltyProgramAccount as RequestOptions;
 
@@ -15,6 +16,7 @@ class LoyaltyProgramAccount
     public $ProgramCode;
     public $AccountNumber; 
     public $ProviderName;
+    public $Carrier;
 
     /**
      *
@@ -39,6 +41,9 @@ class LoyaltyProgramAccount
             $this->ProviderName = $options->providerName;
         }
 
+        if ($options->carrier){
+            $this->Carrier = new Carrier($options->carrier);
+        }
         
     }
 }

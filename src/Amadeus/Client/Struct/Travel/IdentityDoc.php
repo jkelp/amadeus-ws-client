@@ -15,6 +15,7 @@ class IdentityDoc
     public $IdentityDocTypeCode;
     public $IssuingCountryCode; 
     public $ExpiryDate;
+    public $Visa;
 
     /**
      *
@@ -26,6 +27,10 @@ class IdentityDoc
         $this->IdentityDocTypeCode = $options->type;
         $this->IssuingCountryCode = $options->issuerCountry;
         $this->ExpiryDate = $options->expirationDate;
+
+        if ($options->visa){
+            $this->Visa = new Visa($options->visa);
+        }
 
         
     }

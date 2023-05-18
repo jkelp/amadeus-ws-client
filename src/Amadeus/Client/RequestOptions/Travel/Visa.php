@@ -7,12 +7,13 @@
 namespace Amadeus\Client\RequestOptions\Travel;
 use Amadeus\Client\LoadParamsFromArray;
 
-class IdentityDoc extends LoadParamsFromArray
+class Visa extends LoadParamsFromArray
 {
     public $id;
     public $type;
-    public $issuerCountry; 
+    public $duration; 
     public $expirationDate;
-    public $visa;
+    public $entryQty;
+    public $countryCode;
 
 }
