@@ -54,6 +54,7 @@ class MpBaseOptions extends Base
     const FLIGHTOPT_MINIRULES = 'MNR';
     const FLIGHTOPT_ONLY_BUNDLED_FARES = 'BD';
     const FLIGHTOPT_ONLY_UNBUNDLED_FARES = 'UBD';
+    const FLIGHTOPT_EXCLUDE_NDC = 'XND';
 
     const CORPORATE_QUALIFIER_AMADEUS_NEGO = 'RC';
     const CORPORATE_QUALIFIER_UNIFARE = 'RW';
@@ -73,6 +74,13 @@ class MpBaseOptions extends Base
      * @var int
      */
     public $nrOfRequestedResults;
+
+    /**
+     * Whether to return only NDC fares
+     *
+     * @var bool
+     */
+    public $ndcOnly;
 
     /**
      * Passenger info

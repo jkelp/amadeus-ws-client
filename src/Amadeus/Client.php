@@ -27,6 +27,7 @@ use Amadeus\Client\Exception;
 use Amadeus\Client\Params;
 use Amadeus\Client\RequestOptions;
 use Amadeus\Client\RequestOptions\Car;
+use Illuminate\Support\Facades\Log;
 
 use Amadeus\Client\Result;
 use Amadeus\Client\Session\Handler\UnsupportedOperationException;
@@ -1974,6 +1975,137 @@ class Client extends Base
         return $this->callMessage($msgName, $options, $messageOptions);
     }
 
+    /**
+     * MT - Travel_OfferPrice == AMA_TravelOfferPriceRQ
+     *
+     * @param RequestOptions\Travel\TravelRequestOptions $options
+     * @param array $messageOptions (OPTIONAL)
+     * @return Result
+     * @throws Client\InvalidMessageException
+     * @throws Client\RequestCreator\MessageVersionUnsupportedException
+     * @throws Exception
+     */
+    public function travelOfferPrice(
+        RequestOptions\Travel\TravelRequestOptions $options,
+        $messageOptions = []
+    ) {
+        $msgName = 'Travel_OfferPrice';
+
+        return $this->callMessage($msgName, $options, $messageOptions);
+    }
+
+    /**
+     * MT - Travel_OrderRetrieve == AMA_TravelOrderRetrieveRQ
+     *
+     * @param RequestOptions\Travel\TravelRequestOptions $options
+     * @param array $messageOptions (OPTIONAL)
+     * @return Result
+     * @throws Client\InvalidMessageException
+     * @throws Client\RequestCreator\MessageVersionUnsupportedException
+     * @throws Exception
+     */
+    public function travelOrderRetrieve(
+        RequestOptions\Travel\TravelRequestOptions $options,
+        $messageOptions = []
+    ) {
+        $msgName = 'Travel_OrderRetrieve';
+
+        return $this->callMessage($msgName, $options, $messageOptions);
+    }
+
+    /**
+     * MT - Travel_OrderCreate == AMA_TravelOrderCreateRQ
+     *
+     * @param RequestOptions\Travel\TravelRequestOptions $options
+     * @param array $messageOptions (OPTIONAL)
+     * @return Result
+     * @throws Client\InvalidMessageException
+     * @throws Client\RequestCreator\MessageVersionUnsupportedException
+     * @throws Exception
+     */
+    public function travelOrderCreate(
+        RequestOptions\Travel\TravelRequestOptions $options,
+        $messageOptions = []
+    ) {
+        $msgName = 'Travel_OrderCreate';
+
+        return $this->callMessage($msgName, $options, $messageOptions);
+    }
+
+    /**
+     * MT - Travel_OrderPay == AMA_Travel_OrderPayRQ
+     *
+     * @param RequestOptions\Travel\TravelRequestOptions $options
+     * @param array $messageOptions (OPTIONAL)
+     * @return Result
+     * @throws Client\InvalidMessageException
+     * @throws Client\RequestCreator\MessageVersionUnsupportedException
+     * @throws Exception
+     */
+    public function travelOrderPay(
+        RequestOptions\Travel\TravelRequestOptions $options,
+        $messageOptions = []
+    ) {
+        $msgName = 'Travel_OrderPay';
+
+        return $this->callMessage($msgName, $options, $messageOptions);
+    }
+
+    /**
+     * MT - Travel_OrderReshop == AMA_Travel_OrderReshopRQ
+     *
+     * @param RequestOptions\Travel\TravelRequestOptions $options
+     * @param array $messageOptions (OPTIONAL)
+     * @return Result
+     * @throws Client\InvalidMessageException
+     * @throws Client\RequestCreator\MessageVersionUnsupportedException
+     * @throws Exception
+     */
+    public function travelOrderReshop(
+        RequestOptions\Travel\TravelRequestOptions $options,
+        $messageOptions = []
+    ) {
+        $msgName = 'Travel_OrderReshop';
+
+        return $this->callMessage($msgName, $options, $messageOptions);
+    }
+
+    /**
+     * MT - Travel_OrderCancel == AMA_Travel_OrderCancelRQ
+     *
+     * @param RequestOptions\Travel\TravelRequestOptions $options
+     * @param array $messageOptions (OPTIONAL)
+     * @return Result
+     * @throws Client\InvalidMessageException
+     * @throws Client\RequestCreator\MessageVersionUnsupportedException
+     * @throws Exception
+     */
+    public function travelOrderCancel(
+        RequestOptions\Travel\TravelRequestOptions $options,
+        $messageOptions = []
+    ) {
+        $msgName = 'Travel_OrderCancel';
+
+        return $this->callMessage($msgName, $options, $messageOptions);
+    }
+
+    /**
+     * MT - Travel_SeatAvailability == AMA_SeatAvailabilityRQ
+     *
+     * @param RequestOptions\Travel\TravelRequestOptions $options
+     * @param array $messageOptions (OPTIONAL)
+     * @return Result
+     * @throws Client\InvalidMessageException
+     * @throws Client\RequestCreator\MessageVersionUnsupportedException
+     * @throws Exception
+     */
+    public function travelSeatAvailability(
+        RequestOptions\Travel\TravelRequestOptions $options,
+        $messageOptions = []
+    ) {
+        $msgName = 'Travel_SeatAvailability';
+        return $this->callMessage($msgName, $options, $messageOptions);
+    }
 
     /**
      * Call a message with the given parameters
@@ -1995,6 +2127,9 @@ class Client extends Base
         $messageOptions = $this->makeMessageOptions($messageOptions, $endSession);
 
         $this->lastMessage = $messageName;
+
+        Log::debug($messageName . ' RequestOptions (Client.php)');
+        Log::debug(json_encode($options));
 
         $sendResult = $this->sessionHandler->sendMessage(
             $messageName,
