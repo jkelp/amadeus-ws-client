@@ -74,6 +74,11 @@ class sellData
      */
     public $rateInfo;
 
+    /**
+     * @var FFlyerNbr
+     */
+    public $fFlyerNbr;
+
 
     /**
      * CarProviderIndicator constructor.
@@ -113,6 +118,10 @@ class sellData
 
         if (!empty($data->rateInfo)){
           $this->rateInfo = new rateInfo($data->rateInfo);
+        }
+
+        if (!empty($data->travelerProgram)){
+          $this->fFlyerNbr = new FFlyerNbr($data->travelerProgram);
         }
     }
 }

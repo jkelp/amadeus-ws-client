@@ -50,4 +50,6 @@ class SellInfo extends LoadParamsFromArray
 
       public $rateInfo;
 
+      public $travelerProgram;
+
 }

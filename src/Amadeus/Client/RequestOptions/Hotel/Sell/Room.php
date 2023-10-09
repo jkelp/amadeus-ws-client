@@ -49,4 +49,6 @@ class Room extends LoadParamsFromArray
 
     public $guests;
 
+    public $travelerProgram;
+
 }

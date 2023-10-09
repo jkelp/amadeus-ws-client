@@ -46,6 +46,8 @@ class roomList
 
     public $guestList;
 
+    public $frequentTravellerInfo;
+
 
     /**
      * Criterion constructor.
@@ -63,6 +65,10 @@ class roomList
           foreach ($stay->guests as $guest) {
               $this->guestList[] = new guestList($guest);
           }
+        }
+
+        if (!empty($stay->travelerProgram)){
+            $this->frequentTravellerInfo = new FrequentTravellerInfo($stay->travelerProgram);
         }
     }
 }
