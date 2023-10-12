@@ -46,6 +46,8 @@ class roomList
 
     public $guestList;
 
+    public $customerInfo;
+
     public $frequentTravellerInfo;
 
 
@@ -65,6 +67,10 @@ class roomList
           foreach ($stay->guests as $guest) {
               $this->guestList[] = new guestList($guest);
           }
+        }
+
+        if (!empty($stay->customerInfo)){
+            $this->customerInfo = new customerInfo($stay->customerInfo);
         }
 
         if (!empty($stay->travelerProgram)){

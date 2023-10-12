@@ -32,20 +32,29 @@ class customerInfo
 {
 
     public $customerReferences;
-
-
+    public $otherCustomerRef;
 
     /**
      * CarProviderIndicator constructor.
      *
      */
-    public function __construct($customInfo)
+    public function __construct($customInfo = [])
     {
+        foreach ($customInfo as $n => $info) {
 
-        $this->customerReferences = (object) [
-            'referenceQualifier' => $customInfo->qualifier,
-            'referenceNumber' => $customInfo->number
-        ];
+            if ($n == 0) {
+                $this->customerReferences = (object) [
+                    'referenceQualifier' => $info->qualifier,
+                    'referenceNumber' => $info->number
+                ];
+            } else {
+                $this->otherCustomerRef = (object) [
+                    'referenceQualifier' => $info->qualifier,
+                    'referenceNumber' => $info->number
+                ];
+            }
+            
+        }
 
     }
 
