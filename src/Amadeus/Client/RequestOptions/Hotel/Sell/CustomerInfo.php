@@ -20,7 +20,7 @@
  * @license https://opensource.org/licenses/Apache-2.0 Apache 2.0
  */
 
-namespace Amadeus\Client\RequestOptions\Car\Sell;
+namespace Amadeus\Client\RequestOptions\Hotel\Sell;
 
 use Amadeus\Client\LoadParamsFromArray;
 
@@ -30,26 +30,11 @@ use Amadeus\Client\LoadParamsFromArray;
  * @package Amadeus\Client\RequestOptions\Car\RateInformation
  * @author Dieter Devlieghere <dieter.devlieghere@benelux.amadeus.com>
  */
-class SellInfo extends LoadParamsFromArray
+class CustomerInfo extends LoadParamsFromArray
 {
 
-      public $companyIdentification;
+      public $qualifier;
+      public $number;
 
-      /**
-       * @var Location[]
-       */
-      public $locationInfo = [];
-
-      public $pickupDropoffTimes;
-
-      public $vehicleInformation;
-
-      public $rateCodeInfo;
-
-      public $customerInfo;
-
-      public $rateInfo;
-
-      public $flyerProgram;
 
 }
