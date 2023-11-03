@@ -21,7 +21,7 @@ class Pax
     public $AgeMeasure;
     public $ContactInfo;
     public $Individual;
-    public $IdentityDoc;
+    public $IdentityDoc = [];
     public $ProfileID_Text;
     public $LoyaltyProgramAccount = [];
 
@@ -45,8 +45,8 @@ class Pax
             $this->Individual = new Individual($options->individual);
         }
 
-        if ($options->identityDoc){
-            $this->IdentityDoc = new IdentityDoc($options->identityDoc);
+        foreach ($options->identityDoc as $doc) {
+            $this->IdentityDoc = new IdentityDoc($doc);
         }
 
         foreach($options->loyaltyProgramAccount as $program){

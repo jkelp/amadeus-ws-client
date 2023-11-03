@@ -15,7 +15,7 @@ class Pax extends LoadParamsFromArray
     public $age;
     public $contactInfo;
     public $individual;
-    public $identityDoc;
+    public $identityDoc = [];
     public $profileId;
     public $loyaltyProgramAccount = [];	
 }
