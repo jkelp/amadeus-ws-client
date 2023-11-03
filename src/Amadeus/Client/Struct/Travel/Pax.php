@@ -46,7 +46,7 @@ class Pax
         }
 
         foreach ($options->identityDoc as $doc) {
-            $this->IdentityDoc = new IdentityDoc($doc);
+            $this->IdentityDoc[] = new IdentityDoc($doc);
         }
 
         foreach($options->loyaltyProgramAccount as $program){
