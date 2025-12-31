@@ -47,7 +47,7 @@ class creditCardInfo
      */
     public function __construct($info)
     {
-      if ($info)
+      if ($info) {
         $this->ccInfo = new ccInfo($info);
       }
     }
