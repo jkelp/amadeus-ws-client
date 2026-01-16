@@ -106,6 +106,12 @@ class MasterPricerTravelBoardSearch extends BaseMasterPricerMessage
      * @var MasterPricer\OfficeIdDetails[]
      */
     public $officeIdDetails;
+    /**
+     * @var boolean
+     */
+    public $anchoredSearch = false;
+
+
 
     /**
      * MasterPricerTravelBoardSearch constructor.
@@ -124,6 +130,11 @@ class MasterPricerTravelBoardSearch extends BaseMasterPricerMessage
      */
     protected function loadOptions($options)
     {
+
+        if ( in_array('ACS', $options->flightOptions) ) {
+            $this->anchoredSearch = true;
+        }
+
         $this->loadNumberOfUnits($options);
 
         $this->loadFareOptions($options);
@@ -137,6 +148,7 @@ class MasterPricerTravelBoardSearch extends BaseMasterPricerMessage
         $segmentCounter = 1;
         foreach ($options->itinerary as $itinerary) {
             $this->loadItinerary($itinerary, $segmentCounter);
+            
         }
 
         foreach ($options->officeIds as $officeId) {
@@ -204,6 +216,7 @@ class MasterPricerTravelBoardSearch extends BaseMasterPricerMessage
         }
 
         $tmpItinerary = new MasterPricer\Itinerary($segmentRef);
+        
 
         $tmpItinerary->departureLocalization = new MasterPricer\DepartureLocalization(
             $opt->departureLocation
@@ -215,6 +228,24 @@ class MasterPricerTravelBoardSearch extends BaseMasterPricerMessage
                     $anchoredSegment
                 );
             }, $opt->anchoredSegments);
+        } else {
+            // See https://developers.amadeus.com/api-library/soap/functional-doc/581/doc-read/136165?serviceVersion=21.4
+            // If not using anchored search for one of the segments
+            // we must set the actionRequestCode to "MF"
+            $tmpItinerary->requestedSegmentAction = new \stdClass;
+            $tmpItinerary->requestedSegmentAction->actionRequestCode = 'MF';
+        }
+
+        if (!empty($opt->segmentAction)) {
+            $tmpItinerary->requestedSegmentAction = new MasterPricer\RequestedSegmentAction($opt->segmentAction);
+        } else if ($this->anchoredSearch) {
+
+            //If this is an anchored search, add actionRequestCode = 'MF' to each of the NON-anchored segments
+
+            if (!$opt->anchoredSegments){
+                $tmpItinerary->requestedSegmentAction = new MasterPricer\RequestedSegmentAction;
+                $tmpItinerary->requestedSegmentAction->actionRequestCode = 'MF';
+            }
         }
 
         $tmpItinerary->arrivalLocalization = new MasterPricer\ArrivalLocalization(

@@ -64,6 +64,13 @@ class MPItinerary extends LoadParamsFromArray
     public $segmentReference;
 
     /**
+     * Segment Action (optional)
+     *
+     * @var MPSegmentAction
+     */
+    public $segmentAction;
+
+    /**
      * Departure location
      *
      * @var MPLocation
@@ -169,4 +176,6 @@ class MPItinerary extends LoadParamsFromArray
      * @var array[MPAnchoredSegment]
      */
     public $anchoredSegments;
+
+
 }

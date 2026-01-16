@@ -105,18 +105,25 @@ class CompanyInfo extends LoadParamsFromArray
     foreach ($options->PaymentMethod as $paymentMethod) {
       $paymentForm = new stdClass;
       $paymentForm->PaymentCard = new stdClass;
-      $paymentForm->TransferIndicator = 'S';
+      $paymentForm->TransferIndicator = $paymentMethod->transferIndicator;
 
-      // v1 - combine into a single string
-      $parts = [
-        'start' => 'CC',
-        'brand' => $paymentMethod->brand,
-        'cardNumber' => $paymentMethod->cardNumber,
-        'slash' => '/',
-        'expMonth' => str_pad($paymentMethod->expirationMonth, 2, '0', STR_PAD_LEFT),
-        'expYear' => substr($paymentMethod->expirationYear, -2, 2)
-      ];
-      $paymentForm->PaymentCard->Text = implode('', $parts); //'CCVI4141424243434444/1226';
+      // Use a text string if provided, otherwise combine fields
+      if ($paymentMethod->text) {
+        $paymentForm->PaymentCard->Text = $paymentMethod->text;
+      } else {
+        // v1 - combine into a single string
+        $parts = [
+          'start' => 'CC',
+          'brand' => $paymentMethod->brand,
+          'cardNumber' => $paymentMethod->cardNumber,
+          'slash' => '/',
+          'expMonth' => str_pad($paymentMethod->expirationMonth, 2, '0', STR_PAD_LEFT),
+          'expYear' => substr($paymentMethod->expirationYear, -2, 2)
+        ];
+        $paymentForm->PaymentCard->Text = implode('', $parts); //'CCVI4141424243434444/1226';
+      }
+
+      
 
       //dd($paymentForm);
       // $paymentForm->PaymentCard->CardType = '1';
