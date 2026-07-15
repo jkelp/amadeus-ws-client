@@ -30,8 +30,14 @@ class IdentityDoc
         $this->IssueDate = $options->issueDate;
         $this->ExpiryDate = $options->expirationDate;
 
-        if ($options->visa){
-            $this->Visa = new Visa($options->visa);
+        if ($options->visa) {
+            // Support a single Visa or an array of Visa options so multiple
+            // <Visa> nodes can nest under one passport IdentityDoc.
+            $visaOptions = is_array($options->visa) ? $options->visa : [$options->visa];
+            $this->Visa = [];
+            foreach ($visaOptions as $visaOption) {
+                $this->Visa[] = new Visa($visaOption);
+            }
         }
 
         
