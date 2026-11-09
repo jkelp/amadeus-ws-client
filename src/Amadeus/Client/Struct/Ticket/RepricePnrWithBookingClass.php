@@ -1,4 +1,5 @@
 <?php
+
 /**
  * amadeus-ws-client
  *
@@ -25,6 +26,8 @@ namespace Amadeus\Client\Struct\Ticket;
 use Amadeus\Client\RequestOptions\Fare\PricePnr\AwardPricing;
 use Amadeus\Client\RequestOptions\Fare\PricePnr\ExemptTax;
 use Amadeus\Client\RequestOptions\Fare\PricePnr\FareBasis;
+use Amadeus\Client\RequestOptions\Fare\PricePnr\FareFamily;
+use Amadeus\Client\RequestOptions\Fare\PricePnr\PaxSegRef as FareFamilyRef;
 use Amadeus\Client\RequestOptions\Fare\PricePnr\Tax;
 use Amadeus\Client\RequestOptions\Ticket\ExchangeInfoOptions;
 use Amadeus\Client\RequestOptions\Ticket\MultiRefOpt;
@@ -33,6 +36,7 @@ use Amadeus\Client\RequestOptions\TicketRepricePnrWithBookingClassOptions;
 use Amadeus\Client\Struct\BaseWsMessage;
 use Amadeus\Client\Struct\Fare\PricePnr13\CarrierInformation;
 use Amadeus\Client\Struct\Fare\PricePnr13\Currency;
+use Amadeus\Client\Struct\Fare\PricePnr13\CriteriaDetails;
 use Amadeus\Client\Struct\Fare\PricePnr13\FrequentFlyerInformation;
 use Amadeus\Client\Struct\Fare\PricePnr13\FrequentTravellerDetails;
 use Amadeus\Client\Struct\Fare\PricePnr13\LocationInformation;
@@ -176,6 +180,11 @@ class RepricePnrWithBookingClass extends BaseWsMessage
 
         $priceOptions = $this->mergeOptions(
             $priceOptions,
+            $this->makePricingOptionFareFamilyOverride($options->fareFamily)
+        );
+
+        $priceOptions = $this->mergeOptions(
+            $priceOptions,
             $this->makeOverrideOptions($options->overrideOptions, $priceOptions)
         );
 
@@ -185,6 +194,54 @@ class RepricePnrWithBookingClass extends BaseWsMessage
         }
 
         return $priceOptions;
+    }
+
+    /**
+     * @param string|FareFamily[]|null $fareFamily
+     * @return PricingOption[]
+     */
+    protected function makePricingOptionFareFamilyOverride($fareFamily)
+    {
+        if ($fareFamily === null || $fareFamily === []) {
+            return [];
+        }
+        if (is_string($fareFamily)) {
+            $fareFamily = [new FareFamily(['fareFamily' => $fareFamily])];
+        }
+        if (!is_array($fareFamily)) {
+            throw new \InvalidArgumentException('Fare-family pricing requires a name or an array of FareFamily options.');
+        }
+
+        $options = [];
+        foreach ($fareFamily as $family) {
+            if (!$family instanceof FareFamily || !is_string($family->fareFamily) || trim($family->fareFamily) === '') {
+                throw new \InvalidArgumentException('Fare-family pricing requires a nonempty family name.');
+            }
+            $references = $family->paxSegRefs;
+            if ($references !== null && !is_array($references)) {
+                throw new \InvalidArgumentException('Fare-family references must be an array of PaxSegRef options.');
+            }
+            foreach ($references ?? [] as $reference) {
+                if (
+                    !$reference instanceof FareFamilyRef
+                    || $reference->type !== FareFamilyRef::TYPE_SEGMENT
+                    || (!is_int($reference->reference) && !is_string($reference->reference))
+                    || !ctype_digit((string) $reference->reference)
+                    || (int) $reference->reference < 1
+                ) {
+                    throw new \InvalidArgumentException('Fare-family pricing requires positive segment references of type S.');
+                }
+            }
+
+            $option = new PricingOption(TicketRepricePnrWithBookingClassOptions::OVERRIDE_PRICING_BY_FARE_FAMILY);
+            $option->optionDetail = new OptionDetail(new CriteriaDetails('FF', $family->fareFamily));
+            if ($references) {
+                $option->paxSegTstReference = new PaxSegTstReference($references);
+            }
+            $options[] = $option;
+        }
+
+        return $options;
     }
 
 
@@ -342,7 +399,7 @@ class RepricePnrWithBookingClass extends BaseWsMessage
 
                 //Support for legacy fareBasisPrimaryCode to be removed when breaking BC:
                 $po->optionDetail = new OptionDetail(
-                    $pricingFareBasis->fareBasisPrimaryCode.$pricingFareBasis->fareBasisCode
+                    $pricingFareBasis->fareBasisPrimaryCode . $pricingFareBasis->fareBasisCode
                 );
 
                 //Support for legacy segmentReference to be removed when breaking BC:

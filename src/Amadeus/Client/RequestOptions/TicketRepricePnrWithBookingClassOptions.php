@@ -1,4 +1,5 @@
 <?php
+
 /**
  * amadeus-ws-client
  *
@@ -25,6 +26,7 @@ namespace Amadeus\Client\RequestOptions;
 use Amadeus\Client\RequestOptions\Fare\PricePnr\AwardPricing;
 use Amadeus\Client\RequestOptions\Fare\PricePnr\ExemptTax;
 use Amadeus\Client\RequestOptions\Fare\PricePnr\FareBasis;
+use Amadeus\Client\RequestOptions\Fare\PricePnr\FareFamily;
 use Amadeus\Client\RequestOptions\Fare\PricePnr\Tax;
 use Amadeus\Client\RequestOptions\Ticket\ExchangeInfoOptions;
 use Amadeus\Client\RequestOptions\Ticket\MultiRefOpt;
@@ -83,7 +85,7 @@ class TicketRepricePnrWithBookingClassOptions extends Base
     const OVERRIDE_WITHOLD_TAX = "WT";
     const OVERRIDE_WAIVER_OPTION = "WV";
     const OVERRIDE_ZAP_OFF = 'ZAP';
-    
+
     /**
      * @var ExchangeInfoOptions[]
      */
@@ -132,6 +134,13 @@ class TicketRepricePnrWithBookingClassOptions extends Base
     public $pricingsFareBasis = [];
 
     /**
+     * Fare-family name for the itinerary, or families with optional segment references.
+     *
+     * @var string|FareFamily[]|null
+     */
+    public $fareFamily = null;
+
+    /**
      * This option is used to price an itinerary applying an award program for a given carrier.
      *
      * must be combined with $this->corporateUniFares!
@@ -156,7 +165,7 @@ class TicketRepricePnrWithBookingClassOptions extends Base
 
 
     /**
-         * This option allows you to override the currency of the office.
+     * This option allows you to override the currency of the office.
      *
      * @var string
      */
